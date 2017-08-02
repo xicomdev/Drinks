@@ -10,7 +10,6 @@ import UIKit
 
 enum Gender : String {
     
-    
     case Male = "Male"
     case Female = "Female"
     

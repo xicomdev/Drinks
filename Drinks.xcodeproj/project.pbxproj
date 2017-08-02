@@ -160,6 +160,7 @@
 		639955171F29FCB20025E9C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		63CC43571F31B8C90015813F /* ProfileFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFirstVC.swift; sourceTree = "<group>"; };
 		63CC43591F31B8DC0015813F /* ProfileSecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSecondVC.swift; sourceTree = "<group>"; };
+		63CC435B1F31FD8E0015813F /* Drinks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Drinks.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +218,7 @@
 		639954321F29AAC90025E9C6 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
+				63CC435B1F31FD8E0015813F /* Drinks.entitlements */,
 				639954CF1F29AF240025E9C6 /* AppDelegate */,
 				639954CE1F29ADEA0025E9C6 /* Handler */,
 				639954C91F29AD970025E9C6 /* Utility */,
@@ -525,6 +527,11 @@
 					6399542F1F29AAC90025E9C6 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					639954461F29AAC90025E9C6 = {
 						CreatedOnToolsVersion = 8.1;
@@ -791,6 +798,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Drinks/Drinks.entitlements;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -810,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Drinks/Drinks.entitlements;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

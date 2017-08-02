@@ -61,19 +61,22 @@ class FBManager: NSObject  {
     }
     
     
-    private func profile(callBack:@escaping (Bool,AnyObject?,NSError?)->()) {
+    private func profile(callBack:@escaping (Bool,AnyObject?,String?)->()) {
     
         let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "first_name,last_name,picture.type(normal),email,birthday,gender"])
         graphRequest.start(completionHandler: { ( connection , result, error) -> Void in
             if (error != nil) {
                  self.logout()
-                callBack(false,nil,error as NSError?)
+                callBack(false,nil, error?.localizedDescription)
                 return
             }
             
             if  let dictResult = result as? Dictionary<String , Any> {
-                self.userID = dictResult["id"] as? String
+                
+                print(dictResult)
             }
+            
+            print(result)
             callBack(true,result as AnyObject?,nil)
             
         })
@@ -84,29 +87,30 @@ class FBManager: NSObject  {
         return FBSDKAccessToken.current().tokenString;
     }
     
-    func currentUserProfile( viewController : UIViewController , callBack:@escaping (Bool,AnyObject?,NSError?)->()) {
+    func currentUserProfile( viewController : UIViewController , callBack:@escaping (Bool,AnyObject?,String?)->()) {
 
-            self.login(viewController: viewController, callBack:  { (isSuccess:Bool, result:AnyObject?, error:NSError?) -> () in
+            self.login(viewController: viewController, callBack:  { (isSuccess:Bool, result:AnyObject?, error:String?) -> () in
                 if isSuccess {
+                    
                     self.profile(callBack: callBack)
                 }else{
-                      callBack(false,nil,nil)
+                      callBack(false,nil,error)
                 }
             })
     }
     
     
-    func login(viewController: UIViewController, callBack:@escaping (Bool,AnyObject?,NSError?)->()) {
+    func login(viewController: UIViewController, callBack:@escaping (Bool,AnyObject?,String?)->()) {
         self.loginManager.logIn(withReadPermissions: self.permissions, from: viewController) { (result, error) in
             
             if error != nil {
                 
-                callBack(false,nil,error as NSError?)
+                callBack(false,nil,error?.localizedDescription)
                 return
             }
             
             if (result?.isCancelled)!{
-                callBack(false,nil,nil)
+                callBack(false,nil,"User cancelled the action.")
                 return
             }
             

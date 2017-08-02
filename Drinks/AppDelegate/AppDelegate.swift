@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        if url.scheme!  == "fb929141573895344" {
+        if url.scheme!  == "fb337990433305863" {
             return FBSDKApplicationDelegate.sharedInstance().application(app, open: url as URL! , sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         }
         return false
