@@ -52,6 +52,8 @@
 		639954D81F29B7FB0025E9C6 /* FBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639954D71F29B7FB0025E9C6 /* FBManager.swift */; };
 		639954DB1F29B8E90025E9C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639954DA1F29B8E90025E9C6 /* User.swift */; };
 		639954E31F29CDE70025E9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639954E51F29CDE70025E9C6 /* Localizable.strings */; };
+		63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC43571F31B8C90015813F /* ProfileFirstVC.swift */; };
+		63CC435A1F31B8DC0015813F /* ProfileSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC43591F31B8DC0015813F /* ProfileSecondVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,8 @@
 		639955121F29F7D20025E9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639955161F29FCB00025E9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		639955171F29FCB20025E9C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		63CC43571F31B8C90015813F /* ProfileFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFirstVC.swift; sourceTree = "<group>"; };
+		63CC43591F31B8DC0015813F /* ProfileSecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSecondVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +377,7 @@
 		639954CA1F29ADA00025E9C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				63CC43541F31B87D0015813F /* Profile */,
 				639954D21F29B0170025E9C6 /* LandingVC */,
 			);
 			path = ViewController;
@@ -424,6 +429,31 @@
 				639954DA1F29B8E90025E9C6 /* User.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		63CC43541F31B87D0015813F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				63CC43551F31B89C0015813F /* ProfileFirst */,
+				63CC43561F31B8A30015813F /* ProfileSecond */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		63CC43551F31B89C0015813F /* ProfileFirst */ = {
+			isa = PBXGroup;
+			children = (
+				63CC43571F31B8C90015813F /* ProfileFirstVC.swift */,
+			);
+			path = ProfileFirst;
+			sourceTree = "<group>";
+		};
+		63CC43561F31B8A30015813F /* ProfileSecond */ = {
+			isa = PBXGroup;
+			children = (
+				63CC43591F31B8DC0015813F /* ProfileSecondVC.swift */,
+			);
+			path = ProfileSecond;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				639954BF1F29AD700025E9C6 /* UIImage+GIF.m in Sources */,
+				63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */,
 				639954A51F29AD6F0025E9C6 /* AFHTTPRequestOperation.m in Sources */,
 				639954BD1F29AD700025E9C6 /* SDWebImagePrefetcher.m in Sources */,
 				6399543C1F29AAC90025E9C6 /* Drinks.xcdatamodeld in Sources */,
@@ -584,6 +615,7 @@
 				639954C01F29AD700025E9C6 /* UIImage+MultiFormat.m in Sources */,
 				639954C31F29AD700025E9C6 /* UIImageView+WebCache.m in Sources */,
 				639954CD1F29ADD20025E9C6 /* Constant.swift in Sources */,
+				63CC435A1F31B8DC0015813F /* ProfileSecondVC.swift in Sources */,
 				639954A71F29AD6F0025E9C6 /* AFHTTPSessionManager.m in Sources */,
 				639954C41F29AD700025E9C6 /* UIView+WebCacheOperation.m in Sources */,
 				639954AB1F29AD6F0025E9C6 /* AFURLRequestSerialization.m in Sources */,
