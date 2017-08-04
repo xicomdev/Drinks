@@ -25,40 +25,67 @@ class LandingVC: UIViewController {
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
         
         
+//        let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
+//        self.navigationController?.pushViewController(profileVC, animated: true)
+        
+        
         FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
             
             if success == true{
                 if let dictFB = response as? Dictionary <String , Any> {
                     
                     print(dictFB)
-                    //                    LoginManager.getMe.firstName = dictFB["first_name"] as! String
-                    //                    LoginManager.getMe.lastName = dictFB["last_name"] as! String
-                    //                    LoginManager.getMe.socialID = dictFB["id"] as! String
-                    //                    if let email =  dictFB["email"] as? String
-                    //                    {
-                    //                        LoginManager.getMe.emailAddress = email
-                    //                        self.registerOrLoginWithFB()
-                    //                    }else{
-                    //                        //  showAlertCustom(message: "Facebook account is private", btnTitle: "Ok", controller: self)
-                    //                        let confirmEmail = mainStoryBoard.instantiateViewController(withIdentifier: "EnterEmailVC") as! EnterEmailVC
-                    //                        self.navigationController?.pushViewController(confirmEmail, animated: true)
-                    //                    }
+                    
+                    
+                   LoginManager.getMe.firstName = dictFB["first_name"] as! String
+                      LoginManager.getMe.lastName = dictFB["last_name"] as! String
+                      LoginManager.getMe.socialID = dictFB["id"] as! String
+                    LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
+                    
+                    LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
+
+//                    
+//                    let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
+//                    self.navigationController?.pushViewController(profileVC, animated: true)
+                    self.checkUserExists()
+//                                        if let email =  dictFB["email"] as? String
+//                                        {
+//                                            LoginManager.getMe.emailAddress = email
+//                                            self.registerOrLoginWithFB()
+//                                        }else{
+//                                            //  showAlertCustom(message: "Facebook account is private", btnTitle: "Ok", controller: self)
+//                                            let confirmEmail = mainStoryBoard.instantiateViewController(withIdentifier: "EnterEmailVC") as! EnterEmailVC
+//                                            self.navigationController?.pushViewController(confirmEmail, animated: true)
+//                                        }
                 }
             }else{
                 
             print(strError)
+                
+                
             }
         }
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    func checkUserExists()
+    {
+        LoginManager.sharedInstance.checkUserExists { (success, response, strError) in
+            if success{
+                if let existingUser = response as? User{
+                    
+                    print(existingUser)
+                }else{
+                       let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
+                        self.navigationController?.pushViewController(profileVC, animated: true)
+                }
+                
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+            
+        }
+        
     }
-    */
-
 }

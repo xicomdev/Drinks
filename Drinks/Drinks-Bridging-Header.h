@@ -19,5 +19,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+
+#import "NSDate+Utilities.h"
 
 #endif /* Drinks_Bridging_Header_h */

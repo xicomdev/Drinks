@@ -37,6 +37,16 @@ class User: NSObject,NSCoding {
     var socialID : String!
     var myCredits : Int = 0
     var otpCode : String = ""
+    
+    var job : Job = Job()
+    var DOB : String = ""
+    var bloodGroup : String = ""
+    var relationship : String = ""
+    var tabaco : String = ""
+    var schoolCareer : String = ""
+    var annualIncome : String = ""
+    var imageURL : String = ""
+
 
     
     var myGender : Gender = .Male
@@ -62,30 +72,30 @@ class User: NSObject,NSCoding {
             return
         }
         
-        ID =  (dictLocal["id"] as! NSNumber).description
-        emailAddress = dictLocal["email_address"] as? String
-         let status = dictLocal["status"] as! String
-          profileStatus =   ProfileStatus(rawValue: status)!
-        print(profileStatus)
-        if profileStatus == .Active{
-            sessionID = dictLocal["session_id"] as! String
-        }
-        
-        if let firstName = dictLocal["name_first"] as? String
-        {
-            self.firstName = firstName
-        }
-        
-        if let lastName = dictLocal["name_last"] as? String
-        {
-            self.lastName = lastName
-        }
-        
-        
-        if let otpCode = dictLocal["confirmation_code"] as? NSNumber
-        {
-            self.otpCode = otpCode.description
-        }
+//        ID =  (dictLocal["id"] as! NSNumber).description
+//        emailAddress = dictLocal["email_address"] as? String
+//         let status = dictLocal["status"] as! String
+//          profileStatus =   ProfileStatus(rawValue: status)!
+//        print(profileStatus)
+//        if profileStatus == .Active{
+//            sessionID = dictLocal["session_id"] as! String
+//        }
+//        
+//        if let firstName = dictLocal["name_first"] as? String
+//        {
+//            self.firstName = firstName
+//        }
+//        
+//        if let lastName = dictLocal["name_last"] as? String
+//        {
+//            self.lastName = lastName
+//        }
+//        
+//        
+//        if let otpCode = dictLocal["confirmation_code"] as? NSNumber
+//        {
+//            self.otpCode = otpCode.description
+//        }
         
         
         
@@ -195,6 +205,8 @@ class User: NSObject,NSCoding {
         aCoder.encode(self.socialID, forKey: "socialID")
         aCoder.encode(self.profileStatus.rawValue, forKey: "profileStatus")
         aCoder.encode(self.myCredits, forKey: "myCredits")
+        aCoder.encode(self.myCredits, forKey: "myCredits")
+
 
     }
     
