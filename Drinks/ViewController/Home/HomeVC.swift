@@ -8,12 +8,34 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet var collectionFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet var collectionViewGroup: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.layoutIfNeeded()
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = true
+
+        self.view.backgroundColor = UIColor.groupTableViewBackground
+        
+        let nib = UINib(nibName: "GroupCell", bundle: nil)
+        collectionViewGroup.register(nib, forCellWithReuseIdentifier: "GroupCell")
+        collectionViewGroup.delegate = self
+        collectionViewGroup.dataSource = self
+        collectionViewGroup.backgroundColor = UIColor.groupTableViewBackground
+
+        
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +43,51 @@ class HomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK:- CollectionView Delegate Methods
+    //MARK:-
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 28
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as! GroupCell
+         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
+        return CGSize(width: self.collectionViewGroup.bounds.width, height: 5)
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        let size = CGSize(width: ((collectionViewGroup.frame.width - 5)/2), height: collectionViewGroup.frame.width/2 + 90)
+        return size
+        
+    }
+    
+ 
+    
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
 
     /*
     // MARK: - Navigation

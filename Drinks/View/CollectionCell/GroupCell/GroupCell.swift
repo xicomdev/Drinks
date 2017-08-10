@@ -9,9 +9,16 @@
 import UIKit
 
 class GroupCell: UICollectionViewCell {
+    @IBOutlet var viewOuter: UIView!
+    @IBOutlet var lblTag: UILabel!
 
+    @IBOutlet var imgViewCreator: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        viewOuter.cornerRadius(value: 5)
+        lblTag.cornerRadius(value: 7.5)
+        imgViewCreator.cornerRadius(value: 15)
         // Initialization code
     }
 

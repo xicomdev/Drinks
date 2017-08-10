@@ -45,14 +45,6 @@ extension NSObject{
 
 
 
-extension NSNumber
-{
-//    public func returnStringWithFormat() -> String
-//    {
-//         numberFormatter.numberStyle = NumberFormatter.Style.currencyAccounting
-//        return numberFormatter.string(from: self)!
-//    }
-}
 
 
 extension Date {
@@ -82,11 +74,7 @@ extension Date {
 
 extension String
 {
-    
-    
-    
     func getNumberString() -> String{
-        
         var strLocal = self
         strLocal = strLocal.removeParticularCharacterString(character: "-")
         strLocal = strLocal.removeParticularCharacterString(character: ".")
@@ -117,7 +105,7 @@ extension String
     }
     
     
-       public func isValidEmail() ->Bool {
+     public func isValidEmail() ->Bool {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
@@ -125,12 +113,10 @@ extension String
     }
 
     
-    
     public func removeSpacesInString() -> String
     {
        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-    
     
 
     public func getNumberFromString()-> Double
@@ -146,7 +132,6 @@ extension String
     public func removeParticularCharacterString(character: String) -> String
     {
         return self.replacingOccurrences(of: character, with: "", options: NSString.CompareOptions.literal, range: nil)
-       // stringByReplacingOccurrencesOfString(character, withString: "", options: NSString.CompareOptions.LiteralSearch, range: nil)
     }
     
     
@@ -158,7 +143,6 @@ extension String
         }
         return newString
     }
-
 
 
     public func isStringEmpty() -> Bool
@@ -189,8 +173,6 @@ extension String
 
 extension UIView
 {
-    
-    
     public func cornerRadius(value: CGFloat){
         let view:UIView = self
         view.layer.cornerRadius = value;
@@ -235,8 +217,6 @@ extension UIViewController
 
 extension UITextField{
     
-    
-    
     public func acceptOnly15CharactersOnly(strNew: String)-> Bool
     {
         let txtFPara : UITextField = self
@@ -248,8 +228,6 @@ extension UITextField{
         }
         return true
     }
-    
-
     
     
     public func setDollarSign(){

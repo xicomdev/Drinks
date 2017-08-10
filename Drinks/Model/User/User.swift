@@ -24,8 +24,8 @@ enum ProfileStatus : String
     
 }
 
-class User: NSObject,NSCoding {
-    
+class User: NSObject,NSCoding
+{
     var fullName : String!
     var firstName : String = ""
     var lastName : String = ""
@@ -37,7 +37,6 @@ class User: NSObject,NSCoding {
     var socialID : String!
     var myCredits : Int = 0
     var otpCode : String = ""
-    
     var job : Job = Job()
     var DOB : String = ""
     var bloodGroup : String = ""

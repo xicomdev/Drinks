@@ -35,29 +35,7 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         
         
         
-//        LoginManager.getMe.bloodGroup = strSelected
-//        txtBloodType.text = strSelected
-//        
-//    }else  if activeSelection == .Marriage
-//    {
-//    LoginManager.getMe.relationship = strSelected
-//    txtMarriage.text = strSelected
-//    
-//    }else  if activeSelection == .Tabacco
-//    {
-//    LoginManager.getMe.tabaco = strSelected
-//    txtTabacco.text = strSelected
-//    
-//    }else  if activeSelection == .School
-//    {
-//    LoginManager.getMe.schoolCareer = strSelected
-//    txtSchool.text = strSelected
-//    
-//    }else  if activeSelection == .Income
-//    {
-//    LoginManager.getMe.annualIncome = strSelected
-//    txtIncome.text = strSelected
-//    }
+
 
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
         self.txtMarriage.text = LoginManager.getMe.relationship
@@ -67,11 +45,19 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
     
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK:- Action functions
+    //MARK:-
     
     @IBAction func actionBtnSelectionPressed(_ sender: UIButton) {
         

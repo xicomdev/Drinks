@@ -8,11 +8,49 @@
 
 import UIKit
 
-class LandingVC: UIViewController {
+class LandingVC: UIViewController,UIScrollViewDelegate {
+    
+    var scrlWidth  : CGFloat = 0.0
+    var scrlHeight  : CGFloat = 0.0
 
+    @IBOutlet var pageControl: UIPageControl!
+
+    @IBOutlet var scrlViewImages: UIScrollView!
     @IBOutlet var btnFBLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
+        
+        scrlWidth = self.scrlViewImages.frame.size.width
+        scrlHeight = self.scrlViewImages.frame.size.height
+        scrlViewImages.delegate = self
+        scrlViewImages.isScrollEnabled = true;
+        
+        scrlViewImages.decelerationRate = UIScrollViewDecelerationRateNormal;
+        scrlViewImages.contentSize = CGSize(width: scrlWidth*4, height: scrlHeight)
+        
+        
+        
+        var firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))
+        firstImage.image = landLogo
+        firstImage.contentMode = .center
+        let secondImage = UIImageView(frame: CGRect(x: scrlWidth, y: 0, width: scrlWidth, height: scrlHeight))
+        secondImage.image = landLogo
+        secondImage.contentMode = .center
+
+        let thirdImage = UIImageView(frame: CGRect(x:scrlWidth*2, y: 0, width: scrlWidth, height: scrlHeight))
+        thirdImage.image = landLogo
+        thirdImage.contentMode = .center
+
+        let forthImage = UIImageView(frame: CGRect(x: scrlWidth*3, y: 0, width: scrlWidth, height: scrlHeight))
+        forthImage.image = landLogo
+        forthImage.contentMode = .center
+
+ 
+        scrlViewImages.addSubview(firstImage)
+        scrlViewImages.addSubview(secondImage)
+        scrlViewImages.addSubview(thirdImage)
+        scrlViewImages.addSubview(forthImage)
 
         // Do any additional setup after loading the view.
     }
@@ -22,50 +60,42 @@ class LandingVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
+    
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
-        
-        
-//        let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
-//        self.navigationController?.pushViewController(profileVC, animated: true)
-        
-        
+
         FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
             
             if success == true{
-                if let dictFB = response as? Dictionary <String , Any> {
-                    
-                    print(dictFB)
-                    
+                if let dictFB = response as? Dictionary <String , Any>
+                {
                     
                    LoginManager.getMe.firstName = dictFB["first_name"] as! String
                       LoginManager.getMe.lastName = dictFB["last_name"] as! String
                       LoginManager.getMe.socialID = dictFB["id"] as! String
                     LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
-                    
                     LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
-
-//                    
-//                    let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
-//                    self.navigationController?.pushViewController(profileVC, animated: true)
                     self.checkUserExists()
-//                                        if let email =  dictFB["email"] as? String
-//                                        {
-//                                            LoginManager.getMe.emailAddress = email
-//                                            self.registerOrLoginWithFB()
-//                                        }else{
-//                                            //  showAlertCustom(message: "Facebook account is private", btnTitle: "Ok", controller: self)
-//                                            let confirmEmail = mainStoryBoard.instantiateViewController(withIdentifier: "EnterEmailVC") as! EnterEmailVC
-//                                            self.navigationController?.pushViewController(confirmEmail, animated: true)
-//                                        }
+                    
                 }
             }else{
-                
-            print(strError)
-                
-                
+                showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
         
+    }
+    
+    
+    //MARK:- ScrolViewDelegates
+    //MARK:-
+   
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+
     }
     
     
@@ -73,9 +103,12 @@ class LandingVC: UIViewController {
     {
         LoginManager.sharedInstance.checkUserExists { (success, response, strError) in
             if success{
-                if let existingUser = response as? User{
+                if let existingUser = response as? User
+                {
+                    let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                    self.navigationController?.isNavigationBarHidden = true
+                    self.navigationController?.pushViewController(tabBarController, animated: true)
                     
-                    print(existingUser)
                 }else{
                        let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileFirstVC") as! ProfileFirstVC
                         self.navigationController?.pushViewController(profileVC, animated: true)

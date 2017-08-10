@@ -22,7 +22,7 @@ enum SelectionType : String{
 
 class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tblListing: UITableView!
-    
+    var strHeaderTitle  = "Select Occupation"
     var arrayListing = [Any]()
     
     var selectedJob = Job()
@@ -48,13 +48,13 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
         tblListing.registerNibsForCells(arryNib: ["ListingCell"])
+        
+        let nibHeader = UINib(nibName: "SelectionHeader", bundle: nil)
+        tblListing.register(nibHeader, forHeaderFooterViewReuseIdentifier: "SelectionHeader")
         tblListing.delegate = self
         tblListing.dataSource = self
         
-//        case Marriage = "Marriage"
-//        case Tabacco = "Tabacco"
-//        case School = "School"
-//        case Income = "Income"
+
         
         var strTitle = String()
         if selectType == .Occupation
@@ -65,27 +65,36 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }else if selectType == .Blood
         {
             arrayListing = arrayBlood
-            strTitle = "Occupation"
+            strTitle = "Blood type"
+            strHeaderTitle = "Select blood type"
+
 
         }else if selectType == .Marriage
         {
             arrayListing = arrayMarriage
             strTitle = "Marriage History"
+            strHeaderTitle = "Select marriage option"
+
 
         }else if selectType == .Tabacco
         {
             arrayListing = arrayToabacco
             strTitle = "Tabbaco"
+            strHeaderTitle = "Select tabacco option"
             
         }else if  selectType == .School
         {
             arrayListing = arraySchool
             strTitle = "School Career"
+            strHeaderTitle = "Select school career"
+
             
         }else if  selectType == .Income
         {
            arrayListing = arrayIncome
             strTitle = "Income"
+            strHeaderTitle = "Select income option."
+
         }
         
         self.navTitle(title: strTitle as NSString, color: UIColor.black , font:  FontRegular(size: 20))
@@ -95,11 +104,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
-    
+       
     func actionBtnDonePressed()
     {
            if selectType == .Occupation{
@@ -121,7 +126,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 return
             }
             if delegate != nil{
-                self.delegate?.moveWithSelection!(selected: selectedJob)
+                self.delegate?.moveWithSelection!(selected: selectedValue)
             }
         }
         self.navigationController?.popViewController(animated: true)
@@ -143,12 +148,32 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return 1
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+       
+        
+        return 57
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
+        headerView.lblHeader.text = strHeaderTitle
+   
+        return headerView
+    }
+
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayListing.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 57
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
