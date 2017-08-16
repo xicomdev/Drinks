@@ -31,7 +31,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         
         
         
-        var firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))
+        let firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))
         firstImage.image = landLogo
         firstImage.contentMode = .center
         let secondImage = UIImageView(frame: CGRect(x: scrlWidth, y: 0, width: scrlWidth, height: scrlHeight))
@@ -66,6 +66,10 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
+//         let camera =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+//        self.navigationController?.pushViewController(camera, animated: true)
+       
+        
         FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
             
             if success == true{
@@ -85,6 +89,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
             }
         }
         
+
     }
     
     
@@ -106,7 +111,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                 if let existingUser = response as? User
                 {
                     let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
-                    self.navigationController?.isNavigationBarHidden = true
+                 //   AppDelegate
                     self.navigationController?.pushViewController(tabBarController, animated: true)
                     
                 }else{

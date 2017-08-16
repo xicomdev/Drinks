@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA41F3C86C200235578 /* AssetManager.swift */; };
+		637AFFA71F3C86C200235578 /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA51F3C86C200235578 /* CameraMan.swift */; };
+		637AFFA91F3C872C00235578 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA81F3C872C00235578 /* Helper.swift */; };
+		637AFFAB1F3C88A500235578 /* MSCameraGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */; };
+		637AFFAF1F3C892F00235578 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFAD1F3C892F00235578 /* ImageCollectionCell.swift */; };
+		637AFFB01F3C892F00235578 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFAE1F3C892F00235578 /* ImageCollectionCell.xib */; };
+		637AFFB21F3C8E0600235578 /* MSCameraGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */; };
+		637AFFB51F3C989900235578 /* GalleryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB41F3C989900235578 /* GalleryImageView.swift */; };
+		637AFFB71F3C9BA300235578 /* GalleryImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFB61F3C9BA300235578 /* GalleryImageView.xib */; };
 		6397974F1F3C23D400A841F4 /* OfferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6397974E1F3C23D400A841F4 /* OfferVC.swift */; };
 		639797511F3C241300A841F4 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639797501F3C241300A841F4 /* MyPageVC.swift */; };
 		639797531F3C242300A841F4 /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639797521F3C242300A841F4 /* MessageVC.swift */; };
@@ -56,6 +65,14 @@
 		63996CCA1F343500008583BB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63996CC91F343500008583BB /* HomeVC.swift */; };
 		63996CCD1F346B2E008583BB /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63996CCC1F346B2E008583BB /* Photos.framework */; };
 		63996CD11F3471BF008583BB /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63996CD01F3471BF008583BB /* NSDate+Utilities.m */; };
+		639F824B1F3D674B00BAFFED /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F824A1F3D674B00BAFFED /* Permissions.swift */; };
+		639F824E1F3DBA2400BAFFED /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F824D1F3DBA2400BAFFED /* CreateGroupVC.swift */; };
+		639F82521F3DC32E00BAFFED /* SelectPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F82501F3DC32E00BAFFED /* SelectPhotoVC.swift */; };
+		639F82531F3DC32E00BAFFED /* SelectPhotoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F82511F3DC32E00BAFFED /* SelectPhotoVC.xib */; };
+		639F82561F3DC48A00BAFFED /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F82541F3DC48A00BAFFED /* LocationCell.swift */; };
+		639F82571F3DC48A00BAFFED /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F82551F3DC48A00BAFFED /* LocationCell.xib */; };
+		639F825A1F3DD00600BAFFED /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F82581F3DD00600BAFFED /* InfoCell.swift */; };
+		639F825B1F3DD00600BAFFED /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F82591F3DD00600BAFFED /* InfoCell.xib */; };
 		63A995171F349F69005DDFA4 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A995151F349F69005DDFA4 /* GroupCell.swift */; };
 		63A995181F349F69005DDFA4 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A995161F349F69005DDFA4 /* GroupCell.xib */; };
 		63A9951C1F349FD9005DDFA4 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9951A1F349FD9005DDFA4 /* TutorialCell.swift */; };
@@ -88,6 +105,15 @@
 		63D7F1B31F330C13000E27AF /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63D7F1A21F330C13000E27AF /* IQKeyboardManager.bundle */; };
 		63D7F1B71F330D1C000E27AF /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F1B61F330D1C000E27AF /* HTTPRequest.swift */; };
 		63D7F1BA1F331014000E27AF /* MSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7F1B91F331014000E27AF /* MSImage.swift */; };
+		63F35CAC1F415EB0001600D4 /* OwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F35CAA1F415EB0001600D4 /* OwnerCell.swift */; };
+		63F35CAD1F415EB0001600D4 /* OwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F35CAB1F415EB0001600D4 /* OwnerCell.xib */; };
+		63F35CB91F4168A2001600D4 /* GroupFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F35CB81F4168A2001600D4 /* GroupFooterView.swift */; };
+		63F35CBB1F4168AC001600D4 /* GroupFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F35CBA1F4168AC001600D4 /* GroupFooterView.xib */; };
+		63F35CBE1F417440001600D4 /* GroupInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F35CBC1F417440001600D4 /* GroupInfoCell.swift */; };
+		63F35CBF1F417440001600D4 /* GroupInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F35CBD1F417440001600D4 /* GroupInfoCell.xib */; };
+		63F35CC21F418270001600D4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F35CC11F418270001600D4 /* Group.swift */; };
+		63F35CC51F418FDF001600D4 /* AddMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F35CC31F418FDF001600D4 /* AddMoreCell.swift */; };
+		63F35CC61F418FDF001600D4 /* AddMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F35CC41F418FDF001600D4 /* AddMoreCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +135,15 @@
 
 /* Begin PBXFileReference section */
 		637AFF961F3C597E00235578 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/maninder/Documents/Drinks/Drinks/Info.plist; sourceTree = "<absolute>"; };
+		637AFFA41F3C86C200235578 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
+		637AFFA51F3C86C200235578 /* CameraMan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMan.swift; sourceTree = "<group>"; };
+		637AFFA81F3C872C00235578 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MSCameraGallery.storyboard; path = ../../../../../Desktop/MSCameraGallery.storyboard; sourceTree = "<group>"; };
+		637AFFAD1F3C892F00235578 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
+		637AFFAE1F3C892F00235578 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
+		637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCameraGallery.swift; sourceTree = "<group>"; };
+		637AFFB41F3C989900235578 /* GalleryImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImageView.swift; sourceTree = "<group>"; };
+		637AFFB61F3C9BA300235578 /* GalleryImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryImageView.xib; sourceTree = "<group>"; };
 		6397974E1F3C23D400A841F4 /* OfferVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferVC.swift; sourceTree = "<group>"; };
 		639797501F3C241300A841F4 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		639797521F3C242300A841F4 /* MessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
@@ -197,6 +232,14 @@
 		63996CCC1F346B2E008583BB /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		63996CCF1F3471BF008583BB /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		63996CD01F3471BF008583BB /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		639F824A1F3D674B00BAFFED /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		639F824D1F3DBA2400BAFFED /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
+		639F82501F3DC32E00BAFFED /* SelectPhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoVC.swift; sourceTree = "<group>"; };
+		639F82511F3DC32E00BAFFED /* SelectPhotoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPhotoVC.xib; sourceTree = "<group>"; };
+		639F82541F3DC48A00BAFFED /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		639F82551F3DC48A00BAFFED /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		639F82581F3DD00600BAFFED /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		639F82591F3DD00600BAFFED /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		63A995151F349F69005DDFA4 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		63A995161F349F69005DDFA4 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 		63A9951A1F349FD9005DDFA4 /* TutorialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialCell.swift; sourceTree = "<group>"; };
@@ -231,6 +274,15 @@
 		63D7F1A21F330C13000E27AF /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		63D7F1B61F330D1C000E27AF /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		63D7F1B91F331014000E27AF /* MSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSImage.swift; sourceTree = "<group>"; };
+		63F35CAA1F415EB0001600D4 /* OwnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerCell.swift; sourceTree = "<group>"; };
+		63F35CAB1F415EB0001600D4 /* OwnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OwnerCell.xib; sourceTree = "<group>"; };
+		63F35CB81F4168A2001600D4 /* GroupFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupFooterView.swift; sourceTree = "<group>"; };
+		63F35CBA1F4168AC001600D4 /* GroupFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupFooterView.xib; sourceTree = "<group>"; };
+		63F35CBC1F417440001600D4 /* GroupInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupInfoCell.swift; sourceTree = "<group>"; };
+		63F35CBD1F417440001600D4 /* GroupInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupInfoCell.xib; sourceTree = "<group>"; };
+		63F35CC11F418270001600D4 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		63F35CC31F418FDF001600D4 /* AddMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMoreCell.swift; sourceTree = "<group>"; };
+		63F35CC41F418FDF001600D4 /* AddMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddMoreCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +314,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		637AFFA31F3C85F700235578 /* MSCameraGallery */ = {
+			isa = PBXGroup;
+			children = (
+				637AFFB31F3C987300235578 /* GalleryView */,
+				637AFFAC1F3C890600235578 /* ImageCollectionCell */,
+				637AFFA41F3C86C200235578 /* AssetManager.swift */,
+				637AFFA51F3C86C200235578 /* CameraMan.swift */,
+				637AFFA81F3C872C00235578 /* Helper.swift */,
+				637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */,
+				637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */,
+				639F824A1F3D674B00BAFFED /* Permissions.swift */,
+			);
+			path = MSCameraGallery;
+			sourceTree = "<group>";
+		};
+		637AFFAC1F3C890600235578 /* ImageCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				637AFFAD1F3C892F00235578 /* ImageCollectionCell.swift */,
+				637AFFAE1F3C892F00235578 /* ImageCollectionCell.xib */,
+			);
+			path = ImageCollectionCell;
+			sourceTree = "<group>";
+		};
+		637AFFB31F3C987300235578 /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				637AFFB41F3C989900235578 /* GalleryImageView.swift */,
+				637AFFB61F3C9BA300235578 /* GalleryImageView.xib */,
+			);
+			path = GalleryView;
+			sourceTree = "<group>";
+		};
 		6397974B1F3C236000A841F4 /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +444,7 @@
 		639954641F29AD6F0025E9C6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				637AFFA31F3C85F700235578 /* MSCameraGallery */,
 				63D7F18B1F330C13000E27AF /* IQKeyboardManagerSwift */,
 				639954651F29AD6F0025E9C6 /* AFNetworking */,
 				639954791F29AD6F0025E9C6 /* Facebook */,
@@ -453,6 +539,7 @@
 		639954C61F29AD7A0025E9C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				63F35CC01F41825E001600D4 /* Group */,
 				63996CC51F342F1E008583BB /* Job */,
 				63D7F1B81F330FF7000E27AF /* MSImage */,
 				639954D91F29B8E90025E9C6 /* User */,
@@ -479,6 +566,7 @@
 				6397974B1F3C236000A841F4 /* Message */,
 				63996CC81F3434EF008583BB /* Home */,
 				63CC43541F31B87D0015813F /* Profile */,
+				639F824C1F3DB32900BAFFED /* CreateGroup */,
 				639954D21F29B0170025E9C6 /* LandingVC */,
 			);
 			path = ViewController;
@@ -567,6 +655,33 @@
 			path = DateExtensions;
 			sourceTree = "<group>";
 		};
+		639F824C1F3DB32900BAFFED /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				639F824D1F3DBA2400BAFFED /* CreateGroupVC.swift */,
+			);
+			path = CreateGroup;
+			sourceTree = "<group>";
+		};
+		639F824F1F3DC2F900BAFFED /* GroupCreation */ = {
+			isa = PBXGroup;
+			children = (
+				639F82501F3DC32E00BAFFED /* SelectPhotoVC.swift */,
+				639F82511F3DC32E00BAFFED /* SelectPhotoVC.xib */,
+				639F82541F3DC48A00BAFFED /* LocationCell.swift */,
+				639F82551F3DC48A00BAFFED /* LocationCell.xib */,
+				639F82581F3DD00600BAFFED /* InfoCell.swift */,
+				639F82591F3DD00600BAFFED /* InfoCell.xib */,
+				63F35CAA1F415EB0001600D4 /* OwnerCell.swift */,
+				63F35CAB1F415EB0001600D4 /* OwnerCell.xib */,
+				63F35CBC1F417440001600D4 /* GroupInfoCell.swift */,
+				63F35CBD1F417440001600D4 /* GroupInfoCell.xib */,
+				63F35CC31F418FDF001600D4 /* AddMoreCell.swift */,
+				63F35CC41F418FDF001600D4 /* AddMoreCell.xib */,
+			);
+			path = GroupCreation;
+			sourceTree = "<group>";
+		};
 		63A9950F1F349CDC005DDFA4 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +740,8 @@
 			children = (
 				63CD840B1F3B0B2600D9D434 /* SelectionHeader.xib */,
 				63CD840D1F3B0B9400D9D434 /* SelectionHeader.swift */,
+				63F35CB81F4168A2001600D4 /* GroupFooterView.swift */,
+				63F35CBA1F4168AC001600D4 /* GroupFooterView.xib */,
 			);
 			path = TableHeader;
 			sourceTree = "<group>";
@@ -658,6 +775,7 @@
 		63D7F1851F32F76D000E27AF /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				639F824F1F3DC2F900BAFFED /* GroupCreation */,
 				63D7F1861F32F79B000E27AF /* SelectionCell */,
 			);
 			path = TableCell;
@@ -753,6 +871,14 @@
 			path = MSImage;
 			sourceTree = "<group>";
 		};
+		63F35CC01F41825E001600D4 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				63F35CC11F418270001600D4 /* Group.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -821,6 +947,7 @@
 				TargetAttributes = {
 					6399542F1F29AAC90025E9C6 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = QV46UN4P88;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -866,15 +993,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637AFFB01F3C892F00235578 /* ImageCollectionCell.xib in Resources */,
+				63F35CC61F418FDF001600D4 /* AddMoreCell.xib in Resources */,
+				639F825B1F3DD00600BAFFED /* InfoCell.xib in Resources */,
+				639F82531F3DC32E00BAFFED /* SelectPhotoVC.xib in Resources */,
+				637AFFAB1F3C88A500235578 /* MSCameraGallery.storyboard in Resources */,
 				639954E31F29CDE70025E9C6 /* Localizable.strings in Resources */,
 				63A9951D1F349FD9005DDFA4 /* TutorialCell.xib in Resources */,
 				639954411F29AAC90025E9C6 /* LaunchScreen.storyboard in Resources */,
 				63A995181F349F69005DDFA4 /* GroupCell.xib in Resources */,
 				6399543E1F29AAC90025E9C6 /* Assets.xcassets in Resources */,
+				63F35CBB1F4168AC001600D4 /* GroupFooterView.xib in Resources */,
+				63F35CAD1F415EB0001600D4 /* OwnerCell.xib in Resources */,
+				639F82571F3DC48A00BAFFED /* LocationCell.xib in Resources */,
 				63D7F1B31F330C13000E27AF /* IQKeyboardManager.bundle in Resources */,
 				63D7F18A1F32F79B000E27AF /* ListingCell.xib in Resources */,
 				639954391F29AAC90025E9C6 /* Main.storyboard in Resources */,
 				63CD840C1F3B0B2600D9D434 /* SelectionHeader.xib in Resources */,
+				637AFFB71F3C9BA300235578 /* GalleryImageView.xib in Resources */,
+				63F35CBF1F417440001600D4 /* GroupInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,12 +1052,16 @@
 				639954A51F29AD6F0025E9C6 /* AFHTTPRequestOperation.m in Sources */,
 				639954BD1F29AD700025E9C6 /* SDWebImagePrefetcher.m in Sources */,
 				6399543C1F29AAC90025E9C6 /* Drinks.xcdatamodeld in Sources */,
+				639F824B1F3D674B00BAFFED /* Permissions.swift in Sources */,
 				63D7F1B11F330C13000E27AF /* IQToolbar.swift in Sources */,
+				639F824E1F3DBA2400BAFFED /* CreateGroupVC.swift in Sources */,
 				639797561F3C377000A841F4 /* MSTabBarController.swift in Sources */,
 				63CD840E1F3B0B9400D9D434 /* SelectionHeader.swift in Sources */,
 				63A995171F349F69005DDFA4 /* GroupCell.swift in Sources */,
+				637AFFA91F3C872C00235578 /* Helper.swift in Sources */,
 				639954DB1F29B8E90025E9C6 /* User.swift in Sources */,
 				639954D11F29AF800025E9C6 /* AppDelegate.swift in Sources */,
+				637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */,
 				63D7F1A41F330C13000E27AF /* IQUIScrollView+Additions.swift in Sources */,
 				63D7F1A91F330C13000E27AF /* IQKeyboardManagerConstants.swift in Sources */,
 				639954C51F29AD700025E9C6 /* SwiftLoader.swift in Sources */,
@@ -929,6 +1070,8 @@
 				639954A81F29AD6F0025E9C6 /* AFNetworkReachabilityManager.m in Sources */,
 				63996CCA1F343500008583BB /* HomeVC.swift in Sources */,
 				639954AC1F29AD6F0025E9C6 /* AFURLResponseSerialization.m in Sources */,
+				639F82561F3DC48A00BAFFED /* LocationCell.swift in Sources */,
+				639F82521F3DC32E00BAFFED /* SelectPhotoVC.swift in Sources */,
 				639954BE1F29AD700025E9C6 /* UIButton+WebCache.m in Sources */,
 				639954BB1F29AD700025E9C6 /* SDWebImageDownloaderOperation.m in Sources */,
 				63D7F1AA1F330C13000E27AF /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -942,29 +1085,39 @@
 				639954A91F29AD6F0025E9C6 /* AFSecurityPolicy.m in Sources */,
 				63D7F1A71F330C13000E27AF /* IQUIViewController+Additions.swift in Sources */,
 				639954D41F29B0620025E9C6 /* LandingVC.swift in Sources */,
+				63F35CB91F4168A2001600D4 /* GroupFooterView.swift in Sources */,
+				63F35CC21F418270001600D4 /* Group.swift in Sources */,
 				63D7F1B71F330D1C000E27AF /* HTTPRequest.swift in Sources */,
 				639954C01F29AD700025E9C6 /* UIImage+MultiFormat.m in Sources */,
 				63996CC71F342F2A008583BB /* Job.swift in Sources */,
 				639954C31F29AD700025E9C6 /* UIImageView+WebCache.m in Sources */,
 				639954CD1F29ADD20025E9C6 /* Constant.swift in Sources */,
+				63F35CC51F418FDF001600D4 /* AddMoreCell.swift in Sources */,
+				63F35CBE1F417440001600D4 /* GroupInfoCell.swift in Sources */,
 				63CC435A1F31B8DC0015813F /* ProfileSecondVC.swift in Sources */,
 				639954A71F29AD6F0025E9C6 /* AFHTTPSessionManager.m in Sources */,
+				637AFFA71F3C86C200235578 /* CameraMan.swift in Sources */,
 				63D7F1A51F330C13000E27AF /* IQUITextFieldView+Additions.swift in Sources */,
 				639954C41F29AD700025E9C6 /* UIView+WebCacheOperation.m in Sources */,
+				637AFFB51F3C989900235578 /* GalleryImageView.swift in Sources */,
 				63D7F1A61F330C13000E27AF /* IQUIView+Hierarchy.swift in Sources */,
 				63D7F1A81F330C13000E27AF /* IQUIWindow+Hierarchy.swift in Sources */,
 				639954AB1F29AD6F0025E9C6 /* AFURLRequestSerialization.m in Sources */,
 				639954AD1F29AD6F0025E9C6 /* AFURLSessionManager.m in Sources */,
 				639954BA1F29AD700025E9C6 /* SDWebImageDownloader.m in Sources */,
 				639797531F3C242300A841F4 /* MessageVC.swift in Sources */,
+				637AFFB21F3C8E0600235578 /* MSCameraGallery.swift in Sources */,
 				63D7F1AB1F330C13000E27AF /* IQKeyboardManager.swift in Sources */,
 				639954C21F29AD700025E9C6 /* UIImageView+HighlightedWebCache.m in Sources */,
+				63F35CAC1F415EB0001600D4 /* OwnerCell.swift in Sources */,
+				637AFFAF1F3C892F00235578 /* ImageCollectionCell.swift in Sources */,
 				639954B91F29AD700025E9C6 /* SDWebImageDecoder.m in Sources */,
 				63D7F1AC1F330C13000E27AF /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				639954C11F29AD700025E9C6 /* UIImage+WebP.m in Sources */,
 				63D7F1B01F330C13000E27AF /* IQTitleBarButtonItem.swift in Sources */,
 				639954BC1F29AD700025E9C6 /* SDWebImageManager.m in Sources */,
 				639954B71F29AD6F0025E9C6 /* SDImageCache.m in Sources */,
+				639F825A1F3DD00600BAFFED /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,7 +1292,7 @@
 				CODE_SIGN_ENTITLEMENTS = Drinks/Drinks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: mohit kashyap (BLAF6RSV2G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: mohit kashyap (BLAF6RSV2G)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QV46UN4P88;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Drinks/Libraries/Facebook",
@@ -1150,8 +1303,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6cb843a-992c-4258-87bd-50f0b12db4b9";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3a1aedfc-a083-43d3-9c0e-5d3c98241211";
+				PROVISIONING_PROFILE_SPECIFIER = Drinks_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Drinks/Drinks-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1165,7 +1318,7 @@
 				CODE_SIGN_ENTITLEMENTS = Drinks/Drinks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: mohit kashyap (BLAF6RSV2G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: mohit kashyap (BLAF6RSV2G)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QV46UN4P88;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Drinks/Libraries/Facebook",
@@ -1176,8 +1329,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6cb843a-992c-4258-87bd-50f0b12db4b9";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3a1aedfc-a083-43d3-9c0e-5d3c98241211";
+				PROVISIONING_PROFILE_SPECIFIER = Drinks_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Drinks/Drinks-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

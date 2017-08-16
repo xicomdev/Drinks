@@ -27,6 +27,8 @@ let stateLocal = "AppInfo"
 
 let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
 let alertStoryBoard = UIStoryboard(name: "Alert", bundle: nil)
+let msCameraStoryBoard = UIStoryboard(name: "MSCameraGallery", bundle: nil)
+
 
 
 let defaults = UserDefaults.standard
@@ -48,6 +50,11 @@ struct Constants {
 let API_GetJobs = "memberJob"
 let API_CheckUserExisting = "newCheck"
 let API_Register = "registerFacebook"
+let API_AddGroup = "addGroup"
+
+
+
+
 
 let arrayBlood = ["A+", "B+", "AB+" , "O+", "O-" ]
 let arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]

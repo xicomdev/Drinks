@@ -55,6 +55,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Drinks would like to access camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Drinks would like to your Location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Drinks would like to access photos</string>
 	<key>UILaunchStoryboardName</key>

@@ -29,6 +29,10 @@ let APP_DateFormatNew = "yyyy-mm-dd"
 
     
 }
+
+func appDelegate() ->  AppDelegate{
+    return UIApplication.shared.delegate as! AppDelegate
+}
 extension NSObject{
     
     //MARK: ------ Popular Objects
@@ -37,6 +41,17 @@ extension NSObject{
         let time = String(format: "%0.0f", Date().timeIntervalSince1970 * 1000)
         return time
     }
+    
+        
+        
+        //MARK: ------ Popular Objects
+        var ScreenHeight: CGFloat{
+            return UIScreen.main.bounds.size.height //UIScreen.main.bounds.size.height
+        }
+        var ScreenWidth: CGFloat{
+            return UIScreen.main.bounds.size.width
+        }
+        
     
 }
 

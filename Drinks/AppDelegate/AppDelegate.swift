@@ -8,16 +8,19 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 
 let dateFormatter = DateFormatter()
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
     var window: UIWindow?
-
-
+    
+    var currentlocation : CLLocation?
+    var myLocationName : String = ""
+    var locationManager : CLLocationManager?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
@@ -31,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Job.saveJobListing()
         
+        self.intializeLocationManager()
         // Override point for customization after application launch.
         return true
     }
@@ -115,6 +119,131 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    //MARK:- Location Updation
+    //MARK:-
+    
+    
+    
+    func intializeLocationManager()
+    {
+        locationManager  = CLLocationManager()
+        locationManager!.delegate = self;
+        locationManager!.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
+        
+        
+        if CLLocationManager.locationServicesEnabled() {
+            print("Device location OFF")
+        }else{
+            print("Device location  is not OFF")
+            
+            // print(locationUpdateAvalilable())
+        }
+    }
+    
+    
+    func locationUpdateAvalilable() -> Bool {
+        let status:CLAuthorizationStatus =  CLLocationManager.authorizationStatus()
+        switch (status) {
+        case .authorizedAlways:
+            return true;
+        case .authorizedWhenInUse:
+            return true;
+        case .notDetermined:
+            return false;
+        case .denied:
+            return false;
+        case .restricted:
+            return false;
+        }
+        
+    }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation? = locations.last
+        if (location == nil){
+            return;
+        }else{
+            print("Getting location fine")
+            self.currentlocation = location!
+            self.getLocationNameFromLatAndLong()
+            
+        }
+
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch (status) {
+        case .authorizedAlways:
+            return ;
+        case .authorizedWhenInUse:
+            return ;
+        case .notDetermined:
+            return ;
+        case .denied:
+            //SHow Alert when location setiiing has been changed
+           // HSShowAlertView("Who's In", message: "Please enable your location for app.")
+            return ;
+        case .restricted:
+            return ;
+        }
+        
+    }
+    
+    func getLocationNameFromLatAndLong() {
+        if currentlocation != nil{
+            CLGeocoder().reverseGeocodeLocation(currentlocation!, completionHandler: {(placemarks, error) -> Void in
+                var addressCurrent = String()
+                
+                if error != nil {
+                    print("Reverse geocoder failed with error" + error!.localizedDescription)
+                    return
+                }
+                if placemarks!.count > 0 {
+                    let pm = placemarks![0]
+                    
+                    /// print(pm.locality)
+                    // print(pm.addressDictionary)
+                    //print(pm.administrativeArea)
+                    
+                    if let dictAddress = pm.addressDictionary as? Dictionary <String, AnyObject>{
+                        let subLocatlity = dictAddress["SubLocality"] as? String
+                        if subLocatlity != nil{
+                            addressCurrent = subLocatlity!
+                        }
+                        
+                        let cityName = dictAddress["City"] as? String
+                        if cityName != nil{
+                            addressCurrent = addressCurrent + ", " + cityName!
+                        }
+                    }
+                    self.myLocationName = addressCurrent
+                }
+                else {
+                    print("Problem with the data received from geocoder")
+                }
+            })
+        }
+    }
+    
+    
+
+    
+    
+    
+    
+    
+
 
 }
 

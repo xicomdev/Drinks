@@ -10,6 +10,7 @@ import UIKit
 
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var btnCreateGroup: UIButton!
     @IBOutlet var collectionFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet var collectionViewGroup: UICollectionView!
     override func viewDidLoad() {
@@ -43,10 +44,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func actionBtnCreateGroup(_ sender: UIButton) {
+        let camera =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+        let navigation = UINavigationController(rootViewController: camera)
+        self.navigationController?.present(navigation, animated: true, completion: nil)
+        
+    }
     
     //MARK:- CollectionView Delegate Methods
     //MARK:-
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 28

@@ -76,6 +76,27 @@ class LoginManager: NSObject {
                           if  let dictUser = userInfo["User"]  as? Dictionary< String, Any>
                           {
                             if dictUser.count > 0 {
+                                
+                                self.me.fullName = dictUser["full_name"] as! String
+                                
+                                let jobDict = dictUser["job"] as! Dictionary< String, Any>
+                                let finalJob = jobDict["JobList"] as! Dictionary< String, Any>
+                                
+                                self.me.job = Job(jobInfo: finalJob)
+                                self.me.ID =  dictUser["id"] as! String
+                                //id = 598ad8c4a642be73658b4567
+                                
+//                                "full_name" = "Maninderjit Singh";
+//                                id = 598ad8c4a642be73658b4567;
+//                                job =         {
+//                                    JobList =             {
+//                                        "eng_name" = "English Job2";
+//                                        id = 5982d7a16d349c79068b4567;
+//                                        "jap_name" = "Japan Job2";
+//                                    };
+//                                };
+                                
+                                
                                 handler(true, self.me, nil)
                             }else{
                                  handler(true, nil, nil)
@@ -106,7 +127,14 @@ class LoginManager: NSObject {
                     let dictUser = dictResponse["User"]  as? Dictionary<String ,Any>
                     if dictUser != nil
                     {
-                        let meUser = User(dict: dictUser)
+                        
+                        self.me.fullName = dictUser?["full_name"] as! String
+                        let jobDict = dictUser?["job"] as! Dictionary< String, Any>
+                        let finalJob = jobDict["JobList"] as! Dictionary< String, Any>
+                        
+                        self.me.job = Job(jobInfo: finalJob)
+                        self.me.ID =  dictUser?["id"] as! String
+                 //      // let meUser = User(dict: dictUser)
                       //  self.me = meUser
                         handler(true , self.me, strError)
                     }
