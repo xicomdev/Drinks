@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupImageCell" rowHeight="351" id="kuU-jG-Mws" customClass="GroupImageCell" customModule="Drinks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kuU-jG-Mws" id="Vi6-75-iYa">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mani" translatesAutoresizingMaskIntoConstraints="NO" id="7jH-is-pCA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="305.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygF-tr-GTA">
+                        <rect key="frame" x="270" y="20" width="50" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="XAv-2f-FkW"/>
+                            <constraint firstAttribute="width" constant="50" id="qfH-8e-oAu"/>
+                        </constraints>
+                        <state key="normal" image="backIcon"/>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="S5V-7V-qeh"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwV-l6-2kO">
+                        <rect key="frame" x="0.0" y="20" width="50" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="ffu-mA-HSx"/>
+                            <constraint firstAttribute="height" constant="44" id="zG7-ze-IKa"/>
+                        </constraints>
+                        <state key="normal" image="backIcon"/>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="6zi-wc-DpM"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-O5-VdF">
+                        <rect key="frame" x="228" y="267" width="77" height="77"/>
+                        <state key="normal" image="AcceptDetail"/>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="U3w-Yu-N9r"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h65-4X-Tzi">
+                        <rect key="frame" x="20" y="315.5" width="74.5" height="20"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Mjf-jJ-CWx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="mwV-l6-2kO" firstAttribute="top" secondItem="Vi6-75-iYa" secondAttribute="top" constant="20" id="4hG-tc-dX8"/>
+                    <constraint firstItem="h65-4X-Tzi" firstAttribute="top" secondItem="7jH-is-pCA" secondAttribute="bottom" constant="10" id="FZR-aX-DbT"/>
+                    <constraint firstItem="7jH-is-pCA" firstAttribute="centerX" secondItem="4hO-O5-VdF" secondAttribute="centerX" multiplier="600:1000" id="GRN-x6-FTV"/>
+                    <constraint firstItem="h65-4X-Tzi" firstAttribute="leading" secondItem="Vi6-75-iYa" secondAttribute="leading" constant="20" id="Z1b-nt-4qz"/>
+                    <constraint firstAttribute="height" secondItem="7jH-is-pCA" secondAttribute="height" constant="45" id="apQ-5I-5fC"/>
+                    <constraint firstItem="7jH-is-pCA" firstAttribute="bottom" secondItem="4hO-O5-VdF" secondAttribute="centerY" id="bTl-8O-pDY"/>
+                    <constraint firstItem="mwV-l6-2kO" firstAttribute="leading" secondItem="Vi6-75-iYa" secondAttribute="leading" id="c72-aO-WOV"/>
+                    <constraint firstAttribute="top" secondItem="7jH-is-pCA" secondAttribute="top" id="eQV-88-rUX"/>
+                    <constraint firstAttribute="width" secondItem="h65-4X-Tzi" secondAttribute="width" multiplier="600:140" id="fDv-1y-ggy"/>
+                    <constraint firstItem="mwV-l6-2kO" firstAttribute="centerY" secondItem="ygF-tr-GTA" secondAttribute="centerY" id="hAP-hv-HBm"/>
+                    <constraint firstAttribute="trailing" secondItem="ygF-tr-GTA" secondAttribute="trailing" id="nCh-lC-vhd"/>
+                    <constraint firstItem="7jH-is-pCA" firstAttribute="width" secondItem="Vi6-75-iYa" secondAttribute="width" id="nsj-bX-gTh"/>
+                    <constraint firstItem="7jH-is-pCA" firstAttribute="centerX" secondItem="Vi6-75-iYa" secondAttribute="centerX" id="rIv-Xe-3R9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnAccept" destination="4hO-O5-VdF" id="RQk-BA-THu"/>
+                <outlet property="btnBack" destination="mwV-l6-2kO" id="PJa-Ic-4ox"/>
+                <outlet property="btnOption" destination="ygF-tr-GTA" id="umy-MA-F1P"/>
+                <outlet property="imgViewGroup" destination="7jH-is-pCA" id="Dja-Bt-AtA"/>
+                <outlet property="lblTag" destination="h65-4X-Tzi" id="1c2-Rr-0NA"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="-38"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="AcceptDetail" width="77" height="77"/>
+        <image name="Mani" width="231" height="307"/>
+        <image name="backIcon" width="19" height="26"/>
+    </resources>
+</document>

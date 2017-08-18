@@ -88,7 +88,7 @@ class Group: NSObject {
     {
         
        // user_id, image
-        let parms = ["user_id" : LoginManager.getMe.ID!  ]
+        let parms = ["user_id" : LoginManager.getMe.ID! ]
         
         print(parms)
         SwiftLoader.show(true)

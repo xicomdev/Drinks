@@ -97,7 +97,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
         }
         
-        self.navTitle(title: strTitle as NSString, color: UIColor.black , font:  FontRegular(size: 20))
+        self.navTitle(title: strTitle as NSString, color: UIColor.black , font:  FontRegular(size: 19))
 
 
         // Do any additional setup after loading the view.

@@ -20,6 +20,10 @@ enum GroupAction : String{
     case DELETE = "DELETE"
     case DONE = "DONE"
     case ADDMORE = "ADDMORE"
+      case BACK = "BACK"
+      case OPTION = "OPTION"
+    case ACCEPT = "ACCEPT"
+
     
 }
 

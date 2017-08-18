@@ -14,7 +14,7 @@ class OwnerCell: UITableViewCell {
     @IBOutlet weak var imgViewOwner: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imgViewOwner.cornerRadius(value: 15)
+        imgViewOwner.cornerRadius(value: 17.5)
         // Initialization code
     }
 

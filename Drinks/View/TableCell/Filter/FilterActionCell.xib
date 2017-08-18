@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="FilterActionCell" customModule="Drinks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPM-jR-27N">
+                        <rect key="frame" x="17.5" y="23" width="117.5" height="42"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="PuJ-4G-rqR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                        <state key="normal" title="Cancel">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h2f-Vb-8ME"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-Zq-uaL">
+                        <rect key="frame" x="146.5" y="23" width="160" height="42"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="v3k-bH-6pj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                        <state key="normal" title="Filter">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0Gl-NY-YHR"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="gPM-jR-27N" secondAttribute="centerX" multiplier="600:285" id="B8y-O8-r7Y"/>
+                    <constraint firstAttribute="centerX" secondItem="lo6-Zq-uaL" secondAttribute="centerX" multiplier="600:850" id="N1j-VC-iAf"/>
+                    <constraint firstItem="lo6-Zq-uaL" firstAttribute="centerY" secondItem="gPM-jR-27N" secondAttribute="centerY" id="Piw-5d-dZ1"/>
+                    <constraint firstItem="gPM-jR-27N" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Pqs-64-P8t"/>
+                    <constraint firstAttribute="width" secondItem="lo6-Zq-uaL" secondAttribute="width" multiplier="600:300" id="Uym-4m-QaO"/>
+                    <constraint firstAttribute="width" secondItem="gPM-jR-27N" secondAttribute="width" multiplier="600:220" id="tbN-5S-SUM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="btnCancel" destination="gPM-jR-27N" id="9Gz-Xq-f2N"/>
+                <outlet property="btnFilter" destination="lo6-Zq-uaL" id="9Wh-un-L9b"/>
+            </connections>
+            <point key="canvasLocation" x="91" y="49"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -41,7 +41,10 @@
                     <constraint firstItem="sIC-VD-7iX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xji-p0-qn3"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="267" y="10"/>
+            <connections>
+                <outlet property="lblLowerInfo" destination="ska-vF-xn8" id="pRp-BO-f2I"/>
+            </connections>
+            <point key="canvasLocation" x="329" y="-32"/>
         </tableViewCell>
     </objects>
 </document>

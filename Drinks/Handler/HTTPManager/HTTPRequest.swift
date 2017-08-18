@@ -138,6 +138,7 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
         let manager = AFHTTPSessionManager()
         
+        print(strFinalURL)
         
         manager.post(strFinalURL, parameters: paramters, constructingBodyWith: { (formData) in
                 if Images.count > 0 {

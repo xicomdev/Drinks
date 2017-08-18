@@ -118,6 +118,22 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
         }
         
+        
+        if arrayConditions.count > 1{
+            
+            
+            for i in 1 ..< arrayConditions.count {
+                
+                if arrayConditions[i].age == 0 || arrayConditions[i].occupation.ID == ""
+                {
+                    showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
+                    return
+                }
+                
+            }
+        }
+        
+        
         if viewFooter.txtRelationship.text == ""
         {
             showAlert(title: "Drinks", message: "Please enter relationship for group.", controller: self)
@@ -141,19 +157,21 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         
         Group.sharedInstance.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
             
-            if isSuccess{
+          //  if isSuccess{
             
             showAlert(title: "Drinks", message: "Group has been created successfully.", controller: self)
            //
-            }
-            //else{
            // }
+          //  else{
+                
+          //  }
         
         }
     }
     
     
     //MARK:- TableView Delegate
+    //MARK:-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

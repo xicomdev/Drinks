@@ -55,7 +55,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:-
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 28
+        return 10
         
     }
     
@@ -92,6 +92,16 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        self.navigationController?.pushViewController(groupVC, animated: true)
+
     }
 
 

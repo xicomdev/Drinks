@@ -1,16 +1,15 @@
 //
-//  InfoCell.swift
+//  OwnerInfoCell.swift
 //  Drinks
 //
-//  Created by maninder on 8/11/17.
+//  Created by maninder on 8/18/17.
 //  Copyright © 2017 Maninderjit Singh. All rights reserved.
 //
 
 import UIKit
 
-class InfoCell: UITableViewCell {
+class OwnerInfoCell: UITableViewCell {
 
-    @IBOutlet weak var lblLowerInfo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,13 +19,6 @@ class InfoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    
-    func showTopLabel()
-    {
-        lblLowerInfo.isHidden = true
-        
     }
     
 }

@@ -33,9 +33,6 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         self.view.layoutIfNeeded()
         self.btnSubmit.cornerRadius(value: 22.5)
         
-        
-        
-
 
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
         self.txtMarriage.text = LoginManager.getMe.relationship
@@ -103,10 +100,10 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
     }
 
     @IBAction func actionBtnPreviousPhase(_ sender: UIButton) {
-        
         self.navigationController?.popViewController(animated: true)
-        
     }
+    
+    
     @IBAction func actionBtnSubmitPressed(_ sender: Any) {
         
         if LoginManager.getMe.bloodGroup == ""
@@ -153,18 +150,16 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
-        
-
-        
-        
     }
+    
+    
+    
     //MARK:- Custom Delegates
     //MARK:-
     
     func moveWithSelection(selected: Any) {
         
         let strSelected = selected as! String
-        
         if activeSelection == .Blood
         {
             LoginManager.getMe.bloodGroup = strSelected

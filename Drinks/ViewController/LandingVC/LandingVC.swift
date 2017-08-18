@@ -66,10 +66,10 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
-//         let camera =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
-//        self.navigationController?.pushViewController(camera, animated: true)
+         let camera =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        self.navigationController?.pushViewController(camera, animated: true)
        
-        
+    /*
         FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
             
             if success == true{
@@ -88,7 +88,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
-        
+        */
 
     }
     

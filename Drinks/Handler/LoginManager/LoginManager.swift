@@ -150,61 +150,6 @@ class LoginManager: NSObject {
     }
     
     
-//    func logInManually(handler:@escaping CompletionHandler)
-//    {
-//        let params : [String : Any] = ["email_address" : me.emailAddress , "password" : me.password]
-//        SwiftLoader.show(true)
-//        HTTPRequest.sharedInstance().postRequest(urlLink: APILogin, paramters: params) { (isSuccess, response, strError) in
-//            SwiftLoader.hide()
-//            if isSuccess{
-//                
-//                if let arrayResponse = response as? [Any]
-//                {
-//                    if arrayResponse.count > 0 {
-//                        let dictFirst = arrayResponse[0] as! Dictionary< String, Any>
-//                        self.me = User(dict: dictFirst)
-//                        //saved user session ID
-//                        handler(true, dictFirst, nil)
-//                    }else{
-//                     handler(false, nil, strError)
-//                    }
-//                }
-//            }else{
-//                handler(isSuccess, nil, strError)
-//            }
-//        }
-//    }
-//    
-//    
-//    func socialSignUp(type : EntryType ,handler:@escaping CompletionHandler )
-//    {
-//        let params : [String : Any] = ["social_network" :  type.rawValue , "email_address" : me.emailAddress , "name_first" : me.firstName  , "name_last" : me.lastName , "social_network_user_id" : me.socialID]
-//        
-//        print(params)
-//        
-//        SwiftLoader.show(true)
-//        HTTPRequest.sharedInstance().postRequest(urlLink: APISocialRegisterLogin, paramters: params) { (isSuccess, response, strError) in
-//            SwiftLoader.hide()
-//            if isSuccess{
-//                if let arrayResponse = response as? [Any]
-//                {
-//                    let dictFirst = arrayResponse[0] as! Dictionary< String, Any>
-//                    
-//                  //  print(dictFirst)
-//                    self.me = User(dict: dictFirst )
-//                    //saved user session ID
-//                   handler(true, dictFirst, nil)
-//                }
-//            }else{
-//                handler(isSuccess, nil, strError)
-//
-//                
-//            }
-//            
-//        }
-//    }
-//    
-//    
     
     
     //MARK:- User default functions
