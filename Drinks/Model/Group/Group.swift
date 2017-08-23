@@ -12,7 +12,9 @@ import UIKit
 
 class GroupLocation: NSObject {
     
-    var occupation : Job? = nil
+    var LocationName : String? = nil
+    var latitude : Double!
+    var longtitude : Double!
     
     var age : String? = nil
     
@@ -87,6 +89,9 @@ class Group: NSObject {
     func createNewGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
     {
        // user_id, image
+        
+        
+        
         let parms = ["user_id" : LoginManager.getMe.ID! ]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_AddGroup, paramters: parms, Images: image) { (success, response, strError) in

@@ -153,16 +153,16 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
         }
         
-        Group.sharedInstance.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
-          //  if isSuccess{
-            showAlert(title: "Drinks", message: "Group has been created successfully.", controller: self)
-           //
-           // }
-          //  else{
-                
-          //  }
-        
-        }
+//        Group.sharedInstance.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
+//          //  if isSuccess{
+//            showAlert(title: "Drinks", message: "Group has been created successfully.", controller: self)
+//           //
+//           // }
+//          //  else{
+//                
+//          //  }
+//        
+//        }
     }
     
     
