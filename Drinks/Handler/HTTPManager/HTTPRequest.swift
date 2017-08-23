@@ -96,6 +96,7 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
       //  let dictFinalParams = self.createParamters(dict: paramters)
         
         print(strFinalURL)
+        
         let manager = AFHTTPSessionManager()
         
       //  manager.requestSerializer = AFJSONRequestSerializer()
@@ -108,7 +109,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
             else{
                 return
             }
-                    print(dictResponse)
+            
+            print(dictResponse)
           if let status = dictResponse["status"] as? Bool{
                 if status == true
                  {
@@ -124,8 +126,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
             let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
             let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
             print("content received : \(str)")
-            handler(false, nil, error.localizedDescription)
             
+            handler(false, nil, error.localizedDescription)
         }
         
     }
@@ -139,9 +141,9 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         let manager = AFHTTPSessionManager()
         
         print(strFinalURL)
-        
         manager.post(strFinalURL, parameters: paramters, constructingBodyWith: { (formData) in
-                if Images.count > 0 {
+           
+            if Images.count > 0 {
                 let image = Images[0]
              formData.appendPart(withFileData: UIImageJPEGRepresentation((image.file)! , 1)!, name: image.name , fileName: image.filename, mimeType: image.mimeType)
             }
@@ -151,7 +153,9 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 else{
                     return
             }
+            
             print(dictResponse)
+
             if let status = dictResponse["status"] as? Bool{
                 if status == true
                 {
@@ -169,6 +173,14 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
 
         })
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
    }

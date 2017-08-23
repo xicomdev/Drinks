@@ -26,13 +26,14 @@ enum ProfileStatus : String
 
 class User: NSObject,NSCoding
 {
+    
     var fullName : String!
     var firstName : String = ""
     var lastName : String = ""
     var emailAddress: String!
     var phoneNumber: String!
     var password : String!
-     var ID: String!
+    var ID: String!
     var sessionID : String!
     var socialID : String!
     var myCredits : Int = 0

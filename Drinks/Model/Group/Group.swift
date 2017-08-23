@@ -86,21 +86,20 @@ class Group: NSObject {
     
     func createNewGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
     {
-        
        // user_id, image
         let parms = ["user_id" : LoginManager.getMe.ID! ]
-        
-        print(parms)
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_AddGroup, paramters: parms, Images: image) { (success, response, strError) in
             SwiftLoader.hide()
-
             if success{
                 if let dictResponse = response as? Dictionary<String ,Any>
                 {
-//                    let dictUser = dictResponse["User"]  as? Dictionary<String ,Any>
-//                    if dictUser != nil
-//                    {
+                let dictUser = dictResponse["User"]  as? Dictionary<String ,Any>
+                   if dictUser != nil
+                    {
+                        
+                        
+                }
 //                        let meUser = User(dict: dictUser)
 //                        //  self.me = meUser
                     

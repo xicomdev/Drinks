@@ -133,10 +133,14 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         
         var imageArray = [MSImage]()
         
+        print(imageSelected)
         if imageSelected != nil{
           
             let fileName = "Drinks\(self.timeStamp).jpeg"
-            let model =  MSImage.init(file: imageSelected! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            
+            let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 300 , height: 300 ))
+
+            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
         }
         

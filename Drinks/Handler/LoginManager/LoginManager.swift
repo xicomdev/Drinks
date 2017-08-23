@@ -117,7 +117,7 @@ class LoginManager: NSObject {
     func signUp(image : [MSImage] , handler:@escaping CompletionHandler )
     {
         
-        let parms = ["fb_id" : self.me.socialID , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome ]
+        let parms = ["fb_id" : self.me.socialID , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL ]
         
         
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_Register, paramters: parms, Images: image) { (success, response, strError) in
@@ -128,19 +128,69 @@ class LoginManager: NSObject {
                     if dictUser != nil
                     {
                         
+                        
+//                        User =     {
+//                            "annual_income" = "$ 8000 - 15000";
+//                            "blood_type" = "B+";
+//                            created =         {
+//                                sec = 1503314890;
+//                                usec = 190000;
+//                            };
+//                            dob = "1999/08/21";
+//                            "fb_id" = 1633787546633587;
+//                            "fb_image" = "http://graph.facebook.com/1633787546633587/picture?type=large";
+//                            "full_name" = "Maninder Manna";
+//                            id = 599ac3caa642bea64463d006;
+//                            image = "http://128.199.177.140/drinks/uploads/users/original/User_2017_1503314890.jpeg";
+//                            job =         {
+//                                "eng_name" = "English Job3";
+//                                id = 5982d7af6d349c78068b4568;
+//                                "jap_name" = "Japan Job3";
+//                            };
+//                            "job_id" = 5982d7af6d349c78068b4568;
+//                            marriage = UnMarried;
+//                            "school_career" = Graduate;
+//                            tabaco = GHI;
+//                        };
+//                    }, "message": user successfully saved]
+//                        
+//                        
+                        
+                        
                         self.me.fullName = dictUser?["full_name"] as! String
                         let jobDict = dictUser?["job"] as! Dictionary< String, Any>
-                        let finalJob = jobDict["JobList"] as! Dictionary< String, Any>
-                        
-                        self.me.job = Job(jobInfo: finalJob)
+                    
+                        self.me.job = Job(jobInfo: jobDict)
                         self.me.ID =  dictUser?["id"] as! String
+                        self.me.bloodGroup =  dictUser?["blood_type"] as! String
+                        self.me.annualIncome =  dictUser?["annual_income"] as! String
+                        self.me.DOB =  dictUser?["dob"] as! String
+                        self.me.relationship =  dictUser?["marriage"] as! String
+                        self.me.schoolCareer =  dictUser?["school_career"] as! String
+                        self.me.socialID =  dictUser?["fb_id"] as! String
+
+                        
+                        if let imageURL = dictUser?["image"] as? String
+                        {
+                            
+                            self.me.imageURL = imageURL
+                            
+                            
+                        }else if let fbImageURL = dictUser?["fb_image"] as? String
+                        {
+                            self.me.imageURL = fbImageURL
+
+                        }
+                        
+                        
                  //      // let meUser = User(dict: dictUser)
                       //  self.me = meUser
                         handler(true , self.me, strError)
                     }
                 }
                 
-            }else{
+            }else
+            {
                 
                 handler(false , nil, strError)
             }

@@ -82,8 +82,8 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     
     @IBAction func actionBtnNextPhase(_ sender: UIButton) {
         self.view.endEditing(true)
+        
         if txtUserName.text!.isStringEmpty() == true{
-            
             showAlert(title: "Drinks", message: "Please enter user name.", controller: self)
             return
         }
@@ -253,7 +253,6 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             //  564x290
-            print(pickedImage.size)
             
 //            let width = KiteManager.getKite.product?.selectedTemplate.templatePhotoWidth
 //            let height = KiteManager.getKite.product?.selectedTemplate.templatePhotoHeight
@@ -262,6 +261,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
 //            imgViewDefault.isHidden = true
             
             imgViewUser.image = pickedImage
+            imageSelected = pickedImage
             self.dismiss(animated: true, completion: nil)
         }
     }

@@ -13,6 +13,9 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     @IBOutlet weak var tblCreateGroup: UITableView!
 
     
+    
+    var group = Group()
+    
     var pickerCreated = UIPickerView()
     
     var pickerRelationShip  = UIPickerView()
@@ -29,7 +32,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
     
-    var arrayConditions : [GroupCondition] = [GroupCondition]()
+  //  var group.groupConditions : [GroupCondition] = [GroupCondition]()
     
     var arrayJobs  = [Job]()
     var arrayAges  : [Int] = [18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34]
@@ -46,7 +49,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 
         
         let firstCondition = GroupCondition()
-        self.arrayConditions.append(firstCondition)
+        group.groupConditions.append(firstCondition)
+       // self.arrayConditions.append(firstCondition)
         
         
         pickerRelationShip.delegate = self
@@ -55,19 +59,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         pickerCreated.delegate = self
         pickerCreated.dataSource = self
         
-        //var pickerCreated = UIPickerView()
-
-        
-//        pickerAges.delegate = self
-//        pickerAges.dataSource = self
-//        
-//        pickerJob.delegate = self
-//        pickerJob.dataSource = self
-        
         
         arrayJobs = Job.getJobList()
-        
-        
         
         
         viewFooter = GroupFooterView.instanceFromNib(width: ScreenWidth, height: CGFloat(335))
@@ -111,25 +104,21 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             return
         }
         
-        if arrayConditions[0].age == 0 || arrayConditions[0].occupation.ID == ""
+        if group.groupConditions[0].age == 0 ||  group.groupConditions[0].occupation.ID == ""
         {
             showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
             return
-            
         }
         
         
-        if arrayConditions.count > 1{
-            
-            
-            for i in 1 ..< arrayConditions.count {
+        if  group.groupConditions.count > 1{
+            for i in 1 ..<  group.groupConditions.count {
                 
-                if arrayConditions[i].age == 0 || arrayConditions[i].occupation.ID == ""
+                if  group.groupConditions[i].age == 0 ||  group.groupConditions[i].occupation.ID == ""
                 {
                     showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
                     return
                 }
-                
             }
         }
         
@@ -138,27 +127,34 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         {
             showAlert(title: "Drinks", message: "Please enter relationship for group.", controller: self)
             return
-            
         }
+        
         if viewFooter.txtViewDescription.text == ""
         {
             showAlert(title: "Drinks", message: "Please enter description for group.", controller: self)
             return
         }
-
+        group.groupDescription = viewFooter.txtViewDescription.text.removeEndingSpaces()
+        group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
+       
         var imageArray = [MSImage]()
         
         if imageSelected != nil{
-            
             let fileName = "Drinks\(self.timeStamp).jpeg"
-            let model =  MSImage.init(file: imageSelected! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            
+           // print(fileName)
+           // 2668, 1772
+            let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 500 , height: 500 ))
+            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
         }
         
+        group.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
+            
+        }
+        
         Group.sharedInstance.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
-            
           //  if isSuccess{
-            
             showAlert(title: "Drinks", message: "Group has been created successfully.", controller: self)
            //
            // }
@@ -169,6 +165,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
     }
     
+    
+       
     
     //MARK:- TableView Delegate
     //MARK:-
@@ -183,7 +181,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         {
             return 4
         }else{
-            return arrayConditions.count + 1
+            return group.groupConditions.count + 1
         }
         
     }
@@ -208,7 +206,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             }
         }else{
             
-            if arrayConditions.count == indexPath.row {
+            if group.groupConditions.count == indexPath.row {
                 return 55
             }
 
@@ -267,16 +265,16 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 
         }else{
            
-            if arrayConditions.count == indexPath.row {
+            if group.groupConditions.count == indexPath.row {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"AddMoreCell") as! AddMoreCell
                 cell.callbackAddMore = {(action : GroupAction ) in
                     
-                    if self.arrayConditions.count == 5{
+                    if self.group.groupConditions.count == 5{
                         showAlert(title: "Drinks", message: "Maximum limit reached.", controller: self)
                         return
                     }
                     let firstCondition = GroupCondition()
-                    self.arrayConditions.append(firstCondition)
+                    self.group.groupConditions.append(firstCondition)
                     self.tblCreateGroup.reloadData()
                 }
                 return cell
@@ -290,7 +288,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                         {
                             let cell = test as! GroupInfoCell
                             let index = self.tblCreateGroup.indexPath(for: cell)
-                            self.arrayConditions.remove(at: (index?.row)!)
+                            self.group.groupConditions.remove(at: (index?.row)!)
                             self.tblCreateGroup.reloadData()
                             
                         }
@@ -300,7 +298,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                     cell.btnCancel.isHidden = false
                     cell.txtAge.delegate = self
                     cell.txtOccupation.delegate = self
-                    cell.groupCond =  arrayConditions[indexPath.row]
+                    cell.groupCond =  group.groupConditions[indexPath.row]
                    if  indexPath.row == 0 {
                      cell.btnCancel.isHidden = true
                      }
@@ -406,8 +404,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             let firstRow = pickerCreated.selectedRow(inComponent: 0)
             let secondRow = pickerCreated.selectedRow(inComponent: 1)
          
-            arrayConditions[(index?.row)!].age = arrayAges[firstRow]
-            arrayConditions[(index?.row)!].occupation = arrayJobs[secondRow]
+            group.groupConditions[(index?.row)!].age = arrayAges[firstRow]
+            group.groupConditions[(index?.row)!].occupation = arrayJobs[secondRow]
             self.tblCreateGroup.reloadData()
         }
     }
