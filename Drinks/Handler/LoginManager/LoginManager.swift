@@ -78,12 +78,30 @@ class LoginManager: NSObject {
                             if dictUser.count > 0 {
                                 
                                 self.me.fullName = dictUser["full_name"] as! String
-                                
                                 let jobDict = dictUser["job"] as! Dictionary< String, Any>
-                                let finalJob = jobDict["JobList"] as! Dictionary< String, Any>
                                 
-                                self.me.job = Job(jobInfo: finalJob)
+                                self.me.job = Job(jobInfo: jobDict)
                                 self.me.ID =  dictUser["id"] as! String
+                                self.me.bloodGroup =  dictUser["blood_type"] as! String
+                                self.me.annualIncome =  dictUser["annual_income"] as! String
+                                self.me.DOB =  dictUser["dob"] as! String
+                                self.me.relationship =  dictUser["marriage"] as! String
+                                self.me.schoolCareer =  dictUser["school_career"] as! String
+                                 self.me.tabaco =  dictUser["tabaco"] as! String
+                                self.me.socialID =  dictUser["fb_id"] as! String
+                                
+                                
+                                if let imageURL = dictUser["image"] as? String
+                                {
+                                    self.me.imageURL = imageURL
+                                    
+                                }else if let fbImageURL = dictUser["fb_image"] as? String
+                                {
+                                    self.me.imageURL = fbImageURL
+                                    
+                                }
+                                
+                                
                                 //id = 598ad8c4a642be73658b4567
                                 
 //                                "full_name" = "Maninderjit Singh";
@@ -96,7 +114,8 @@ class LoginManager: NSObject {
 //                                    };
 //                                };
                                 
-                                
+                                self.saveUserProfile()
+
                                 handler(true, self.me, nil)
                             }else{
                                  handler(true, nil, nil)
@@ -169,12 +188,11 @@ class LoginManager: NSObject {
                         self.me.schoolCareer =  dictUser?["school_career"] as! String
                         self.me.socialID =  dictUser?["fb_id"] as! String
 
-                        
+                        self.me.tabaco =  dictUser?["tabaco"] as! String
+
                         if let imageURL = dictUser?["image"] as? String
                         {
-                            
                             self.me.imageURL = imageURL
-                            
                             
                         }else if let fbImageURL = dictUser?["fb_image"] as? String
                         {
@@ -185,6 +203,9 @@ class LoginManager: NSObject {
                         
                  //      // let meUser = User(dict: dictUser)
                       //  self.me = meUser
+                        
+                        
+                        self.saveUserProfile()
                         handler(true , self.me, strError)
                     }
                 }

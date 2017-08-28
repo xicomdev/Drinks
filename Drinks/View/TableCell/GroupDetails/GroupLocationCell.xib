@@ -42,13 +42,13 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-uR-LKd">
-                        <rect key="frame" x="213.5" y="0.0" width="106" height="72.5"/>
+                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="0c5-Z2-tkr">
                                 <rect key="frame" x="41" y="14.5" width="23" height="23"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtp-bO-7jr">
-                                <rect key="frame" x="9" y="42" width="88" height="20.5"/>
+                                <rect key="frame" x="9" y="42" width="88.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,13 +61,13 @@
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-64-jqK">
-                        <rect key="frame" x="0.5" y="0.0" width="106" height="72.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Relationship" translatesAutoresizingMaskIntoConstraints="NO" id="aDr-Ym-cdC">
-                                <rect key="frame" x="41.5" y="16" width="24" height="20"/>
+                                <rect key="frame" x="42" y="16" width="24" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mI-PS-HuR">
-                                <rect key="frame" x="9.5" y="42" width="88" height="20.5"/>
+                                <rect key="frame" x="9.5" y="42" width="88.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -101,6 +101,11 @@
                     <constraint firstItem="m1x-64-jqK" firstAttribute="centerY" secondItem="2lg-uR-4Ra" secondAttribute="centerY" id="z5r-Pt-la9"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblLastLogin" destination="Xtp-bO-7jr" id="7pX-dh-veL"/>
+                <outlet property="lblLocation" destination="42K-XN-Bfz" id="OAM-uM-EBm"/>
+                <outlet property="lblMemberCount" destination="1mI-PS-HuR" id="GAl-cR-NCj"/>
+            </connections>
             <point key="canvasLocation" x="-5" y="13.5"/>
         </tableViewCell>
     </objects>

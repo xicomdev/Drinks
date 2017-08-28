@@ -17,6 +17,7 @@ let APP_DateFormatNew = "yyyy-mm-dd"
 
 
 
+
 @objc protocol MSProtocolCallback {
     
   //  @objc  optional var check : Bool
@@ -63,14 +64,9 @@ extension NSObject{
 
 
 extension Date {
-    func startOfMonth() -> Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self as Date)))!
-    }
     
-    func endOfMonth() -> Date {
-        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
-    }
-
+    
+    
     public static func timestamp() -> String {
         return "\(Date().timeIntervalSince1970 * 1000)" as String
     }
@@ -118,6 +114,16 @@ extension String
         dateFormate.dateFormat = APP_DateFormat
         return dateFormate.date(from: self)!
     }
+    
+    
+  public  func getAgeFromDOB() -> Int
+    {
+        let userDOB = dateFormatter.date(from: self)!
+        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        let ageComponent = gregorian.components(.year, from: userDOB , to: Date(), options: [])
+        return ageComponent.year!
+    }
+
     
     
      public func isValidEmail() ->Bool {

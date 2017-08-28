@@ -42,6 +42,9 @@
                     <constraint firstAttribute="bottom" secondItem="psh-rc-LzY" secondAttribute="bottom" id="r2c-cf-7r3"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblInfo" destination="vam-zq-Ukt" id="UA3-15-c4b"/>
+            </connections>
             <point key="canvasLocation" x="48.5" y="41.5"/>
         </tableViewCell>
     </objects>

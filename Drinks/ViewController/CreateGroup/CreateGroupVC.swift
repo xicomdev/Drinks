@@ -23,14 +23,13 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     var textFieldSelected  : UITextField? = nil
     var cellSelected : GroupInfoCell? = nil
     var selectedIndex : Int = -1
-    
+    var delegate : MSSelectionCallback? = nil
     var viewFooter : GroupFooterView!
     var imageSelected : UIImage? = nil
     var tagEnabled = false
     var strDescription = "Enter description here"
     var relationship : String = ""
     
-    let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
     
   //  var group.groupConditions : [GroupCondition] = [GroupCondition]()
     
@@ -99,7 +98,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         
         if imageSelected == nil
         {
-            
             showAlert(title: "Drinks", message: "Please add image first.", controller: self)
             return
         }
@@ -109,7 +107,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
             return
         }
-        
         
         if  group.groupConditions.count > 1{
             for i in 1 ..<  group.groupConditions.count {
@@ -137,32 +134,38 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         group.groupDescription = viewFooter.txtViewDescription.text.removeEndingSpaces()
         group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
        
+        
+        if appDelegate().appLocation == nil
+        {
+            showAlert(title: "Drinks", message: "Please enable your device location first.", controller: self)
+            return
+            
+        }
+        group.location = appDelegate().appLocation
+        
+        
         var imageArray = [MSImage]()
         
-        if imageSelected != nil{
-            let fileName = "Drinks\(self.timeStamp).jpeg"
+        if imageSelected != nil
+        {
             
+            let fileName = "Drinks\(self.timeStamp).jpeg"
            // print(fileName)
            // 2668, 1772
-            let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 500 , height: 500 ))
+            let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 400 , height: 400 ))
             let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
+            
         }
         
         group.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
-            
+            if isSuccess{
+                
+                self.delegate?.replaceRecords!()
+                self.actionBtnBackPressed()
+            }
         }
-        
-//        Group.sharedInstance.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
-//          //  if isSuccess{
-//            showAlert(title: "Drinks", message: "Group has been created successfully.", controller: self)
-//           //
-//           // }
-//          //  else{
-//                
-//          //  }
-//        
-//        }
+
     }
     
     
@@ -235,7 +238,12 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             }else if indexPath.row == 1
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"LocationCell") as! LocationCell
-                cell.lblLocationName.text = appDelegate().myLocationName
+                
+                
+                if appDelegate().appLocation != nil
+                {
+                    cell.lblLocationName.text = appDelegate().appLocation?.LocationName!
+                }
                 cell.callbackAction = {( action : GroupAction) in
                   if action == .LOCATION
                   {
@@ -286,6 +294,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                         
                         if action == .DELETE
                         {
+                            
+                            self.view.endEditing(true)
                             let cell = test as! GroupInfoCell
                             let index = self.tblCreateGroup.indexPath(for: cell)
                             self.group.groupConditions.remove(at: (index?.row)!)
@@ -306,19 +316,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                     cell.setNewValues()
                     return cell
                     
-//                }else{
-//                    
-//                    
-//                    let cell = tableView.dequeueReusableCell(withIdentifier:"GroupInfoCell") as! GroupInfoCell
-//                       cell.conditionCount = indexPath.row
-//                    cell.callbackAction = { (action : GroupAction , test : Any?) in
-//                        
-//                    }
-//                    cell.lblCounter.text = (indexPath.row + 1).description
-//                    cell.txtAge.tag = indexPath.row + 2
-//                    cell.txtOccupation.tag = indexPath.row + 3
-//                    return cell
-//                }
               
             }
           

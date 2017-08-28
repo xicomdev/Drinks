@@ -23,6 +23,9 @@ enum GroupAction : String{
       case BACK = "BACK"
       case OPTION = "OPTION"
     case ACCEPT = "ACCEPT"
+    case FILTER = "FILTER"
+    case CANCEL = "CANCEL"
+
 
     
 }

@@ -26,7 +26,7 @@
                             <constraint firstAttribute="height" constant="42" id="PuJ-4G-rqR"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                        <state key="normal" title="Cancel">
+                        <state key="normal" title="Clear">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>

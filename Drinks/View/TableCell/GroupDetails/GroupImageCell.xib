@@ -30,7 +30,7 @@
                             <constraint firstAttribute="height" constant="44" id="XAv-2f-FkW"/>
                             <constraint firstAttribute="width" constant="50" id="qfH-8e-oAu"/>
                         </constraints>
-                        <state key="normal" image="backIcon"/>
+                        <state key="normal" image="EditOption"/>
                         <connections>
                             <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="S5V-7V-qeh"/>
                         </connections>
@@ -93,6 +93,7 @@
     </objects>
     <resources>
         <image name="AcceptDetail" width="77" height="77"/>
+        <image name="EditOption" width="25" height="6"/>
         <image name="Mani" width="231" height="307"/>
         <image name="backIcon" width="19" height="26"/>
     </resources>

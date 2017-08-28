@@ -147,9 +147,10 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
             if isSuccess
             {
-                let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                self.navigationController?.pushViewController(homeVC, animated: true)
-                
+                let myDetails = LoginManager.sharedInstance.getMeArchiver()
+                let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                appDelegate().window?.rootViewController = tabBarController
+            
             }else{
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }

@@ -11,10 +11,14 @@ import UIKit
 class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tblGroupDetail: UITableView!
 
+    
+    var groupInfo : Group!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = true
         tblGroupDetail.registerNibsForCells(arryNib: ["GroupImageCell" , "DescriptionCell" ,"InfoCell" , "GroupLocationCell" , "GroupOwnerCell", "GroupConditionCell"])
         tblGroupDetail.delegate = self
         tblGroupDetail.dataSource = self
@@ -40,7 +44,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         {
             return 5
         }else{
-            return 4
+            return groupInfo.groupConditions.count
         }
         
     }
@@ -78,33 +82,47 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"GroupImageCell") as! GroupImageCell
                 cell.callbackAction = {(action : GroupAction ) in
-                    self.dismiss(animated: true, completion: nil)
+                    
+                    
+                    if action == .BACK
+                    {
+                        self.navigationController?.popViewController(animated: true)
+                    }else{
+                        
+                    }
                 }
+                cell.setCellInfo(groupDetail: groupInfo)
                 return cell
                 
             }else if indexPath.row == 1
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"DescriptionCell") as! DescriptionCell
+                cell.assignGroupInfo(group: groupInfo)
                 return cell
             }else if indexPath.row == 2
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"GroupLocationCell") as! GroupLocationCell
+                cell.setCellInfo(groupDetail: groupInfo)
                 
                 return cell
             }else if indexPath.row == 3
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"InfoCell") as! InfoCell
+                
                 cell.showTopLabel()
                 return cell
             }else
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"GroupOwnerCell") as! GroupOwnerCell
+                cell.assignData(groupInfo: groupInfo)
                 return cell
             }
             
         }else{
             
         let cell = tableView.dequeueReusableCell(withIdentifier:"GroupConditionCell") as! GroupConditionCell
+           
+            cell.assignData(condition: groupInfo.groupConditions[indexPath.row] , counter : indexPath.row)
             return cell
                     
         }

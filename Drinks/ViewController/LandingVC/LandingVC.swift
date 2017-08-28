@@ -60,6 +60,16 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        if (LoginManager.sharedInstance.getMeArchiver() != nil)
+        {
+            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+            appDelegate().window?.rootViewController = tabBarController
+        }
+    }
+
     
     
     

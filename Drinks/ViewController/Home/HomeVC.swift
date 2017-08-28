@@ -8,8 +8,12 @@
 
 import UIKit
 
-class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback {
+    @IBOutlet weak var lblNotice: UILabel!
+    @IBOutlet weak var imgViewNotice: UIImageView!
 
+    var globalFilter = FilterInfo()
+    var arrayGroups = [Group]()
     @IBOutlet weak var btnCreateGroup: UIButton!
     @IBOutlet var collectionFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet var collectionViewGroup: UICollectionView!
@@ -18,30 +22,48 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
         self.view.layoutIfNeeded()
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.tintColor = .white
 
-        self.view.backgroundColor = UIColor.groupTableViewBackground
+        self.navigationItem.hidesBackButton = true
+        let btnRightBar:UIBarButtonItem =  UIBarButtonItem.init(image:UIImage(named: "FilterOption"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.actionBtnDonePressed))
         
+        self.navigationItem.rightBarButtonItem = btnRightBar
+        self.navTitle(title:"Search" , color: UIColor.black , font:  FontRegular(size: 18))
+        
+        
+        
+      
+        self.view.backgroundColor = UIColor.groupTableViewBackground
         let nib = UINib(nibName: "GroupCell", bundle: nil)
         collectionViewGroup.register(nib, forCellWithReuseIdentifier: "GroupCell")
         collectionViewGroup.delegate = self
         collectionViewGroup.dataSource = self
         collectionViewGroup.backgroundColor = UIColor.groupTableViewBackground
 
-        
+        self.getGroups()
 
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.hidesBackButton = true
+        
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func actionBtnDonePressed(){
+        
+        let filterVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        filterVC.filterDelegate = self
+        filterVC.filterDetails = globalFilter
+        let navigation = UINavigationController(rootViewController: filterVC)
+        self.navigationController?.present(navigation, animated: true, completion: nil)
+        
     }
     
     @IBAction func actionBtnCreateGroup(_ sender: UIButton) {
@@ -55,7 +77,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:-
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return arrayGroups.count
         
     }
     
@@ -63,6 +85,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as! GroupCell
+        cell.assignData(groupInfo: arrayGroups[indexPath.row])
          return cell
     }
     
@@ -99,9 +122,93 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
+        let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+        groupVC.groupInfo = arrayGroups[indexPath.row]
         self.navigationController?.pushViewController(groupVC, animated: true)
+    }
+    
+    //MARK:- Get Groups
+    //MARK:-
+    
+    
+    
+    
+    func getGroups()
+    {
+      
+        Group.getGroupListing { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let arrayNewGroups = response as? [Group]
+                {
+                    self.arrayGroups.removeAll()
+                    self.arrayGroups = arrayNewGroups
+                    self.collectionViewGroup.reloadData()
+                }
+                
+                if self.arrayGroups.count > 0 {
+                    self.collectionViewGroup.isHidden = false
+                    self.lblNotice.isHidden = true
+                    self.imgViewNotice.isHidden = true
+                }else{
+                    self.collectionViewGroup.isHidden = true
+                    self.lblNotice.isHidden = false
+                    self.imgViewNotice.isHidden = false
+                }
+            } else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
+    }
+    
+    func getFilteredRecords(){
+         Group.getFilteredGroupListing(filterInfo: globalFilter) { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let arrayNewGroups = response as? [Group]
+                {
+                    self.arrayGroups.removeAll()
+                    self.arrayGroups = arrayNewGroups
+                    self.collectionViewGroup.reloadData()
+                }
+                
+                if self.arrayGroups.count > 0 {
+                    self.collectionViewGroup.isHidden = false
+                    self.lblNotice.isHidden = true
+                    self.imgViewNotice.isHidden = true
+                }else{
+                    self.collectionViewGroup.isHidden = true
+                    self.lblNotice.isHidden = false
+                    self.imgViewNotice.isHidden = false
+                }
+            } else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
 
+        
+    }
+    //MARK:- Custom Delegates
+    //MARK":-
+    
+    
+    func moveWithSelection(selected: Any) {
+        
+        if let filteredObj = selected as? FilterInfo
+        {
+            globalFilter = filteredObj
+            self.getFilteredRecords()
+        }
+        
+    }
+    
+    func replaceRecords()
+    {
+        globalFilter = FilterInfo()
+        self.getGroups()
+        
     }
 
 

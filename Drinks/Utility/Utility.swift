@@ -13,7 +13,9 @@ import UIKit
 @objc protocol MSSelectionCallback {
     @objc optional func moveWithSelection(selected : Any)
     @objc optional func actionPreviousVC(action: Bool )
-    @objc optional func replaceRecords(obj : AnyObject )
+    @objc optional func replaceRecords(obj : Any )
+    @objc optional func replaceRecords()
+
     @objc optional func moveRecordsWithType(obj : AnyObject , type : String )
 
     
@@ -49,7 +51,7 @@ func  showAlert(title : String , message : String , controller : UIViewControlle
 }
 
 
-func JSONString (paraObject : AnyObject) -> String{
+func JSONString (paraObject : Any) -> String{
     var strReturning = String()
     do
     {
@@ -109,6 +111,37 @@ public func resizeImage(image: UIImage, size: CGSize) -> UIImage? {
     
     
     return returnImage
+}
+
+func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
+{
+    var strToDisplay = ""
+    
+    if array.count > 0 {
+        if type == .Age{
+            
+            if array.count > 0 {
+                let arrayNew = array as! [String]
+                strToDisplay = arrayNew.joined(separator: ",")
+            }
+        }else if type == .Job{
+            let arrayNew = array as! [Job]
+            let stringArray = arrayNew.flatMap { String($0.engName) }
+            strToDisplay = stringArray.joined(separator: ",")
+        }else if type == .Relation
+        {
+            let arrayNew = array as! [String]
+            strToDisplay = arrayNew.joined(separator: ",")
+            
+        }else if type == .NumberOfPeople{
+            let arrayNew = array as! [Int]
+            
+            let stringArray = arrayNew.flatMap { String($0) }
+            strToDisplay =  stringArray.joined(separator: ",")
+        }
+    }
+    
+    return strToDisplay
 }
 
 

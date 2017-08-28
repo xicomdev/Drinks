@@ -24,7 +24,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-ea-0AI">
                         <rect key="frame" x="0.0" y="0.0" width="222" height="319"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Demo" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="go6-89-14G" secondAttribute="height" multiplier="15:14" id="iEj-1t-2Ou"/>
@@ -144,15 +144,19 @@
             <size key="customSize" width="222" height="319"/>
             <connections>
                 <outlet property="imgViewCreator" destination="BvM-Y6-Ygi" id="olv-ek-2OR"/>
+                <outlet property="imgViewGroup" destination="go6-89-14G" id="HIv-Ln-wV1"/>
+                <outlet property="lblDistance" destination="vmq-QB-NYk" id="x9Z-Em-qfo"/>
+                <outlet property="lblLocationName" destination="iMd-CZ-r02" id="n6c-u0-K7H"/>
+                <outlet property="lblNoOfConditions" destination="ywz-WT-WN5" id="Bsa-EC-IJE"/>
+                <outlet property="lblOwnerInfo" destination="jQG-rJ-Se8" id="QEZ-lV-zfw"/>
                 <outlet property="lblTag" destination="fQp-Ac-zP8" id="xpH-lj-x3G"/>
                 <outlet property="viewOuter" destination="RxR-ea-0AI" id="HNV-OF-vnc"/>
             </connections>
-            <point key="canvasLocation" x="-335" y="-87"/>
+            <point key="canvasLocation" x="-359" y="-85"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Accept" width="38" height="38"/>
-        <image name="Demo" width="500" height="368"/>
         <image name="Location" width="14" height="17"/>
         <image name="Persons" width="17" height="15"/>
         <image name="UserPlaceHolder" width="84" height="84"/>

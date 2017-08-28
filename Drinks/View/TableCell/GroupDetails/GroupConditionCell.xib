@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="308" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="rWN-rx-7lR">
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="rWN-rx-7lR">
                         <rect key="frame" x="20" y="17" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="QBd-zW-hvW"/>
@@ -38,12 +38,22 @@
                             <constraint firstAttribute="height" constant="0.5" id="zVA-cW-xyz"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAp-gV-1Cf">
+                        <rect key="frame" x="13" y="22" width="42" height="21"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="GaX-fc-nMO" firstAttribute="centerY" secondItem="rWN-rx-7lR" secondAttribute="centerY" id="4rx-TJ-J45"/>
                     <constraint firstItem="jTw-Db-TGP" firstAttribute="width" secondItem="P6w-f0-Kca" secondAttribute="width" id="5cZ-GP-ags"/>
                     <constraint firstItem="jTw-Db-TGP" firstAttribute="centerX" secondItem="P6w-f0-Kca" secondAttribute="centerX" id="N6j-Yy-YdR"/>
+                    <constraint firstItem="hAp-gV-1Cf" firstAttribute="centerX" secondItem="rWN-rx-7lR" secondAttribute="centerX" id="O62-1u-OV2"/>
+                    <constraint firstItem="hAp-gV-1Cf" firstAttribute="centerY" secondItem="rWN-rx-7lR" secondAttribute="centerY" id="coF-0a-597"/>
+                    <constraint firstItem="hAp-gV-1Cf" firstAttribute="width" secondItem="rWN-rx-7lR" secondAttribute="width" id="dQW-yX-gEU"/>
                     <constraint firstAttribute="trailing" secondItem="GaX-fc-nMO" secondAttribute="trailing" constant="40" id="gz5-4s-8aN"/>
+                    <constraint firstItem="hAp-gV-1Cf" firstAttribute="height" secondItem="rWN-rx-7lR" secondAttribute="height" id="hWo-oy-AcX"/>
                     <constraint firstItem="jTw-Db-TGP" firstAttribute="bottom" secondItem="P6w-f0-Kca" secondAttribute="bottom" id="iMc-U1-hMI"/>
                     <constraint firstItem="GaX-fc-nMO" firstAttribute="leading" secondItem="rWN-rx-7lR" secondAttribute="trailing" constant="8" id="nq1-u6-TpQ"/>
                     <constraint firstItem="rWN-rx-7lR" firstAttribute="leading" secondItem="P6w-f0-Kca" secondAttribute="leading" constant="20" id="pkZ-Ys-U4y"/>
@@ -52,6 +62,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgViewUser" destination="rWN-rx-7lR" id="rBf-7v-Eap"/>
+                <outlet property="lblConditionInfo" destination="GaX-fc-nMO" id="0mX-hb-xWp"/>
+                <outlet property="lblCounter" destination="hAp-gV-1Cf" id="b6s-cU-1Gi"/>
             </connections>
             <point key="canvasLocation" x="-64" y="-10"/>
         </tableViewCell>

@@ -10,6 +10,11 @@ import UIKit
 
 class GroupOwnerCell: UITableViewCell {
 
+    @IBOutlet weak var btnUserCount: UIButton!
+    @IBOutlet weak var btnAcceptedCount: UIButton!
+    @IBOutlet weak var lblGroupOwner: UILabel!
+    
+    var group : Group? = nil
     @IBOutlet weak var imgViewOwner: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +26,19 @@ class GroupOwnerCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    
+    func assignData(groupInfo : Group){
+        self.group = groupInfo
+        
+        
+        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
+        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+        let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
+        lblGroupOwner.text = strInfo
+        
     }
     
 }

@@ -47,7 +47,7 @@ class User: NSObject,NSCoding
     var annualIncome : String = ""
     var imageURL : String = ""
 
-
+    var age : Int = 18
     
     var myGender : Gender = .Male
     
@@ -134,6 +134,40 @@ class User: NSObject,NSCoding
         */
         
     }
+    
+    
+    
+    
+    
+    convenience init(dictOwner : Any) {
+        self.init()
+        
+        
+        guard let dictLocal = dictOwner as? Dictionary<String, Any> else {
+            return
+        }
+        
+        
+        self.job = Job(jobInfo: dictLocal["job"])
+        self.DOB = dictLocal["dob"] as! String
+        self.fullName = dictLocal["full_name"] as! String
+        self.fullName = dictLocal["full_name"] as! String
+        
+        if let imageURL = dictLocal["image"] as? String
+        {
+            self.imageURL = imageURL
+        }else if let fbImageURL = dictLocal["fb_image"] as? String
+        {
+            self.imageURL = fbImageURL
+        }
+        
+        
+        if let strDOB = dictLocal["dob"] as? String
+        {
+            self.age = strDOB.getAgeFromDOB()
+        }
+        
+    }
 
     
     required init?(coder aDecoder: NSCoder) {
@@ -154,58 +188,79 @@ class User: NSObject,NSCoding
             self.phoneNumber = phoneNumber;
         }
         
-        let password: String? = aDecoder.decodeObject(forKey: "password") as? String
-        if password != nil {
-            self.password = password;
-        }
+
         
         let sessionID: String? = aDecoder.decodeObject(forKey: "sessionID") as? String
         if sessionID != nil {
             self.sessionID = sessionID;
         }
         
-        let nameFirst: String? = aDecoder.decodeObject(forKey: "firstName") as? String
-        if nameFirst != nil {
-            self.firstName = nameFirst!;
-        }
-        
 
-        let nameLast: String? = aDecoder.decodeObject(forKey: "lastName") as? String
-        if nameLast != nil {
-            self.lastName = nameLast!;
-        }
-        
         
         let fbID : String? = aDecoder.decodeObject(forKey: "socialID") as? String
         if fbID != nil {
             self.socialID = fbID!;
         }
+        
+        let imgeURL : String? = aDecoder.decodeObject(forKey: "imageURL") as? String
+        if imgeURL != nil {
+            self.imageURL = imgeURL!;
+        }
 
         
-        let verifiedCheck  = aDecoder.decodeObject(forKey: "profileStatus") as? String
-        if verifiedCheck != nil {
-            self.profileStatus =  ProfileStatus(rawValue: verifiedCheck!)!
+        let schoolCareer : String? = aDecoder.decodeObject(forKey: "schoolCareer") as? String
+        if schoolCareer != nil {
+            self.schoolCareer = schoolCareer!;
         }
         
-         self.myCredits = aDecoder.decodeInteger(forKey: "myCredits")
+        let relationship : String? = aDecoder.decodeObject(forKey: "relationship") as? String
+        if relationship != nil {
+            self.relationship = relationship!;
+        }
+
         
+        let annualIncome : String? = aDecoder.decodeObject(forKey: "annualIncome") as? String
+        if annualIncome != nil {
+            self.annualIncome = annualIncome!;
+        }
+        
+        
+        let bloodGroup : String? = aDecoder.decodeObject(forKey: "bloodGroup") as? String
+        if bloodGroup != nil {
+            self.bloodGroup = bloodGroup!;
+        }
+
+        
+        let tabaco : String? = aDecoder.decodeObject(forKey: "tabaco") as? String
+        if tabaco != nil
+        {
+            self.tabaco = tabaco!;
+        }
+
+        let job : Job? = aDecoder.decodeObject(forKey: "Job") as? Job
+        if job != nil {
+            self.job = job!;
+        }
+       
         
     }
     
     public func encode(with aCoder: NSCoder) {
         
         aCoder.encode(self.fullName, forKey: "fullName")
-        aCoder.encode(self.firstName, forKey: "firstName")
-        aCoder.encode(self.lastName, forKey: "lastName")
         aCoder.encode(self.emailAddress, forKey: "emailAddress")
         aCoder.encode(self.phoneNumber, forKey: "phoneNumber")
-        aCoder.encode(self.password, forKey: "password")
         aCoder.encode(self.ID, forKey: "ID")
         aCoder.encode(self.sessionID, forKey: "sessionID")
         aCoder.encode(self.socialID, forKey: "socialID")
-        aCoder.encode(self.profileStatus.rawValue, forKey: "profileStatus")
-        aCoder.encode(self.myCredits, forKey: "myCredits")
-        aCoder.encode(self.myCredits, forKey: "myCredits")
+        aCoder.encode(self.annualIncome, forKey: "annualIncome")
+        aCoder.encode(self.relationship, forKey: "relationship")
+        aCoder.encode(self.schoolCareer, forKey: "schoolCareer")
+        aCoder.encode(self.bloodGroup, forKey: "bloodGroup")
+        aCoder.encode(self.tabaco, forKey: "tabaco")
+        aCoder.encode(self.imageURL, forKey: "imageURL")
+        aCoder.encode(self.job, forKey: "job")
+
 
 
     }

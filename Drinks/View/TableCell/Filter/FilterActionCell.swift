@@ -12,6 +12,9 @@ class FilterActionCell: UITableViewCell {
 
     @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
+    
+    var callbackAction : ((GroupAction , Any?)-> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         btnCancel.cornerRadius(value: 21)
@@ -30,7 +33,12 @@ class FilterActionCell: UITableViewCell {
     
     @IBAction func actionBtnPressed(_ sender: UIButton) {
         
-        
+        if sender == btnCancel{
+            
+            callbackAction!(.CANCEL , nil)
+        }else{
+            callbackAction!(.FILTER , nil)
+        }
     }
     
     

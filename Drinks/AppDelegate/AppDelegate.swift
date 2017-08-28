@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     
     var currentlocation : CLLocation?
     var myLocationName : String = ""
+    
+    
+    var appLocation : GroupLocation? = nil
     var locationManager : CLLocationManager?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -35,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         Job.saveJobListing()
         
         self.intializeLocationManager()
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }
@@ -228,6 +234,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
                         }
                     }
                     self.myLocationName = addressCurrent
+                    self.appLocation = GroupLocation(name: addressCurrent, lat: (self.currentlocation?.coordinate.latitude)!.description, long: (self.currentlocation?.coordinate.longitude)!.description)
                 }
                 else {
                     print("Problem with the data received from geocoder")

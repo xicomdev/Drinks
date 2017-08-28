@@ -10,6 +10,7 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
+    @IBOutlet weak var lblInfo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,14 @@ class DescriptionCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    func assignGroupInfo(group : Group)
+    {
+        if group != nil{
+            lblInfo.text = group.groupDescription
+        }
+    }
+    
     
 }

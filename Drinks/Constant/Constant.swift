@@ -56,6 +56,8 @@ let API_GetJobs = "memberJob"
 let API_CheckUserExisting = "newCheck"
 let API_Register = "registerFacebook"
 let API_AddGroup = "addGroup"
+let API_GetGroups = "getGroups"
+
 
 
 
@@ -66,6 +68,15 @@ let arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]
 let arrayToabacco = ["ABC", "DEF", "GHI" , "JKL", "MNO" ]
 let arraySchool = ["Middle", "Graduate", "Master" , "Ph.d"]
 let arrayIncome = ["$ 1000 - 3000", "$ 3000 - 5000", "$ 5000 - 8000" , "$ 8000 - 15000" , "$ 15000 +"]
+
+let arrayDistance : [Int] = [10, 20, 30 , 40 , 50 , 100]
+
+let arrayAge : [String] = ["20 - 25", "26 - 30", "31 - 35" , "36 - 40" , "41 - 45"]
+let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
+
+let arrayPeople : [Int] = [1, 2, 3 , 4 , 5 ]
+
+
 
 //let arrayMarriage = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
 //let arrayBlood = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
