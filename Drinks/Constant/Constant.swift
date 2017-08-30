@@ -51,12 +51,26 @@ struct Constants {
     }
 }
 
+enum DrinkStatus : Int
+{
+    case Drinked = 1
+    case NotDrinked = 0
+
+    
+}
+enum GroupBy : String
+{
+    case My = "MyGroup"
+    case Other = "OtherGroup"
+}
+
 
 let API_GetJobs = "memberJob"
 let API_CheckUserExisting = "newCheck"
 let API_Register = "registerFacebook"
 let API_AddGroup = "addGroup"
 let API_GetGroups = "getGroups"
+let API_Interest = "showInterest"
 
 
 

@@ -69,7 +69,8 @@ class LoginManager: NSObject {
         
         HTTPRequest.sharedInstance().postRequest(urlLink: API_CheckUserExisting, paramters: params) { (isSuccess, response, strError) in
                 SwiftLoader.hide()
-                    if isSuccess{
+                    if isSuccess
+                    {
                         print(response)
                         if let userInfo = response as? Dictionary< String, Any>
                         {

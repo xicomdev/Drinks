@@ -201,7 +201,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             }else if indexPath.row == 2
             {
                 return 95
-                
             }else
             {
                 return 55

@@ -9,6 +9,11 @@
 import UIKit
 
 class GroupCell: UICollectionViewCell {
+    
+    
+    
+    var callbackAction : ((Group )-> Void)? = nil
+
     @IBOutlet var viewOuter: UIView!
     @IBOutlet var lblTag: UILabel!
     @IBOutlet weak var lblNoOfConditions: UILabel!
@@ -17,6 +22,7 @@ class GroupCell: UICollectionViewCell {
     @IBOutlet weak var lblLocationName: UILabel!
     @IBOutlet weak var imgViewGroup: UIImageView!
     
+    @IBOutlet weak var btnInterested: UIButton!
     @IBOutlet weak var lblDistance: UILabel!
     var group : Group!
     @IBOutlet var imgViewCreator: UIImageView!
@@ -50,7 +56,28 @@ class GroupCell: UICollectionViewCell {
             lblTag.isHidden = true
         }
         
+        if groupInfo.groupBy == .Other
+        {
+            if groupInfo.drinkedStatus == .Drinked{
+                btnInterested.isSelected = true
+            }else{
+                btnInterested.isSelected = false
+            }
+        }
         
         lblNoOfConditions.text = group.groupConditions.count.description + " Members"
     }
+    
+    
+    @IBAction func actionBtnDrinked(_ sender: UIButton) {
+        if callbackAction != nil
+        {
+            self.callbackAction!(group!)
+                
+                
+                
+            }
+       
+    }
+    
 }

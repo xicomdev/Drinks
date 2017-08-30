@@ -87,6 +87,8 @@ class Group: NSObject {
     var image : UIImage? = nil
     var imageURL : String!
 
+    
+    
     var tagEnabled = false
       var groupConditions : [GroupCondition] = [GroupCondition]()
     var relationship : String = ""
@@ -95,8 +97,9 @@ class Group: NSObject {
     var location : GroupLocation? = nil
     var ownerID : String!
     var groupOwner : User!
-
-
+    
+    var drinkedStatus : DrinkStatus = .NotDrinked
+    var groupBy : GroupBy = .Other
     
     override init()
     {
@@ -123,12 +126,22 @@ class Group: NSObject {
         self.ownerID = dictGroup["user_id"] as! String
         self.groupOwner = User(dictOwner: dictGroup["user"])
             
-        
+            groupBy = .Other
+            if self.ownerID == LoginManager.getMe.ID{
+                groupBy = .My
+            }
+            
             if let tag = dictGroup["group_tag"] as? Bool{
                 self.tagEnabled = tag
                 
             }
             
+            if let drinkedStatus = dictGroup["drinked_status"] as? Bool{
+                self.drinkedStatus = .NotDrinked
+                if drinkedStatus == true{
+                    self.drinkedStatus = .Drinked
+                }
+            }
             
         }
         
@@ -172,13 +185,7 @@ class Group: NSObject {
             params["current_latitude"] = appDelegate().appLocation?.latitude
             params["current_longitude"] = appDelegate().appLocation?.longtitude
         }
-        
-//        "user_id(optional if you send this then it will return groups of that user otherwise all),
-//        current_latitude, current_longitude, place(like 10,30,100,0)[Only when you want to filter on this basis] ,
-//        number_people(comma separated string like (1,2,3)),
-//        relationship (comma separated name of relations),
-//        age (comma separated ranges like 20-15, 30-35),
-//        job_id (comma separated ids like 001,005)"
+
         if filterInfo.distance != -1{
             params["place"] = filterInfo.distance
         }
@@ -292,10 +299,6 @@ class Group: NSObject {
         
         for item in arrConds
         {
-            
-            //            var ID: String = ""
-            //            var engName : String = ""
-            //            var japName  : String = ""
             var newDict = Dictionary<String,Any>()
             newDict["Age"] = item.age
             newDict["id"] = item.occupation.ID
@@ -313,12 +316,10 @@ class Group: NSObject {
     
     func getConditionArray(strPara : String) -> [GroupCondition]
     {
-        
         var arrayReturn = [GroupCondition]()
             if let data = strPara.data(using: String.Encoding.utf8) {
                 do {
                     let jsonArry = try JSONSerialization.jsonObject(with: data, options: []) as?   [[String : Any]]
-                    
                     for item in jsonArry!
                     {
                         let newDict = GroupCondition(dict: item)
@@ -333,5 +334,18 @@ class Group: NSObject {
     }
     
     
+    
+  class func getIndex(arrayGroups : [Group] , group : Group) -> Int
+    {
+        let groupFiltered = arrayGroups.filter {
+            ($0.groupID == group.groupID )
+        }
+        if groupFiltered.count > 0
+        {
+            return arrayGroups.index(of: groupFiltered[0])!
+        }else{
+            return arrayGroups.count
+        }
+    }
 
 }

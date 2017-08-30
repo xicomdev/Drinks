@@ -33,6 +33,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
                                 <rect key="frame" x="166" y="188" width="38" height="38"/>
                                 <state key="normal" image="Accept"/>
+                                <state key="selected" image="Tick"/>
+                                <connections>
+                                    <action selector="actionBtnDrinked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3Ac-b7-490"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-Ac-zP8">
                                 <rect key="frame" x="15" y="200" width="89" height="15"/>
@@ -143,6 +147,7 @@
             </constraints>
             <size key="customSize" width="222" height="319"/>
             <connections>
+                <outlet property="btnInterested" destination="Ngm-Dr-QWF" id="enm-CP-dyp"/>
                 <outlet property="imgViewCreator" destination="BvM-Y6-Ygi" id="olv-ek-2OR"/>
                 <outlet property="imgViewGroup" destination="go6-89-14G" id="HIv-Ln-wV1"/>
                 <outlet property="lblDistance" destination="vmq-QB-NYk" id="x9Z-Em-qfo"/>
@@ -159,6 +164,7 @@
         <image name="Accept" width="38" height="38"/>
         <image name="Location" width="14" height="17"/>
         <image name="Persons" width="17" height="15"/>
+        <image name="Tick" width="11" height="8"/>
         <image name="UserPlaceHolder" width="84" height="84"/>
     </resources>
 </document>

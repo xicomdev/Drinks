@@ -11,12 +11,14 @@
 		637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA41F3C86C200235578 /* AssetManager.swift */; };
 		637AFFA71F3C86C200235578 /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA51F3C86C200235578 /* CameraMan.swift */; };
 		637AFFA91F3C872C00235578 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA81F3C872C00235578 /* Helper.swift */; };
-		637AFFAB1F3C88A500235578 /* MSCameraGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */; };
 		637AFFAF1F3C892F00235578 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFAD1F3C892F00235578 /* ImageCollectionCell.swift */; };
 		637AFFB01F3C892F00235578 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFAE1F3C892F00235578 /* ImageCollectionCell.xib */; };
 		637AFFB21F3C8E0600235578 /* MSCameraGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */; };
 		637AFFB51F3C989900235578 /* GalleryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB41F3C989900235578 /* GalleryImageView.swift */; };
 		637AFFB71F3C9BA300235578 /* GalleryImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFB61F3C9BA300235578 /* GalleryImageView.xib */; };
+		63812EBB1F56B77A0012AE36 /* MSCameraGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63812EBA1F56B77A0012AE36 /* MSCameraGallery.storyboard */; };
+		63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63812EBE1F56C07E0012AE36 /* InterestedVC.swift */; };
+		63812EC11F56C46A0012AE36 /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63812EC01F56C46A0012AE36 /* GroupManager.swift */; };
 		6397974F1F3C23D400A841F4 /* OfferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6397974E1F3C23D400A841F4 /* OfferVC.swift */; };
 		639797511F3C241300A841F4 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639797501F3C241300A841F4 /* MyPageVC.swift */; };
 		639797531F3C242300A841F4 /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639797521F3C242300A841F4 /* MessageVC.swift */; };
@@ -161,12 +163,14 @@
 		637AFFA41F3C86C200235578 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		637AFFA51F3C86C200235578 /* CameraMan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMan.swift; sourceTree = "<group>"; };
 		637AFFA81F3C872C00235578 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MSCameraGallery.storyboard; path = ../../../../../Desktop/MSCameraGallery.storyboard; sourceTree = "<group>"; };
 		637AFFAD1F3C892F00235578 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		637AFFAE1F3C892F00235578 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCameraGallery.swift; sourceTree = "<group>"; };
 		637AFFB41F3C989900235578 /* GalleryImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImageView.swift; sourceTree = "<group>"; };
 		637AFFB61F3C9BA300235578 /* GalleryImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryImageView.xib; sourceTree = "<group>"; };
+		63812EBA1F56B77A0012AE36 /* MSCameraGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MSCameraGallery.storyboard; sourceTree = "<group>"; };
+		63812EBE1F56C07E0012AE36 /* InterestedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedVC.swift; sourceTree = "<group>"; };
+		63812EC01F56C46A0012AE36 /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
 		6397974E1F3C23D400A841F4 /* OfferVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferVC.swift; sourceTree = "<group>"; };
 		639797501F3C241300A841F4 /* MyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		639797521F3C242300A841F4 /* MessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
@@ -373,8 +377,8 @@
 				637AFFAC1F3C890600235578 /* ImageCollectionCell */,
 				637AFFA41F3C86C200235578 /* AssetManager.swift */,
 				637AFFA51F3C86C200235578 /* CameraMan.swift */,
+				63812EBA1F56B77A0012AE36 /* MSCameraGallery.storyboard */,
 				637AFFA81F3C872C00235578 /* Helper.swift */,
-				637AFFAA1F3C88A500235578 /* MSCameraGallery.storyboard */,
 				637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */,
 				639F824A1F3D674B00BAFFED /* Permissions.swift */,
 			);
@@ -397,6 +401,22 @@
 				637AFFB61F3C9BA300235578 /* GalleryImageView.xib */,
 			);
 			path = GalleryView;
+			sourceTree = "<group>";
+		};
+		63812EBC1F56B8770012AE36 /* GroupManager */ = {
+			isa = PBXGroup;
+			children = (
+				63812EC01F56C46A0012AE36 /* GroupManager.swift */,
+			);
+			path = GroupManager;
+			sourceTree = "<group>";
+		};
+		63812EBD1F56C0590012AE36 /* Drinked */ = {
+			isa = PBXGroup;
+			children = (
+				63812EBE1F56C07E0012AE36 /* InterestedVC.swift */,
+			);
+			path = Drinked;
 			sourceTree = "<group>";
 		};
 		6397974B1F3C236000A841F4 /* Message */ = {
@@ -612,6 +632,7 @@
 		639954CA1F29ADA00025E9C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				63812EBD1F56C0590012AE36 /* Drinked */,
 				63B86B4F1F46EDA200E3CA55 /* Filter */,
 				63ED46871F45963200B60BB1 /* GroupDetails */,
 				639797541F3C370A00A841F4 /* TabBarController */,
@@ -637,6 +658,7 @@
 		639954CE1F29ADEA0025E9C6 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				63812EBC1F56B8770012AE36 /* GroupManager */,
 				63D7F1B51F330D1C000E27AF /* HTTPManager */,
 				63D7F17C1F32E211000E27AF /* LoginManager */,
 				639954D61F29B7FB0025E9C6 /* FBManager */,
@@ -1123,7 +1145,6 @@
 				63ED469E1F45AED400B60BB1 /* GroupConditionCell.xib in Resources */,
 				639F82531F3DC32E00BAFFED /* SelectPhotoVC.xib in Resources */,
 				63ED46961F45A44B00B60BB1 /* GroupLocationCell.xib in Resources */,
-				637AFFAB1F3C88A500235578 /* MSCameraGallery.storyboard in Resources */,
 				639954E31F29CDE70025E9C6 /* Localizable.strings in Resources */,
 				63A9951D1F349FD9005DDFA4 /* TutorialCell.xib in Resources */,
 				639954411F29AAC90025E9C6 /* LaunchScreen.storyboard in Resources */,
@@ -1140,6 +1161,7 @@
 				63B86B561F46F74800E3CA55 /* FilterOptionCell.xib in Resources */,
 				63B86B4E1F46CC8800E3CA55 /* OwnerInfoCell.xib in Resources */,
 				639954391F29AAC90025E9C6 /* Main.storyboard in Resources */,
+				63812EBB1F56B77A0012AE36 /* MSCameraGallery.storyboard in Resources */,
 				63CD840C1F3B0B2600D9D434 /* SelectionHeader.xib in Resources */,
 				637AFFB71F3C9BA300235578 /* GalleryImageView.xib in Resources */,
 				63F35CBF1F417440001600D4 /* GroupInfoCell.xib in Resources */,
@@ -1171,6 +1193,7 @@
 			files = (
 				63D7F1A31F330C13000E27AF /* IQNSArray+Sort.swift in Sources */,
 				63D7F1811F32F48A000E27AF /* Utility.swift in Sources */,
+				63812EC11F56C46A0012AE36 /* GroupManager.swift in Sources */,
 				639954BF1F29AD700025E9C6 /* UIImage+GIF.m in Sources */,
 				63D7F1891F32F79B000E27AF /* ListingCell.swift in Sources */,
 				6397974F1F3C23D400A841F4 /* OfferVC.swift in Sources */,
@@ -1262,6 +1285,7 @@
 				63B86B551F46F74800E3CA55 /* FilterOptionCell.swift in Sources */,
 				639954BC1F29AD700025E9C6 /* SDWebImageManager.m in Sources */,
 				639954B71F29AD6F0025E9C6 /* SDImageCache.m in Sources */,
+				63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */,
 				63ED46891F45964B00B60BB1 /* GroupDetailsVC.swift in Sources */,
 				639F825A1F3DD00600BAFFED /* InfoCell.swift in Sources */,
 			);

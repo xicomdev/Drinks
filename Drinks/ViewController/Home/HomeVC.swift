@@ -86,6 +86,22 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.assignData(groupInfo: arrayGroups[indexPath.row])
+        cell.callbackAction = { (group : Group) in
+            
+        GroupManager.setGroup(group: group)
+            GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
+                if isSuccess
+                {
+                    
+                    
+                }else
+                {
+                    
+                    
+                }
+            })
+            
+        }
          return cell
     }
     
