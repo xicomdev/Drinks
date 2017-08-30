@@ -151,7 +151,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
             let fileName = "Drinks\(self.timeStamp).jpeg"
            // print(fileName)
-           // 2668, 1772
             let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 400 , height: 400 ))
             let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
