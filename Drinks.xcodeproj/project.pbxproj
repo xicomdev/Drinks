@@ -16,6 +16,8 @@
 		637AFFB21F3C8E0600235578 /* MSCameraGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */; };
 		637AFFB51F3C989900235578 /* GalleryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFB41F3C989900235578 /* GalleryImageView.swift */; };
 		637AFFB71F3C9BA300235578 /* GalleryImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637AFFB61F3C9BA300235578 /* GalleryImageView.xib */; };
+		637E25261F595BBF00952B8C /* OfferGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E25241F595BBF00952B8C /* OfferGroupCell.swift */; };
+		637E25271F595BBF00952B8C /* OfferGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637E25251F595BBF00952B8C /* OfferGroupCell.xib */; };
 		63812EBB1F56B77A0012AE36 /* MSCameraGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63812EBA1F56B77A0012AE36 /* MSCameraGallery.storyboard */; };
 		63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63812EBE1F56C07E0012AE36 /* InterestedVC.swift */; };
 		63812EC11F56C46A0012AE36 /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63812EC01F56C46A0012AE36 /* GroupManager.swift */; };
@@ -168,6 +170,8 @@
 		637AFFB11F3C8E0600235578 /* MSCameraGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCameraGallery.swift; sourceTree = "<group>"; };
 		637AFFB41F3C989900235578 /* GalleryImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImageView.swift; sourceTree = "<group>"; };
 		637AFFB61F3C9BA300235578 /* GalleryImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryImageView.xib; sourceTree = "<group>"; };
+		637E25241F595BBF00952B8C /* OfferGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferGroupCell.swift; sourceTree = "<group>"; };
+		637E25251F595BBF00952B8C /* OfferGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferGroupCell.xib; sourceTree = "<group>"; };
 		63812EBA1F56B77A0012AE36 /* MSCameraGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MSCameraGallery.storyboard; sourceTree = "<group>"; };
 		63812EBE1F56C07E0012AE36 /* InterestedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedVC.swift; sourceTree = "<group>"; };
 		63812EC01F56C46A0012AE36 /* GroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
@@ -401,6 +405,15 @@
 				637AFFB61F3C9BA300235578 /* GalleryImageView.xib */,
 			);
 			path = GalleryView;
+			sourceTree = "<group>";
+		};
+		637E251F1F595AA500952B8C /* OfferCell */ = {
+			isa = PBXGroup;
+			children = (
+				637E25241F595BBF00952B8C /* OfferGroupCell.swift */,
+				637E25251F595BBF00952B8C /* OfferGroupCell.xib */,
+			);
+			path = OfferCell;
 			sourceTree = "<group>";
 		};
 		63812EBC1F56B8770012AE36 /* GroupManager */ = {
@@ -891,6 +904,7 @@
 		63D7F1851F32F76D000E27AF /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				637E251F1F595AA500952B8C /* OfferCell */,
 				63B86B521F46F65B00E3CA55 /* Filter */,
 				63B86B461F46C6A000E3CA55 /* GroupOwner */,
 				63ED468A1F4596BB00B60BB1 /* GroupDetails */,
@@ -1159,6 +1173,7 @@
 				63D7F18A1F32F79B000E27AF /* ListingCell.xib in Resources */,
 				63ED469A1F45A9CC00B60BB1 /* GroupOwnerCell.xib in Resources */,
 				63B86B561F46F74800E3CA55 /* FilterOptionCell.xib in Resources */,
+				637E25271F595BBF00952B8C /* OfferGroupCell.xib in Resources */,
 				63B86B4E1F46CC8800E3CA55 /* OwnerInfoCell.xib in Resources */,
 				639954391F29AAC90025E9C6 /* Main.storyboard in Resources */,
 				63812EBB1F56B77A0012AE36 /* MSCameraGallery.storyboard in Resources */,
@@ -1219,6 +1234,7 @@
 				639954DB1F29B8E90025E9C6 /* User.swift in Sources */,
 				639954D11F29AF800025E9C6 /* AppDelegate.swift in Sources */,
 				637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */,
+				637E25261F595BBF00952B8C /* OfferGroupCell.swift in Sources */,
 				63D7F1A41F330C13000E27AF /* IQUIScrollView+Additions.swift in Sources */,
 				63D7F1A91F330C13000E27AF /* IQKeyboardManagerConstants.swift in Sources */,
 				639954C51F29AD700025E9C6 /* SwiftLoader.swift in Sources */,

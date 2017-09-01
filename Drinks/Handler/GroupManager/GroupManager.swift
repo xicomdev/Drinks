@@ -48,7 +48,7 @@ class GroupManager: NSObject {
             interestStatus = false
         }
         
-        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : interestStatus]
+        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : interestStatus , "owner_user_id" : self.group.ownerID!]
         
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
             if isSuccess
@@ -61,6 +61,13 @@ class GroupManager: NSObject {
             }
         }
         
+        
+        
+    }
+    
+    
+    func getBeOfferedGroup(handler:@escaping CompletionHandler)
+    {
         
         
     }

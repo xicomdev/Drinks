@@ -63,9 +63,10 @@ class LoginManager: NSObject {
     
     func checkUserExists(handler:@escaping CompletionHandler)
     {
-        let params = [ "fb_id"  : self.me.socialID!]
+        let params : [String : Any] = [ "fb_id"  : self.me.socialID!]
         SwiftLoader.show(true)
-        print(params)
+        
+      //print(params)
         
         HTTPRequest.sharedInstance().postRequest(urlLink: API_CheckUserExisting, paramters: params) { (isSuccess, response, strError) in
                 SwiftLoader.hide()

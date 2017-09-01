@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         
         dateFormatter.dateFormat = "YYYY/MM/dd"
 
-        Job.saveJobListing()
+      //  Job.saveJobListing()
         
         self.intializeLocationManager()
         
@@ -178,9 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             print("Getting location fine")
             self.currentlocation = location!
             self.getLocationNameFromLatAndLong()
-            
         }
-
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

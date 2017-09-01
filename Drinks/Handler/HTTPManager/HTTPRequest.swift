@@ -48,43 +48,16 @@ class HTTPRequest: NSObject {
     
     func setHeader(_ manager: AFHTTPSessionManager)
     {
-        
-        let strTimeStamp = timeStamp
         manager.requestSerializer = AFJSONRequestSerializer()
-      //  manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
-      //  manager.requestSerializer.setValue(authorisationString1(strTimeStamp), forHTTPHeaderField: "ClientHash")
-        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "TimeStamp")
-        manager.requestSerializer.setValue("1", forHTTPHeaderField: "DeviceType")
-        
-        
+        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
+        //manager.requestSerializer.setValue("1", forHTTPHeaderField: "DeviceType")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
             manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
             manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
-
-            
         }
-        
-//        if userdefaults.value(forKey: "DeviceToken") as? String != nil
-//        {
-//            
-//          //manager.requestSerializer.setValue(userdefaults.value(forKey: "DeviceToken") as? String, forHTTPHeaderField: "DeviceToken")
-//        }else{
-//            manager.requestSerializer.setValue("000000000000000", forHTTPHeaderField: "DeviceToken")
-//        }
-//        
-//        if userdefaults.value(forKey: voipToken) as? String != nil
-//        {
-//            manager.requestSerializer.setValue(userdefaults.value(forKey: voipToken) as? String, forHTTPHeaderField: "DeviceTokenVoip")
-//        }else{
-//            manager.requestSerializer.setValue("", forHTTPHeaderField: "DeviceTokenVoip")
-//        }
-//        
-//        let strUniqueDeviceID :String =  appDelegate().deviceUniqueIdentifier(); //
-//        manager.requestSerializer.setValue(strUniqueDeviceID, forHTTPHeaderField: "UniqueDeviceId")
-//        manager.requestSerializer.setValue(session, forHTTPHeaderField: "SessionToken")
-        
-        
     }
 
     
@@ -100,7 +73,6 @@ class HTTPRequest: NSObject {
     //    let dictParams = self.createParamters(dict: paramters)
         let manager = AFHTTPSessionManager()
      //   manager.requestSerializer = AFJSONRequestSerializer()
-      //  manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
         self.setHeader(manager)
         manager.get(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
@@ -112,7 +84,6 @@ class HTTPRequest: NSObject {
                 if status == true
                 {
                     handler(true, dictResponse["data"]  , nil)
-                    
                 }else {
                     handler(false, nil, dictResponse["message"] as? String)
                 }
@@ -135,12 +106,24 @@ class HTTPRequest: NSObject {
 func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler:@escaping CompletionHandler)
     {
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
-      //  let dictFinalParams = self.createParamters(dict: paramters)
       //  print(strFinalURL)
         
         let manager = AFHTTPSessionManager()
-        self.setHeader(manager)
         
+      //  manager.requestSerializer = AFJSONRequestSerializer()
+        
+       manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
+      //  manager.requestSerializer.setValue("reteryr", forHTTPHeaderField: "token")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
+
+        if (LoginManager.sharedInstance.getMeArchiver() != nil)
+        {
+            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
+            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
+        }
+
+        print(paramters)
           manager.post(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
