@@ -84,8 +84,8 @@ class Job: NSObject,NSCoding {
     
     class func saveJobListing()
     {
-      //  if  defaults.object(forKey: stateLocal) as? NSData == nil
-    //    {
+       if  defaults.object(forKey: stateLocal) as? NSData == nil
+        {
             HTTPRequest.sharedInstance().getRequest(urlLink: API_GetJobs, paramters: nil) { (isSuccess, response, strError) in
                 if isSuccess{
                     if let response = response as? [String: Any]
@@ -103,7 +103,7 @@ class Job: NSObject,NSCoding {
                     }
                 }
             }
-       // }
+        }
     }
 
 

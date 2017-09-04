@@ -114,7 +114,6 @@ class Group: NSObject {
         if let dictGroup = groupDict as? Dictionary<String, Any>
         {
             
-            print(dictGroup)
             print(dictGroup["group_conditions"] as! String)
         
         self.groupConditions = self.getConditionArray(strPara: dictGroup["group_conditions"] as! String)
@@ -122,7 +121,7 @@ class Group: NSObject {
         self.groupID = dictGroup["id"] as! String
         self.relationship = dictGroup["relationship"] as! String
         self.imageURL = dictGroup["image"] as! String
-        self.location = GroupLocation(name: dictGroup["group_description"] as! String, lat: dictGroup["group_latitude"] as! String, long: dictGroup["group_longitude"] as! String)
+        self.location = GroupLocation(name: dictGroup["group_location"] as! String, lat: dictGroup["group_latitude"] as! String, long: dictGroup["group_longitude"] as! String)
         self.ownerID = dictGroup["user_id"] as! String
         self.groupOwner = User(dictOwner: dictGroup["user"])
             
@@ -131,12 +130,21 @@ class Group: NSObject {
                 groupBy = .My
             }
             
-            if let tag = dictGroup["group_tag"] as? Bool{
-                self.tagEnabled = tag
+            if let tag = dictGroup["group_tag"] as? String{
+                
+                if tag == "1"{
+                    self.tagEnabled = true
+                }else{
+                    self.tagEnabled = false
+
+                }
+                
                 
             }
             
             if let drinkedStatus = dictGroup["drinked_status"] as? Bool{
+                
+                print("Drinked Check  \(drinkedStatus)")
                 self.drinkedStatus = .NotDrinked
                 if drinkedStatus == true{
                     self.drinkedStatus = .Drinked
@@ -190,18 +198,16 @@ class Group: NSObject {
             params["place"] = filterInfo.distance
         }
         if filterInfo.age.count != 0 {
-            
             params["age"] = getStringToDisplay(array: filterInfo.age, type: .Age)
-
         }
         if filterInfo.job.count != 0 {
             params["job"] = getStringToDisplay(array: filterInfo.job, type: .Job)
-
         }
+        
         if filterInfo.relation.count != 0 {
             params["relationship"] = getStringToDisplay(array: filterInfo.relation, type: .Relation)
-
         }
+        
         if filterInfo.people.count != 0 {
             params["number_people"] = getStringToDisplay(array: filterInfo.people, type: .NumberOfPeople)
 
@@ -239,7 +245,6 @@ class Group: NSObject {
         
         let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID! , "group_conditions" : groupMembers, "group_location" : location?.LocationName! ,"group_latitude" : location?.latitude!,"group_longitude" : location?.longtitude! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
         
-        print(parms)
         
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_AddGroup, paramters: parms, Images: image) { (success, response, strError) in
@@ -274,10 +279,6 @@ class Group: NSObject {
         
         for item in arrConds
         {
-            
-//            var ID: String = ""
-//            var engName : String = ""
-//            var japName  : String = ""
             var newDict = [String : Any]()
             newDict["Age"] = item.age
             newDict["id"] = item.occupation.ID
@@ -333,7 +334,8 @@ class Group: NSObject {
         return arrayReturn
     }
     
-    
+    //MARK:- Get Index of Object
+    //MARK:-
     
   class func getIndex(arrayGroups : [Group] , group : Group) -> Int
     {

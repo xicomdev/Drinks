@@ -17,8 +17,11 @@ class GroupConditionCell: UITableViewCell {
     @IBOutlet weak var imgViewUser: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         imgViewUser.cornerRadius(value: 17.5)
+        
         lblCounter.cornerRadius(value: 17.5)
+        
         lblCounter.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
 
         // Initialization code
@@ -32,13 +35,10 @@ class GroupConditionCell: UITableViewCell {
     
     func assignData(condition : GroupCondition, counter : Int){
         
-        
         self.condition = condition
         
         
-//        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
-//        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
-        lblCounter.text = condition.age.description + " / " + condition.occupation.engName
+        lblConditionInfo.text = condition.age.description + " / " + condition.occupation.engName
         lblCounter.text = (counter + 1).description
     }
 

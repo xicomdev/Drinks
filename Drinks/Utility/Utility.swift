@@ -147,4 +147,16 @@ func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
 
 
 
+func setNoOfMembers(groups :[ GroupCondition] , label : UILabel) {
+    if groups.count > 1
+    {
+        label.text = (groups.count).description + " Members"
+        
+    }else{
+     label.text = "1 Member"
+    }
+}
+
+
+
 

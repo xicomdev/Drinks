@@ -19,6 +19,8 @@ enum OfferEnabled : Int
 class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
    
+    @IBOutlet weak var lblNoOfferFound: UILabel!
+    @IBOutlet weak var imgViewNoOffer: UIImageView!
     var selectedOption : OfferEnabled = .BeOffered
 
     @IBOutlet weak var btnOffered: UIButton!
@@ -41,9 +43,11 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if selectedOption == .BeOffered{
             btnBeOffered.backgroundColor = APP_BlueColor
             btnBeOffered.isSelected = true
+
         }else{
             btnOffered.backgroundColor = APP_BlueColor
             btnOffered.isSelected = true
+
         }
         
         self.view.backgroundColor = UIColor.groupTableViewBackground
@@ -52,10 +56,9 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tblGroups.registerNibsForCells(arryNib: ["OfferGroupCell"])
         tblGroups.delegate = self
         tblGroups.dataSource = self
-        
         self.getBeOfferedGroups()
-
-
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -66,17 +69,19 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             selectedOption = .BeOffered
             btnBeOffered.backgroundColor = APP_BlueColor
             btnBeOffered.isSelected = true
-            btnOffered.backgroundColor = APP_GaryColor
+            btnOffered.backgroundColor = APP_GrayColor
             btnOffered.isSelected = false
-            
+            self.getBeOfferedGroups()
+
         }else{
             
             selectedOption = .Offered
             
-            btnBeOffered.backgroundColor = APP_GaryColor
+            btnBeOffered.backgroundColor = APP_GrayColor
             btnBeOffered.isSelected = false
             btnOffered.backgroundColor = APP_BlueColor
             btnOffered.isSelected = true
+            self.getOfferedGroups()
         }
         self.tblGroups.reloadData()
         
@@ -86,6 +91,19 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        if selectedOption == .BeOffered{
+            self.getBeOfferedGroups()
+            
+        }else{
+            self.getOfferedGroups()
+            
+        }
+
     }
     
     
@@ -101,16 +119,19 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-         if selectedOption == .BeOffered{
-            return 10
+         if selectedOption == .BeOffered
+         {
+            return arrayBeOffered.count
         }else{
-            return 2
+            return arrayOffered.count
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return ScreenWidth + 120
+        return ScreenWidth + 107
+        
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,13 +139,58 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if selectedOption == .BeOffered{
            
                 let cell = tableView.dequeueReusableCell(withIdentifier:"OfferGroupCell") as! OfferGroupCell
-            
+                cell.assignData(groupInfo: arrayBeOffered[indexPath.row])
+                cell.callbackAction = { (group : Group) in
+                GroupManager.setGroup(group: group)
+                GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
+                    if isSuccess
+                    {
+                        if let groupInfo = group as? Group
+                        {
+                            let index =  Group.getIndex(arrayGroups: self.arrayBeOffered, group: groupInfo)
+                            cell.group  = groupInfo
+                            cell.assignData(groupInfo: groupInfo)
+                            self.arrayBeOffered[index] = groupInfo
+                            self.tblGroups.reloadData()
+                        }
+                    }else
+                    {
+                        showAlert(title: "Drinks", message: error!, controller: self)
+                    }
+                })
+            }
+
              //   cell.viewBottomLine.isHidden = false
                  return cell
         }else{
             
         
             let cell = tableView.dequeueReusableCell(withIdentifier:"OfferGroupCell") as! OfferGroupCell
+            
+            cell.assignData(groupInfo: arrayOffered[indexPath.row])
+            cell.callbackAction = { (group : Group) in
+                GroupManager.setGroup(group: group)
+                GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
+                    if isSuccess
+                    {
+                        if let groupInfo = group as? Group
+                        {
+                            let index =  Group.getIndex(arrayGroups: self.arrayOffered, group: groupInfo)
+                            cell.group  = groupInfo
+                            cell.assignData(groupInfo: groupInfo)
+                            self.arrayOffered[index] = groupInfo
+                            self.tblGroups.reloadData()
+                            
+                            
+                            
+                        }
+                    }else
+                    {
+                        showAlert(title: "Drinks", message: error!, controller: self)
+                    }
+                })
+            }
+
                        return cell
         }
      
@@ -132,14 +198,19 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if selectedOption == .Filter
-//        {
-//            let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterSelectionVC") as! FilterSelectionVC
-//            selectionVC.selectType = FilterListing(rawValue: indexPath.row)!
-//            selectionVC.filterDetails = filterDetails
-//            selectionVC.delegate = self
-//            self.navigationController?.pushViewController(selectionVC, animated: true)
-//        }
+        if selectedOption == .BeOffered
+        {
+            
+            let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+            groupVC.groupInfo = arrayBeOffered[indexPath.row]
+            self.navigationController?.pushViewController(groupVC, animated: true)
+        }else{
+            let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+            groupVC.groupInfo = arrayOffered[indexPath.row]
+            self.navigationController?.pushViewController(groupVC, animated: true)
+
+            
+        }
     }
     
 
@@ -149,13 +220,69 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func getBeOfferedGroups()
     {
         
+
+        GroupManager.sharedInstance.getBeOfferedGroup { (isSuccess, response, strError) in
+            
+            if isSuccess{
+                
+                if let groups = response as? [Group]
+                {
+                    self.arrayBeOffered.removeAll()
+                    self.arrayBeOffered = groups
+                    self.tblGroups.reloadData()
+                    
+                    if self.arrayBeOffered.count == 0 {
+                        self.imgViewNoOffer.isHidden = false
+                        self.lblNoOfferFound.isHidden = false
+                        self.tblGroups.isHidden = true
+
+                    }else{
+                        
+                        self.imgViewNoOffer.isHidden = true
+                        self.lblNoOfferFound.isHidden = true
+                        self.tblGroups.isHidden = false
+
+                    }
+
+                    
+                }
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
         
     }
     
     func getOfferedGroups()
     {
-        
-        
+        GroupManager.sharedInstance.getSentOfferedGroup { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let groups = response as? [Group]
+                {
+                    self.arrayOffered.removeAll()
+                    self.arrayOffered = groups
+                    self.tblGroups.reloadData()
+                    
+                    
+                    if self.arrayOffered.count == 0 {
+                        self.imgViewNoOffer.isHidden = false
+                        self.lblNoOfferFound.isHidden = false
+                        self.tblGroups.isHidden = true
+                        
+                        
+
+                    }else{
+                        self.imgViewNoOffer.isHidden = true
+                        self.lblNoOfferFound.isHidden = true
+                        self.tblGroups.isHidden = false
+
+                    }
+                }
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
     }
 
     

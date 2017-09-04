@@ -56,16 +56,22 @@ class GroupCell: UICollectionViewCell {
             lblTag.isHidden = true
         }
         
-        if groupInfo.groupBy == .Other
-        {
-            if groupInfo.drinkedStatus == .Drinked{
-                btnInterested.isSelected = true
-            }else{
-                btnInterested.isSelected = false
-            }
+        if groupInfo.drinkedStatus == .Drinked{
+            btnInterested.isSelected = true
+        }else{
+            btnInterested.isSelected = false
         }
         
-        lblNoOfConditions.text = group.groupConditions.count.description + " Members"
+        if groupInfo.groupBy == .Other
+        {
+            btnInterested.isHidden = false
+
+        }else{
+            //My Own Group
+            btnInterested.isHidden = true
+        }
+        
+        setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfConditions)
     }
     
     
@@ -73,10 +79,8 @@ class GroupCell: UICollectionViewCell {
         if callbackAction != nil
         {
             self.callbackAction!(group!)
-                
-                
-                
-            }
+            
+         }
        
     }
     

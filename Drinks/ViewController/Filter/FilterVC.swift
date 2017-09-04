@@ -134,13 +134,12 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
             selectedOption = .Filter
             btnFilter.backgroundColor = APP_BlueColor
             btnFilter.isSelected = true
-            btnSort.backgroundColor = APP_GaryColor
+            btnSort.backgroundColor = APP_GrayColor
             btnSort.isSelected = false
             
         }else{
             selectedOption = .Sort
-
-            btnFilter.backgroundColor = APP_GaryColor
+            btnFilter.backgroundColor = APP_GrayColor
             btnFilter.isSelected = false
             btnSort.backgroundColor = APP_BlueColor
             btnSort.isSelected = true

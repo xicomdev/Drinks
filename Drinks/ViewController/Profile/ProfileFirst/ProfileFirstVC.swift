@@ -12,23 +12,23 @@ import Photos
 
 
 class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-
+    
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var btnSkip: UIButton!
     @IBOutlet var lblOccupation: UILabel!
+    @IBOutlet weak var lblAge: UILabel!
     var imageSelected : UIImage? = nil
     var datePicker = UIDatePicker()
-
-    @IBOutlet var txtDOB: UITextField!
     
+    @IBOutlet var txtDOB: UITextField!
     @IBOutlet var txtUserName: UITextField!
-
     @IBOutlet var imgViewUser: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
         imgViewUser.cornerRadius(value: imgViewUser.frame.size.width/2)
         imgViewUser.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
-        
-        
         
         datePicker.datePickerMode = UIDatePickerMode.date
         // previousDate
@@ -37,7 +37,8 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         datePicker.setDate(minimumDate!, animated: false)
         
         txtDOB.text = dateFormatter.string(from: minimumDate!)
-     
+        lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
+        LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
         LoginManager.getMe.DOB = txtDOB.text!
         
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
@@ -46,11 +47,11 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         lblOccupation.textColor = UIColor.lightGray
         lblOccupation.text = "Select Occupation"
         txtUserName.text = LoginManager.getMe.fullName
-
-
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,22 +63,28 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     
     
     func dateChanged(_ sender: UIDatePicker) {
-       
+        
         
         let today = NSDate()
         let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         let age = gregorian.components([.year], from: sender.date, to: today as Date, options: [])
         if age.year! >= 18 {
-           txtDOB.text = dateFormatter.string(from: sender.date)
+            txtDOB.text = dateFormatter.string(from: sender.date)
+            lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
+            
+            LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
             LoginManager.getMe.DOB = dateFormatter.string(from: sender.date)
         }else{
             sender.date = today.addingYears(-18)
         }
     }
-
-
+    
+    
     @IBAction func actionCameraPressed(_ sender: UIButton) {
         self.openImageSelection()
+    }
+    
+    @IBAction func btnSkipAction(_ sender: AnyObject) {
     }
     
     @IBAction func actionBtnNextPhase(_ sender: UIButton) {
@@ -104,13 +111,13 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         profileSecondVC.imageSelected = imageSelected
         self.navigationController?.pushViewController(profileSecondVC, animated: true)
         
-
+        
     }
     
     @IBAction func actionBtnOccupation(_ sender: Any) {
         
-          let selectVc = mainStoryBoard.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionVC
-         selectVc.selectType = .Occupation
+        let selectVc = mainStoryBoard.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionVC
+        selectVc.selectType = .Occupation
         selectVc.selectedJob = LoginManager.getMe.job
         selectVc.delegate = self
         self.navigationController?.pushViewController(selectVc, animated: true)
@@ -118,27 +125,27 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     
     @IBAction func actionFillProfilePressed(_ sender: Any) {
         self.view.endEditing(true)
-//        if txtUserName.text!.isStringEmpty() == true{
-//            
-//            showAlert(title: "Drinks", message: "Please enter user name.", controller: self)
-//            return
-//        }
-//        
-//        if LoginManager.getMe.job.ID == ""
-//        {
-//            showAlert(title: "Drinks", message: "Please select your occupation.", controller: self)
-//            return
-//        }
-//        
-//        if txtDOB.text! == ""
-//        {
-//            showAlert(title: "Drinks", message: "Please enter your DOB.", controller: self)
-//            return
-//        }
-//        
-//        let profileSecondVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileSecondVC") as! ProfileSecondVC
-//        profileSecondVC.imageSelected = imageSelected
-//        self.navigationController?.pushViewController(profileSecondVC, animated: true)
+        //        if txtUserName.text!.isStringEmpty() == true{
+        //
+        //            showAlert(title: "Drinks", message: "Please enter user name.", controller: self)
+        //            return
+        //        }
+        //
+        //        if LoginManager.getMe.job.ID == ""
+        //        {
+        //            showAlert(title: "Drinks", message: "Please select your occupation.", controller: self)
+        //            return
+        //        }
+        //
+        //        if txtDOB.text! == ""
+        //        {
+        //            showAlert(title: "Drinks", message: "Please enter your DOB.", controller: self)
+        //            return
+        //        }
+        //
+        //        let profileSecondVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileSecondVC") as! ProfileSecondVC
+        //        profileSecondVC.imageSelected = imageSelected
+        //        self.navigationController?.pushViewController(profileSecondVC, animated: true)
         
     }
     //MARK:- Custom Delegates
@@ -149,7 +156,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         LoginManager.getMe.job = selected as! Job
         lblOccupation.text =  LoginManager.getMe.job.engName
         lblOccupation.textColor = UIColor.black
-
+        
     }
     
     
@@ -202,8 +209,6 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
                 }
             })
         }
-        
-        
     }
     
     
@@ -215,9 +220,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: {
         })
-        
     }
-    
     
     func openGalleryWithPermissions()
     {
@@ -251,15 +254,6 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            
-            //  564x290
-            
-//            let width = KiteManager.getKite.product?.selectedTemplate.templatePhotoWidth
-//            let height = KiteManager.getKite.product?.selectedTemplate.templatePhotoHeight
-//            
-//            let imageCropped = resizeImage(image: pickedImage, size: CGSize(width: width! , height: height! ))
-//            imgViewDefault.isHidden = true
-            
             imgViewUser.image = pickedImage
             imageSelected = pickedImage
             self.dismiss(animated: true, completion: nil)
@@ -271,17 +265,6 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         picker.dismiss(animated: true, completion: nil)
     }
     //MARK:- Custom Delegates
-    //MARK:-
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

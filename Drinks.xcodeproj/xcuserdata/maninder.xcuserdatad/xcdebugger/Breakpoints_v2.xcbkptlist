@@ -74,12 +74,12 @@
                   moduleName = "Drinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maninder/Documents/Drinks/Drinks/Handler/HTTPManager/HTTPRequest.swift"
-                  timestampString = "525962945.492711"
+                  timestampString = "526213619.871284"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "180"
                   endingLineNumber = "180"
-                  offsetFromSymbolStart = "550">
+                  offsetFromSymbolStart = "412">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "Drinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maninder/Documents/Drinks/Drinks/Handler/HTTPManager/HTTPRequest.swift"
-                  timestampString = "525962945.494832"
+                  timestampString = "526213619.873968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "180"
                   endingLineNumber = "180"
-                  offsetFromSymbolStart = "783">
+                  offsetFromSymbolStart = "624">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -201,70 +201,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Home/HomeVC.swift"
-            timestampString = "525787370.244438"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Home/HomeVC.swift"
-            timestampString = "525787370.564499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/LoginManager/LoginManager.swift"
-            timestampString = "525962944.06283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "checkUserExists(handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "525956344.296826"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "postRequest(urlLink:paramters:handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Drinks/Handler/LoginManager/LoginManager.swift"
             timestampString = "525956910.800544"
             startingColumnNumber = "9223372036854775807"
@@ -272,6 +208,278 @@
             startingLineNumber = "75"
             endingLineNumber = "75"
             landmarkName = "checkUserExists(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.CreateGroupVC.textFieldDidBeginEditing (__ObjC.UITextField) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+                  timestampString = "526213619.915173"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "353"
+                  endingLineNumber = "353"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.CreateGroupVC.textFieldDidBeginEditing (__ObjC.UITextField) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+                  timestampString = "526213619.917135"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "353"
+                  endingLineNumber = "353"
+                  offsetFromSymbolStart = "2380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.CreateGroupVC.textFieldDidBeginEditing (__ObjC.UITextField) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+                  timestampString = "526213619.921172"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "353"
+                  endingLineNumber = "353"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.CreateGroupVC.textFieldDidBeginEditing (__ObjC.UITextField) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+                  timestampString = "526213619.923152"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "353"
+                  endingLineNumber = "353"
+                  offsetFromSymbolStart = "2380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "createNewGroup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/CreateGroup/CreateGroupVC.swift"
+            timestampString = "526031601.826879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Model/Group/Group.swift"
+            timestampString = "526046684.783556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "getFilteredGroupListing(filterInfo:handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "526046599.429407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getBeOfferedGroup(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Model/Group/Group.swift"
+            timestampString = "526046684.783556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "init(groupDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Model/Group/Group.swift"
+            timestampString = "526046684.783556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "init(groupDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "526046635.984402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "getSentOfferedGroup(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/LoginManager/LoginManager.swift"
+            timestampString = "526213216.506054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "signUp(image:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

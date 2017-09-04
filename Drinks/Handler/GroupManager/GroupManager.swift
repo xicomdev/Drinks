@@ -43,25 +43,28 @@ class GroupManager: NSObject {
     func sendInterest(handler:@escaping CompletionHandler){
         
         var interestStatus = true
-        
         if self.group.drinkedStatus == .Drinked{
             interestStatus = false
         }
+       
         
         let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : interestStatus , "owner_user_id" : self.group.ownerID!]
-        
+        SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+
             if isSuccess
             {
-                print(response)
-                
+                if self.group.drinkedStatus == .Drinked{
+                    self.group.drinkedStatus = .NotDrinked
+                }else{
+                    self.group.drinkedStatus = .Drinked
+                }
+                handler(true, self.group, nil)
             }else{
-                
-                
+              handler(false, nil, strError!)
             }
         }
-        
-        
         
     }
     
@@ -69,7 +72,54 @@ class GroupManager: NSObject {
     func getBeOfferedGroup(handler:@escaping CompletionHandler)
     {
         
+        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID!]
         
+        print(params)
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_ReceivedOffer  , paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                var arrayList = [Group]()
+                if let arryResponse = response as? [Dictionary<String ,Any>]
+                {
+                    for item in arryResponse{
+                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                        let  groupNew = Group(groupDict: dictGroup)
+                        arrayList.append(groupNew)
+                    }
+                }
+                handler(true , arrayList, strError)
+            }else{
+                handler(false , nil, strError)
+            }
+        }
+
+    }
+    
+    func getSentOfferedGroup(handler:@escaping CompletionHandler)
+    {
+        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID!]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_SentOffer  , paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                var arrayList = [Group]()
+                if let arryResponse = response as? [Dictionary<String ,Any>]
+                {
+                    for item in arryResponse
+                    {
+                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                        let  groupNew = Group(groupDict: dictGroup)
+                        arrayList.append(groupNew)
+                   }
+                }
+                handler(true , arrayList, strError)
+            }else{
+                handler(false , nil, strError)
+            }
+        }
     }
     
 }

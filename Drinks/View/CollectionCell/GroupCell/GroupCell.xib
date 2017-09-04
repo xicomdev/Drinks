@@ -24,16 +24,16 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-ea-0AI">
                         <rect key="frame" x="0.0" y="0.0" width="222" height="319"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="go6-89-14G" secondAttribute="height" multiplier="15:14" id="iEj-1t-2Ou"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
-                                <rect key="frame" x="166" y="188" width="38" height="38"/>
+                                <rect key="frame" x="155" y="182.5" width="49" height="49"/>
                                 <state key="normal" image="Accept"/>
-                                <state key="selected" image="Tick"/>
+                                <state key="selected" image="Accepted"/>
                                 <connections>
                                     <action selector="actionBtnDrinked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3Ac-b7-490"/>
                                 </connections>
@@ -78,25 +78,25 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Persons" translatesAutoresizingMaskIntoConstraints="NO" id="i0a-Qi-IR5">
-                                <rect key="frame" x="15" y="225" width="17" height="15"/>
+                                <rect key="frame" x="15" y="228" width="17" height="15"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="v4M-lx-KDm">
-                                <rect key="frame" x="106" y="224" width="14" height="17"/>
+                                <rect key="frame" x="106" y="227" width="14" height="17"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Persons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywz-WT-WN5">
-                                <rect key="frame" x="15" y="244" width="81" height="15.5"/>
+                                <rect key="frame" x="15" y="247" width="81" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peddlers, Elante Mall, Chd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-CZ-r02">
-                                <rect key="frame" x="106" y="244" width="111" height="15.5"/>
+                                <rect key="frame" x="106" y="247" width="111" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5 Miles Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmq-QB-NYk">
-                                <rect key="frame" x="125" y="229.5" width="60.5" height="12.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmq-QB-NYk">
+                                <rect key="frame" x="125" y="239" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                             <constraint firstItem="i0a-Qi-IR5" firstAttribute="leading" secondItem="fQp-Ac-zP8" secondAttribute="leading" id="Man-aD-zI5"/>
                             <constraint firstItem="ywz-WT-WN5" firstAttribute="top" secondItem="i0a-Qi-IR5" secondAttribute="bottom" constant="4" id="Na7-sz-FH0"/>
                             <constraint firstItem="cdH-OK-lYy" firstAttribute="centerX" secondItem="RxR-ea-0AI" secondAttribute="centerX" id="PAP-JG-OQP"/>
-                            <constraint firstItem="fQp-Ac-zP8" firstAttribute="bottom" secondItem="i0a-Qi-IR5" secondAttribute="top" constant="-10" id="PH1-TC-RNp"/>
+                            <constraint firstItem="fQp-Ac-zP8" firstAttribute="bottom" secondItem="i0a-Qi-IR5" secondAttribute="top" constant="-13" id="PH1-TC-RNp"/>
                             <constraint firstItem="iMd-CZ-r02" firstAttribute="top" secondItem="ywz-WT-WN5" secondAttribute="top" id="UZL-8j-cFr"/>
                             <constraint firstItem="go6-89-14G" firstAttribute="bottom" secondItem="Ngm-Dr-QWF" secondAttribute="centerY" id="b0d-S5-hdy"/>
                             <constraint firstItem="go6-89-14G" firstAttribute="top" secondItem="RxR-ea-0AI" secondAttribute="top" id="bAB-Mq-W5J"/>
@@ -157,14 +157,14 @@
                 <outlet property="lblTag" destination="fQp-Ac-zP8" id="xpH-lj-x3G"/>
                 <outlet property="viewOuter" destination="RxR-ea-0AI" id="HNV-OF-vnc"/>
             </connections>
-            <point key="canvasLocation" x="-359" y="-85"/>
+            <point key="canvasLocation" x="-493" y="-80"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Accept" width="38" height="38"/>
+        <image name="Accept" width="49" height="49"/>
+        <image name="Accepted" width="49" height="49"/>
         <image name="Location" width="14" height="17"/>
         <image name="Persons" width="17" height="15"/>
-        <image name="Tick" width="11" height="8"/>
         <image name="UserPlaceHolder" width="84" height="84"/>
     </resources>
 </document>

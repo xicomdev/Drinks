@@ -28,7 +28,8 @@ class OwnerCell: UITableViewCell {
         
         lblName.text = LoginManager.getMe.fullName
         lblOccupation.text = LoginManager.getMe.job.engName
-    
+        imgViewOwner.sd_setImage(with: URL(string : LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
+        
     }
     
 }

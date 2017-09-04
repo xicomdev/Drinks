@@ -133,7 +133,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
         group.groupDescription = viewFooter.txtViewDescription.text.removeEndingSpaces()
         group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
-       
+        group.tagEnabled = self.tagEnabled
+
         
         if appDelegate().appLocation == nil
         {
@@ -237,7 +238,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"LocationCell") as! LocationCell
                 
-                
                 if appDelegate().appLocation != nil
                 {
                     cell.lblLocationName.text = appDelegate().appLocation?.LocationName!
@@ -292,13 +292,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                         
                         if action == .DELETE
                         {
-                            
                             self.view.endEditing(true)
                             let cell = test as! GroupInfoCell
                             let index = self.tblCreateGroup.indexPath(for: cell)
                             self.group.groupConditions.remove(at: (index?.row)!)
                             self.tblCreateGroup.reloadData()
-                            
                         }
                         
                     }

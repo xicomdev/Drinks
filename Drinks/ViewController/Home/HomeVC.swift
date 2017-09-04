@@ -22,13 +22,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
         self.view.layoutIfNeeded()
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .black
 
         self.navigationItem.hidesBackButton = true
         let btnRightBar:UIBarButtonItem =  UIBarButtonItem.init(image:UIImage(named: "FilterOption"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.actionBtnDonePressed))
         
         self.navigationItem.rightBarButtonItem = btnRightBar
-        self.navTitle(title:"Search" , color: UIColor.black , font:  FontRegular(size: 18))
+        self.navTitle(title:"Search" , color: UIColor.black , font:  FontRegular(size: 17))
         
         
         
@@ -45,7 +45,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         self.navigationController?.isNavigationBarHidden = false
         
 
@@ -56,19 +55,19 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func actionBtnDonePressed(){
-        
+    func actionBtnDonePressed()
+    {
         let filterVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
         filterVC.filterDelegate = self
         filterVC.filterDetails = globalFilter
         let navigation = UINavigationController(rootViewController: filterVC)
         self.navigationController?.present(navigation, animated: true, completion: nil)
-        
     }
     
     @IBAction func actionBtnCreateGroup(_ sender: UIButton) {
-        let camera =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
-        let navigation = UINavigationController(rootViewController: camera)
+        let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+        createGroupVC.delegate = self
+        let navigation = UINavigationController(rootViewController: createGroupVC)
         self.navigationController?.present(navigation, animated: true, completion: nil)
         
     }
@@ -87,20 +86,23 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.assignData(groupInfo: arrayGroups[indexPath.row])
         cell.callbackAction = { (group : Group) in
-            
-        GroupManager.setGroup(group: group)
+            GroupManager.setGroup(group: group)
             GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
                 if isSuccess
                 {
-                    
-                    
+                    if let groupInfo = group as? Group
+                    {
+                      let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
+                        cell.group  = groupInfo
+                        cell.assignData(groupInfo: groupInfo)
+                        self.arrayGroups[index] = groupInfo
+                        self.collectionViewGroup.reloadData()
+                    }
                 }else
                 {
-                    
-                    
+                    showAlert(title: "Drinks", message: error!, controller: self)
                 }
             })
-            
         }
          return cell
     }
@@ -141,6 +143,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
         groupVC.groupInfo = arrayGroups[indexPath.row]
         self.navigationController?.pushViewController(groupVC, animated: true)
+        
     }
     
     //MARK:- Get Groups

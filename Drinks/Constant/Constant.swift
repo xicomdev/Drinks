@@ -22,7 +22,7 @@ let APP_BarColor = UIColor(red: 51.0/255.0, green: 151.0/255.0, blue: 241.0/255.
 
 let APP_BlueColor = UIColor(red: 44.0/255.0, green: 128.0/255.0, blue: 255.0/255.0, alpha: 1)
 
-let APP_GaryColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1)
+let APP_GrayColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1)
 
 
 
@@ -71,6 +71,11 @@ let API_Register = "registerFacebook"
 let API_AddGroup = "addGroup"
 let API_GetGroups = "getGroups"
 let API_Interest = "showInterest"
+let API_ReceivedOffer = "receivedOffers"
+
+let API_SentOffer = "sentOffers"
+
+
 
 
 
@@ -89,10 +94,15 @@ let arrayAge : [String] = ["20 - 25", "26 - 30", "31 - 35" , "36 - 40" , "41 - 4
 let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
 
 let arrayPeople : [Int] = [1, 2, 3 , 4 , 5 ]
+var arrayMsgs = [("HEllo",0),("Hii",1)]
 
 
+let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Options"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
 
-//let arrayMarriage = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
-//let arrayBlood = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
-//let arrayBlood = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
-//let arrayBlood = [["engName" : "A+","ID" : "1"],["engName" : "B+","ID" : "2"],["engName" : "AB+","ID" : "1"],["engName" : "O+","ID" : "1"],["engName" : "O-","ID" : "1"] ]
+var aryNotification = [["title":"When I recieved an offer","boolValue":false],["title":"When matching","boolValue":false],["title":"When I got a message","boolValue":false],["title":"Notice","boolValue":false]]
+
+var arySettings = [["Help","Opinions", "inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
+
+var aryHelp = ["What is Drinks","In order to use with confidence","Violation report response policy","How to raise the matching rate","About withdrawal"]
+
+

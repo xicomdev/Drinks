@@ -31,9 +31,8 @@ class GroupLocationCell: UITableViewCell {
         group = groupDetail
         if group != nil
         {
-            lblMemberCount.text = (group?.groupConditions.count.description)! + " Members"
+             setNoOfMembers(groups: (group?.groupConditions)!, label: self.lblMemberCount)
               lblLocation.text = group?.location?.LocationName!
-            
         }
     }
 

@@ -59,9 +59,22 @@ class GroupImageCell: UITableViewCell {
             if group?.tagEnabled == true{
                 self.lblTag.isHidden = false
             }
+            
+            if group?.groupBy == .Other
+            {
+                if group?.drinkedStatus == .Drinked{
+                    btnAccept.isSelected = true
+                }else{
+                    btnAccept.isSelected = false
+                }
+            }else{
+                //My Own Group
+               // btnAccept.isHidden = true
+            }
+            
+        
+
         }
-        
-        
     }
     
 }

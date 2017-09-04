@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         
         dateFormatter.dateFormat = "YYYY/MM/dd"
 
-      //  Job.saveJobListing()
+      Job.saveJobListing()
         
         self.intializeLocationManager()
         

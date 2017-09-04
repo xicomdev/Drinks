@@ -138,8 +138,9 @@ class LoginManager: NSObject {
     func signUp(image : [MSImage] , handler:@escaping CompletionHandler )
     {
         
-        let parms = ["fb_id" : self.me.socialID , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL ]
+        let parms : [String : Any] = ["fb_id" : self.me.socialID! , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL ]
         
+        print(parms)
         
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_Register, paramters: parms, Images: image) { (success, response, strError) in
             if success{
