@@ -53,7 +53,6 @@ class User: NSObject,NSCoding
     
     var profileStatus : ProfileStatus = .Pending
     
-    
     override init()
     {
         ID = ""
@@ -62,7 +61,6 @@ class User: NSObject,NSCoding
         password  = ""
         phoneNumber  = ""
         sessionID = ""
-
         socialID = ""
     }
     
@@ -134,19 +132,13 @@ class User: NSObject,NSCoding
         */
         
     }
-    
-    
-    
-    
-    
+
     convenience init(dictOwner : Any) {
         self.init()
-        
         
         guard let dictLocal = dictOwner as? Dictionary<String, Any> else {
             return
         }
-        
         
         self.job = Job(jobInfo: dictLocal["job"])
         self.DOB = dictLocal["dob"] as! String
@@ -169,7 +161,6 @@ class User: NSObject,NSCoding
         
     }
 
-    
     required init?(coder aDecoder: NSCoder) {
         
         let name: String? = aDecoder.decodeObject(forKey: "fullName") as? String
@@ -207,6 +198,11 @@ class User: NSObject,NSCoding
             self.imageURL = imgeURL!;
         }
 
+        let dob : String? = aDecoder.decodeObject(forKey: "dob") as? String
+        if dob != nil
+        {
+            self.DOB = dob!;
+        }
         
         let schoolCareer : String? = aDecoder.decodeObject(forKey: "schoolCareer") as? String
         if schoolCareer != nil {
@@ -237,12 +233,11 @@ class User: NSObject,NSCoding
             self.tabaco = tabaco!;
         }
 
-        let job : Job? = aDecoder.decodeObject(forKey: "Job") as? Job
+        let job : Job? = aDecoder.decodeObject(forKey: "job") as? Job
         if job != nil {
             self.job = job!;
         }
        
-        
     }
     
     public func encode(with aCoder: NSCoder) {
@@ -260,11 +255,7 @@ class User: NSObject,NSCoding
         aCoder.encode(self.tabaco, forKey: "tabaco")
         aCoder.encode(self.imageURL, forKey: "imageURL")
         aCoder.encode(self.job, forKey: "job")
-
-
-
+        aCoder.encode(self.DOB, forKey: "dob")
     }
     
-    
-
 }

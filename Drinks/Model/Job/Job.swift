@@ -91,7 +91,7 @@ class Job: NSObject,NSCoding {
                     if let response = response as? [String: Any]
                     {
                         
-                        let arrayResponse = response["job_list"] as! [Any]
+                        let arrayResponse = response["job_list"] as! [[String: Any]]
                         print(arrayResponse)
                         var arrState = [Job]()
                         for item in arrayResponse

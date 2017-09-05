@@ -15,6 +15,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         super.viewDidLoad()
 
         tblvwHelp.registerNibsForCells(arryNib: ["SettingsCell"])
+        tblvwHelp.tableFooterView = UIView()
         tblvwHelp.delegate = self
         tblvwHelp.dataSource = self
         tblvwHelp.reloadData()
@@ -22,6 +23,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
+        self.navigationController!.popViewController(animated: true)
     }
 
     //MARK: - Tableview delegate and datasource methods

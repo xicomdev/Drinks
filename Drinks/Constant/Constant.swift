@@ -64,7 +64,6 @@ enum GroupBy : String
     case Other = "OtherGroup"
 }
 
-
 let API_GetJobs = "memberJob"
 let API_CheckUserExisting = "newCheck"
 let API_Register = "registerFacebook"
@@ -74,10 +73,7 @@ let API_Interest = "showInterest"
 let API_ReceivedOffer = "receivedOffers"
 
 let API_SentOffer = "sentOffers"
-
-
-
-
+let API_UpdateProfile = "editProfile"
 
 
 

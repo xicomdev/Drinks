@@ -33,7 +33,7 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         tblChat.delegate = self
         tblChat.dataSource = self
         tblChat.reloadData()
-        
+        self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
     }
     
     func actionBtnBackPressed() {
@@ -52,18 +52,17 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         txtVWMsg.text = ""
         bottomMsgVwHgt.constant = 50
         tblChat.reloadData()
+        self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.startKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = false
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
     }
     override func viewWillDisappear(_ animated: Bool)  {
         super.viewDidDisappear(animated)
         self.stopKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
     }
     //MARK :- Handle Keyboard
     fileprivate func startKeyboardObserver()  {
@@ -89,6 +88,16 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         bottomMargin.constant = 0
     }
     
+    func scrollToBottomInitial() {
+        let oldCount: Int = arrayMsgs.count
+        if oldCount != 0  {
+            let lastRowNumber: Int = tblChat.numberOfRows(inSection: 0) - 1
+            if lastRowNumber > 0 {
+                let ip: IndexPath = IndexPath(row: lastRowNumber, section: 0)
+                tblChat.scrollToRow(at: ip, at: .bottom, animated: true)
+            }
+        }
+    }
     func textViewDidChange(_ textView: UITextView) {
         let fixedWidth = textView.frame.size.width
         let newHeight = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude)).height

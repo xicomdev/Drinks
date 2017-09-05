@@ -17,6 +17,8 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tblVwSettings.registerNibsForCells(arryNib: ["SettingsCell"])
         let nibHeader = UINib(nibName: "SelectionHeader", bundle: nil)
         tblVwSettings.register(nibHeader, forHeaderFooterViewReuseIdentifier: "SelectionHeader")
+        tblVwSettings.tableFooterView = UIView()
+
         tblVwSettings.delegate = self
         tblVwSettings.dataSource = self
         tblVwSettings.reloadData()
@@ -24,7 +26,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBAction func btnCrossAction(_ sender: AnyObject) {
         
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true)
     }
     
     //MARK: - Tableview delegate and datasource methods

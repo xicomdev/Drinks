@@ -25,7 +25,7 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true)
     }    
    
     //MARK: - TableView delegate and datasource methods

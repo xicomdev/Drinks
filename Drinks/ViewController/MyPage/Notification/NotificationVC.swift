@@ -14,14 +14,15 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tblVwNotification.registerNibsForCells(arryNib: ["NotficationCell"])
+        tblVwNotification.registerNibsForCells(arryNib: ["NotificationCell"])
+        tblVwNotification.tableFooterView = UIView()
         tblVwNotification.delegate = self
         tblVwNotification.dataSource = self
         tblVwNotification.reloadData()
     }
 
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true)
     }
 
     //MARK: - Tableview delegate and datsource methods
@@ -38,8 +39,9 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tblVwNotification.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         cell.btnSwitch.addTarget(self, action: #selector(self.switchActon(_:)), for: .valueChanged)
         cell.btnSwitch.tag = indexPath.row
-        cell.btnSwitch.isEnabled = aryNotification[indexPath.row]["boolValue"] as! Bool
+        cell.btnSwitch.isOn = aryNotification[indexPath.row]["boolValue"] as! Bool
         cell.lblTitle.text = aryNotification[indexPath.row]["title"] as? String
+        cell.selectionStyle = .none
         return cell
     }
     

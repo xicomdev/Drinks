@@ -26,28 +26,34 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        imgVwDP.cornerRadius(value: self.view.frame.width/6)
+        imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
+        lblNameAge.text = "\(LoginManager.getMe.fullName!) (\(LoginManager.getMe.age))"
+        lblOccupation.text =  LoginManager.getMe.job.engName
+        
         let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
         collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
         
-        let groupNib = UINib(nibName: "MyPageGroupsCell", bundle: nil)
-        collctnVwGroups.register(groupNib, forCellWithReuseIdentifier: "MyPageGroupsCell")
+//        let groupNib = UINib(nibName: "MyPageGroupsCell", bundle: nil)
+//        collctnVwGroups.register(groupNib, forCellWithReuseIdentifier: "MyPageGroupsCell")
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1
         clctnNavBtnHgt.constant = CGFloat(noOfLines * Int(self.view.frame.width/3))
         collctnVwNavBtns.isScrollEnabled = false
         
-        imgVwDP.image = #imageLiteral(resourceName: "UserPlaceHolder")
-        imgVwDP.layer.cornerRadius = self.view.frame.width/6
-        
         collctnVwNavBtns.delegate = self
         collctnVwNavBtns.dataSource = self
         collctnVwNavBtns.reloadData()
-        collctnVwGroups.delegate = self
-        collctnVwGroups.dataSource = self
-        collctnVwGroups.reloadData()
-    }
+//        collctnVwGroups.delegate = self
+//        collctnVwGroups.dataSource = self
+//        collctnVwGroups.reloadData()
 
+
+    }
     @IBAction func btnStatusAction(_ sender: AnyObject) {
     }
     
@@ -92,13 +98,32 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             switch indexPath.item {
             case 0:
                 let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "PaidMemberVC") as! PaidMemberVC
-                self.present(paidMemberVc, animated: true, completion:nil)
+                paidMemberVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(paidMemberVc, animated: true)
+            case 1:
+                let ticketVc = mainStoryBoard.instantiateViewController(withIdentifier: "PurchaseTicketVC") as! PurchaseTicketVC
+                ticketVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(ticketVc, animated: true)
             case 2:
-                let ageVerifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "AgeVerificationDetailsVC") as! AgeVerificationDetailsVC
-                self.present(ageVerifyVc, animated: true, completion:nil)
-            case 5:
+                let profileVc = mainStoryBoard.instantiateViewController(withIdentifier: "UpdateProfileVC") as! UpdateProfileVC
+                profileVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(profileVc, animated: true)
+            case 3:
+                let settingVc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+                settingVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(settingVc, animated: true)
+            case 4:
                 let couponVc = mainStoryBoard.instantiateViewController(withIdentifier: "CouponVC") as! CouponVC
-                self.present(couponVc, animated: true, completion:nil)
+                couponVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(couponVc, animated: true)
+            case 5:
+                let notificationVc = mainStoryBoard.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
+                notificationVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(notificationVc, animated: true)
+            case 6:
+                let helpVc = mainStoryBoard.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
+                helpVc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(helpVc, animated: true)
             default:
                 break
             }

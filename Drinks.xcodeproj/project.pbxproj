@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25EEFB6C1F5E70FE0045EE87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25EEFB6B1F5E70FE0045EE87 /* Info.plist */; };
+		25F7D7751F5ECC78009C01A7 /* PurchaseTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7D7731F5ECC78009C01A7 /* PurchaseTicketCell.swift */; };
+		25F7D7761F5ECC78009C01A7 /* PurchaseTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F7D7741F5ECC78009C01A7 /* PurchaseTicketCell.xib */; };
+		25F7D7791F5ECF9A009C01A7 /* PurchaseTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7D7781F5ECF9A009C01A7 /* PurchaseTicketVC.swift */; };
 		63286D091F54012700D33C3A /* FilterSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63286D081F54012700D33C3A /* FilterSelectionVC.swift */; };
 		637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA41F3C86C200235578 /* AssetManager.swift */; };
 		637AFFA71F3C86C200235578 /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA51F3C86C200235578 /* CameraMan.swift */; };
@@ -189,8 +193,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25EEFB6B1F5E70FE0045EE87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25F7D7731F5ECC78009C01A7 /* PurchaseTicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTicketCell.swift; sourceTree = "<group>"; };
+		25F7D7741F5ECC78009C01A7 /* PurchaseTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTicketCell.xib; sourceTree = "<group>"; };
+		25F7D7781F5ECF9A009C01A7 /* PurchaseTicketVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTicketVC.swift; sourceTree = "<group>"; };
 		63286D081F54012700D33C3A /* FilterSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSelectionVC.swift; sourceTree = "<group>"; };
-		637AFF961F3C597E00235578 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/maninder/Documents/Drinks/Drinks/Info.plist; sourceTree = "<absolute>"; };
 		637AFFA41F3C86C200235578 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		637AFFA51F3C86C200235578 /* CameraMan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMan.swift; sourceTree = "<group>"; };
 		637AFFA81F3C872C00235578 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -424,6 +431,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25F7D7721F5ECC55009C01A7 /* PurchaseTicket */ = {
+			isa = PBXGroup;
+			children = (
+				25F7D7731F5ECC78009C01A7 /* PurchaseTicketCell.swift */,
+				25F7D7741F5ECC78009C01A7 /* PurchaseTicketCell.xib */,
+			);
+			path = PurchaseTicket;
+			sourceTree = "<group>";
+		};
+		25F7D7771F5ECF87009C01A7 /* PurchaseTicket */ = {
+			isa = PBXGroup;
+			children = (
+				25F7D7781F5ECF9A009C01A7 /* PurchaseTicketVC.swift */,
+			);
+			path = PurchaseTicket;
+			sourceTree = "<group>";
+		};
 		636B5FEA1F540012008F204C /* FilterSelectionVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,7 +565,7 @@
 				639954CA1F29ADA00025E9C6 /* ViewController */,
 				639954371F29AAC90025E9C6 /* Main.storyboard */,
 				639954DC1F29BEE10025E9C6 /* Drinks-Bridging-Header.h */,
-				637AFF961F3C597E00235578 /* Info.plist */,
+				25EEFB6B1F5E70FE0045EE87 /* Info.plist */,
 				6399543D1F29AAC90025E9C6 /* Assets.xcassets */,
 				6399543F1F29AAC90025E9C6 /* LaunchScreen.storyboard */,
 				639954E51F29CDE70025E9C6 /* Localizable.strings */,
@@ -855,6 +879,7 @@
 		63B824331F5D657200BA9F62 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				25F7D7771F5ECF87009C01A7 /* PurchaseTicket */,
 				63B824341F5D657200BA9F62 /* AgeVerification */,
 				63B824361F5D657200BA9F62 /* Coupon */,
 				63B824391F5D657200BA9F62 /* Help */,
@@ -1083,6 +1108,7 @@
 		63D7F1851F32F76D000E27AF /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				25F7D7721F5ECC55009C01A7 /* PurchaseTicket */,
 				63B824591F5D65F200BA9F62 /* Message */,
 				63B824621F5D65F200BA9F62 /* Notification */,
 				63B824651F5D65F200BA9F62 /* PaidMember */,
@@ -1350,6 +1376,7 @@
 				639954411F29AAC90025E9C6 /* LaunchScreen.storyboard in Resources */,
 				63A995181F349F69005DDFA4 /* GroupCell.xib in Resources */,
 				63B824701F5D65F200BA9F62 /* RecievedMsgCell.xib in Resources */,
+				25F7D7761F5ECC78009C01A7 /* PurchaseTicketCell.xib in Resources */,
 				63B824781F5D65F200BA9F62 /* SettingsCell.xib in Resources */,
 				63B86B4A1F46C6CC00E3CA55 /* ProfileGroupOwnerCell.xib in Resources */,
 				6399543E1F29AAC90025E9C6 /* Assets.xcassets in Resources */,
@@ -1374,6 +1401,7 @@
 				63F35CBF1F417440001600D4 /* GroupInfoCell.xib in Resources */,
 				63ED46921F45A04800B60BB1 /* DescriptionCell.xib in Resources */,
 				63ED468E1F4596DA00B60BB1 /* GroupImageCell.xib in Resources */,
+				25EEFB6C1F5E70FE0045EE87 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1407,6 +1435,7 @@
 				63D7F17F1F32EF6D000E27AF /* SelectionVC.swift in Sources */,
 				63D7F1AD1F330C13000E27AF /* IQTextView.swift in Sources */,
 				63D7F1AF1F330C13000E27AF /* IQPreviousNextView.swift in Sources */,
+				25F7D7791F5ECF9A009C01A7 /* PurchaseTicketVC.swift in Sources */,
 				63D7F1BA1F331014000E27AF /* MSImage.swift in Sources */,
 				63B8246F1F5D65F200BA9F62 /* RecievedMsgCell.swift in Sources */,
 				63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */,
@@ -1425,6 +1454,7 @@
 				63A995171F349F69005DDFA4 /* GroupCell.swift in Sources */,
 				63B8244D1F5D657200BA9F62 /* PaidMemberVC.swift in Sources */,
 				637AFFA91F3C872C00235578 /* Helper.swift in Sources */,
+				25F7D7751F5ECC78009C01A7 /* PurchaseTicketCell.swift in Sources */,
 				639954DB1F29B8E90025E9C6 /* User.swift in Sources */,
 				639954D11F29AF800025E9C6 /* AppDelegate.swift in Sources */,
 				637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */,
@@ -1627,7 +1657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.Drinks;
@@ -1675,7 +1705,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.Drinks;
 				PROVISIONING_PROFILE = "3a1aedfc-a083-43d3-9c0e-5d3c98241211";
@@ -1699,7 +1729,7 @@
 					"$(PROJECT_DIR)/Drinks/Libraries/Google",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Drinks/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1725,7 +1755,7 @@
 					"$(PROJECT_DIR)/Drinks/Libraries/Google",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Drinks/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";

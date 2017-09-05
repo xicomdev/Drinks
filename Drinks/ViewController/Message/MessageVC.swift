@@ -26,6 +26,8 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         tableviewGroupMessages.delegate = self
         tableviewGroupMessages.dataSource = self
         tableviewGroupMessages.reloadData()
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,12 +51,12 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if btnDrinkToday.isSelected {
-            return 160
+            return 180
         }else {
             return 94
         }
@@ -75,9 +77,11 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if btnDrinkToday.isSelected {
             let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
+            chatvc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(chatvc, animated: true)
         }else {
             let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "HistoryChatVC") as! HistoryChatVC
+            chatvc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(chatvc, animated: true)
         }
     }

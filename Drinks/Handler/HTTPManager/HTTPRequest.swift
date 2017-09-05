@@ -89,8 +89,6 @@ class HTTPRequest: NSObject {
                 }
             }
             
-        
-            
         }) { (task, error) in
             let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
             let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
@@ -154,13 +152,14 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
     }
     
     
-    
-    
     func postMulipartRequest( urlLink: String, paramters: Dictionary<String ,Any>?,  Images : [MSImage] , handler:@escaping CompletionHandler){
         
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
         let manager = AFHTTPSessionManager()
-        
+        if urlLink == API_UpdateProfile {
+            self.setHeader(manager)
+        }
+
         print(strFinalURL)
         manager.post(strFinalURL, parameters: paramters, constructingBodyWith: { (formData) in
            

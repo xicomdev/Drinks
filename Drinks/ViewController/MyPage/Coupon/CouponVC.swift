@@ -20,7 +20,7 @@ class CouponVC: UIViewController {
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController!.popViewController(animated: true)
     }
     
     @IBAction func btnShareCodeAction(_ sender: AnyObject) {

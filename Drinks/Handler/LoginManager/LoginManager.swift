@@ -32,8 +32,6 @@ class LoginManager: NSObject {
          LoginManager.sharedInstance.me = user
     }
     
- 
-    
     override init() {
         super.init()
         let me = self.getMeArchiver()
@@ -224,6 +222,59 @@ class LoginManager: NSObject {
     }
     
     
+    func updateProfile(image : [MSImage] , handler:@escaping CompletionHandler )
+    {
+        
+        let parms : [String : Any] = ["fb_id" : self.me.socialID! , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL ]
+        
+        print(parms)
+        
+        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_UpdateProfile, paramters: parms, Images: image) { (success, response, strError) in
+            if success{
+                if let dictResponse = response as? Dictionary<String ,Any>
+                {
+                    let dictUser = dictResponse["User"]  as? Dictionary<String ,Any>
+                    if dictUser != nil
+                    {
+                        
+                        self.me.fullName = dictUser?["full_name"] as! String
+                        let jobDict = dictUser?["job"] as! Dictionary< String, Any>
+                        
+                        self.me.job = Job(jobInfo: jobDict)
+                        self.me.ID =  dictUser?["id"] as! String
+                        self.me.bloodGroup =  dictUser?["blood_type"] as! String
+                        self.me.annualIncome =  dictUser?["annual_income"] as! String
+                        self.me.DOB =  dictUser?["dob"] as! String
+                        self.me.relationship =  dictUser?["marriage"] as! String
+                        self.me.schoolCareer =  dictUser?["school_career"] as! String
+                        self.me.socialID =  dictUser?["fb_id"] as! String
+                        
+                        self.me.tabaco =  dictUser?["tabaco"] as! String
+                        
+                        if let imageURL = dictUser?["image"] as? String
+                        {
+                            self.me.imageURL = imageURL
+                            
+                        }else if let fbImageURL = dictUser?["fb_image"] as? String
+                        {
+                            self.me.imageURL = fbImageURL
+                            
+                        }
+                        
+                        self.saveUserProfile()
+                        handler(true , self.me, strError)
+                    }
+                }
+                
+            }else
+            {
+                
+                handler(false , nil, strError)
+            }
+        }
+        
+        
+    }
     
     
     //MARK:- User default functions

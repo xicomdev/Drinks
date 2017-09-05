@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="79"/>
+                <frame key="frameInset" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpS-ZP-mjC" customClass="SetCornerButton" customModule="Drinks" customModuleProvider="target">
@@ -61,7 +61,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="¥2000/mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="y9T-0G-FFo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" text="¥2000/month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="y9T-0G-FFo">
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" red="0.17254901959999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -83,7 +83,6 @@
                     <constraint firstItem="ob2-cO-JVh" firstAttribute="leading" secondItem="y9T-0G-FFo" secondAttribute="trailing" constant="10" id="joI-zl-uv9"/>
                     <constraint firstItem="y9T-0G-FFo" firstAttribute="leading" secondItem="PpS-ZP-mjC" secondAttribute="trailing" constant="10" id="lXy-vs-slw"/>
                     <constraint firstItem="ob2-cO-JVh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="p52-ZH-rTt"/>
-                    <constraint firstItem="OhR-fi-j63" firstAttribute="width" secondItem="y9T-0G-FFo" secondAttribute="width" id="uMz-gn-9qE"/>
                     <constraint firstItem="OhR-fi-j63" firstAttribute="leading" secondItem="y9T-0G-FFo" secondAttribute="leading" id="zWT-8X-aEU"/>
                 </constraints>
             </tableViewCellContentView>
