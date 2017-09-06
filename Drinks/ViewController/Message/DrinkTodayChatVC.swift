@@ -19,6 +19,10 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     @IBOutlet weak var lblNoOfPersons: UILabel!
     @IBOutlet weak var lblGroupTag: UILabel!
     @IBOutlet weak var imgVwGroup: UIImageView!
+    
+    var arrayMsgs = [Message]()
+    var otherUserId = "2"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,9 +40,23 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
 
         tblChat.delegate = self
         tblChat.dataSource = self
-        tblChat.reloadData()
         self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.startKeyboardObserver()
+        IQKeyboardManager.sharedManager().enable = false
+        arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
+        tblChat.reloadData()
+        
+    }
+    override func viewWillDisappear(_ animated: Bool)  {
+        super.viewDidDisappear(animated)
+        self.stopKeyboardObserver()
+        IQKeyboardManager.sharedManager().enable = true
+        
+    }
+
     
     func actionBtnBackPressed() {
         self.navigationController!.popViewController(animated: true)
@@ -53,25 +71,22 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     }
     
     func sendMsg() {
-        arrayMsgs.append((txtVWMsg.text!,1))
+        let msgDict = [
+            "msgId":"1",
+            "msgContent": txtVWMsg.text!,
+            "timestamp": "\(Date().timeIntervalSince1970)",
+            "senderId": "1",
+            "recieverId": "\(otherUserId)"
+        ]
+        
+        MessageManager.shared.saveMsgs([msgDict])
+        arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
         txtVWMsg.text = ""
         bottomMsgVwHgt.constant = 50
         tblChat.reloadData()
         self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.startKeyboardObserver()
-        IQKeyboardManager.sharedManager().enable = false
-
-    }
-    override func viewWillDisappear(_ animated: Bool)  {
-        super.viewDidDisappear(animated)
-        self.stopKeyboardObserver()
-        IQKeyboardManager.sharedManager().enable = true
-
-    }
     //MARK :- Handle Keyboard
     fileprivate func startKeyboardObserver()  {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -109,8 +124,11 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     func textViewDidChange(_ textView: UITextView) {
         let fixedWidth = textView.frame.size.width
         let newHeight = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude)).height
-        if newHeight > 34 {
+        print(newHeight)
+        if newHeight > 34 && newHeight < 85{
             bottomMsgVwHgt.constant = newHeight + 16
+        }else if newHeight > 85{
+            bottomMsgVwHgt.constant = 85
         }else {
             bottomMsgVwHgt.constant = 50
         }
@@ -123,15 +141,17 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let msgTuple:(String,Int) = arrayMsgs[indexPath.row]
+        let msgObj: Message = arrayMsgs[indexPath.row]
         let returnCell : UITableViewCell!
-        if msgTuple.1 == 1 {
+        if msgObj.senderId == "1" {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "SentMsgCell", for: indexPath) as! SentMsgCell
-            cell.lblMsg.text = msgTuple.0
+            cell.lblMsg.text = msgObj.msgContent
+            cell.lblTime.text = msgObj.timestamp.getTimeFromTimestamp()
             returnCell = cell
         }else {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "RecievedMsgCell", for: indexPath) as! RecievedMsgCell
-            cell.lblMsg.text = msgTuple.0
+            cell.lblTime.text = msgObj.timestamp.getTimeFromTimestamp()
+            cell.lblMsg.text = msgObj.msgContent
             returnCell = cell
         }
         returnCell.layoutSubviews()

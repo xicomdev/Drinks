@@ -240,15 +240,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             })
         }
     }
-    
-    
-
-    
-    
-    
-    
-    
-
-
+ 
 }
 

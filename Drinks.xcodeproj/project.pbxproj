@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25D4B6011F5FAA0F002507B8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D4B6001F5FAA0F002507B8 /* Message.swift */; };
+		25D4B6041F5FD1C1002507B8 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D4B6031F5FD1C1002507B8 /* MessageManager.swift */; };
 		25EEFB6C1F5E70FE0045EE87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25EEFB6B1F5E70FE0045EE87 /* Info.plist */; };
 		25F7D7751F5ECC78009C01A7 /* PurchaseTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7D7731F5ECC78009C01A7 /* PurchaseTicketCell.swift */; };
 		25F7D7761F5ECC78009C01A7 /* PurchaseTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F7D7741F5ECC78009C01A7 /* PurchaseTicketCell.xib */; };
@@ -193,6 +195,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25D4B6001F5FAA0F002507B8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		25D4B6031F5FD1C1002507B8 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		25EEFB6B1F5E70FE0045EE87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25F7D7731F5ECC78009C01A7 /* PurchaseTicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTicketCell.swift; sourceTree = "<group>"; };
 		25F7D7741F5ECC78009C01A7 /* PurchaseTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTicketCell.xib; sourceTree = "<group>"; };
@@ -431,6 +435,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25D4B5FF1F5FA9F5002507B8 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				25D4B6001F5FAA0F002507B8 /* Message.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		25D4B6021F5FD1AC002507B8 /* MessageManager */ = {
+			isa = PBXGroup;
+			children = (
+				25D4B6031F5FD1C1002507B8 /* MessageManager.swift */,
+			);
+			path = MessageManager;
+			sourceTree = "<group>";
+		};
 		25F7D7721F5ECC55009C01A7 /* PurchaseTicket */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +710,7 @@
 		639954C61F29AD7A0025E9C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25D4B5FF1F5FA9F5002507B8 /* Message */,
 				63F35CC01F41825E001600D4 /* Group */,
 				63996CC51F342F1E008583BB /* Job */,
 				63D7F1B81F330FF7000E27AF /* MSImage */,
@@ -738,6 +759,7 @@
 		639954CE1F29ADEA0025E9C6 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				25D4B6021F5FD1AC002507B8 /* MessageManager */,
 				63812EBC1F56B8770012AE36 /* GroupManager */,
 				63D7F1B51F330D1C000E27AF /* HTTPManager */,
 				63D7F17C1F32E211000E27AF /* LoginManager */,
@@ -1509,6 +1531,7 @@
 				63B824751F5D65F200BA9F62 /* PaidMemberCell.swift in Sources */,
 				639954CD1F29ADD20025E9C6 /* Constant.swift in Sources */,
 				63F35CC51F418FDF001600D4 /* AddMoreCell.swift in Sources */,
+				25D4B6011F5FAA0F002507B8 /* Message.swift in Sources */,
 				63F35CBE1F417440001600D4 /* GroupInfoCell.swift in Sources */,
 				63B8244E1F5D657200BA9F62 /* SettingsVC.swift in Sources */,
 				63CC435A1F31B8DC0015813F /* ProfileSecondVC.swift in Sources */,
@@ -1544,6 +1567,7 @@
 				639954BC1F29AD700025E9C6 /* SDWebImageManager.m in Sources */,
 				639954B71F29AD6F0025E9C6 /* SDImageCache.m in Sources */,
 				63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */,
+				25D4B6041F5FD1C1002507B8 /* MessageManager.swift in Sources */,
 				63ED46891F45964B00B60BB1 /* GroupDetailsVC.swift in Sources */,
 				639F825A1F3DD00600BAFFED /* InfoCell.swift in Sources */,
 			);

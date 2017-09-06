@@ -116,7 +116,7 @@ extension String
     }
     
     
-  public  func getAgeFromDOB() -> Int
+    public  func getAgeFromDOB() -> Int
     {
         let userDOB = dateFormatter.date(from: self)!
         let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
@@ -125,8 +125,14 @@ extension String
     }
 
     
+    public func getTimeFromTimestamp() -> String {
+        let formattr = DateFormatter()
+        formattr.dateFormat = "h:mm a"
+        let timestampDate = Date(timeIntervalSince1970: TimeInterval(self)!)
+        return formattr.string(from: timestampDate)
+    }
     
-     public func isValidEmail() ->Bool {
+    public func isValidEmail() ->Bool {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         

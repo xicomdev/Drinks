@@ -90,7 +90,6 @@ let arrayAge : [String] = ["20 - 25", "26 - 30", "31 - 35" , "36 - 40" , "41 - 4
 let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
 
 let arrayPeople : [Int] = [1, 2, 3 , 4 , 5 ]
-var arrayMsgs = [("HEllo",0),("Hii",1)]
 
 
 let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Options"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
