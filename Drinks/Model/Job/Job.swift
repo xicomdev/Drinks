@@ -26,7 +26,6 @@ class Job: NSObject,NSCoding {
         
         let dictJob = jobInfo as! Dictionary< String , Any>
         
-        
         if let strID = dictJob["id"] as? String{
             self.ID = strID
         }else{

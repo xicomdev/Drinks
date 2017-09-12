@@ -50,6 +50,10 @@
                     <constraint firstItem="MhD-IG-Cjf" firstAttribute="centerY" secondItem="ZBy-da-Ajn" secondAttribute="centerY" id="rN9-xh-t0P"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblInfoType" destination="ZBy-da-Ajn" id="h4z-cF-b5t"/>
+                <outlet property="lblValue" destination="MhD-IG-Cjf" id="CI2-BQ-cym"/>
+            </connections>
             <point key="canvasLocation" x="-25" y="-283"/>
         </tableViewCell>
     </objects>

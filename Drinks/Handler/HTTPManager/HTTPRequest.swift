@@ -110,20 +110,10 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         
         let manager = AFHTTPSessionManager()
         
+        self.setHeader(manager)
+
       //  manager.requestSerializer = AFJSONRequestSerializer()
-        
-       manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
-      //  manager.requestSerializer.setValue("reteryr", forHTTPHeaderField: "token")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
-
-        if (LoginManager.sharedInstance.getMeArchiver() != nil)
-        {
-            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
-            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
-        }
-
-        print(paramters)
+          print(paramters)
           manager.post(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
@@ -136,7 +126,6 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 if status == true
                  {
                     handler(true, dictResponse["data"]  , nil)
-
                 }else {
                     handler(false, nil, dictResponse["message"] as? String)
                 }

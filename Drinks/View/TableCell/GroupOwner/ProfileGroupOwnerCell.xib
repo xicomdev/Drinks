@@ -13,20 +13,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="207" id="KGk-i7-Jjw" customClass="ProfileGroupOwnerCell" customModule="Drinks" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="326" height="207"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="218" id="KGk-i7-Jjw" customClass="ProfileGroupOwnerCell" customModule="Drinks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="218"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="326" height="207"/>
+                <rect key="frame" x="0.0" y="0.0" width="326" height="218"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mani" translatesAutoresizingMaskIntoConstraints="NO" id="80l-5O-mpq">
-                        <rect key="frame" x="0.0" y="0.0" width="326" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="326" height="218"/>
                     </imageView>
                     <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjs-Ui-mKU">
-                        <rect key="frame" x="0.0" y="0.0" width="326" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="326" height="218"/>
                         <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="center" id="0k7-N0-d4P">
-                            <rect key="frame" x="0.0" y="0.0" width="326" height="207"/>
+                            <rect key="frame" x="0.0" y="0.0" width="326" height="218"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -34,19 +34,19 @@
                         <blurEffect style="light"/>
                     </visualEffectView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mani" translatesAutoresizingMaskIntoConstraints="NO" id="QFh-py-WmY">
-                        <rect key="frame" x="30" y="49.5" width="108.5" height="109"/>
+                        <rect key="frame" x="30" y="55" width="109" height="109"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="QFh-py-WmY" secondAttribute="height" multiplier="15:15" id="4IK-CW-XII"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maninderjit Singh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owY-ZA-AOC">
-                        <rect key="frame" x="158.5" y="82" width="147.5" height="22"/>
+                        <rect key="frame" x="159" y="88" width="147" height="22"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Developer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgX-Vi-6A9">
-                        <rect key="frame" x="158.5" y="104" width="147.5" height="20"/>
+                        <rect key="frame" x="159" y="110" width="147" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -86,12 +86,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imgViewCover" destination="80l-5O-mpq" id="X8C-Lf-XcB"/>
                 <outlet property="imgViewOwner" destination="QFh-py-WmY" id="cDq-oO-Xyi"/>
                 <outlet property="lblOccupation" destination="JgX-Vi-6A9" id="V7D-VG-ptd"/>
                 <outlet property="lblOwnerName" destination="owY-ZA-AOC" id="6Jr-WW-Nhs"/>
                 <outlet property="lblTag" destination="HHA-sA-qCT" id="vue-ou-kVV"/>
             </connections>
-            <point key="canvasLocation" x="8" y="-395.5"/>
+            <point key="canvasLocation" x="-277" y="-489"/>
         </tableViewCell>
     </objects>
     <resources>

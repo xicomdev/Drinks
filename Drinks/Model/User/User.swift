@@ -99,39 +99,6 @@ class User: NSObject,NSCoding
         
         
         
-      /*
-         
-          reponse for register Socially
-        {
-            confirmed = No;
-            "device_token" = Simulator;
-            "email_address" = "mannajassij@yahoo.com";
-            id = 9;
-            "name_first" = Maninderjit;
-            "name_last" = Singh;
-            "session_id" = "KF-367-970-20170531";
-            "session_status" = 1;
-            status = Active;
-        }
-        )
-        
-         
-         
-         response for register manually
-        {
-            confirmed = No;
-            "device_token" = "<null>";
-            "email_address" = "maninder.manna@xicom.biz";
-            id = 10;
-            "name_first" = 0;
-            "name_last" = 0;
-            "session_id" = "<null>";
-            "session_status" = "<null>";
-            status = Pending;
-        }
-        )
-        
-        */
         
     }
     
@@ -147,28 +114,94 @@ class User: NSObject,NSCoding
             return
         }
         
-        
-        self.job = Job(jobInfo: dictLocal["job"])
-        self.DOB = dictLocal["dob"] as! String
+        self.job = Job(jobInfo: dictLocal["job"] as Any)
         self.fullName = dictLocal["full_name"] as! String
-        self.fullName = dictLocal["full_name"] as! String
-        
-        if let imageURL = dictLocal["image"] as? String
+        self.setImage(dict: dictLocal)
+        self.ID = dictLocal["id"] as! String
+
+        if let strDOB = dictLocal["dob"] as? String
         {
-            self.imageURL = imageURL
-        }else if let fbImageURL = dictLocal["fb_image"] as? String
-        {
-            self.imageURL = fbImageURL
+            self.DOB = dictLocal["dob"] as! String
+
+            self.age = strDOB.getAgeFromDOB()
         }
         
         
-        if let strDOB = dictLocal["dob"] as? String
+        if let annualIncome = dictLocal["annual_income"] as? String{
+            
+            self.annualIncome = annualIncome
+ 
+        }
+        if let schoolCareer = dictLocal["school_career"] as? String{
+            
+            self.schoolCareer = schoolCareer
+
+        }
+        if let tabacoInfo = dictLocal["tabaco"] as? String
         {
-            self.age = strDOB.getAgeFromDOB()
+            
+            self.tabaco = tabacoInfo
+        }
+        
+        if let bloodType = dictLocal["blood_type"] as? String{
+           
+            self.bloodGroup = bloodType
+            
+        }
+        if let relationship = dictLocal["marriage"] as? String{
+            
+            self.relationship = relationship
         }
         
     }
 
+    
+    convenience init(messageDict : Any) {
+        self.init()
+        
+        
+        guard let dictLocal = messageDict as? Dictionary<String, Any> else {
+            return
+        }
+        
+        
+        if let job = dictLocal["job"] as? Dictionary<String, Any>
+        {
+            self.job = Job(jobInfo: dictLocal["job"] as Any)
+            
+        }
+        self.fullName = dictLocal["full_name"] as! String
+        self.setImage(dict: dictLocal)
+        self.ID = dictLocal["id"] as! String
+        
+        
+        if let strDOB = dictLocal["dob"] as? String
+        {
+            self.DOB = dictLocal["dob"] as! String
+            self.age = strDOB.getAgeFromDOB()
+        }
+
+        
+    }
+    
+    
+    
+    
+    func setImage(dict : Dictionary<String, Any> )
+    {
+        if let imageURL = dict["image"] as? String
+        {
+            self.imageURL = imageURL
+        }else if let fbImageURL = dict["fb_image"] as? String
+        {
+            self.imageURL = fbImageURL
+        }
+    }
+    
+    
+    
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         
@@ -237,7 +270,7 @@ class User: NSObject,NSCoding
             self.tabaco = tabaco!;
         }
 
-        let job : Job? = aDecoder.decodeObject(forKey: "Job") as? Job
+        let job : Job? = aDecoder.decodeObject(forKey: "job") as? Job
         if job != nil {
             self.job = job!;
         }

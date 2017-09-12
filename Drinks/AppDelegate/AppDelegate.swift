@@ -9,13 +9,19 @@
 import UIKit
 import CoreData
 import CoreLocation
-
+import UserNotifications
 
 let dateFormatter = DateFormatter()
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,UNUserNotificationCenterDelegate {
 
+    var arrayThread = [ChatThread]()
+    
+    var currentThread : ChatThread? = nil
+
+    var timerMessage : Timer!
+    
     var window: UIWindow?
     
     var currentlocation : CLLocation?
@@ -33,12 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().previousNextDisplayMode = IQPreviousNextDisplayMode.Default
         
+      //  IQKeyboardManager.sharedManager().disabledToolbarClasses = [CreateGroupVC.self]
+
+        
         dateFormatter.dateFormat = "YYYY/MM/dd"
 
       Job.saveJobListing()
         
         self.intializeLocationManager()
+            self.registerAppPushNotificaiton()
         
+        
+        timerMessage =  Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (result) in
+          self.getUpdatedMessages()
+        })
         
         
         // Override point for customization after application launch.
@@ -241,14 +255,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         }
     }
     
-    
 
     
     
+    //MARK:- Get Updated Messages
+    //MARK:-
+    
+    func getUpdatedMessages(){
+        
+        if self.window?.topMostController() is MSTabBarController
+        {
+            let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+            if topVC.visibleViewController  is DrinkTodayChatVC {
+                self.APIGetMessagesForThread()
+            }else{
+                      self.getThread()
+            }
+        }
+    }
     
     
+    func getThread()
+    {
+        ChatManager.getChatThreads { (success, response, strError) in
+            if success
+            {
+                if let arrayThreads = response as? [ChatThread]
+                {
+                 
+                    self.arrayThread.removeAll()
+                   self.arrayThread.append(contentsOf: arrayThreads)
+                    
+                    
+                    if self.window?.topMostController() is MSTabBarController
+                    {
+                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        if topVC.visibleViewController  is MessageVC {
+                            
+                            let chatVC = topVC.visibleViewController   as! MessageVC
+                            chatVC.tableviewGroupMessages.reloadData()
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
     
+    func APIGetMessagesForThread()
+    {
+        self.currentThread?.getAllMessages { (isSuccess, response, error) in
+                if isSuccess
+                  {
+                    
+                    
+                    if self.window?.topMostController() is MSTabBarController
+                    {
+                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        if  topVC.visibleViewController  is DrinkTodayChatVC {
+                            let chatVC = topVC.visibleViewController   as! DrinkTodayChatVC
+                            chatVC.tblChat.reloadData()
+//                            self.perform(#selector(DrinkTodayChatVC.scrollToBottomInitial), with: nil, afterDelay: 0.1)
 
-
+                        }
+                    }
+              }
+          }
+    }
+    
+    
+    
 }
 

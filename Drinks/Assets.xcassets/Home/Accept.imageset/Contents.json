@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bt_hert-1.png",
+      "filename" : "bt_hert@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bt_hert@3x-1.png",
+      "filename" : "bt_hert@2x.png",
       "scale" : "2x"
     },
     {

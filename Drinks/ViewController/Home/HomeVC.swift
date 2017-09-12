@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback {
+class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback,MSProtocolCallback {
     @IBOutlet weak var lblNotice: UILabel!
     @IBOutlet weak var imgViewNotice: UIImageView!
 
@@ -92,11 +92,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                 {
                     if let groupInfo = group as? Group
                     {
-                      let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
                         cell.group  = groupInfo
                         cell.assignData(groupInfo: groupInfo)
+                        let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
                         self.arrayGroups[index] = groupInfo
                         self.collectionViewGroup.reloadData()
+                        
+                        showInterestedAlert(controller: self)
                     }
                 }else
                 {
@@ -139,9 +141,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+//                let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "MyCameraVC") as! MyCameraVC
+//                self.navigationController?.pushViewController(groupVC, animated: true)
+//
         
         let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
         groupVC.groupInfo = arrayGroups[indexPath.row]
+        groupVC.delegateDetail = self
         self.navigationController?.pushViewController(groupVC, animated: true)
         
     }
@@ -228,6 +234,24 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         globalFilter = FilterInfo()
         self.getGroups()
         
+    }
+    
+    
+    func updateData() {
+        self.getGroups()
+
+    }
+    
+   
+    
+    func replaceGroup(obj: Any) {
+        
+        if let groupObj = obj as? Group
+        {
+            let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupObj)
+            self.arrayGroups[index] = groupObj
+            self.collectionViewGroup.reloadData()
+        }
     }
 
 

@@ -46,7 +46,6 @@ class FBManager: NSObject  {
     func logout(){
         
         self.loginManager.logOut()
-        FBSDKAccessToken.setCurrent(nil)
         FBSDKProfile.setCurrent(nil)
      FBSDKGraphRequest(graphPath: "me/permissions", parameters: nil, httpMethod: "DELETE").start { (connection , result, error) -> Void in
         
@@ -101,6 +100,8 @@ class FBManager: NSObject  {
     
     
     func login(viewController: UIViewController, callBack:@escaping (Bool,AnyObject?,String?)->()) {
+        self.loginManager.logOut()
+
         self.loginManager.logIn(withReadPermissions: self.permissions, from: viewController) { (result, error) in
             
             if error != nil {

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+typealias ActionSheetHandler = ((_ Action: Bool, _ Index: Int) -> Void) // false for Cancel
+typealias AlertHandler = ( (_ Index: Int) -> Void) // false for Cancel
+
 
 @objc protocol MSSelectionCallback {
     @objc optional func moveWithSelection(selected : Any)
@@ -17,6 +20,7 @@ import UIKit
     @objc optional func replaceRecords()
 
     @objc optional func moveRecordsWithType(obj : AnyObject , type : String )
+
 
     
 }
@@ -38,6 +42,22 @@ func FontLight(size: CGFloat) -> (UIFont)
     return UIFont.systemFont(ofSize: size)
 }
 
+public func showAlertWithAnimation(object : UIViewController){
+    UIView.animate(withDuration: 0.3) {
+        object.view.alpha = 1
+    }
+}
+
+public func hideAlertWithAnimation(object : UIViewController , callBack:@escaping (_: Bool) -> ()){
+    UIView.animate(withDuration: 0.3, animations: {
+       // object.view.alpha = 0
+    }) { (test) in
+        callBack(true)
+    }
+}
+
+
+
 
 func  showAlert(title : String , message : String , controller : UIViewController)
 {
@@ -45,6 +65,18 @@ func  showAlert(title : String , message : String , controller : UIViewControlle
     let objAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler:
         {Void in
             
+    })
+    objAlertController.addAction(objAction)
+    controller.present(objAlertController, animated: true, completion: nil)
+}
+
+
+func  showAlert(title : String , message : String , controller : UIViewController , handler : @escaping AlertHandler)
+{
+    let objAlertController = UIAlertController(title: title, message: message , preferredStyle: UIAlertControllerStyle.alert)
+    let objAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler:
+        {Void in
+            handler(0)
     })
     objAlertController.addAction(objAction)
     controller.present(objAlertController, animated: true, completion: nil)
@@ -69,9 +101,50 @@ func JSONString (paraObject : Any) -> String{
 
 
 
+func actionSheet(btnArray : [String] , cancel : Bool , destructive : Int  ,  controller : UIViewController , handler : @escaping ActionSheetHandler)
+{
+    
+    let actionSheetController: UIAlertController = UIAlertController(title: nil , message: nil , preferredStyle: .actionSheet)
+    for  i in 0 ..< btnArray.count {
+        
+        
+        if i == destructive{
+            
+            let actionNew : UIAlertAction = UIAlertAction(title: btnArray[i] , style: .destructive) { action -> Void in
+                
+                let title: String =  action.title!
+                let index: Int = btnArray.index(of: title)!
+                handler(true, index)
+            }
+            actionSheetController.addAction(actionNew)
+            
+        }else{
+            
+            let actionNew : UIAlertAction = UIAlertAction(title: btnArray[i] , style: .default) { action -> Void in
+                
+                let title: String =  action.title!
+                let index: Int = btnArray.index(of: title)!
+                handler(true, index)
+            }
+            actionSheetController.addAction(actionNew)
+        }
+       
+    }
+    
+    if cancel == true{
+        
+        let actionNew: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            handler(false, -1)
+        }
+        actionSheetController.addAction(actionNew)
+    }
+    
+    controller.present(actionSheetController, animated: true, completion: nil)
+}
 
 
-public func resizeImage(image: UIImage, size: CGSize) -> UIImage? {
+public func resizeImage(image: UIImage, size: CGSize) -> UIImage?
+{
     var returnImage: UIImage?
     var scaleFactor: CGFloat = 1.0
     var scaledWidth = size.width
@@ -155,6 +228,32 @@ func setNoOfMembers(groups :[ GroupCondition] , label : UILabel) {
     }else{
      label.text = "1 Member"
     }
+}
+
+
+func setGroupTag(boolTag : Bool , label : UILabel) {
+    label.isHidden = !boolTag
+//    if groups.count > 1
+//    {
+//        label.text = (groups.count).description + " Members"
+//        
+//    }else{
+//        label.text = "1 Member"
+//    }
+}
+
+
+func userImage(imageView : UIImageView  , user : User)
+{
+    let urlFinalOwner = URL(string: user.imageURL)
+    imageView.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+    
+}
+
+func showInterestedAlert(controller : UIViewController){
+    let reportAlertVC = mainStoryBoard.instantiateViewController(withIdentifier: "InterestedVC") as! InterestedVC
+    reportAlertVC.view.alpha = 0
+    controller.present(reportAlertVC, animated: false, completion: nil)
 }
 
 

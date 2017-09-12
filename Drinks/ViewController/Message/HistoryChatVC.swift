@@ -1,20 +1,16 @@
-//
-//  HistoryChatVC.swift
-//  Drinks
-//
-//  Created by Ankit Chhabra on 8/31/17.
-//  Copyright © 2017 Maninderjit Singh. All rights reserved.
-//
 
 import UIKit
 
 class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var bottomMargin: NSLayoutConstraint!
     @IBOutlet weak var bottomMsgVwHgt: NSLayoutConstraint!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtVWMsg: IQTextView!
     @IBOutlet weak var tblChat: UITableView!
+    
+    var arrayMsgs = [Any]()
+    var otherUserId = "3"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +29,7 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         tblChat.delegate = self
         tblChat.dataSource = self
         tblChat.reloadData()
-        
+        self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
     }
     
     func actionBtnBackPressed() {
@@ -48,23 +44,35 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     }
     
     func sendMsg() {
-        arrayMsgs.append((txtVWMsg.text!,1))
+//        let msgDict = [
+//            "msgId":"1",
+//            "msgContent": txtVWMsg.text!,
+//            "timestamp": "\(Date().timeIntervalSince1970)",
+//            "senderId": "1",
+//            "recieverId": "\(otherUserId)"
+//        ]
+        
+        //MessageManager.shared.saveMsgs([msgDict])
+      //  arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
         txtVWMsg.text = ""
         bottomMsgVwHgt.constant = 50
         tblChat.reloadData()
+        self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.startKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = false
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+       // arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
+        tblChat.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool)  {
         super.viewDidDisappear(animated)
         self.stopKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
     }
+    
     //MARK :- Handle Keyboard
     fileprivate func startKeyboardObserver()  {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -89,11 +97,25 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         bottomMargin.constant = 0
     }
     
+    func scrollToBottomInitial() {
+        let oldCount: Int = arrayMsgs.count
+        if oldCount != 0  {
+            let lastRowNumber: Int = tblChat.numberOfRows(inSection: 0) - 1
+            if lastRowNumber > 0 {
+                let ip: IndexPath = IndexPath(row: lastRowNumber, section: 0)
+                tblChat.scrollToRow(at: ip, at: .bottom, animated: true)
+            }
+        }
+    }
     func textViewDidChange(_ textView: UITextView) {
         let fixedWidth = textView.frame.size.width
         let newHeight = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude)).height
-        if newHeight > 34 {
+        print(newHeight)
+        
+        if newHeight > 34 && newHeight < 85{
             bottomMsgVwHgt.constant = newHeight + 16
+        }else if newHeight > 85 {
+            bottomMsgVwHgt.constant = 85
         }else {
             bottomMsgVwHgt.constant = 50
         }
@@ -106,26 +128,29 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let msgTuple:(String,Int) = arrayMsgs[indexPath.row]
         let returnCell : UITableViewCell!
-        if msgTuple.1 == 1 {
+        if indexPath.row % 2 == 0
+        {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "SentMsgCell", for: indexPath) as! SentMsgCell
-            cell.lblMsg.text = msgTuple.0
+            cell.lblMsg.text = "Amaninderjit"
+            cell.lblTime.text = "Time"
             returnCell = cell
-        }else {
+        }else
+        {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "RecievedMsgCell", for: indexPath) as! RecievedMsgCell
-            cell.lblMsg.text = msgTuple.0
+            cell.lblMsg.text = "Manindejit Singh"
+            //  cell.lblMsg.text = msgObj.msgContent
             returnCell = cell
         }
         returnCell.layoutSubviews()
         returnCell.layoutIfNeeded()
         return returnCell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tblChat.estimatedRowHeight = 80
         return UITableViewAutomaticDimension
     }
-
-
+    
 }

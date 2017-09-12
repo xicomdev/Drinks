@@ -14,16 +14,13 @@ class GroupManager: NSObject {
 
     
     class var getGroup: Group {
-        
         return GroupManager.sharedInstance.group
         
     }
     
     class func setGroup( group : Group)
     {
-        
         GroupManager.sharedInstance.group = group
-        
     }
 
     
@@ -32,7 +29,6 @@ class GroupManager: NSObject {
         struct Static {
             static let instance: GroupManager = GroupManager()
         }
-        
         return Static.instance
     }
     
@@ -81,6 +77,8 @@ class GroupManager: NSObject {
             if isSuccess
             {
                 var arrayList = [Group]()
+                print(response)
+
                 if let arryResponse = response as? [Dictionary<String ,Any>]
                 {
                     for item in arryResponse{
@@ -108,6 +106,8 @@ class GroupManager: NSObject {
                 var arrayList = [Group]()
                 if let arryResponse = response as? [Dictionary<String ,Any>]
                 {
+                    
+                    print(arryResponse)
                     for item in arryResponse
                     {
                         let dictGroup = item["Group"]  as! Dictionary<String ,Any>

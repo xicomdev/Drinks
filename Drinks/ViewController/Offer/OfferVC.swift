@@ -219,7 +219,6 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     func getBeOfferedGroups()
     {
-        
 
         GroupManager.sharedInstance.getBeOfferedGroup { (isSuccess, response, strError) in
             

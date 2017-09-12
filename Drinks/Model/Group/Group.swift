@@ -26,25 +26,19 @@ class GroupLocation: NSObject {
     
     convenience init(name : String , lat : String , long : String) {
         self.init()
-        
         self.LocationName = name
-        
         if let latitude = Double(lat) {
              self.latitude = latitude
         }else{
              self.latitude = 0.0
-            
         }
         
         if let longitude = Double(long) {
             self.longtitude = longitude
         }else{
             self.longtitude = 0.0
-            
         }
-        
     }
-    
 }
 
 
@@ -53,9 +47,7 @@ class GroupLocation: NSObject {
 class GroupCondition: NSObject {
     
     var occupation : Job = Job()
-  
     var age : Int = 0
-    
     
     override init() {
         
@@ -66,6 +58,7 @@ class GroupCondition: NSObject {
         self.init()
         
         let newDict = dict as! Dictionary<String, Any>
+        
         occupation = Job(jobInfo: newDict)
         age = newDict["Age"] as! Int
     }
@@ -101,6 +94,8 @@ class Group: NSObject {
     var drinkedStatus : DrinkStatus = .NotDrinked
     var groupBy : GroupBy = .Other
     
+    var reportedStatus : ReportedStatus = .NotReported
+    
     override init()
     {
         
@@ -113,18 +108,12 @@ class Group: NSObject {
         
         if let dictGroup = groupDict as? Dictionary<String, Any>
         {
+           
             
-            print(dictGroup["group_conditions"] as! String)
-        
-        self.groupConditions = self.getConditionArray(strPara: dictGroup["group_conditions"] as! String)
-        self.groupDescription = dictGroup["group_description"] as! String
-        self.groupID = dictGroup["id"] as! String
-        self.relationship = dictGroup["relationship"] as! String
-        self.imageURL = dictGroup["image"] as! String
-        self.location = GroupLocation(name: dictGroup["group_location"] as! String, lat: dictGroup["group_latitude"] as! String, long: dictGroup["group_longitude"] as! String)
-        self.ownerID = dictGroup["user_id"] as! String
-        self.groupOwner = User(dictOwner: dictGroup["user"])
+            self.groupSetUp(dict: dictGroup)
             
+            self.groupOwner = User(dictOwner:  dictGroup["user"] as Any)
+
             groupBy = .Other
             if self.ownerID == LoginManager.getMe.ID{
                 groupBy = .My
@@ -136,25 +125,94 @@ class Group: NSObject {
                     self.tagEnabled = true
                 }else{
                     self.tagEnabled = false
-
                 }
-                
-                
             }
             
             if let drinkedStatus = dictGroup["drinked_status"] as? Bool{
-                
-                print("Drinked Check  \(drinkedStatus)")
                 self.drinkedStatus = .NotDrinked
                 if drinkedStatus == true{
                     self.drinkedStatus = .Drinked
                 }
             }
             
+            
+        
+            
+            
+            
+//            
+//            
+//            "annual_income" = "$ 8000 - 15000";
+//            "blood_type" = "AB+";
+//            created =             {
+//                sec = 1504372376;
+//                usec = 936000;
+//            };
+//            dob = "1999/09/03";
+//            "fb_id" = 1288672714577080;
+//            "fb_image" = "http://graph.facebook.com/1288672714577080/picture?type=large";
+//            "full_name" = "Jonghwa Park";
+//            id = 59aae698a642be0a713f8384;
+//            job =             {
+//                "eng_name" = Ad;
+//                id = 59a545e241a73f9c5a7711ea;
+//                "jap_name" = "\U5e83\U544a";
+//            };
+//            "job_id" = 59a545e241a73f9c5a7711ea;
+//            "last_login" = "";
+//            marriage = UnMarried;
+//            modified =             {
+//                sec = 1504372376;
+//                usec = 936000;
+//            };
+//            "reported_status" = 0;
+//            "school_career" = "Ph.d";
+//            tabaco = GHI;
+
         }
         
     }
     
+    
+    convenience init(chatGroup : Any) {
+        self.init()
+        
+        if let dictGroup = chatGroup as? Dictionary<String, Any>
+        {
+            
+           self.groupSetUp(dict: dictGroup)
+            self.groupOwner = User(messageDict: dictGroup["user"] as Any)
+           }
+    }
+    
+    
+    
+    
+    
+    func groupSetUp(dict : Dictionary<String, Any>)
+    {
+        
+    
+        
+        self.groupConditions = self.getConditionArray(strPara: dict["group_conditions"] as! String)
+        self.groupDescription = dict["group_description"] as! String
+        self.groupID = dict["id"] as! String
+        
+        
+        print("GroupID     "  + self.groupID)
+        self.relationship = dict["relationship"] as! String
+        self.imageURL = dict["image"] as! String
+        self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
+        self.ownerID = dict["user_id"] as! String
+
+       if let drinkedStatus = dict["drinked_status"] as? Bool{
+            self.drinkedStatus = .NotDrinked
+            if drinkedStatus == true{
+                self.drinkedStatus = .Drinked
+            }
+        }
+        self.groupOwner = User(messageDict: dict["user"] as Any)
+    }
     
    class func getGroupListing( handler : @escaping CompletionHandler)
     {
@@ -243,7 +301,7 @@ class Group: NSObject {
         
         let groupMembers = createParameters(group: self)
         
-        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID! , "group_conditions" : groupMembers, "group_location" : location?.LocationName! ,"group_latitude" : location?.latitude!,"group_longitude" : location?.longtitude! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : location?.latitude,"group_longitude" : location?.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
         
         
         SwiftLoader.show(true)
@@ -266,11 +324,68 @@ class Group: NSObject {
     }
     
     
+    func editGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
+    {
+        // user_id, image
+        
+        let groupMembers = createParameters(group: self)
+        
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : location?.latitude,"group_longitude" : location?.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled , "id" : self.groupID]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_EditGroup, paramters: parms, Images: image) { (success, response, strError) in
+            SwiftLoader.hide()
+            if success{
+                if let dictResponse = response as? Dictionary<String ,Any>
+                {
+                    if  let dictGroup = dictResponse["Group"]  as? Dictionary<String ,Any>
+                    {
+                        let  groupNew = Group(groupDict: dictGroup)
+                        handler(true , groupNew, strError)
+                    }
+                }
+            }else{
+                
+                handler(false , nil, strError)
+            }
+        }
+    }
     
     
+    func reportGroup( reason : String , date : String,  handler : @escaping CompletionHandler)
+    {
+        let params : [String : Any] = ["group_id" : self.groupID! , "reason" : reason , "date" : date , "group_reported_status" : true]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_ReportGroup, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                if let dictResponse = response as? Dictionary<String ,Any>
+                {
+                        handler(true , dictResponse, nil)
+                }
+            }else{
+                
+                handler(false , nil, strError)
+            }
+        }
+    }
     
     
-    
+    func deleteGroup(handler : @escaping CompletionHandler)
+    {
+        let params : [String : Any] = ["id" : self.groupID! ]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_DeleteGroup, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                    handler(true , "Group Deleted", nil)
+            }else{
+                
+                handler(false , nil, strError)
+            }
+        }
+    }
     
     func createParameters(group : Group) -> String
     {
@@ -284,35 +399,32 @@ class Group: NSObject {
             newDict["id"] = item.occupation.ID
             newDict["eng_name"] = item.occupation.engName
             newDict["jap_name"] = item.occupation.japName
-
             arrayNew.append(newDict)
         }
-        
-        print(arrayNew)
         return JSONString(paraObject: arrayNew)
     }
     
     
-    func createParameter(group : Group) -> [Dictionary<String,Any>]
-    {
-        let arrConds = group.groupConditions
-        var arrayNew = [Dictionary<String,Any>]()
-        
-        for item in arrConds
-        {
-            var newDict = Dictionary<String,Any>()
-            newDict["Age"] = item.age
-            newDict["id"] = item.occupation.ID
-            newDict["eng_name"] = item.occupation.engName
-            newDict["jap_name"] = item.occupation.japName
-            
-            arrayNew.append(newDict)
-        }
-        
-        
-        print(arrayNew)
-        return arrayNew
-    }
+//    func createParameter(group : Group) -> [Dictionary<String,Any>]
+//    {
+//        let arrConds = group.groupConditions
+//        var arrayNew = [Dictionary<String,Any>]()
+//        
+//        for item in arrConds
+//        {
+//            var newDict = Dictionary<String,Any>()
+//            newDict["Age"] = item.age
+//            newDict["id"] = item.occupation.ID
+//            newDict["eng_name"] = item.occupation.engName
+//            newDict["jap_name"] = item.occupation.japName
+//            
+//            arrayNew.append(newDict)
+//        }
+//        
+//        
+//        print(arrayNew)
+//        return arrayNew
+//    }
 
     
     func getConditionArray(strPara : String) -> [GroupCondition]
@@ -321,6 +433,7 @@ class Group: NSObject {
             if let data = strPara.data(using: String.Encoding.utf8) {
                 do {
                     let jsonArry = try JSONSerialization.jsonObject(with: data, options: []) as?   [[String : Any]]
+                    
                     for item in jsonArry!
                     {
                         let newDict = GroupCondition(dict: item)
@@ -331,6 +444,9 @@ class Group: NSObject {
                     print(error)
                 }
             }
+        
+        
+        
         return arrayReturn
     }
     

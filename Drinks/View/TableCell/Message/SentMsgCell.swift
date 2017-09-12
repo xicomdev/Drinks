@@ -9,6 +9,8 @@
 import UIKit
 
 class SentMsgCell: UITableViewCell {
+    
+    var message : Message!
 
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblMsg: UILabel!
@@ -22,6 +24,15 @@ class SentMsgCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    
+    func setMessageDetails( msgInfo : Message)
+    {
+        message = msgInfo
+        imgVwUser.sd_setImage(with: URL(string : msgInfo.senderUser.imageURL )   , placeholderImage: userPlaceHolder)
+        lblMsg.text = message.message
     }
     
 }

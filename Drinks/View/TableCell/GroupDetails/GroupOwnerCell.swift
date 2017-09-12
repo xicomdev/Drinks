@@ -34,8 +34,11 @@ class GroupOwnerCell: UITableViewCell {
         self.group = groupInfo
         
         
-        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
-        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+//        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
+//        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+//        
+        
+        userImage(imageView: imgViewOwner, user: groupInfo.groupOwner)
         let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
         lblGroupOwner.text = strInfo
         

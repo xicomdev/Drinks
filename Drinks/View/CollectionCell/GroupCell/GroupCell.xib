@@ -30,8 +30,8 @@
                                     <constraint firstAttribute="width" secondItem="go6-89-14G" secondAttribute="height" multiplier="15:14" id="iEj-1t-2Ou"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
-                                <rect key="frame" x="155" y="182.5" width="49" height="49"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
+                                <rect key="frame" x="144" y="177" width="60" height="60"/>
                                 <state key="normal" image="Accept"/>
                                 <state key="selected" image="Accepted"/>
                                 <connections>
@@ -89,7 +89,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peddlers, Elante Mall, Chd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-CZ-r02">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peddlers, Elante Mall, Chd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-CZ-r02">
                                 <rect key="frame" x="106" y="247" width="111" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                 <nil key="textColor"/>
@@ -161,8 +161,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Accept" width="49" height="49"/>
-        <image name="Accepted" width="49" height="49"/>
+        <image name="Accept" width="60" height="60"/>
+        <image name="Accepted" width="60" height="60"/>
         <image name="Location" width="14" height="17"/>
         <image name="Persons" width="17" height="15"/>
         <image name="UserPlaceHolder" width="84" height="84"/>

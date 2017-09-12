@@ -23,6 +23,8 @@ let APP_BarColor = UIColor(red: 51.0/255.0, green: 151.0/255.0, blue: 241.0/255.
 let APP_BlueColor = UIColor(red: 44.0/255.0, green: 128.0/255.0, blue: 255.0/255.0, alpha: 1)
 
 let APP_GrayColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1)
+let APP_PlaceHolderColor = UIColor(red: 187.0/255.0, green: 187.0/255.0, blue: 194.0/255.0, alpha: 1)
+
 
 
 
@@ -64,21 +66,46 @@ enum GroupBy : String
     case Other = "OtherGroup"
 }
 
+enum ReportedStatus : String
+{
+    case NotReported = "NotReported"
+    case Reported = "Reported"
+}
+
+enum GroupActionType : String
+{
+    case Creating = "Creating"
+    case Editing = "Editing"
+}
+
 
 let API_GetJobs = "memberJob"
 let API_CheckUserExisting = "newCheck"
 let API_Register = "registerFacebook"
 let API_AddGroup = "addGroup"
+let API_DeleteGroup = "deleteGroup"
+let API_EditGroup = "editGroup"
+
+
 let API_GetGroups = "getGroups"
 let API_Interest = "showInterest"
 let API_ReceivedOffer = "receivedOffers"
 
 let API_SentOffer = "sentOffers"
+let API_ReportGroup = "reportGroup"
+let API_GetChatThreads = "getThreads"
+let API_GetThreadMessages = "getAllMessages"
+let API_SendChatMessage = "sendMessage"
 
 
 
 
 
+
+
+
+
+let userDefaults = UserDefaults.standard
 
 
 

@@ -13,7 +13,7 @@ class GroupImageCell: UITableViewCell {
     
     var group : Group? = nil
     @IBOutlet weak var lblTag: UILabel!
-    var callbackAction : ((GroupAction)-> Void)? = nil
+    var callBackVC: ((GroupAction , Any?)-> Void)? = nil
 
     @IBOutlet weak var btnAccept: UIButton!
     @IBOutlet weak var btnBack: UIButton!
@@ -34,14 +34,23 @@ class GroupImageCell: UITableViewCell {
         
         if sender == btnBack
         {
-            callbackAction!(.BACK)
+            callBackVC!(.BACK , "Skip")
         }
         else if sender ==  btnOption
         {
-            callbackAction!(.OPTION)
-        }else
+            
+            
+            if let imageGroup = imgViewGroup.image
+            {
+                callBackVC!(.OPTION , imageGroup)
+            }
+            else{
+                callBackVC!(.OPTION , "Skip")
+            }
+        }else if  sender ==  btnAccept
         {
-            callbackAction!(.ACCEPT)
+            callBackVC!(.ACCEPT , "Skip")
+
         }
     }
     
@@ -59,18 +68,24 @@ class GroupImageCell: UITableViewCell {
             if group?.tagEnabled == true{
                 self.lblTag.isHidden = false
             }
-            
             if group?.groupBy == .Other
             {
+                btnAccept.isHidden = false
                 if group?.drinkedStatus == .Drinked{
                     btnAccept.isSelected = true
+                    btnAccept.isUserInteractionEnabled = false
                 }else{
                     btnAccept.isSelected = false
+                    btnAccept.isUserInteractionEnabled = true
                 }
+                
             }else{
                 //My Own Group
-               // btnAccept.isHidden = true
+                btnAccept.isHidden = true
+                btnAccept.isSelected = false
+                btnAccept.isUserInteractionEnabled = true
             }
+            
             
         
 

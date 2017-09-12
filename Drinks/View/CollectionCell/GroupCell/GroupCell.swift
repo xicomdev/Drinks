@@ -41,10 +41,8 @@ class GroupCell: UICollectionViewCell {
         self.group = groupInfo
         
         
-        let urlFinalGroup = URL(string: groupInfo.imageURL)
-         let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
-        imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: nil)
-        imgViewCreator.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+        imgViewGroup.sd_setImage(with: URL(string: groupInfo.imageURL), placeholderImage: nil)
+        imgViewCreator.sd_setImage(with: URL(string: groupInfo.groupOwner.imageURL), placeholderImage: nil)
         let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
         lblOwnerInfo.text = strInfo
         lblLocationName.text = groupInfo.location?.LocationName!
@@ -56,21 +54,25 @@ class GroupCell: UICollectionViewCell {
             lblTag.isHidden = true
         }
         
-        if groupInfo.drinkedStatus == .Drinked{
-            btnInterested.isSelected = true
-        }else{
-            btnInterested.isSelected = false
-        }
+        
         
         if groupInfo.groupBy == .Other
         {
             btnInterested.isHidden = false
-
+            if groupInfo.drinkedStatus == .Drinked{
+                btnInterested.isSelected = true
+                btnInterested.isUserInteractionEnabled = false
+            }else{
+                btnInterested.isSelected = false
+                btnInterested.isUserInteractionEnabled = true
+            }
         }else{
             //My Own Group
             btnInterested.isHidden = true
+            btnInterested.isSelected = false
+            btnInterested.isUserInteractionEnabled = true
         }
-        
+
         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfConditions)
     }
     
