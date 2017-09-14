@@ -24,33 +24,11 @@ class HTTPRequest: NSObject {
     }
 
     
-    
 
-//    func createParamters(dict : Dictionary<String ,Any>?) -> Dictionary<String ,Any>
-//    {
-//        var params = Dictionary<String ,Any>()
-//       // params[APIKey] = Constants.webURL.API_KEY
-//      //  params["device_type"] = DeviceType
-//       // params["device_token"] = deviceToken()
-//     //   params["language"] = languageSelected()
-//
-//        // guard let dict = paramters
-//        // else { /* Handle nil case */ return }
-//        
-////        if dict != nil{
-////            params =  params.merged(with: dict!)
-////        }
-//
-//        return params
-//    }
-//    
-    
     
     func setHeader(_ manager: AFHTTPSessionManager)
     {
-        manager.requestSerializer = AFJSONRequestSerializer()
         manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
-        //manager.requestSerializer.setValue("1", forHTTPHeaderField: "DeviceType")
         manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
         manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
@@ -58,33 +36,42 @@ class HTTPRequest: NSObject {
             manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
             manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
         }
+        
+        
+        if userDefaults.value(forKey: "DeviceToken") as? String != nil{
+            manager.requestSerializer.setValue(userDefaults.value(forKey: "DeviceToken") as? String, forHTTPHeaderField: "token")
+        }else{
+            manager.requestSerializer.setValue("000000000000000", forHTTPHeaderField: "token")
+        }
+        
+        manager.requestSerializer.setValue( deviceUniqueIdentifier() , forHTTPHeaderField: "device_id")
+        //device_id
     }
-
     
+ 
     //MARK:- Creation of Requests
     //MARK:-
-    
-    
     
     func getRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler:@escaping CompletionHandler)
     {
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
 
-    //    let dictParams = self.createParamters(dict: paramters)
         let manager = AFHTTPSessionManager()
-     //   manager.requestSerializer = AFJSONRequestSerializer()
         self.setHeader(manager)
         manager.get(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
-                            else{
+            else{
                                 return
-                    }
-            if let status = dictResponse["status"] as? Bool{
+                }
+          
+            if let status = dictResponse["status"] as? Bool
+            {
                 if status == true
                 {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
@@ -112,8 +99,6 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         
         self.setHeader(manager)
 
-      //  manager.requestSerializer = AFJSONRequestSerializer()
-          print(paramters)
           manager.post(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
@@ -127,6 +112,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                  {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
+                    
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
@@ -149,7 +136,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
         let manager = AFHTTPSessionManager()
-        
+        self.setHeader(manager)
+
         print(strFinalURL)
         manager.post(strFinalURL, parameters: paramters, constructingBodyWith: { (formData) in
            
@@ -171,6 +159,9 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
+                    
+                    
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
@@ -185,11 +176,19 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
     }
     
     
-    
-    
-    
-    
-    
+    func checkSessionExpired(dictResponse : Dictionary<String, Any>)
+    {
+        
+        if let statusCode = dictResponse["status_code"] as? NSNumber
+        {
+            if statusCode == 203
+            {
+                getOutOfApp()
+                return
+            }
+        }
+        
+    }
     
     
     

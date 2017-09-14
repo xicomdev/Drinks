@@ -49,9 +49,10 @@ class User: NSObject,NSCoding
 
     var age : Int = 18
     
-    var myGender : Gender = .Male
     
-    var profileStatus : ProfileStatus = .Pending
+    var myGender : Gender = .Male
+    var groupCreated : Int = 0
+    //var profileStatus : ProfileStatus = .Pending
     
     
     override init()
@@ -274,6 +275,24 @@ class User: NSObject,NSCoding
         if job != nil {
             self.job = job!;
         }
+        
+      self.age = aDecoder.decodeInteger(forKey: "age")
+        
+        self.groupCreated = aDecoder.decodeInteger(forKey: "groupCreated")
+
+        
+        
+        let dob : String? = aDecoder.decodeObject(forKey: "DOB") as? String
+        if dob != nil
+        {
+            self.DOB = dob!;
+        }
+        
+        
+//        if job != nil {
+//            self.age = job!;
+//        }
+        
        
         
     }
@@ -293,6 +312,12 @@ class User: NSObject,NSCoding
         aCoder.encode(self.tabaco, forKey: "tabaco")
         aCoder.encode(self.imageURL, forKey: "imageURL")
         aCoder.encode(self.job, forKey: "job")
+
+        aCoder.encode(self.DOB, forKey: "DOB")
+
+        aCoder.encode(self.age, forKey: "age")
+        aCoder.encode(self.groupCreated, forKey: "groupCreated")
+
 
 
 

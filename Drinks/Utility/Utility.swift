@@ -143,6 +143,28 @@ func actionSheet(btnArray : [String] , cancel : Bool , destructive : Int  ,  con
 }
 
 
+
+func MSAlert( message : String , firstBtn : String , SecondBtn : String  ,  controller : UIViewController , handler : @escaping ActionSheetHandler)
+{
+    
+    
+    let alertController = UIAlertController(title: "Drinks", message: message, preferredStyle: UIAlertControllerStyle.alert)
+    let actionLeft : UIAlertAction = UIAlertAction(title: firstBtn , style: .default) { action -> Void in
+                        handler(true, 0)
+            }
+      alertController.addAction(actionLeft)
+    let actionRight : UIAlertAction = UIAlertAction(title: SecondBtn , style: .default) { action -> Void in
+        handler(true, 1)
+    }
+    alertController.addAction(actionRight)
+        controller.present(alertController, animated: true, completion: nil)
+
+}
+
+
+
+
+
 public func resizeImage(image: UIImage, size: CGSize) -> UIImage?
 {
     var returnImage: UIImage?
@@ -185,6 +207,41 @@ public func resizeImage(image: UIImage, size: CGSize) -> UIImage?
     
     return returnImage
 }
+
+
+
+
+
+
+func getOutOfApp(){
+    
+    SwiftLoader.hide()
+     appDelegate().timerMessage.invalidate()
+        appDelegate().currentThread  = nil
+    LoginManager.sharedInstance.removeUserProfile()
+    let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "LandingVC") as! LandingVC
+    let naviagtionController = UINavigationController(rootViewController: loginVC)
+    naviagtionController.isNavigationBarHidden = true
+    appDelegate().window?.rootViewController = naviagtionController
+}
+
+
+
+
+func deviceUniqueIdentifier() -> String {
+    
+    let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
+    var strApplicationUUID = SSKeychain.password(forService: appName, account: "incoding")
+    if (strApplicationUUID == nil)
+    {
+        strApplicationUUID = UIDevice.current.identifierForVendor?.uuidString;
+        SSKeychain.setPassword(strApplicationUUID, forService: appName, account: "incoding")
+    }
+    
+    return strApplicationUUID!;
+    
+}
+
 
 func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
 {
@@ -231,15 +288,70 @@ func setNoOfMembers(groups :[ GroupCondition] , label : UILabel) {
 }
 
 
+func setSmallDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
+{
+//    case Drinked = "drinked"
+//    case NotDrinked = "undrinked"
+//    case Waiting = "waiting"
+//    case Confirmed = "confirmed"
+    switch status
+    {
+    case .Confirmed :
+        
+        
+        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        break
+        
+    case .NotDrinked :
+        btnStatus.setImage( UIImage(named: ""), for: .normal)
+
+        break
+        
+        
+    case .Waiting :
+        btnStatus.setImage( UIImage(named: "") , for: .normal)
+
+        
+        break
+    case .Drinked :
+        btnStatus.setImage( UIImage(named: "") , for: .normal)
+        break
+        
+    }
+}
+func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
+{
+  
+    switch status
+    {
+    case .Confirmed :
+        
+        
+        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        break
+        
+    case .NotDrinked :
+        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        
+        break
+        
+        
+    case .Waiting :
+        btnStatus.setImage( UIImage(named: "") , for: .normal)
+        
+        
+        break
+    case .Drinked :
+        btnStatus.setImage( UIImage(named: "") , for: .normal)
+        break
+        
+    }
+}
+
+
+
 func setGroupTag(boolTag : Bool , label : UILabel) {
     label.isHidden = !boolTag
-//    if groups.count > 1
-//    {
-//        label.text = (groups.count).description + " Members"
-//        
-//    }else{
-//        label.text = "1 Member"
-//    }
 }
 
 

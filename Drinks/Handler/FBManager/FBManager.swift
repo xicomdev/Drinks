@@ -75,7 +75,6 @@ class FBManager: NSObject  {
                 print(dictResult)
             }
             
-            print(result)
             callBack(true,result as AnyObject?,nil)
             
         })

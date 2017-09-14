@@ -138,10 +138,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     {
                                         
                                         self.deleteGroup()
-                                        
                                     }
-                                    
-                                }else{
                                     
                                 }
                             })
@@ -150,7 +147,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                     }else if action == .ACCEPT{
                         
                         GroupManager.setGroup(group: self.groupInfo)
-                        GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
+                        GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, group, error) in
                             if isSuccess
                             {
                                 if let groupInfo = group as? Group

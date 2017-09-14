@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyGroupsHeader" customModule="Drinks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ped-9T-mW7">
+                    <rect key="frame" x="20" y="321.5" width="335" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Lnd-iS-Th2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4c-SK-HHI">
+                    <rect key="frame" x="215.5" y="321.5" width="139.5" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hOg-Cf-dbf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-Ag-iic">
+                    <rect key="frame" x="19.5" y="321.5" width="335" height="40"/>
+                    <connections>
+                        <action selector="actionBtnMyGroups:" destination="iN0-l3-epB" eventType="touchUpInside" id="s6x-eK-Siv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="KFT-Ag-iic" firstAttribute="centerX" secondItem="ped-9T-mW7" secondAttribute="centerX" id="9OV-VR-knG"/>
+                <constraint firstItem="KFT-Ag-iic" firstAttribute="width" secondItem="ped-9T-mW7" secondAttribute="width" id="AlO-ED-H7l"/>
+                <constraint firstAttribute="trailing" secondItem="ped-9T-mW7" secondAttribute="trailing" constant="20" id="B8S-cZ-lJT"/>
+                <constraint firstItem="I4c-SK-HHI" firstAttribute="trailing" secondItem="ped-9T-mW7" secondAttribute="trailing" id="GoA-0o-bEg"/>
+                <constraint firstItem="ped-9T-mW7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="8" id="HXI-Lr-SE0"/>
+                <constraint firstItem="KFT-Ag-iic" firstAttribute="centerY" secondItem="ped-9T-mW7" secondAttribute="centerY" id="Pb0-he-xzb"/>
+                <constraint firstItem="I4c-SK-HHI" firstAttribute="centerY" secondItem="ped-9T-mW7" secondAttribute="centerY" id="TQZ-no-cMF"/>
+                <constraint firstItem="ped-9T-mW7" firstAttribute="width" secondItem="I4c-SK-HHI" secondAttribute="width" multiplier="600:250" id="WVj-Oc-bMS"/>
+                <constraint firstItem="KFT-Ag-iic" firstAttribute="height" secondItem="ped-9T-mW7" secondAttribute="height" id="kTs-XA-fgq"/>
+                <constraint firstItem="ped-9T-mW7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zTO-HG-rZ5"/>
+            </constraints>
+            <connections>
+                <outlet property="lblCounter" destination="I4c-SK-HHI" id="VPI-lq-BwZ"/>
+                <outlet property="lblHeader" destination="ped-9T-mW7" id="blH-XX-Mbs"/>
+            </connections>
+            <point key="canvasLocation" x="-17" y="43"/>
+        </view>
+    </objects>
+</document>

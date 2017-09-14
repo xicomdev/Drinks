@@ -32,52 +32,137 @@ class GroupManager: NSObject {
         return Static.instance
     }
     
+//    enum DrinkStatus : String
+//    {
+//        case Drinked = "drinked"
+//        case NotDrinked = "undrinked"
+//        case Waiting = "waiting"
+//        case Confirmed = "confirmed"
+//    }
     
-
-    
-    
-    func sendInterest(handler:@escaping CompletionHandler){
+    func sendOrRemoveInterest(handler:@escaping CompletionHandler){
         
-        var interestStatus = true
-        if self.group.drinkedStatus == .Drinked{
-            interestStatus = false
+        var interestStatus  : String = ""
+        if self.group.drinkedStatus == .Confirmed || self.group.drinkedStatus == .Waiting
+        {
+            interestStatus = "undrinked"
+        }else{
+            interestStatus = "drinked"
         }
-       
+        
         
         let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : interestStatus , "owner_user_id" : self.group.ownerID!]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
             SwiftLoader.hide()
-
             if isSuccess
             {
-                if self.group.drinkedStatus == .Drinked{
-                    self.group.drinkedStatus = .NotDrinked
-                }else{
-                    self.group.drinkedStatus = .Drinked
+                if self.group.drinkedStatus == .Confirmed || self.group.drinkedStatus == .Waiting
+                {
+                       self.group.drinkedStatus = .NotDrinked
+                }else
+                {
+                    self.group.drinkedStatus = .Waiting
                 }
                 handler(true, self.group, nil)
             }else{
-              handler(false, nil, strError!)
+                handler(false, nil, strError!)
             }
         }
-        
     }
     
+    func acceptInterest(handler:@escaping CompletionHandler)
+    {
+        
+        
+        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : "confirmed" , "owner_user_id" : self.group.ownerID!]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            
+            if isSuccess
+            {
+                self.group.drinkedStatus = .Confirmed
+                handler(true, self.group, nil)
+            }else{
+                handler(false, nil, strError!)
+            }
+        }
+    }
+    func removeInterest(handler:@escaping CompletionHandler)
+    {
+        
+        
+        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : "undrinked" , "owner_user_id" : self.group.ownerID!]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            
+            if isSuccess
+            {
+                
+                if self.group.drinkedStatus == .Drinked || self.group.drinkedStatus == .Waiting
+                {
+                    self.group.drinkedStatus = .NotDrinked
+                }else
+                {
+                    self.group.drinkedStatus = .Waiting
+                }
+                handler(true, self.group, nil)
+            }else{
+                handler(false, nil, strError!)
+            }
+        }
+    }
+
     
+    
+    
+    
+
+
+    
+    
+//    func sendInterest(handler:@escaping CompletionHandler){
+//        
+//        var interestStatus = true
+//        if self.group.drinkedStatus == .Drinked{
+//            interestStatus = false
+//        }
+//       
+//        
+//        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : interestStatus , "owner_user_id" : self.group.ownerID!]
+//        SwiftLoader.show(true)
+//        HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
+//            SwiftLoader.hide()
+//
+//            if isSuccess
+//            {
+//                if self.group.drinkedStatus == .Drinked{
+//                    self.group.drinkedStatus = .NotDrinked
+//                }else{
+//                    self.group.drinkedStatus = .Drinked
+//                }
+//                handler(true, self.group, nil)
+//            }else{
+//              handler(false, nil, strError!)
+//            }
+//        }
+//        
+//    }
+//    
+//    
     func getBeOfferedGroup(handler:@escaping CompletionHandler)
     {
         
         let params : [String : Any] = ["user_id" : LoginManager.getMe.ID!]
         
-        print(params)
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_ReceivedOffer  , paramters: params) { (isSuccess, response, strError) in
             SwiftLoader.hide()
             if isSuccess
             {
                 var arrayList = [Group]()
-                print(response)
 
                 if let arryResponse = response as? [Dictionary<String ,Any>]
                 {

@@ -128,46 +128,10 @@ class Group: NSObject {
                 }
             }
             
-            if let drinkedStatus = dictGroup["drinked_status"] as? Bool{
-                self.drinkedStatus = .NotDrinked
-                if drinkedStatus == true{
-                    self.drinkedStatus = .Drinked
-                }
+            if let drinkedStatus = dictGroup["drinked_status"] as? String
+            {
+                self.drinkedStatus =  DrinkStatus(rawValue: drinkedStatus)!
             }
-            
-            
-        
-            
-            
-            
-//            
-//            
-//            "annual_income" = "$ 8000 - 15000";
-//            "blood_type" = "AB+";
-//            created =             {
-//                sec = 1504372376;
-//                usec = 936000;
-//            };
-//            dob = "1999/09/03";
-//            "fb_id" = 1288672714577080;
-//            "fb_image" = "http://graph.facebook.com/1288672714577080/picture?type=large";
-//            "full_name" = "Jonghwa Park";
-//            id = 59aae698a642be0a713f8384;
-//            job =             {
-//                "eng_name" = Ad;
-//                id = 59a545e241a73f9c5a7711ea;
-//                "jap_name" = "\U5e83\U544a";
-//            };
-//            "job_id" = 59a545e241a73f9c5a7711ea;
-//            "last_login" = "";
-//            marriage = UnMarried;
-//            modified =             {
-//                sec = 1504372376;
-//                usec = 936000;
-//            };
-//            "reported_status" = 0;
-//            "school_career" = "Ph.d";
-//            tabaco = GHI;
 
         }
         
@@ -179,10 +143,9 @@ class Group: NSObject {
         
         if let dictGroup = chatGroup as? Dictionary<String, Any>
         {
-            
            self.groupSetUp(dict: dictGroup)
             self.groupOwner = User(messageDict: dictGroup["user"] as Any)
-           }
+         }
     }
     
     
@@ -191,8 +154,6 @@ class Group: NSObject {
     
     func groupSetUp(dict : Dictionary<String, Any>)
     {
-        
-    
         
         self.groupConditions = self.getConditionArray(strPara: dict["group_conditions"] as! String)
         self.groupDescription = dict["group_description"] as! String
@@ -205,12 +166,11 @@ class Group: NSObject {
         self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
         self.ownerID = dict["user_id"] as! String
 
-       if let drinkedStatus = dict["drinked_status"] as? Bool{
-            self.drinkedStatus = .NotDrinked
-            if drinkedStatus == true{
-                self.drinkedStatus = .Drinked
-            }
+        if let drinkedStatus = dict["drinked_status"] as? String
+        {
+            self.drinkedStatus =  DrinkStatus(rawValue: drinkedStatus)!
         }
+
         self.groupOwner = User(messageDict: dict["user"] as Any)
     }
     
@@ -221,18 +181,29 @@ class Group: NSObject {
              SwiftLoader.hide()
             if isSuccess
             {
-                var arrayList = [Group]()
-                
-                if let arryResponse = response as? [Dictionary<String ,Any>]
+                var dictReturning = [String : Any]()
+                var arrayGroup = [Group]()
+                var arrayMyGroup = [Group]()
+                if let dictResponse = response as? Dictionary<String ,Any>
                 {
-
-                    for item in arryResponse{
-                      let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                    let allGroups = dictResponse["groups"] as! [Dictionary<String ,Any>]
+                    let myGroups = dictResponse["myGroups"] as! [Dictionary<String ,Any>]
+                
+                    for item in allGroups{
+                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
                         let  groupNew = Group(groupDict: dictGroup)
-                        arrayList.append(groupNew)
+                        arrayGroup.append(groupNew)
                     }
+                    
+                    for item in myGroups{
+                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                        let  groupNew = Group(groupDict: dictGroup)
+                        arrayMyGroup.append(groupNew)
+                    }
+                    dictReturning["MyGroups"] = arrayMyGroup
+                    dictReturning["OtherGroups"] = arrayGroup
                 }
-                handler(true , arrayList, strError)
+                handler(true , dictReturning, strError)
             }else{
                 handler(false , nil, strError)
             }
@@ -303,6 +274,7 @@ class Group: NSObject {
         
         let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : location?.latitude,"group_longitude" : location?.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
         
+        print(parms)
         
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_AddGroup, paramters: parms, Images: image) { (success, response, strError) in

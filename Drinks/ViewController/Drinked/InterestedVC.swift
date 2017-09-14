@@ -13,12 +13,12 @@ class InterestedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.alpha = 0
         self.perform(#selector(InterestedVC.dismissSelf), with: nil, afterDelay: 4)
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         showAlertWithAnimation(object: self)
         
     }

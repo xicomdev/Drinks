@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GroupFooterView" customModule="Drinks" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="GroupFooterView" customModule="Drinks" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -87,7 +87,7 @@
                         <constraint firstItem="vhs-wZ-dUe" firstAttribute="centerY" secondItem="6jf-eD-2uH" secondAttribute="centerY" id="tiO-LD-KwP"/>
                     </constraints>
                 </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sis-Zz-JXi">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sis-Zz-JXi" userLabel="ViewLast">
                     <rect key="frame" x="0.0" y="183" width="375" height="150"/>
                     <subviews>
                         <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ku-yH-47k">

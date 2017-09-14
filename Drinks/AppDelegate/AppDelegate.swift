@@ -11,6 +11,9 @@ import CoreData
 import CoreLocation
 import UserNotifications
 
+import Fabric
+import Crashlytics
+
 let dateFormatter = DateFormatter()
 
 @UIApplicationMain
@@ -33,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        
+        Fabric.with([Crashlytics.self])
+
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = true
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
@@ -43,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
 
         
         dateFormatter.dateFormat = "YYYY/MM/dd"
-
       Job.saveJobListing()
         
         self.intializeLocationManager()

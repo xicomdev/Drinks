@@ -28,8 +28,10 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+    override func viewWillAppear(_ animated: Bool){
+        
+        
+    
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         lblNameAge.text = "\(LoginManager.getMe.fullName!) (\(LoginManager.getMe.age))"
@@ -46,7 +48,6 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         collctnVwNavBtns.delegate = self
         collctnVwNavBtns.dataSource = self
-        collctnVwNavBtns.reloadData()
         
         
     }

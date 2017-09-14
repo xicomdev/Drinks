@@ -61,16 +61,13 @@ class GroupCell: UICollectionViewCell {
             btnInterested.isHidden = false
             if groupInfo.drinkedStatus == .Drinked{
                 btnInterested.isSelected = true
-                btnInterested.isUserInteractionEnabled = false
             }else{
                 btnInterested.isSelected = false
-                btnInterested.isUserInteractionEnabled = true
             }
         }else{
             //My Own Group
             btnInterested.isHidden = true
             btnInterested.isSelected = false
-            btnInterested.isUserInteractionEnabled = true
         }
 
         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfConditions)
