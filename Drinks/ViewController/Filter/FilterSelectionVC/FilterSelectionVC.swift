@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource,MSSelectionCallback {
 
     
     
@@ -20,6 +20,8 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
     var delegate : MSSelectionCallback? = nil
     var selectType : FilterListing = FilterListing.Place
     var filterDetails : FilterInfo = FilterInfo()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,10 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
             arrayListing = arrayDistance
             strTitle = "Place"
             strHeaderTitle = "Select place option"
+            
+            if filterDetails.filterLocationName == nil && appDelegate().appLocation != nil{
+                filterDetails.filterLocationName = appDelegate().appLocation
+            }
 
             
         }else if selectType == .NumberOfPeople
@@ -102,40 +108,40 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         
         if selectType == .Place
         {
-            if filterDetails.distance == -1{
-                showAlert(title: "Drinks", message: "Please select place option.", controller: self)
-                return
-            }
+//            if filterDetails.distance == -1{
+//                showAlert(title: "Drinks", message: "Please select place option.", controller: self)
+//                return
+//            }
             
             
         }else if selectType == .NumberOfPeople
         {
-            if filterDetails.people.count == 0{
-                showAlert(title: "Drinks", message: "Please select people option.", controller: self)
-                return
-            }
+//            if filterDetails.people.count == 0{
+//                showAlert(title: "Drinks", message: "Please select people option.", controller: self)
+//                return
+//            }
             
             
         }else if selectType == .Job
         {
-            if filterDetails.job.count == 0{
-                showAlert(title: "Drinks", message: "Please select job option.", controller: self)
-                return
-            }
+//            if filterDetails.job.count == 0{
+//                showAlert(title: "Drinks", message: "Please select job option.", controller: self)
+//                return
+//            }
             
         }else if selectType == .Age
         {
-            if filterDetails.age.count == 0{
-                showAlert(title: "Drinks", message: "Please select age option.", controller: self)
-                return
-            }
+//            if filterDetails.age.count == 0{
+//                showAlert(title: "Drinks", message: "Please select age option.", controller: self)
+//                return
+//            }
             
         }else if  selectType == .Relation
         {
-            if filterDetails.relation.count == 0{
-                showAlert(title: "Drinks", message: "Please select relationship option.", controller: self)
-                return
-            }
+//            if filterDetails.relation.count == 0{
+//                showAlert(title: "Drinks", message: "Please select relationship option.", controller: self)
+//                return
+//            }
         }
         
         if delegate != nil{
@@ -157,6 +163,10 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
     //MARK:- TableView Delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if selectType == .Place{
+            return 2
+        }
         return 1
     }
     
@@ -169,16 +179,31 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        
+        if selectType == .Place{
+         
+            if section == 1 {
+                let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
+                headerView.lblHeader.text = "Location name"
+                headerView.backgroundColor = .red
+                return headerView
+            }
+        }
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
         headerView.lblHeader.text = strHeaderTitle
-        
+        headerView.backgroundColor = .red
         return headerView
     }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if selectType == .Place{
+            
+            if section == 1 {
+               return 1
+            }
+        }
         return arrayListing.count
     }
     
@@ -201,6 +226,15 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
             }
             
         }else{
+            
+            
+            
+            if indexPath.section == 1 && selectType == .Place{
+                cell.lblName.text =  self.filterDetails.filterLocationName?.LocationName
+               cell.imgViewSelection.isHidden = true
+                return cell
+            }
+            
             cell.lblName.text = String(describing: arrayListing[indexPath.row])
            if self.checkAlreadySelected(info: arrayListing[indexPath.row])
            {
@@ -240,6 +274,18 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         }else{
             if selectType == .Place
             {
+                
+                if indexPath.section == 1 && selectType == .Place
+                {
+                    
+                     let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapVC
+                    mapVC.selectedFiltered = self.filterDetails
+                    mapVC.returningDelegate = self
+                   self.navigationController?.pushViewController(mapVC, animated: true)
+                    
+                    
+                }
+                
                 if self.checkAlreadySelected(info: arrayListing[indexPath.row]) == false
                 {
                     self.filterDetails.distance = arrayListing[indexPath.row] as! Int
@@ -383,6 +429,15 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
     }
     
     
+    
+    func moveWithSelection(selected: Any) {
+        if let filterInfo = selected as? FilterInfo
+        {
+            self.filterDetails = filterInfo
+            self.tblListing.reloadData()
+        }
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

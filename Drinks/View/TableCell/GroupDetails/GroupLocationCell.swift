@@ -31,8 +31,16 @@ class GroupLocationCell: UITableViewCell {
         group = groupDetail
         if group != nil
         {
-             setNoOfMembers(groups: (group?.groupConditions)!, label: self.lblMemberCount)
+            setNoOfMembers(groups: (group?.groupConditions)!, label: self.lblMemberCount, relation:(group?.relationship)!)
               lblLocation.text = group?.location?.LocationName!
+            
+            if group?.groupBy == .Other
+            {
+                lblLastLogin.text = group?.groupOwner.lastLogin
+            }else{
+                lblLastLogin.text = appLastLoginFormat.string(from: Date())
+            }
+            
         }
     }
 

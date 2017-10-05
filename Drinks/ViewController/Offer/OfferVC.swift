@@ -141,26 +141,10 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"OfferGroupCell") as! OfferGroupCell
                 cell.assignData(groupInfo: arrayBeOffered[indexPath.row])
                 cell.callbackAction = { (group : Group) in
-                GroupManager.setGroup(group: group)
-                GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
-                    if isSuccess
-                    {
-                        if let groupInfo = group as? Group
-                        {
-                            let index =  Group.getIndex(arrayGroups: self.arrayBeOffered, group: groupInfo)
-                            cell.group  = groupInfo
-                            cell.assignData(groupInfo: groupInfo)
-                            self.arrayBeOffered[index] = groupInfo
-                            self.tblGroups.reloadData()
-                        }
-                    }else
-                    {
-                        showAlert(title: "Drinks", message: error!, controller: self)
-                    }
-                })
-            }
-
-             //   cell.viewBottomLine.isHidden = false
+                    
+                    self.acceptOtherGroupInterest(group : group)
+                   // self.showAcceptOrRejectAlert(group: group)
+                  }
                  return cell
         }else{
             
@@ -169,31 +153,10 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             
             cell.assignData(groupInfo: arrayOffered[indexPath.row])
             cell.callbackAction = { (group : Group) in
-                GroupManager.setGroup(group: group)
-                GroupManager.sharedInstance.sendInterest(handler: { (isSuccess, group, error) in
-                    if isSuccess
-                    {
-                        if let groupInfo = group as? Group
-                        {
-                            let index =  Group.getIndex(arrayGroups: self.arrayOffered, group: groupInfo)
-                            cell.group  = groupInfo
-                            cell.assignData(groupInfo: groupInfo)
-                            self.arrayOffered[index] = groupInfo
-                            self.tblGroups.reloadData()
-                            
-                            
-                            
-                        }
-                    }else
-                    {
-                        showAlert(title: "Drinks", message: error!, controller: self)
-                    }
-                })
+                //self.rejectGroupInterest(group: group)
             }
-
-                       return cell
+            return cell
         }
-     
     }
     
     
@@ -203,10 +166,13 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             
             let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
             groupVC.groupInfo = arrayBeOffered[indexPath.row]
+            groupVC.groupAction = .BeOffered
+
             self.navigationController?.pushViewController(groupVC, animated: true)
         }else{
             let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
             groupVC.groupInfo = arrayOffered[indexPath.row]
+            groupVC.groupAction = .Offered
             self.navigationController?.pushViewController(groupVC, animated: true)
 
             
@@ -219,7 +185,6 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     func getBeOfferedGroups()
     {
-        
 
         GroupManager.sharedInstance.getBeOfferedGroup { (isSuccess, response, strError) in
             
@@ -231,19 +196,7 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     self.arrayBeOffered = groups
                     self.tblGroups.reloadData()
                     
-                    if self.arrayBeOffered.count == 0 {
-                        self.imgViewNoOffer.isHidden = false
-                        self.lblNoOfferFound.isHidden = false
-                        self.tblGroups.isHidden = true
-
-                    }else{
-                        
-                        self.imgViewNoOffer.isHidden = true
-                        self.lblNoOfferFound.isHidden = true
-                        self.tblGroups.isHidden = false
-
-                    }
-
+                    self.showNoBeOfferedRecords()
                     
                 }
             }else{
@@ -264,28 +217,151 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     self.arrayOffered = groups
                     self.tblGroups.reloadData()
                     
-                    
-                    if self.arrayOffered.count == 0 {
-                        self.imgViewNoOffer.isHidden = false
-                        self.lblNoOfferFound.isHidden = false
-                        self.tblGroups.isHidden = true
-                        
-                        
-
-                    }else{
-                        self.imgViewNoOffer.isHidden = true
-                        self.lblNoOfferFound.isHidden = true
-                        self.tblGroups.isHidden = false
-
-                    }
+                   self.showNoOfferedRecords()
                 }
             }else{
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
     }
+    
+//  fileprivate  func showAcceptOrRejectAlert(group : Group){
+//    
+//    print(group.drinkedStatus)
+//    if group.drinkedStatus == .Waiting
+//    {
+//        
+//        
+//        MSAlert(message: "Do you want to accept it?", firstBtn: "Reject", SecondBtn: "Accept", controller: self, handler: { (success, index) in
+//            GroupManager.setGroup(group: group)
+//            if index == 1{
+//                self.acceptOtherGroupInterest(group: group)
+//            }else{
+//                self.rejectOtherGroupInterest(group: group)
+//            }
+//            
+//        })
+//       
+//        
+//    }else if group.drinkedStatus == .Confirmed{
+//        
+//        MSAlert(message: "Do you want to reject it?", firstBtn: "No", SecondBtn: "Yes", controller: self, handler: { (success, index) in
+//            if index == 1{
+//                GroupManager.setGroup(group: group)
+//                self.rejectOtherGroupInterest(group: group)
+//            }
+//            
+//        })
+//        
+//    }
+// }
+//
+//    
+//  fileprivate  func rejectGroupInterest(group : Group)
+//  {
+//    //User cancels the interested groups in Offered listing
+//    MSAlert(message: "Do you want to cancel it?", firstBtn: "No", SecondBtn: "Yes", controller: self, handler: { (success, index) in
+//        if index == 1
+//        {
+//            
+//            GroupManager.setGroup(group: group)
+//      GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, response, strError) in
+//        if isSuccess
+//        {
+//            if let groupInfo = response as? Group
+//            {
+//                let index =  Group.getIndex(arrayGroups: self.arrayOffered, group: groupInfo)
+//                self.arrayOffered.remove(at : index)
+//                self.tblGroups.reloadData()
+//                self.showNoOfferedRecords()
+//            }
+//        }else
+//        {
+//            showAlert(title: "Drinks", message: strError!, controller: self)
+//        }
+//       })
+//      }
+//   })
+// }
+    
+    
+    func acceptOtherGroupInterest(group : Group)
+    {
+        GroupManager.sharedInstance.acceptInterest(handler: { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let groupInfo = response as? Group
+                {
+                    let index =  Group.getIndex(arrayGroups: self.arrayBeOffered, group: groupInfo)
+                    self.arrayBeOffered[index] = groupInfo
+                    self.tblGroups.reloadData()
+                }
+            }else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        })
 
+        
+        
+    }
+    
+    func rejectOtherGroupInterest(group : Group)
+    {
+        GroupManager.sharedInstance.removeInterest(handler: { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let groupInfo = response as? Group
+                {
+                    let index =  Group.getIndex(arrayGroups: self.arrayBeOffered, group: groupInfo)
+                    self.arrayBeOffered.remove(at : index)
+                    self.tblGroups.reloadData()
+                    
+                    self.showNoBeOfferedRecords()
+                    
+                }
+            }else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        })
+
+    }
     
     
+    
+    func showNoOfferedRecords( ){
+        
+        if self.arrayOffered.count == 0 {
+            self.imgViewNoOffer.isHidden = false
+            self.lblNoOfferFound.isHidden = false
+            self.tblGroups.isHidden = true
+            
+        }else{
+            
+            self.imgViewNoOffer.isHidden = true
+            self.lblNoOfferFound.isHidden = true
+            self.tblGroups.isHidden = false
+            
+        }
+
+        
+        
+    }
+    
+    
+    func showNoBeOfferedRecords( ){
+        
+        if self.arrayBeOffered.count == 0 {
+            self.imgViewNoOffer.isHidden = false
+            self.lblNoOfferFound.isHidden = false
+            self.tblGroups.isHidden = true
+            
+        }else{
+            self.imgViewNoOffer.isHidden = true
+            self.lblNoOfferFound.isHidden = true
+            self.tblGroups.isHidden = false
+        }
+    }
   
 }

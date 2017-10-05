@@ -13,6 +13,7 @@ class OfferGroupCell: UITableViewCell {
     var callbackAction : ((Group )-> Void)? = nil
     var group : Group!
 
+    @IBOutlet var lblCommentInfo: UILabel!
     @IBOutlet weak var btnInterest: UIButton!
     @IBOutlet weak var lblTag: UILabel!
     @IBOutlet weak var imgViewCreator: UIImageView!
@@ -22,7 +23,6 @@ class OfferGroupCell: UITableViewCell {
 
     @IBOutlet weak var lblNoOfPeople: UILabel!
     
-    @IBOutlet weak var btnInterested: UIButton!
     
    
     
@@ -65,27 +65,27 @@ class OfferGroupCell: UITableViewCell {
         lblCreatorAge.text = strInfo
         lblLocation.text = groupInfo.location?.LocationName!
         
-        if groupInfo.tagEnabled == true{
+        if groupInfo.tagEnabled == true
+        {
             lblTag.isHidden = false
         }else{
             lblTag.isHidden = true
         }
         
-        if groupInfo.drinkedStatus == .Drinked{
-            btnInterested.isSelected = true
-        }else{
-            btnInterested.isSelected = false
-        }
+       btnInterest.isUserInteractionEnabled = true
         
         if groupInfo.groupBy == .Other
         {
-            btnInterested.isHidden = false
+            
+            setBiggerDrinkedStatus(btnStatus: btnInterest, status: groupInfo.drinkedStatus )
+
         }else{
             //My Own Group
-            btnInterested.isHidden = true
         }
+         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfPeople, relation: group.relationship)
         
-         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfPeople)
+        lblInfo.text = self.group.groupOwner.lastLogin
+        lblCommentInfo.text = self.group.groupDescription
     }
 
     

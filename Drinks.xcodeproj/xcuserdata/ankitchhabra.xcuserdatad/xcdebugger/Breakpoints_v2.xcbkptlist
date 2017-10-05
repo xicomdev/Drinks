@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "526302554.942237"
+            filePath = "Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
+            timestampString = "528900008.424482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "postMulipartRequest(urlLink:paramters:Images:handler:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/LoginManager/LoginManager.swift"
-            timestampString = "526303091.390542"
+            filePath = "Drinks/View/TableCell/GroupDetails/GroupImageCell.swift"
+            timestampString = "528900067.04347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "updateProfile(image:handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Utility/MSExtensions.swift"
-            timestampString = "526372910.983255"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "getTimeFromTimestamp()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "setCellInfo(groupDetail:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

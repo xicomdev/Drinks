@@ -9,6 +9,10 @@
 import UIKit
 
 class OwnerInfoCell: UITableViewCell {
+    
+    @IBOutlet var lblInfoType: UILabel!
+    
+    @IBOutlet var lblValue: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

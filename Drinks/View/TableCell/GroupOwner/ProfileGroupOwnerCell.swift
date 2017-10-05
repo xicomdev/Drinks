@@ -9,7 +9,9 @@
 import UIKit
 
 class ProfileGroupOwnerCell: UITableViewCell {
-
+    
+    @IBOutlet var imgViewCover: UIImageView!
+    var user : User!
     @IBOutlet weak var lblTag: UILabel!
     @IBOutlet weak var imgViewOwner: UIImageView!
     @IBOutlet weak var lblOccupation: UILabel!
@@ -32,7 +34,19 @@ class ProfileGroupOwnerCell: UITableViewCell {
     func setCornerRadius()
     {
         imgViewOwner.cornerRadius(value: (ScreenWidth/3)/2)
+    }
+    
+    
+    func assignUserInfo(user : User)
+    {
+       
+        self.user = user
         
+       lblOwnerName.text  = self.user.fullName + " (\(self.user.age))"
+        lblOccupation.text  = self.user.job.engName
+        userImage(imageView: imgViewOwner, user: user)
+        userImage(imageView: imgViewCover, user: user)
+
     }
     
     

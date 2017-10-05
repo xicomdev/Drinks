@@ -24,7 +24,7 @@ class GroupOwnerCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -34,8 +34,11 @@ class GroupOwnerCell: UITableViewCell {
         self.group = groupInfo
         
         
-        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
-        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+//        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
+//        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+//        
+        
+        userImage(imageView: imgViewOwner, user: groupInfo.groupOwner)
         let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
         lblGroupOwner.text = strInfo
         

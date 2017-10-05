@@ -9,13 +9,47 @@
 import UIKit
 import CoreData
 import CoreLocation
+import UserNotifications
 
+import Fabric
+import Crashlytics
 
 let dateFormatter = DateFormatter()
+let messageDateFormat = DateFormatter()
+let lastLoginDateFormat = DateFormatter()
+
+
+
+
+
+//var descriptionNew: DateFormatter {
+//   // return DateFormatter()
+//}
+//
+
+
+//
+//NSString *language = [[[NSBundle mainBundle] preferredLocalizations] objectAtIndex:0]
+//
+//NSLocale *locale = [NSLocale currentLocale];
+//NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+//
+//NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+//NSString *country = [usLocale displayNameForKey: NSLocaleCountryCode value: countryCode];
+//
+
+
+//NSLog(@"country   .   %@",country);
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,UNUserNotificationCenterDelegate {
 
+    var arrayThread = [ChatThread]()
+    
+    var currentThread : ChatThread? = nil
+
+    var timerMessage : Timer!
+    
     var window: UIWindow?
     
     var currentlocation : CLLocation?
@@ -24,21 +58,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     
     var appLocation : GroupLocation? = nil
     var locationManager : CLLocationManager?
+    
+    func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+        let temporaryA = a
+        a = b
+        b = temporaryA
+    }
+    
+    
+  //  var test1 = 2
+  //  var test2 = 4
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        Fabric.with([Crashlytics.self])
+
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = true
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().previousNextDisplayMode = IQPreviousNextDisplayMode.Default
         
+      //  IQKeyboardManager.sharedManager().disabledToolbarClasses = [CreateGroupVC.self]
+
+        
+        
+        
+        
+      //  self.swapTwoValues(&test1, &test2)
+        
+      //  print(test2)
+        
         dateFormatter.dateFormat = "YYYY/MM/dd"
+        
+        messageDateFormat.dateFormat = "dd/MM/YYYY HH:mm a"
+       // "last_login" = "2017-10-03 14:52:19";
+        
+lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        appLastLoginFormat.dateFormat = "HH:mm a"
+
+      //  datetime = "20/09/2017 06:38 PM";
 
       Job.saveJobListing()
         
         self.intializeLocationManager()
+            self.registerAppPushNotificaiton()
         
+        
+        timerMessage =  Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (result) in
+            
+          self.getUpdatedMessages()
+            
+            
+        })
         
         
         // Override point for customization after application launch.
@@ -82,6 +156,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
 
     // MARK: - Core Data stack
+    lazy var applicationDocumentsDirectory: URL = {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "neophyte.biz..Menu_Venue" in the application's documents Application Support directory.
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count-1]
+    }()
+    
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        // Create the coordinator and store
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("iCheckbook.sqlite")
+        
+        print(url)
+        var failureReason = "There was an error creating or loading the application's saved data."
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+        } catch {
+            // Report any error we got.
+            var dict = [String: AnyObject]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
+            
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            abort()
+        }
+        
+        return coordinator
+    }()
+
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -126,6 +233,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         }
     }
     
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        let coordinator = self.persistentStoreCoordinator
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = coordinator
+        return managedObjectContext
+    }()
+
+    
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = Bundle.main.url(forResource: "Drinks", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+
+    
     //MARK:- Location Updation
     //MARK:-
     
@@ -140,14 +264,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
         
-        
-        if CLLocationManager.locationServicesEnabled() {
-            print("Device location OFF")
-        }else{
-            print("Device location  is not OFF")
-            
-            // print(locationUpdateAvalilable())
-        }
+//        
+//        if CLLocationManager.locationServicesEnabled() {
+//            print("Device location ON")
+//        }else{
+//            print("Device location  is OFF")
+//            
+//        }
     }
     
     
@@ -216,10 +339,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
                 if placemarks!.count > 0 {
                     let pm = placemarks![0]
                     
-                    /// print(pm.locality)
-                    // print(pm.addressDictionary)
-                    //print(pm.administrativeArea)
-                    
                     if let dictAddress = pm.addressDictionary as? Dictionary <String, AnyObject>{
                         let subLocatlity = dictAddress["SubLocality"] as? String
                         if subLocatlity != nil{
@@ -240,6 +359,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             })
         }
     }
- 
+    
+
+    
+    
+    //MARK:- Get Updated Messages
+    //MARK:-
+    
+    func getUpdatedMessages(){
+        
+        if self.window?.topMostController() is MSTabBarController
+        {
+            let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+            if topVC.visibleViewController  is DrinkTodayChatVC {
+                self.APIGetMessagesForThread()
+            }else{
+                
+                      self.getThread()
+            }
+        }
+    }
+    
+    
+    func getThread()
+    {
+        ChatManager.getChatThreads { (success, response, strError) in
+            if success
+            {
+                if let arrayThreads = response as? [ChatThread]
+                {
+                 
+                    self.arrayThread.removeAll()
+                   self.arrayThread.append(contentsOf: arrayThreads)
+                    
+                    
+                    if self.window?.topMostController() is MSTabBarController
+                    {
+                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        if topVC.visibleViewController  is MessageVC {
+                            
+                            let chatVC = topVC.visibleViewController   as! MessageVC
+                            chatVC.tableviewGroupMessages.reloadData()
+                             chatVC.updateUI()
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    func APIGetMessagesForThread()
+    {
+        self.currentThread?.getAllMessages { (isSuccess, response, error) in
+                if isSuccess
+                  {
+                    
+                    
+                    if self.window?.topMostController() is MSTabBarController
+                    {
+                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        if  topVC.visibleViewController  is DrinkTodayChatVC {
+                            let chatVC = topVC.visibleViewController   as! DrinkTodayChatVC
+                             chatVC.tblChat.reloadData()
+                            chatVC.moveToLastCell()
+                        }
+                    }
+              }
+          }
+    }
+    
+    
+    
 }
 

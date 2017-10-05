@@ -22,7 +22,6 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         tblVwTicketPlans.registerNibsForCells(arryNib: ["PurchaseTicketCell", "SettingsCell"])
         tblVwTicketPlans.delegate = self
         tblVwTicketPlans.dataSource = self
-        tblVwTicketPlans.reloadData()
     }
 
     @IBAction func actionBtnCross(_ sender: AnyObject) {

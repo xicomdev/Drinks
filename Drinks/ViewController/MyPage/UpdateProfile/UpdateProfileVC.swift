@@ -32,12 +32,10 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     var datePicker = UIDatePicker()
     var activeSelection : SelectionType = .Blood
 
-    var tempUser = User()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.layoutIfNeeded()
-        tempUser = LoginManager.getMe
         imgViewUser.cornerRadius(value: imgViewUser.frame.size.width/2)
         imgViewUser.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         
@@ -47,12 +45,16 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         let minimumDate = (Date() as NSDate).addingYears(-18)
         datePicker.setDate(minimumDate!, animated: false)
         
-        txtDOB.text = LoginManager.getMe.DOB
+        txtDOB.text = dateFormatter.string(from: minimumDate!)
         lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
+        LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
+        LoginManager.getMe.DOB = txtDOB.text!
         
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         txtDOB.inputView = datePicker
-    
+        
+        lblOccupation.textColor = UIColor.lightGray
+        lblOccupation.text = "Select Occupation"
         txtUserName.text = LoginManager.getMe.fullName
         
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
@@ -61,14 +63,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         self.txtIncome.text = LoginManager.getMe.annualIncome
         self.txtSchool.text = LoginManager.getMe.schoolCareer
 
-        lblOccupation.text =  LoginManager.getMe.job.engName
-        lblOccupation.textColor = UIColor.black
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -84,8 +80,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
             txtDOB.text = dateFormatter.string(from: sender.date)
             lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
             
-            tempUser.age = txtDOB.text!.getAgeFromDOB()
-            tempUser.DOB = dateFormatter.string(from: sender.date)
+            LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
+            LoginManager.getMe.DOB = dateFormatter.string(from: sender.date)
         }else{
             sender.date = today.addingYears(-18)
         }
@@ -136,17 +132,21 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
                 imageArray.append(model)
             }
             
-            LoginManager.setMe(user: tempUser)
-            LoginManager.sharedInstance.updateProfile(image: imageArray) { (isSuccess, response, strError) in
-                if isSuccess
-                {
-                    showAlert(title: "Drinks", message: "Profile updated successfully!", controller: self)
-                }else{
-                    showAlert(title: "Drinks", message: strError!, controller: self)
-                }
-            }
+//            LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
+//                if isSuccess
+//                {
+//                    let myDetails = LoginManager.sharedInstance.getMeArchiver()
+//                    let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+//                    appDelegate().window?.rootViewController = tabBarController
+//                    
+//                }else{
+//                    showAlert(title: "Drinks", message: strError!, controller: self)
+//                }
+//            }
         }
+        
     }
+    
     
     //MARK:- Select Photo
     //MARK:-
@@ -199,6 +199,7 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         }
     }
     
+    
     func openCamera()
     {
         let imagePicker = UIImagePickerController()
@@ -242,15 +243,26 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
-             imgViewUser.image = pickedImage
+            //  564x290
+            
+            //            let width = KiteManager.getKite.product?.selectedTemplate.templatePhotoWidth
+            //            let height = KiteManager.getKite.product?.selectedTemplate.templatePhotoHeight
+            //
+            //            let imageCropped = resizeImage(image: pickedImage, size: CGSize(width: width! , height: height! ))
+            //            imgViewDefault.isHidden = true
+            
+            imgViewUser.image = pickedImage
             imageSelected = pickedImage
             self.dismiss(animated: true, completion: nil)
         }
     }
     
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+
+    
     
     @IBAction func actionBtnSelectionPressed(_ sender: UIButton) {
         
@@ -301,7 +313,7 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.navigationController!.popViewController(animated: true)
+        
     }
     
     
@@ -311,34 +323,34 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     func moveWithSelection(selected: Any) {
         
         if activeSelection == .Occupation {
-            tempUser.job = selected as! Job
+            LoginManager.getMe.job = selected as! Job
             lblOccupation.text =  LoginManager.getMe.job.engName
             lblOccupation.textColor = UIColor.black
         }else {
             let strSelected = selected as! String
             if activeSelection == .Blood
             {
-                tempUser.bloodGroup = strSelected
+                LoginManager.getMe.bloodGroup = strSelected
                 txtBloodType.text = strSelected
                 
             }else  if activeSelection == .Marriage
             {
-                tempUser.relationship = strSelected
+                LoginManager.getMe.relationship = strSelected
                 txtMarriage.text = strSelected
                 
             }else  if activeSelection == .Tabacco
             {
-                tempUser.tabaco = strSelected
+                LoginManager.getMe.tabaco = strSelected
                 txtTabacco.text = strSelected
                 
             }else  if activeSelection == .School
             {
-                tempUser.schoolCareer = strSelected
+                LoginManager.getMe.schoolCareer = strSelected
                 txtSchool.text = strSelected
                 
             }else  if activeSelection == .Income
             {
-                tempUser.annualIncome = strSelected
+                LoginManager.getMe.annualIncome = strSelected
                 txtIncome.text = strSelected
             }
         }

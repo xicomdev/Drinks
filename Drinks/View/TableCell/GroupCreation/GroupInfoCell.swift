@@ -69,8 +69,7 @@ class GroupInfoCell: UITableViewCell {
     @IBAction func actionBtnPressed(_ sender: UIButton) {
         if sender == btnCancel
         {
-            self.callbackAction!(.DELETE , self)
-            
+            self.callbackAction!(.DELETE , conditionCount)
         }else if sender == btnSelectAge
         {
             self.callbackAction!(.AGE , groupCond)
@@ -84,9 +83,9 @@ class GroupInfoCell: UITableViewCell {
     func setNewValues()
     {
         
+        
         if groupCond.age != 0 {
             self.txtAge.text = groupCond.age.description
-
         }
          self.txtOccupation.text = groupCond.occupation.engName
     }

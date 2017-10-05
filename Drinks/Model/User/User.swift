@@ -24,6 +24,8 @@ enum ProfileStatus : String
     
 }
 
+let appLastLoginFormat = DateFormatter()
+
 class User: NSObject,NSCoding
 {
     
@@ -46,12 +48,13 @@ class User: NSObject,NSCoding
     var schoolCareer : String = ""
     var annualIncome : String = ""
     var imageURL : String = ""
-
+    var lastLogin : String = ""
     var age : Int = 18
     
     var myGender : Gender = .Male
+    var groupCreated : Int = 0
+    //var profileStatus : ProfileStatus = .Pending
     
-    var profileStatus : ProfileStatus = .Pending
     
     override init()
     {
@@ -62,109 +65,132 @@ class User: NSObject,NSCoding
         phoneNumber  = ""
         sessionID = ""
         socialID = ""
+        
+        
     }
     
-    convenience init(dict : Any) {
+    convenience init(dictOnlyID : String) {
         self.init()
-        guard let dictLocal = dict as? Dictionary<String, Any> else {
-            return
-        }
         
-//        ID =  (dictLocal["id"] as! NSNumber).description
-//        emailAddress = dictLocal["email_address"] as? String
-//         let status = dictLocal["status"] as! String
-//          profileStatus =   ProfileStatus(rawValue: status)!
-//        print(profileStatus)
-//        if profileStatus == .Active{
-//            sessionID = dictLocal["session_id"] as! String
-//        }
-//        
-//        if let firstName = dictLocal["name_first"] as? String
-//        {
-//            self.firstName = firstName
-//        }
-//        
-//        if let lastName = dictLocal["name_last"] as? String
-//        {
-//            self.lastName = lastName
-//        }
-//        
-//        
-//        if let otpCode = dictLocal["confirmation_code"] as? NSNumber
-//        {
-//            self.otpCode = otpCode.description
-//        }
-        
-        
-        
-      /*
-         
-          reponse for register Socially
-        {
-            confirmed = No;
-            "device_token" = Simulator;
-            "email_address" = "mannajassij@yahoo.com";
-            id = 9;
-            "name_first" = Maninderjit;
-            "name_last" = Singh;
-            "session_id" = "KF-367-970-20170531";
-            "session_status" = 1;
-            status = Active;
-        }
-        )
-        
-         
-         
-         response for register manually
-        {
-            confirmed = No;
-            "device_token" = "<null>";
-            "email_address" = "maninder.manna@xicom.biz";
-            id = 10;
-            "name_first" = 0;
-            "name_last" = 0;
-            "session_id" = "<null>";
-            "session_status" = "<null>";
-            status = Pending;
-        }
-        )
-        
-        */
-        
+        self.ID = dictOnlyID
     }
-
+    
+    
+    
+    
+    
     convenience init(dictOwner : Any) {
         self.init()
+        
         
         guard let dictLocal = dictOwner as? Dictionary<String, Any> else {
             return
         }
         
-        self.job = Job(jobInfo: dictLocal["job"])
-        self.DOB = dictLocal["dob"] as! String
+        self.job = Job(jobInfo: dictLocal["job"] as Any)
         self.fullName = dictLocal["full_name"] as! String
-        self.fullName = dictLocal["full_name"] as! String
-        
-        if let imageURL = dictLocal["image"] as? String
+        self.setImage(dict: dictLocal)
+        self.ID = dictLocal["id"] as! String
+
+        if let strDOB = dictLocal["dob"] as? String
         {
-            self.imageURL = imageURL
-        }else if let fbImageURL = dictLocal["fb_image"] as? String
-        {
-            self.imageURL = fbImageURL
+            self.DOB = dictLocal["dob"] as! String
+            self.age = strDOB.getAgeFromDOB()
         }
         
         
-        if let strDOB = dictLocal["dob"] as? String
+        if let annualIncome = dictLocal["annual_income"] as? String{
+            
+            self.annualIncome = annualIncome
+ 
+        }
+        if let schoolCareer = dictLocal["school_career"] as? String{
+            
+            self.schoolCareer = schoolCareer
+
+        }
+        if let tabacoInfo = dictLocal["tabaco"] as? String
         {
-            self.age = strDOB.getAgeFromDOB()
+            
+            self.tabaco = tabacoInfo
+        }
+        
+        if let bloodType = dictLocal["blood_type"] as? String{
+           
+            self.bloodGroup = bloodType
+            
+        }
+        if let relationship = dictLocal["marriage"] as? String{
+            self.relationship = relationship
+        }
+        
+        if let lastLogin = dictLocal["last_login"] as? String{
+            
+            //let date = lastLoginDateFormat.date(from: lastLogin)
+            self.lastLogin = lastLogin
+            
+            
         }
         
     }
 
+    
+    convenience init(messageDict : Any) {
+        self.init()
+        
+        
+        guard let dictLocal = messageDict as? Dictionary<String, Any> else {
+            return
+        }
+        
+        if let job = dictLocal["job"] as? Dictionary<String, Any>
+        {
+            self.job = Job(jobInfo: job as Any)
+            
+        }
+        self.fullName = dictLocal["full_name"] as! String
+        self.setImage(dict: dictLocal)
+        self.ID = dictLocal["id"] as! String
+        
+        
+        if let strDOB = dictLocal["dob"] as? String
+        {
+            self.DOB = dictLocal["dob"] as! String
+            self.age = strDOB.getAgeFromDOB()
+        }
+
+        
+        if let lastLogin = dictLocal["last_login"] as? String{
+           // let date = lastLoginDateFormat.date(from: lastLogin)
+           // print(date)
+            self.lastLogin = lastLogin
+        }
+
+        
+    }
+    
+    
+    
+    
+    func setImage(dict : Dictionary<String, Any> )
+    {
+        if let imageURL = dict["image"] as? String
+        {
+            self.imageURL = imageURL
+        }else if let fbImageURL = dict["fb_image"] as? String
+        {
+            self.imageURL = fbImageURL
+        }
+    }
+    
+    
+    
+    
+    
+    
     required init?(coder aDecoder: NSCoder) {
         
         let name: String? = aDecoder.decodeObject(forKey: "fullName") as? String
-       
         if name != nil {
             self.fullName = name;
         }
@@ -178,14 +204,12 @@ class User: NSObject,NSCoding
         if phoneNumber != nil {
             self.phoneNumber = phoneNumber;
         }
-        
 
         
         let sessionID: String? = aDecoder.decodeObject(forKey: "sessionID") as? String
         if sessionID != nil {
             self.sessionID = sessionID;
         }
-        
 
         
         let fbID : String? = aDecoder.decodeObject(forKey: "socialID") as? String
@@ -193,16 +217,13 @@ class User: NSObject,NSCoding
             self.socialID = fbID!;
         }
         
+        
+        
         let imgeURL : String? = aDecoder.decodeObject(forKey: "imageURL") as? String
         if imgeURL != nil {
             self.imageURL = imgeURL!;
         }
 
-        let dob : String? = aDecoder.decodeObject(forKey: "dob") as? String
-        if dob != nil
-        {
-            self.DOB = dob!;
-        }
         
         let schoolCareer : String? = aDecoder.decodeObject(forKey: "schoolCareer") as? String
         if schoolCareer != nil {
@@ -237,7 +258,20 @@ class User: NSObject,NSCoding
         if job != nil {
             self.job = job!;
         }
-       
+        
+      self.age = aDecoder.decodeInteger(forKey: "age")
+        
+        self.groupCreated = aDecoder.decodeInteger(forKey: "groupCreated")
+
+        
+        
+        let dob : String? = aDecoder.decodeObject(forKey: "DOB") as? String
+        if dob != nil
+        {
+            self.DOB = dob!;
+        }
+        
+        
     }
     
     public func encode(with aCoder: NSCoder) {
@@ -255,7 +289,17 @@ class User: NSObject,NSCoding
         aCoder.encode(self.tabaco, forKey: "tabaco")
         aCoder.encode(self.imageURL, forKey: "imageURL")
         aCoder.encode(self.job, forKey: "job")
-        aCoder.encode(self.DOB, forKey: "dob")
+
+        aCoder.encode(self.DOB, forKey: "DOB")
+
+        aCoder.encode(self.age, forKey: "age")
+        aCoder.encode(self.groupCreated, forKey: "groupCreated")
+
+
+
+
     }
     
+    
+
 }

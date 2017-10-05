@@ -24,27 +24,33 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-ea-0AI">
                         <rect key="frame" x="0.0" y="0.0" width="222" height="319"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPH" translatesAutoresizingMaskIntoConstraints="NO" id="go6-89-14G">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="go6-89-14G" secondAttribute="height" multiplier="15:14" id="iEj-1t-2Ou"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
-                                <rect key="frame" x="155" y="182.5" width="49" height="49"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngm-Dr-QWF">
+                                <rect key="frame" x="144" y="177" width="60" height="60"/>
                                 <state key="normal" image="Accept"/>
                                 <state key="selected" image="Accepted"/>
                                 <connections>
                                     <action selector="actionBtnDrinked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3Ac-b7-490"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjC-4R-idw">
+                                <rect key="frame" x="15" y="13" width="192.5" height="22"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-Ac-zP8">
                                 <rect key="frame" x="15" y="200" width="89" height="15"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="VML-G1-DsE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -60,13 +66,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="e99-Cl-ycL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday 4:30 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-1K-SeS">
-                                <rect key="frame" x="147" y="293.5" width="70" height="12.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="9"/>
+                                <rect key="frame" x="147" y="293" width="70" height="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -84,14 +90,14 @@
                                 <rect key="frame" x="106" y="227" width="14" height="17"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Persons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywz-WT-WN5">
-                                <rect key="frame" x="15" y="247" width="81" height="15.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                <rect key="frame" x="15" y="247" width="81" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peddlers, Elante Mall, Chd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-CZ-r02">
-                                <rect key="frame" x="106" y="247" width="111" height="15.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peddlers, Elante Mall, Chd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-CZ-r02">
+                                <rect key="frame" x="106" y="247" width="111" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -109,6 +115,7 @@
                             <constraint firstItem="iMd-CZ-r02" firstAttribute="leading" secondItem="v4M-lx-KDm" secondAttribute="leading" id="1MU-5b-3yS"/>
                             <constraint firstItem="Q3o-1K-SeS" firstAttribute="leading" secondItem="jQG-rJ-Se8" secondAttribute="trailing" constant="10" id="4FW-Di-4eo"/>
                             <constraint firstAttribute="width" secondItem="fQp-Ac-zP8" secondAttribute="width" multiplier="600:240" id="4h9-TG-aXA"/>
+                            <constraint firstItem="go6-89-14G" firstAttribute="centerY" secondItem="cjC-4R-idw" secondAttribute="centerY" multiplier="600:140" id="54J-Fs-eB9"/>
                             <constraint firstItem="v4M-lx-KDm" firstAttribute="leading" secondItem="ywz-WT-WN5" secondAttribute="trailing" constant="10" id="Aay-2H-897"/>
                             <constraint firstAttribute="trailing" secondItem="iMd-CZ-r02" secondAttribute="trailing" constant="5" id="BhC-y6-XU4"/>
                             <constraint firstItem="Q3o-1K-SeS" firstAttribute="centerY" secondItem="jQG-rJ-Se8" secondAttribute="centerY" id="F63-Ak-RlX"/>
@@ -128,8 +135,10 @@
                             <constraint firstItem="ywz-WT-WN5" firstAttribute="leading" secondItem="i0a-Qi-IR5" secondAttribute="leading" id="bM9-qc-4TN"/>
                             <constraint firstItem="jQG-rJ-Se8" firstAttribute="centerY" secondItem="BvM-Y6-Ygi" secondAttribute="centerY" id="big-cf-ahf"/>
                             <constraint firstAttribute="width" secondItem="ywz-WT-WN5" secondAttribute="width" multiplier="600:220" id="fXB-at-3Y5"/>
+                            <constraint firstItem="cjC-4R-idw" firstAttribute="centerX" secondItem="go6-89-14G" secondAttribute="centerX" id="k8N-Zt-lfU"/>
                             <constraint firstAttribute="centerX" secondItem="fQp-Ac-zP8" secondAttribute="leading" multiplier="600:80" id="kOB-NS-QCU"/>
                             <constraint firstItem="cdH-OK-lYy" firstAttribute="width" secondItem="RxR-ea-0AI" secondAttribute="width" id="lau-hj-wxi"/>
+                            <constraint firstItem="go6-89-14G" firstAttribute="width" secondItem="cjC-4R-idw" secondAttribute="width" multiplier="600:520" id="mNl-Jj-k1Z"/>
                             <constraint firstAttribute="leading" secondItem="BvM-Y6-Ygi" secondAttribute="leading" constant="-10" id="mjZ-rc-Uk5"/>
                             <constraint firstItem="cdH-OK-lYy" firstAttribute="top" secondItem="BvM-Y6-Ygi" secondAttribute="top" constant="-6" id="qft-ni-qi4"/>
                             <constraint firstAttribute="bottom" secondItem="BvM-Y6-Ygi" secondAttribute="bottom" constant="5" id="s4P-S1-ij8"/>
@@ -151,18 +160,21 @@
                 <outlet property="imgViewCreator" destination="BvM-Y6-Ygi" id="olv-ek-2OR"/>
                 <outlet property="imgViewGroup" destination="go6-89-14G" id="HIv-Ln-wV1"/>
                 <outlet property="lblDistance" destination="vmq-QB-NYk" id="x9Z-Em-qfo"/>
+                <outlet property="lblGroupComment" destination="cjC-4R-idw" id="YWN-aN-8PU"/>
+                <outlet property="lblLastLogin" destination="Q3o-1K-SeS" id="F5Z-Hn-plv"/>
                 <outlet property="lblLocationName" destination="iMd-CZ-r02" id="n6c-u0-K7H"/>
                 <outlet property="lblNoOfConditions" destination="ywz-WT-WN5" id="Bsa-EC-IJE"/>
                 <outlet property="lblOwnerInfo" destination="jQG-rJ-Se8" id="QEZ-lV-zfw"/>
                 <outlet property="lblTag" destination="fQp-Ac-zP8" id="xpH-lj-x3G"/>
                 <outlet property="viewOuter" destination="RxR-ea-0AI" id="HNV-OF-vnc"/>
             </connections>
-            <point key="canvasLocation" x="-493" y="-80"/>
+            <point key="canvasLocation" x="-738" y="-108"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Accept" width="49" height="49"/>
-        <image name="Accepted" width="49" height="49"/>
+        <image name="Accept" width="60" height="60"/>
+        <image name="Accepted" width="60" height="60"/>
+        <image name="GroupPH" width="375" height="356"/>
         <image name="Location" width="14" height="17"/>
         <image name="Persons" width="17" height="15"/>
         <image name="UserPlaceHolder" width="84" height="84"/>

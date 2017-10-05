@@ -133,7 +133,6 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         
         var imageArray = [MSImage]()
         
-        print(imageSelected)
         if imageSelected != nil{
           
             let fileName = "Drinks\(self.timeStamp).jpeg"

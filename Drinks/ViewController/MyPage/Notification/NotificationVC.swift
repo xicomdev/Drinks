@@ -14,24 +14,73 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
+        
+       
+        let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(NotificationVC.actionBtnBackPressed))
+        
+           let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(NotificationVC.actionBtnDonePressed))
+        
+          self.navigationItem.rightBarButtonItem = btnRightBar
+        self.navigationItem.leftBarButtonItem = btnLeftBar
+
+        self.navTitle(title: "Notifications" as NSString, color: UIColor.black , font:  FontRegular(size: 19))
+
+        
+        let nibHeader = UINib(nibName: "SelectionHeader", bundle: nil)
+        tblVwNotification.register(nibHeader, forHeaderFooterViewReuseIdentifier: "SelectionHeader")
+        
         tblVwNotification.registerNibsForCells(arryNib: ["NotificationCell"])
-        tblVwNotification.tableFooterView = UIView()
         tblVwNotification.delegate = self
         tblVwNotification.dataSource = self
-        tblVwNotification.reloadData()
     }
 
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.navigationController!.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
-    //MARK: - Tableview delegate and datsource methods
+    
+    
+    func actionBtnBackPressed(){
+    
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+     func actionBtnDonePressed(){
+        
+        self.navigationController?.popViewController(animated: true)
+
+    }
+    //MARK:- Tableview delegate and datasource methods
+    //MARK:-
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 57
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
+        headerView.lblHeader.text = "Push Notification"
+        
+        return headerView
+    }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return aryNotification.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
         return 64
     }
     
@@ -39,13 +88,19 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tblVwNotification.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         cell.btnSwitch.addTarget(self, action: #selector(self.switchActon(_:)), for: .valueChanged)
         cell.btnSwitch.tag = indexPath.row
-        cell.btnSwitch.isOn = aryNotification[indexPath.row]["boolValue"] as! Bool
+        
+        cell.btnSwitch.isEnabled = aryNotification[indexPath.row]["boolValue"] as! Bool
+        
         cell.lblTitle.text = aryNotification[indexPath.row]["title"] as? String
-        cell.selectionStyle = .none
+        
+        
+        
         return cell
     }
     
-    func switchActon(_ sender: UISwitch) {
-        aryNotification[sender.tag].updateValue(!(aryNotification[sender.tag]["boolValue"] as! Bool), forKey: "boolValue")
+    func switchActon(_ sender: UISwitch)
+    {
+        
+       // aryNotification[sender.tag].updateValue(!(aryNotification[sender.tag]["boolValue"] as! Bool), forKey: "boolValue")
     }
 }

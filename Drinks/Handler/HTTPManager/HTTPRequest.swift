@@ -24,76 +24,83 @@ class HTTPRequest: NSObject {
     }
 
     
-    
 
-//    func createParamters(dict : Dictionary<String ,Any>?) -> Dictionary<String ,Any>
-//    {
-//        var params = Dictionary<String ,Any>()
-//       // params[APIKey] = Constants.webURL.API_KEY
-//      //  params["device_type"] = DeviceType
-//       // params["device_token"] = deviceToken()
-//     //   params["language"] = languageSelected()
-//
-//        // guard let dict = paramters
-//        // else { /* Handle nil case */ return }
-//        
-////        if dict != nil{
-////            params =  params.merged(with: dict!)
-////        }
-//
-//        return params
-//    }
-//    
-    
     
     func setHeader(_ manager: AFHTTPSessionManager)
     {
-        manager.requestSerializer = AFJSONRequestSerializer()
-        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
-        //manager.requestSerializer.setValue("1", forHTTPHeaderField: "DeviceType")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
+        
+        
+//        Please find the Drinks APIs header keys.
+//        
+//        Device-Id
+//        Token
+//        Timestamp
+//        User-Id
+//        Session-Id
+        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "Timestamp")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "User-Id")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "Session-Id")
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
-            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
-            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
+            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "User-Id")
+            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "Session-Id")
         }
+        
+        
+        if userDefaults.value(forKey: "DeviceToken") as? String != nil
+        {
+            manager.requestSerializer.setValue(userDefaults.value(forKey: "DeviceToken") as? String, forHTTPHeaderField: "Token")
+        }else
+        {
+            manager.requestSerializer.setValue("", forHTTPHeaderField: "Token")
+        }
+        
+        manager.requestSerializer.setValue( deviceUniqueIdentifier() , forHTTPHeaderField: "Device-Id")
+        
     }
-
     
+ 
     //MARK:- Creation of Requests
     //MARK:-
-    
-    
     
     func getRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler:@escaping CompletionHandler)
     {
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
 
-    //    let dictParams = self.createParamters(dict: paramters)
         let manager = AFHTTPSessionManager()
-     //   manager.requestSerializer = AFJSONRequestSerializer()
         self.setHeader(manager)
         manager.get(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
-                            else{
-                                return
-                    }
-            if let status = dictResponse["status"] as? Bool{
+                
+            else{
+                  return
+                }
+          
+            print("API \(urlLink) + \(dictResponse)")
+            if let status = dictResponse["status"] as? Bool
+            {
                 if status == true
                 {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
             
+        
+            
         }) { (task, error) in
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
+            
+         //   let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+         //   let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+         //   print("content received : \(str)")
+            
+            
+            
                handler(false, nil, error.localizedDescription)
+            
         }
     }
     
@@ -108,20 +115,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         
         let manager = AFHTTPSessionManager()
         
-      //  manager.requestSerializer = AFJSONRequestSerializer()
-        
-       manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
-      //  manager.requestSerializer.setValue("reteryr", forHTTPHeaderField: "token")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
+        self.setHeader(manager)
 
-        if (LoginManager.sharedInstance.getMeArchiver() != nil)
-        {
-            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
-            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
-        }
-
-        print(paramters)
           manager.post(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
@@ -129,36 +124,38 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 return
             }
             
-            print(dictResponse)
+            print("API \(urlLink) + \(dictResponse)")
+
           if let status = dictResponse["status"] as? Bool{
                 if status == true
                  {
                     handler(true, dictResponse["data"]  , nil)
-
                 }else {
+                    
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
             
         }) { (task, error) in
             
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
-            
+//            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+//            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+//            print("content received : \(str)")
+            print( error.localizedDescription)
             handler(false, nil, error.localizedDescription)
         }
         
     }
     
     
+    
+    
     func postMulipartRequest( urlLink: String, paramters: Dictionary<String ,Any>?,  Images : [MSImage] , handler:@escaping CompletionHandler){
         
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
         let manager = AFHTTPSessionManager()
-        if urlLink == API_UpdateProfile {
-            self.setHeader(manager)
-        }
+        self.setHeader(manager)
 
         print(strFinalURL)
         manager.post(strFinalURL, parameters: paramters, constructingBodyWith: { (formData) in
@@ -181,29 +178,36 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
+                    
+                    
+                    self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }
             }
 
         }, failure: { (task, error) in
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
+//            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+//            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+//            print("content received : \(str)")
             handler(false, nil, error.localizedDescription)
 
         })
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-   }
+    func checkSessionExpired(dictResponse : Dictionary<String, Any>)
+    {
+        
+        if let statusCode = dictResponse["status_code"] as? NSNumber
+        {
+            if statusCode == 203
+            {
+                getOutOfApp()
+                return
+            }
+        }
+    }
+ }
 
 
 

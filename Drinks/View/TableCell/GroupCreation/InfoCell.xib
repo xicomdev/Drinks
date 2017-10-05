@@ -43,6 +43,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblLowerInfo" destination="ska-vF-xn8" id="pRp-BO-f2I"/>
+                <outlet property="lblRelation" destination="sIC-VD-7iX" id="1cW-R4-C65"/>
             </connections>
             <point key="canvasLocation" x="329" y="-32"/>
         </tableViewCell>

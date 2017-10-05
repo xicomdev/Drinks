@@ -1,24 +1,17 @@
-//
-//  HistoryChatVC.swift
-//  Drinks
-//
-//  Created by Ankit Chhabra on 8/31/17.
-//  Copyright © 2017 Maninderjit Singh. All rights reserved.
-//
 
 import UIKit
 
 class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var bottomMargin: NSLayoutConstraint!
     @IBOutlet weak var bottomMsgVwHgt: NSLayoutConstraint!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var txtVWMsg: IQTextView!
     @IBOutlet weak var tblChat: UITableView!
     
-    var arrayMsgs = [Message("0"),Message("1")]
+    var arrayMsgs = [Any]()
     var otherUserId = "3"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,16 +44,16 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     }
     
     func sendMsg() {
-        let msgDict = [
-            "msgId":"1",
-            "msgContent": txtVWMsg.text!,
-            "timestamp": "\(Date().timeIntervalSince1970)",
-            "senderId": "1",
-            "recieverId": "\(otherUserId)"
-        ]
+//        let msgDict = [
+//            "msgId":"1",
+//            "msgContent": txtVWMsg.text!,
+//            "timestamp": "\(Date().timeIntervalSince1970)",
+//            "senderId": "1",
+//            "recieverId": "\(otherUserId)"
+//        ]
         
-        MessageManager.shared.saveMsgs([msgDict])
-        arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
+        //MessageManager.shared.saveMsgs([msgDict])
+      //  arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
         txtVWMsg.text = ""
         bottomMsgVwHgt.constant = 50
         tblChat.reloadData()
@@ -71,7 +64,7 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         self.startKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = false
-        arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
+       // arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
         tblChat.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool)  {
@@ -118,7 +111,7 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         let fixedWidth = textView.frame.size.width
         let newHeight = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude)).height
         print(newHeight)
-
+        
         if newHeight > 34 && newHeight < 85{
             bottomMsgVwHgt.constant = newHeight + 16
         }else if newHeight > 85 {
@@ -135,28 +128,29 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let msgObj: Message = arrayMsgs[indexPath.row]
         let returnCell : UITableViewCell!
-        if msgObj.senderId == "1" {
+        if indexPath.row % 2 == 0
+        {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "SentMsgCell", for: indexPath) as! SentMsgCell
-            cell.lblMsg.text = msgObj.msgContent
-            cell.lblTime.text = msgObj.timestamp.getTimeFromTimestamp()
+            cell.lblMsg.text = "Amaninderjit"
+            cell.lblTime.text = "Time"
             returnCell = cell
-        }else {
+        }else
+        {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "RecievedMsgCell", for: indexPath) as! RecievedMsgCell
-            cell.lblTime.text = msgObj.timestamp.getTimeFromTimestamp()
-            cell.lblMsg.text = msgObj.msgContent
+            cell.lblMsg.text = "Manindejit Singh"
+            //  cell.lblMsg.text = msgObj.msgContent
             returnCell = cell
         }
         returnCell.layoutSubviews()
         returnCell.layoutIfNeeded()
         return returnCell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tblChat.estimatedRowHeight = 80
         return UITableViewAutomaticDimension
     }
-
-
+    
 }

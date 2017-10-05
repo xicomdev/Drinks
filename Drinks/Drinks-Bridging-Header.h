@@ -14,8 +14,9 @@
 #import "AFNetworking.h"
 #import "AFHTTPSessionManager.h"
 
-
-
+#import "VideoRecordingManager.h"
+#import "VideoRecordingWriter.h"
+#import <Photos/Photos.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
@@ -23,5 +24,9 @@
 #import "UIButton+WebCache.h"
 
 #import "NSDate+Utilities.h"
+
+#import <FirebaseAnalytics/FirebaseAnalytics.h>
+#import <FirebaseCore/FirebaseCore.h>
+#import "SSKeychain.h"
 
 #endif /* Drinks_Bridging_Header_h */

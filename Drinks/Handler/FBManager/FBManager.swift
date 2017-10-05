@@ -46,7 +46,6 @@ class FBManager: NSObject  {
     func logout(){
         
         self.loginManager.logOut()
-        FBSDKAccessToken.setCurrent(nil)
         FBSDKProfile.setCurrent(nil)
      FBSDKGraphRequest(graphPath: "me/permissions", parameters: nil, httpMethod: "DELETE").start { (connection , result, error) -> Void in
         
@@ -76,12 +75,44 @@ class FBManager: NSObject  {
                 print(dictResult)
             }
             
-            print(result)
             callBack(true,result as AnyObject?,nil)
             
         })
         
     }
+    
+    func getFriendList(callBack:@escaping (Bool,AnyObject?,String?)->()) {
+        
+        let params : [String : Any] = ["fields": "id, first_name, last_name, name, email, picture"]
+    
+        
+        let graphRequest = FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: params)
+
+   // let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
+    let connection = FBSDKGraphRequestConnection()
+    connection.add(graphRequest, completionHandler: { (connection, result, error) in
+    if error == nil {
+    if let userData = result as? [String:Any] {
+    print(userData)
+        
+        callBack(true,userData as AnyObject?, nil)
+
+    }
+    } else {
+
+    print("Error Getting Friends \(error)");
+    }
+    
+    })
+    
+    connection.start()
+    
+    }
+  
+    
+    
+    
+    
     
     func currentTokenString() -> String {
         return FBSDKAccessToken.current().tokenString;
@@ -101,6 +132,8 @@ class FBManager: NSObject  {
     
     
     func login(viewController: UIViewController, callBack:@escaping (Bool,AnyObject?,String?)->()) {
+        self.loginManager.logOut()
+
         self.loginManager.logIn(withReadPermissions: self.permissions, from: viewController) { (result, error) in
             
             if error != nil {

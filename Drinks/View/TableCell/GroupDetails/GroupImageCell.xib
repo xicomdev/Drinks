@@ -20,8 +20,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7jH-is-pCA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="305.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPH" translatesAutoresizingMaskIntoConstraints="NO" id="7jH-is-pCA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="306"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygF-tr-GTA">
@@ -46,15 +46,16 @@
                             <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="6zi-wc-DpM"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-O5-VdF">
-                        <rect key="frame" x="228" y="267" width="77" height="77"/>
-                        <state key="normal" image="AcceptDetail"/>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-O5-VdF">
+                        <rect key="frame" x="231.5" y="270.5" width="70" height="70"/>
+                        <state key="normal" image="OfferAccept"/>
+                        <state key="selected" image="OfferAccept"/>
                         <connections>
                             <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="U3w-Yu-N9r"/>
                         </connections>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h65-4X-Tzi">
-                        <rect key="frame" x="20" y="315.5" width="74.5" height="20"/>
+                        <rect key="frame" x="20" y="316" width="74.5" height="20"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Mjf-jJ-CWx"/>
@@ -92,8 +93,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="AcceptDetail" width="77" height="77"/>
         <image name="EditOption" width="25" height="6"/>
+        <image name="GroupPH" width="375" height="356"/>
+        <image name="OfferAccept" width="70" height="70"/>
         <image name="backIcon" width="19" height="26"/>
     </resources>
 </document>

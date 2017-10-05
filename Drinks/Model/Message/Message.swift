@@ -2,33 +2,67 @@
 //  Message.swift
 //  Drinks
 //
-//  Created by Ankit Chhabra on 9/6/17.
+//  Created by maninder on 9/7/17.
 //  Copyright © 2017 Maninderjit Singh. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+enum MessageStatus : String
+{
+    case Unread = "0" //As per Backend
+    case Read = "1"
+}
+
 
 class Message: NSObject {
-    var msgId : String = ""
-    var msgContent : String = ""
-    var senderId: String = String()
-    var recieverId: String = String()
-    var timestamp:String = ""
-    
-    override init() {
-        
-    }
-    
-    convenience init(_ sender_id: String) {
-        self.init()
+    var date : String!
+    var message : String!
+    var senderID : String!
+    var threadID : String!
+    var senderUser : User!
 
-        self.msgContent = "Helloooo"
-        self.msgId = "2"
-        self.senderId = sender_id
-        self.timestamp = "\(Date().timeIntervalSince1970)"
-        self.recieverId = "2"
+    
+    override init()
+    {
+        
     }
     
-        
     
+    convenience init(messageDict : Any)
+    {
+        self.init()
+        
+        guard let dictMessage = messageDict as? Dictionary<String, Any> else {
+            return
+        }
+        
+
+       // self.date = dictMessage["datetime"] as! String
+        self.message = dictMessage["message"] as! String
+        self.threadID = dictMessage["thread_id"] as! String
+         self.senderUser = User(messageDict: dictMessage["sender"]as Any)
+          self.senderID = dictMessage["sender_id"] as! String
+    }
+    
+    convenience init(selfDict : Any)
+    {
+        self.init()
+        
+        guard let dictMessage = selfDict as? Dictionary<String, Any> else {
+            return
+        }
+        
+       // self.date = dictMessage["datetime"] as! String
+        self.message = dictMessage["message"] as! String
+        self.threadID = dictMessage["thread_id"] as! String
+        self.senderID = dictMessage["sender_id"] as! String
+        self.senderUser = LoginManager.getMe
+
+    }
 }
+
+
+    
+
