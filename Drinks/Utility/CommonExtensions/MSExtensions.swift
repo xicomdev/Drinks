@@ -40,6 +40,17 @@ let APP_DateMessageFormat = "dd/MM/yyyy hh:mm a"
 func appDelegate() ->  AppDelegate{
     return UIApplication.shared.delegate as! AppDelegate
 }
+
+extension UIButton {
+    func underlineButton(text: String , font : UIFont) {
+        let titleString = NSMutableAttributedString(string: text)
+        titleString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, text.characters.count))
+        //  NSFontAttributeName : FontLight(size: 15)
+        titleString.addAttribute(NSFontAttributeName , value: font , range: NSMakeRange(0, text.characters.count))
+        
+        self.setAttributedTitle(titleString, for: .normal)
+    }
+}
 extension NSObject{
     
     //MARK: ------ Popular Objects
@@ -72,26 +83,36 @@ extension NSObject{
 
 
 
-
+extension Double {
+    
+    
+    func roundTo(places: Double) -> Double {
+        let divisor = pow(10.0, places)
+        return (self * divisor).rounded() / divisor
+    }
+}
 
 
 
 extension Date {
     
     
+    public func  toShortTimeString() -> String
+    {
+        //Get Short Time String
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let timeString = formatter.string(from: self)
+        return timeString
+    }
+    
     
     public static func timestamp() -> String {
         return "\(Date().timeIntervalSince1970 * 1000)" as String
     }
     
-    
-    
-    
-    
     public func getMessageDate()-> Date{
-        
         return Date()
-        
     }
     
 }
@@ -125,9 +146,7 @@ extension String
     func getDoubleValue() -> Double{
         
         var strLocal = self
-
         strLocal = strLocal.removeParticularCharacterString(character: "-")
-        
         return Double(strLocal)!
         
     }

@@ -81,6 +81,39 @@ class FBManager: NSObject  {
         
     }
     
+    func getFriendList(callBack:@escaping (Bool,AnyObject?,String?)->()) {
+        
+        let params : [String : Any] = ["fields": "id, first_name, last_name, name, email, picture"]
+    
+        
+        let graphRequest = FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: params)
+
+   // let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
+    let connection = FBSDKGraphRequestConnection()
+    connection.add(graphRequest, completionHandler: { (connection, result, error) in
+    if error == nil {
+    if let userData = result as? [String:Any] {
+    print(userData)
+        
+        callBack(true,userData as AnyObject?, nil)
+
+    }
+    } else {
+
+    print("Error Getting Friends \(error)");
+    }
+    
+    })
+    
+    connection.start()
+    
+    }
+  
+    
+    
+    
+    
+    
     func currentTokenString() -> String {
         return FBSDKAccessToken.current().tokenString;
     }

@@ -10,7 +10,12 @@
 		63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63172EDB1F69519C00244656 /* MyGroupsHeader.swift */; };
 		63172EDE1F69519C00244656 /* MyGroupsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDC1F69519C00244656 /* MyGroupsHeader.xib */; };
 		63172EE01F6951B600244656 /* MyGroupsHeaderTemp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDF1F6951B600244656 /* MyGroupsHeaderTemp.xib */; };
+		63249BA41F7A708700F434E1 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63249BA31F7A708700F434E1 /* PassKit.framework */; };
 		63286D091F54012700D33C3A /* FilterSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63286D081F54012700D33C3A /* FilterSelectionVC.swift */; };
+		633112B11F727A4300DE27AD /* MSCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633112B01F727A4300DE27AD /* MSCoreData.swift */; };
+		633112B31F72834900DE27AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633112B21F72834900DE27AD /* CoreData.framework */; };
+		635E18ED1F7CD32400CF7307 /* PremiumPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E18EC1F7CD32400CF7307 /* PremiumPlan.swift */; };
+		635E18F01F7CD3D900CF7307 /* ApplePayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E18EF1F7CD3D900CF7307 /* ApplePayManager.swift */; };
 		637AFFA61F3C86C200235578 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA41F3C86C200235578 /* AssetManager.swift */; };
 		637AFFA71F3C86C200235578 /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA51F3C86C200235578 /* CameraMan.swift */; };
 		637AFFA91F3C872C00235578 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637AFFA81F3C872C00235578 /* Helper.swift */; };
@@ -71,6 +76,8 @@
 		63996CCA1F343500008583BB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63996CC91F343500008583BB /* HomeVC.swift */; };
 		63996CCD1F346B2E008583BB /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63996CCC1F346B2E008583BB /* Photos.framework */; };
 		63996CD11F3471BF008583BB /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63996CD01F3471BF008583BB /* NSDate+Utilities.m */; };
+		639D48C21F84A9A900C08E0B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D48C11F84A9A900C08E0B /* MapVC.swift */; };
+		639D48C41F84B3FD00C08E0B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639D48C31F84B3FD00C08E0B /* MapKit.framework */; };
 		639F824B1F3D674B00BAFFED /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F824A1F3D674B00BAFFED /* Permissions.swift */; };
 		639F824E1F3DBA2400BAFFED /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F824D1F3DBA2400BAFFED /* CreateGroupVC.swift */; };
 		639F82521F3DC32E00BAFFED /* SelectPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F82501F3DC32E00BAFFED /* SelectPhotoVC.swift */; };
@@ -224,7 +231,12 @@
 		63172EDB1F69519C00244656 /* MyGroupsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsHeader.swift; sourceTree = "<group>"; };
 		63172EDC1F69519C00244656 /* MyGroupsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupsHeader.xib; sourceTree = "<group>"; };
 		63172EDF1F6951B600244656 /* MyGroupsHeaderTemp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupsHeaderTemp.xib; sourceTree = "<group>"; };
+		63249BA31F7A708700F434E1 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		63286D081F54012700D33C3A /* FilterSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSelectionVC.swift; sourceTree = "<group>"; };
+		633112B01F727A4300DE27AD /* MSCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCoreData.swift; sourceTree = "<group>"; };
+		633112B21F72834900DE27AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		635E18EC1F7CD32400CF7307 /* PremiumPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumPlan.swift; sourceTree = "<group>"; };
+		635E18EF1F7CD3D900CF7307 /* ApplePayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePayManager.swift; sourceTree = "<group>"; };
 		637AFFA41F3C86C200235578 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		637AFFA51F3C86C200235578 /* CameraMan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMan.swift; sourceTree = "<group>"; };
 		637AFFA81F3C872C00235578 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -324,6 +336,8 @@
 		63996CCC1F346B2E008583BB /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		63996CCF1F3471BF008583BB /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		63996CD01F3471BF008583BB /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		639D48C11F84A9A900C08E0B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		639D48C31F84B3FD00C08E0B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		639F824A1F3D674B00BAFFED /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
 		639F824D1F3DBA2400BAFFED /* CreateGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		639F82501F3DC32E00BAFFED /* SelectPhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoVC.swift; sourceTree = "<group>"; };
@@ -468,6 +482,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639D48C41F84B3FD00C08E0B /* MapKit.framework in Frameworks */,
+				63249BA41F7A708700F434E1 /* PassKit.framework in Frameworks */,
+				633112B31F72834900DE27AD /* CoreData.framework in Frameworks */,
 				63C05C261F67E4FE00FDC51E /* UserNotifications.framework in Frameworks */,
 				63C129BB1F611274002C12E9 /* FirebaseNanoPB.framework in Frameworks */,
 				63C05C381F68108900FDC51E /* Crashlytics.framework in Frameworks */,
@@ -502,6 +519,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		633112AF1F727A0600DE27AD /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				633112B01F727A4300DE27AD /* MSCoreData.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		635E18EB1F7CD30000CF7307 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				635E18EC1F7CD32400CF7307 /* PremiumPlan.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		635E18EE1F7CD3BC00CF7307 /* ApplePayManager */ = {
+			isa = PBXGroup;
+			children = (
+				635E18EF1F7CD3D900CF7307 /* ApplePayManager.swift */,
+			);
+			path = ApplePayManager;
+			sourceTree = "<group>";
+		};
 		636B5FEA1F540012008F204C /* FilterSelectionVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +789,7 @@
 		639954C61F29AD7A0025E9C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				635E18EB1F7CD30000CF7307 /* Plan */,
 				63C129C31F613237002C12E9 /* Message */,
 				63C129C01F613082002C12E9 /* ChatThread */,
 				63F35CC01F41825E001600D4 /* Group */,
@@ -773,6 +815,7 @@
 		639954CA1F29ADA00025E9C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				639D48C01F84A99600C08E0B /* MapVC */,
 				63E0F4841F5FD06A00E94977 /* ReportGroup */,
 				63D158F11F5E64BF0089BEC9 /* MyCamera */,
 				63B8242F1F5D657200BA9F62 /* Message */,
@@ -801,6 +844,8 @@
 		639954CE1F29ADEA0025E9C6 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
+				635E18EE1F7CD3BC00CF7307 /* ApplePayManager */,
+				633112AF1F727A0600DE27AD /* CoreDataManager */,
 				63C129C61F615935002C12E9 /* ChatManager */,
 				63812EBC1F56B8770012AE36 /* GroupManager */,
 				63D7F1B51F330D1C000E27AF /* HTTPManager */,
@@ -861,6 +906,9 @@
 		63996CCB1F346B2E008583BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				639D48C31F84B3FD00C08E0B /* MapKit.framework */,
+				63249BA31F7A708700F434E1 /* PassKit.framework */,
+				633112B21F72834900DE27AD /* CoreData.framework */,
 				63C05C251F67E4FE00FDC51E /* UserNotifications.framework */,
 				63996CCC1F346B2E008583BB /* Photos.framework */,
 			);
@@ -874,6 +922,14 @@
 				63996CD01F3471BF008583BB /* NSDate+Utilities.m */,
 			);
 			path = DateExtensions;
+			sourceTree = "<group>";
+		};
+		639D48C01F84A99600C08E0B /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+				639D48C11F84A9A900C08E0B /* MapVC.swift */,
+			);
+			path = MapVC;
 			sourceTree = "<group>";
 		};
 		639F824C1F3DB32900BAFFED /* CreateGroup */ = {
@@ -1516,9 +1572,15 @@
 					6399542F1F29AAC90025E9C6 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = QV46UN4P88;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -1654,6 +1716,7 @@
 				639954BF1F29AD700025E9C6 /* UIImage+GIF.m in Sources */,
 				63E0F4861F5FD12700E94977 /* ReportGroupVC.swift in Sources */,
 				63D7F1891F32F79B000E27AF /* ListingCell.swift in Sources */,
+				635E18ED1F7CD32400CF7307 /* PremiumPlan.swift in Sources */,
 				6397974F1F3C23D400A841F4 /* OfferVC.swift in Sources */,
 				63D7F17F1F32EF6D000E27AF /* SelectionVC.swift in Sources */,
 				63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */,
@@ -1664,6 +1727,7 @@
 				63B8246F1F5D65F200BA9F62 /* RecievedMsgCell.swift in Sources */,
 				63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */,
 				63996CC41F342E75008583BB /* LoginManager.swift in Sources */,
+				633112B11F727A4300DE27AD /* MSCoreData.swift in Sources */,
 				63D158FB1F5E6AC50089BEC9 /* VideoRecordingProgress.m in Sources */,
 				63D7F1B21F330C13000E27AF /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				639954A51F29AD6F0025E9C6 /* AFHTTPRequestOperation.m in Sources */,
@@ -1677,8 +1741,10 @@
 				639797561F3C377000A841F4 /* MSTabBarController.swift in Sources */,
 				63CD840E1F3B0B9400D9D434 /* SelectionHeader.swift in Sources */,
 				63B8244A1F5D657200BA9F62 /* HelpVC.swift in Sources */,
+				639D48C21F84A9A900C08E0B /* MapVC.swift in Sources */,
 				63A995171F349F69005DDFA4 /* GroupCell.swift in Sources */,
 				63D158FA1F5E6AC50089BEC9 /* VideoRecordingManager.m in Sources */,
+				635E18F01F7CD3D900CF7307 /* ApplePayManager.swift in Sources */,
 				63B8244D1F5D657200BA9F62 /* PaidMemberVC.swift in Sources */,
 				637AFFA91F3C872C00235578 /* Helper.swift in Sources */,
 				639954DB1F29B8E90025E9C6 /* User.swift in Sources */,
@@ -1971,8 +2037,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "523393e2-becd-48a4-9760-90b6b65b3067";
+				PROVISIONING_PROFILE_SPECIFIER = Drinks_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Drinks/Drinks-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1999,8 +2065,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xicom.drinks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "523393e2-becd-48a4-9760-90b6b65b3067";
+				PROVISIONING_PROFILE_SPECIFIER = Drinks_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Drinks/Drinks-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

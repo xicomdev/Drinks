@@ -28,24 +28,35 @@ class HTTPRequest: NSObject {
     
     func setHeader(_ manager: AFHTTPSessionManager)
     {
-        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "timeStamp")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "user_id")
-        manager.requestSerializer.setValue("", forHTTPHeaderField: "session_id")
+        
+        
+//        Please find the Drinks APIs header keys.
+//        
+//        Device-Id
+//        Token
+//        Timestamp
+//        User-Id
+//        Session-Id
+        manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "Timestamp")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "User-Id")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "Session-Id")
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
-            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "user_id")
-            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "session_id")
+            manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "User-Id")
+            manager.requestSerializer.setValue(LoginManager.getMe.sessionID, forHTTPHeaderField: "Session-Id")
         }
         
         
-        if userDefaults.value(forKey: "DeviceToken") as? String != nil{
-            manager.requestSerializer.setValue(userDefaults.value(forKey: "DeviceToken") as? String, forHTTPHeaderField: "token")
-        }else{
-            manager.requestSerializer.setValue("000000000000000", forHTTPHeaderField: "token")
+        if userDefaults.value(forKey: "DeviceToken") as? String != nil
+        {
+            manager.requestSerializer.setValue(userDefaults.value(forKey: "DeviceToken") as? String, forHTTPHeaderField: "Token")
+        }else
+        {
+            manager.requestSerializer.setValue("", forHTTPHeaderField: "Token")
         }
         
-        manager.requestSerializer.setValue( deviceUniqueIdentifier() , forHTTPHeaderField: "device_id")
-        //device_id
+        manager.requestSerializer.setValue( deviceUniqueIdentifier() , forHTTPHeaderField: "Device-Id")
+        
     }
     
  
@@ -61,10 +72,12 @@ class HTTPRequest: NSObject {
         manager.get(strFinalURL, parameters: paramters, success: { (taskSuccess, responseSuccess) in
             
             guard  let dictResponse = responseSuccess as? Dictionary<String, Any>
+                
             else{
-                                return
+                  return
                 }
           
+            print("API \(urlLink) + \(dictResponse)")
             if let status = dictResponse["status"] as? Bool
             {
                 if status == true
@@ -79,10 +92,15 @@ class HTTPRequest: NSObject {
         
             
         }) { (task, error) in
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
+            
+         //   let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+         //   let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+         //   print("content received : \(str)")
+            
+            
+            
                handler(false, nil, error.localizedDescription)
+            
         }
     }
     
@@ -106,7 +124,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 return
             }
             
-            print(dictResponse)
+            print("API \(urlLink) + \(dictResponse)")
+
           if let status = dictResponse["status"] as? Bool{
                 if status == true
                  {
@@ -120,10 +139,10 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
             
         }) { (task, error) in
             
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
-            
+//            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+//            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+//            print("content received : \(str)")
+            print( error.localizedDescription)
             handler(false, nil, error.localizedDescription)
         }
         
@@ -167,9 +186,9 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
             }
 
         }, failure: { (task, error) in
-            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
-            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
-            print("content received : \(str)")
+//            let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+//            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+//            print("content received : \(str)")
             handler(false, nil, error.localizedDescription)
 
         })
@@ -187,12 +206,8 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 return
             }
         }
-        
     }
-    
-    
-    
-   }
+ }
 
 
 

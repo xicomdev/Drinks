@@ -13,7 +13,8 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tblVwSettings: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = false
+
         self.navigationItem.hidesBackButton = true
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsVC.btnCrossAction))
         
@@ -28,9 +29,14 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tblVwSettings.dataSource = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
 
-    @IBAction func btnCrossAction(_ sender: AnyObject) {
-        
+    }
+
+    @IBAction func btnCrossAction(_ sender: AnyObject)
+    {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -69,7 +75,17 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == 0  && indexPath.row == 0
         {
-         getOutOfApp()
+            
+            LoginManager.sharedInstance.logOut(handler: { (success, response, strError) in
+                if success
+                {
+                    getOutOfApp()
+                    
+                }else{
+                    showAlert(title: "Drinks", message: strError!, controller: self)
+                }
+
+            })
         }
     }
 }

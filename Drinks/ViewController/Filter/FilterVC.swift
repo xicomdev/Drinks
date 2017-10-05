@@ -49,6 +49,8 @@ enum SortListing : Int
 //let arrayPeople : [Int] = [1, 2, 3 , 4 , 5 ]
 
 struct FilterInfo {
+    var filterEnabled = false
+    var filterLocationName : GroupLocation? = nil
     var distance : Int = -1
     var age : [String] = [String]()
     var relation : [String] = [String]()
@@ -161,7 +163,7 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
         if selectedOption == .Filter{
              return FilterListing.Action.rawValue + 1
         }else{
-             return FilterListing.Action.rawValue 
+             return FilterListing.Action.rawValue  + 1
         }
     }
     
@@ -219,6 +221,8 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 {
                     
                     if appDelegate().appLocation != nil{
+                        
+                        self.filterDetails.filterEnabled = true
                         self.filterDelegate?.moveWithSelection!(selected: self.filterDetails)
                         self.dismiss(animated: true, completion: nil)
                     }else{
@@ -241,8 +245,10 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
-            return cell
-
+            cell.callbackAction = { (action : GroupAction , data : Any?) in
+                
+            }
+       return cell
         }
      }
     
@@ -250,6 +256,11 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectedOption == .Filter
         {
+            
+          //  let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapVC
+          //  self.navigationController?.pushViewController(mapVC, animated: true)
+            
+            
             let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterSelectionVC") as! FilterSelectionVC
             selectionVC.selectType = FilterListing(rawValue: indexPath.row)!
             selectionVC.filterDetails = filterDetails

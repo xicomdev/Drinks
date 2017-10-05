@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="319" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="319" height="73"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpS-ZP-mjC" customClass="SetCornerButton" customModule="Drinks" customModuleProvider="target">
@@ -68,6 +68,9 @@
                                 <real key="value" value="22.5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="actionBtnBuyPlan:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="toM-go-KBm"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="¥2000/mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="y9T-0G-FFo">
                         <rect key="frame" x="101" y="15" width="123" height="23"/>
@@ -104,7 +107,7 @@
                 <outlet property="lblPlanPrice" destination="y9T-0G-FFo" id="p6F-I6-cBQ"/>
                 <outlet property="lblPopulartyNo" destination="ud8-FJ-SfA" id="4Ey-oO-0aN"/>
             </connections>
-            <point key="canvasLocation" x="-94.5" y="190"/>
+            <point key="canvasLocation" x="-36" y="115"/>
         </tableViewCell>
     </objects>
 </document>

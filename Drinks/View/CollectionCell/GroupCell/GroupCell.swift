@@ -10,8 +10,10 @@ import UIKit
 
 class GroupCell: UICollectionViewCell {
     
+    @IBOutlet var lblGroupComment: UILabel!
     
     
+    @IBOutlet var lblLastLogin: UILabel!
     var callbackAction : ((Group )-> Void)? = nil
 
     @IBOutlet var viewOuter: UIView!
@@ -41,10 +43,14 @@ class GroupCell: UICollectionViewCell {
         self.group = groupInfo
         
         
-        imgViewGroup.sd_setImage(with: URL(string: groupInfo.imageURL), placeholderImage: nil)
+        imgViewGroup.sd_setImage(with: URL(string: groupInfo.imageURL), placeholderImage: GroupPlaceHolder)
         imgViewCreator.sd_setImage(with: URL(string: groupInfo.groupOwner.imageURL), placeholderImage: nil)
         let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
         lblOwnerInfo.text = strInfo
+        
+        lblLastLogin.text = groupInfo.groupOwner.lastLogin
+
+        
         lblLocationName.text = groupInfo.location?.LocationName!
         
         if groupInfo.tagEnabled == true{
@@ -54,23 +60,20 @@ class GroupCell: UICollectionViewCell {
             lblTag.isHidden = true
         }
         
+        lblGroupComment.text = groupInfo.groupDescription
         
         
         if groupInfo.groupBy == .Other
         {
             btnInterested.isHidden = false
-            if groupInfo.drinkedStatus == .Drinked{
-                btnInterested.isSelected = true
-            }else{
-                btnInterested.isSelected = false
-            }
+            setSmallDrinkedStatus(btnStatus: btnInterested, status: groupInfo.drinkedStatus )
         }else{
-            //My Own Group
+          
             btnInterested.isHidden = true
-            btnInterested.isSelected = false
         }
 
         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfConditions)
+        setSmallDrinkedStatus(btnStatus: btnInterested, status: groupInfo.drinkedStatus )
     }
     
     

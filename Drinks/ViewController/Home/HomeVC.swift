@@ -14,6 +14,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 
     var globalFilter = FilterInfo()
     
+    @IBOutlet var viewPreviewConstraint: NSLayoutConstraint!
     
     var arrayGroups = [Group]()
     
@@ -39,9 +40,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         self.navTitle(title:"Search" , color: UIColor.black , font:  FontRegular(size: 17))
         
         
-        let nibHeader = UINib(nibName: "MyGroupsHeader", bundle: nil)
-    
-        collectionViewGroup.register(nibHeader, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: "MyGroupsHeader")
+//        let nibHeader = UINib(nibName: "MyGroupsHeader", bundle: nil)
+//    
+//        collectionViewGroup.register(nibHeader, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: "MyGroupsHeader")
         
       
         self.view.backgroundColor = UIColor.groupTableViewBackground
@@ -50,16 +51,21 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         collectionViewGroup.delegate = self
         collectionViewGroup.dataSource = self
         collectionViewGroup.backgroundColor = UIColor.groupTableViewBackground
+        collectionFlowLayout.sectionInset = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
 
         
+            FBManager.sharedInstance.getFriendList { (isSuccess, response, strError) in
+            }
         
-        self.getGroups()
-
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         
+        if globalFilter.filterEnabled == false{
+             self.getGroups()
+        }
+       
 
     }
 
@@ -85,35 +91,44 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
     }
     
+    @IBAction func actionBtnMyPostedGroup(_ sender: UIButton) {
+        
+        if self.myGroups.count > 0 {
+                            let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+                            groupVC.groupInfo = self.myGroups[0]
+                            groupVC.delegateDetail = self
+                            self.navigationController?.pushViewController(groupVC, animated: true)
+        }
+    }
     //MARK:- CollectionView Delegate Methods
     //MARK:-
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
-        
-        if myGroups.count > 0 {
-            return CGSize(width: collectionViewGroup.frame.size.width , height: 50)
-        }else{
-            
-            return CGSize(width: collectionViewGroup.frame.size.width , height: 0)
-
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
+//        
+//        if myGroups.count > 0 {
+//            return CGSize(width: collectionViewGroup.frame.size.width , height: 50)
+//        }else{
+//            
+//            return CGSize(width: collectionViewGroup.frame.size.width , height: 0)
+//
+//        }
+//    }
     
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MyGroupsHeader", for: indexPath) as! MyGroupsHeader
-       
-        header.callbackBtn = {
-            if self.myGroups.count > 0 {
-                let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
-                groupVC.groupInfo = self.myGroups[0]
-                groupVC.delegateDetail = self
-                self.navigationController?.pushViewController(groupVC, animated: true)
-            }
-        }
-        return header
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//    
+//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MyGroupsHeader", for: indexPath) as! MyGroupsHeader
+//       
+//        header.callbackBtn = {
+//            if self.myGroups.count > 0 {
+//                let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+//                groupVC.groupInfo = self.myGroups[0]
+//                groupVC.delegateDetail = self
+//                self.navigationController?.pushViewController(groupVC, animated: true)
+//            }
+//        }
+//        return header
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayGroups.count
@@ -137,8 +152,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                         let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
                         self.arrayGroups[index] = groupInfo
                         self.collectionViewGroup.reloadData()
-                        
-                        showInterestedAlert(controller: self)
+                        if groupInfo.drinkedStatus == .Drinked{
+                            showInterestedAlert(controller: self)
+                        }
                     }
                 }else
                 {
@@ -177,14 +193,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//                let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "MyCameraVC") as! MyCameraVC
-//                self.navigationController?.pushViewController(groupVC, animated: true)
-//
+
         
         let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
         groupVC.groupInfo = arrayGroups[indexPath.row]
         groupVC.delegateDetail = self
+        groupVC.groupAction = .Home
         self.navigationController?.pushViewController(groupVC, animated: true)
         
     }
@@ -192,12 +206,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:- Get Groups
     //MARK:-
     
-    
-    
-    
     func getGroups()
     {
-      
         Group.getGroupListing { (isSuccess, response, strError) in
             if isSuccess
             {
@@ -207,16 +217,16 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                     let myGroups = dictGroups["MyGroups"] as! [Group]
                     let AllGroups = dictGroups["OtherGroups"] as! [Group]
                     
-                    
-                    
                     self.myGroups.removeAll()
                     self.myGroups.append(contentsOf: myGroups)
                     
                     self.arrayGroups.removeAll()
                     self.arrayGroups = AllGroups
                     self.collectionViewGroup.reloadData()
-                    self.updateCollectionInsects()
+                   // self.updateCollectionInsects()
 
+                    
+                    self.updatePreviewView()
                 }
                 
                 if self.arrayGroups.count > 0 {
@@ -249,8 +259,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                     self.arrayGroups = arrayNewGroups
                 }
                 self.collectionViewGroup.reloadData()
-                self.updateCollectionInsects()
-
                 
                 if self.arrayGroups.count > 0 {
                     self.collectionViewGroup.isHidden = false
@@ -292,7 +300,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     
     func updateData() {
-        self.getGroups()
+      //  self.getGroups()
 
     }
     
@@ -308,14 +316,19 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         }
     }
     
-    func updateCollectionInsects(){
+    func updatePreviewView(){
         
         if self.myGroups.count > 0 {
-            collectionFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            self.viewPreviewConstraint.constant = 50
+            btnCreateGroup.isHidden = true
         }else{
-            collectionFlowLayout.sectionInset = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
+            self.viewPreviewConstraint.constant = 0
+            btnCreateGroup.isHidden = false
         }
         
+//        UIView.animate(withDuration: 0.3) {
+//            self.view.layoutIfNeeded()
+//        }
 
     }
 

@@ -39,7 +39,7 @@ class Message: NSObject {
         }
         
 
-        self.date = dictMessage["datetime"] as! String
+       // self.date = dictMessage["datetime"] as! String
         self.message = dictMessage["message"] as! String
         self.threadID = dictMessage["thread_id"] as! String
          self.senderUser = User(messageDict: dictMessage["sender"]as Any)
@@ -54,12 +54,11 @@ class Message: NSObject {
             return
         }
         
-        self.date = dictMessage["datetime"] as! String
+       // self.date = dictMessage["datetime"] as! String
         self.message = dictMessage["message"] as! String
         self.threadID = dictMessage["thread_id"] as! String
         self.senderID = dictMessage["sender_id"] as! String
         self.senderUser = LoginManager.getMe
-
 
     }
 }

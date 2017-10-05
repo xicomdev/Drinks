@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBy-da-Ajn">
-                        <rect key="frame" x="20" y="36.5" width="180" height="23.5"/>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <rect key="frame" x="20" y="37.5" width="180" height="22"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4546" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhD-IG-Cjf">
-                        <rect key="frame" x="216.5" y="35.5" width="160" height="25"/>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                        <rect key="frame" x="216.5" y="37.5" width="160" height="22"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1d6-P3-bVn">

@@ -128,6 +128,8 @@ extension AppDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        
     }
     
     
@@ -136,34 +138,28 @@ extension AppDelegate {
         
         let dict : Dictionary? = response.notification.request.content.userInfo as? Dictionary<String,Any>
         if dict != nil{
-            
-            
-            print(dict)
-            //        if dict?["aps"] != nil
-            //        {
-            //            let dictInner = dict?["aps"] as? Dictionary<String, Any>
-            //            if dictInner?["info"] != nil {
-            //                let objectData = dictInner?["info"]  as! Dictionary<String ,Any>
-            //                let dictJson = objectData["JsonData"] as! Dictionary<String ,Any>
-            //                let strAPIKey = dictJson["ApiKey"] as! NSNumber
-            //                let strSessionKey = dictJson["SessionKey"] as! String
-            //                let strToken = dictJson["Token"] as! String
-            //                APIVideoKey = strAPIKey.description
-            //                VideoSessionID = strSessionKey
-            //                VideoToken = strToken
-            //
-            //                let viewCall =   showCallingView()
-            //                self.window?.rootViewController?.view.window?.addSubview(viewCall)
-            ////                let controller: CallVideoVC = CallVideoVC(nibName: "CallVideoVC", bundle: nil)
-            ////                controller.apiKey = strAPIKey.description
-            ////                controller.sessionID = strSessionKey
-            ////                controller.token = strToken
-            ////                (self.window?.rootViewController)!.present(controller, animated: true, completion: nil)
-            //
-            //            }
-            //
-            //        }
-            
+          if  let pushData = dict?["aps"] as?  Dictionary<String,Any>
+          {
+            let dictData =  pushData["data"]  as!  Dictionary<String,Any>
+            let thread = ChatThread(groupThread: dictData)
+            if self.window?.topMostController() is MSTabBarController
+            {
+                let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                if  topVC.visibleViewController  is DrinkTodayChatVC {
+                    let openedVC =  topVC.visibleViewController  as! DrinkTodayChatVC
+                    if openedVC.thread.ID == thread.ID
+                    {
+                      openedVC.tblChat.reloadData()
+                        openedVC.moveToLastCell()
+                        
+                    }else{
+                        self.openChatVC(thread: thread)
+                    }
+                }else{
+                    self.openChatVC(thread: thread)
+                }
+               }
+            }
         }
     }
     
@@ -174,28 +170,32 @@ extension AppDelegate {
         if dict != nil{
             if dict?["aps"] != nil
             {
-                //                    let dictInner = dict?["aps"] as? Dictionary<String, Any>
-                //                   if dictInner?["info"] != nil {
-                //                    let objectData = dictInner?["info"]  as! Dictionary<String ,Any>
-                //                    let dictJson = objectData["JsonData"] as! Dictionary<String ,Any>
-                //                       let strAPIKey = dictJson["ApiKey"] as! NSNumber
-                //                        let strSessionKey = dictJson["SessionKey"] as! String
-                //                        let strToken = dictJson["Token"] as! String
-                //                    APIVideoKey = strAPIKey.description
-                //                    VideoSessionID = strSessionKey
-                //                    VideoToken = strToken
-                //
-                //
-                //                    print(APIVideoKey)
-                //                    print(VideoSessionID)
-                //                    print(VideoToken)
-                //  let viewCall =   showCallingView()
-                // self.window?.rootViewController?.view.window?.addSubview(viewCall)
-                
             }
             
         }
         
+    }
+    
+    
+    func openChatVC(thread : ChatThread){
+        
+        let viewController: UIViewController? = self.topViewController() // optional
+        var navController: UINavigationController? = nil;
+        
+        if viewController is UINavigationController {
+            navController = viewController as? UINavigationController
+        }else {
+            navController = viewController!.navigationController
+        }
+
+        
+        if navController == nil{
+            navController = UINavigationController()
+        }
+        
+        let objectVC = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
+        objectVC.thread = thread
+        navController?.pushViewController(objectVC, animated: true)
     }
     
     

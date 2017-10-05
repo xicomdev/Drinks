@@ -24,6 +24,8 @@ enum ProfileStatus : String
     
 }
 
+let appLastLoginFormat = DateFormatter()
+
 class User: NSObject,NSCoding
 {
     
@@ -46,9 +48,8 @@ class User: NSObject,NSCoding
     var schoolCareer : String = ""
     var annualIncome : String = ""
     var imageURL : String = ""
-
+    var lastLogin : String = ""
     var age : Int = 18
-    
     
     var myGender : Gender = .Male
     var groupCreated : Int = 0
@@ -63,44 +64,15 @@ class User: NSObject,NSCoding
         password  = ""
         phoneNumber  = ""
         sessionID = ""
-
         socialID = ""
+        
+        
     }
     
-    convenience init(dict : Any) {
+    convenience init(dictOnlyID : String) {
         self.init()
-        guard let dictLocal = dict as? Dictionary<String, Any> else {
-            return
-        }
         
-//        ID =  (dictLocal["id"] as! NSNumber).description
-//        emailAddress = dictLocal["email_address"] as? String
-//         let status = dictLocal["status"] as! String
-//          profileStatus =   ProfileStatus(rawValue: status)!
-//        print(profileStatus)
-//        if profileStatus == .Active{
-//            sessionID = dictLocal["session_id"] as! String
-//        }
-//        
-//        if let firstName = dictLocal["name_first"] as? String
-//        {
-//            self.firstName = firstName
-//        }
-//        
-//        if let lastName = dictLocal["name_last"] as? String
-//        {
-//            self.lastName = lastName
-//        }
-//        
-//        
-//        if let otpCode = dictLocal["confirmation_code"] as? NSNumber
-//        {
-//            self.otpCode = otpCode.description
-//        }
-        
-        
-        
-        
+        self.ID = dictOnlyID
     }
     
     
@@ -123,7 +95,6 @@ class User: NSObject,NSCoding
         if let strDOB = dictLocal["dob"] as? String
         {
             self.DOB = dictLocal["dob"] as! String
-
             self.age = strDOB.getAgeFromDOB()
         }
         
@@ -150,8 +121,15 @@ class User: NSObject,NSCoding
             
         }
         if let relationship = dictLocal["marriage"] as? String{
-            
             self.relationship = relationship
+        }
+        
+        if let lastLogin = dictLocal["last_login"] as? String{
+            
+            //let date = lastLoginDateFormat.date(from: lastLogin)
+            self.lastLogin = lastLogin
+            
+            
         }
         
     }
@@ -165,10 +143,9 @@ class User: NSObject,NSCoding
             return
         }
         
-        
         if let job = dictLocal["job"] as? Dictionary<String, Any>
         {
-            self.job = Job(jobInfo: dictLocal["job"] as Any)
+            self.job = Job(jobInfo: job as Any)
             
         }
         self.fullName = dictLocal["full_name"] as! String
@@ -180,6 +157,13 @@ class User: NSObject,NSCoding
         {
             self.DOB = dictLocal["dob"] as! String
             self.age = strDOB.getAgeFromDOB()
+        }
+
+        
+        if let lastLogin = dictLocal["last_login"] as? String{
+           // let date = lastLoginDateFormat.date(from: lastLogin)
+           // print(date)
+            self.lastLogin = lastLogin
         }
 
         
@@ -207,7 +191,6 @@ class User: NSObject,NSCoding
     required init?(coder aDecoder: NSCoder) {
         
         let name: String? = aDecoder.decodeObject(forKey: "fullName") as? String
-       
         if name != nil {
             self.fullName = name;
         }
@@ -221,20 +204,20 @@ class User: NSObject,NSCoding
         if phoneNumber != nil {
             self.phoneNumber = phoneNumber;
         }
-        
 
         
         let sessionID: String? = aDecoder.decodeObject(forKey: "sessionID") as? String
         if sessionID != nil {
             self.sessionID = sessionID;
         }
-        
 
         
         let fbID : String? = aDecoder.decodeObject(forKey: "socialID") as? String
         if fbID != nil {
             self.socialID = fbID!;
         }
+        
+        
         
         let imgeURL : String? = aDecoder.decodeObject(forKey: "imageURL") as? String
         if imgeURL != nil {
@@ -288,12 +271,6 @@ class User: NSObject,NSCoding
             self.DOB = dob!;
         }
         
-        
-//        if job != nil {
-//            self.age = job!;
-//        }
-        
-       
         
     }
     

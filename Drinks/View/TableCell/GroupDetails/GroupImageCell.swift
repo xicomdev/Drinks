@@ -62,7 +62,7 @@ class GroupImageCell: UITableViewCell {
         if group != nil
         {
             let urlFinalGroup = URL(string: (group?.imageURL)!)
-            imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: nil)
+            imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: GroupPlaceHolder)
             
             self.lblTag.isHidden = true
             if group?.tagEnabled == true{
@@ -71,24 +71,12 @@ class GroupImageCell: UITableViewCell {
             if group?.groupBy == .Other
             {
                 btnAccept.isHidden = false
-                if group?.drinkedStatus == .Drinked{
-                    btnAccept.isSelected = true
-                    btnAccept.isUserInteractionEnabled = false
-                }else{
-                    btnAccept.isSelected = false
-                    btnAccept.isUserInteractionEnabled = true
-                }
                 
             }else{
                 //My Own Group
                 btnAccept.isHidden = true
-                btnAccept.isSelected = false
-                btnAccept.isUserInteractionEnabled = true
             }
-            
-            
-        
-
+            setBiggerDrinkedStatus(btnStatus: btnAccept, status: (group?.drinkedStatus)! )
         }
     }
     

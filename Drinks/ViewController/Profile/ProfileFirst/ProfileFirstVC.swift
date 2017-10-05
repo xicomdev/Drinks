@@ -20,6 +20,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     var imageSelected : UIImage? = nil
     var datePicker = UIDatePicker()
     
+    @IBOutlet var lblGender: UILabel!
     @IBOutlet var txtDOB: UITextField!
     @IBOutlet var txtUserName: UITextField!
     @IBOutlet var imgViewUser: UIImageView!
@@ -29,6 +30,8 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         self.view.layoutIfNeeded()
         imgViewUser.cornerRadius(value: imgViewUser.frame.size.width/2)
         imgViewUser.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
+        
+        lblGender.text = LoginManager.getMe.myGender.rawValue
         
         datePicker.datePickerMode = UIDatePickerMode.date
         // previousDate

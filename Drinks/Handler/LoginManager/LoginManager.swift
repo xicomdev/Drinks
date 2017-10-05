@@ -101,11 +101,15 @@ class LoginManager: NSObject {
     func signUp(image : [MSImage] , handler:@escaping CompletionHandler )
     {
         
-        let parms : [String : Any] = ["fb_id" : self.me.socialID! , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL ]
+        
+        let parms : [String : Any] = ["fb_id" : self.me.socialID! , "job_id" : self.me.job.ID  , "full_name" : me.fullName , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL  , "gender" : self.me.myGender.rawValue]
         
         print(parms)
+        SwiftLoader.show(true)
         
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_Register, paramters: parms, Images: image) { (success, response, strError) in
+            SwiftLoader.hide()
+
             if success{
                 if let dictResponse = response as? Dictionary<String ,Any>
                 {
@@ -158,6 +162,24 @@ class LoginManager: NSObject {
         
     }
     
+    
+    
+    func logOut(handler:@escaping CompletionHandler)
+    {
+        SwiftLoader.show(true)
+        
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_LogOut, paramters: nil) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                handler(isSuccess, response, strError)
+                
+                //getOutOfApp()
+            }else{
+                handler(isSuccess, nil, strError)
+            }
+        }
+    }
     
     
     //MARK:- User default functions

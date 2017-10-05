@@ -13,8 +13,18 @@ import UIKit
 let userPlaceHolder =  UIImage(named:"UserPlaceHolder")
 
 let landLogo =  UIImage(named:"LandingLogo")
+let WT1 =  UIImage(named:"WT1")
+
+let WT2 =  UIImage(named:"WT2")
+
+let WT3 =  UIImage(named:"WT3")
+let WT4 =  UIImage(named:"WT4")
+
+let GroupPlaceHolder =  UIImage(named:"GroupPH")
 
 
+
+//GroupPH
 
 
 let APPThemeColor = UIColor(red: 51.0/255.0, green: 151.0/255.0, blue: 241.0/255.0, alpha: 1)
@@ -46,10 +56,8 @@ let defaults = UserDefaults.standard
 struct Constants {
     struct webURL
     {
-        
-      //  http://128.199.177.140/drinks/api/
         //static let URLBaseAddress = "http://192.168.1.75/drinks/api/"
-        static let URLBaseAddress = "http://128.199.177.140/drinks/api/"
+        static let URLBaseAddress = "http://132.148.135.156/~drinks/api/"
     }
 }
 
@@ -60,8 +68,7 @@ enum DrinkStatus : String
 {
     case Drinked = "drinked"
     case NotDrinked = "undrinked"
-    case Waiting = "waiting"
-    case Confirmed = "confirmed"
+    case Matched = "matched"
 }
 enum GroupBy : String
 {
@@ -99,8 +106,14 @@ let API_ReportGroup = "reportGroup"
 let API_GetChatThreads = "getThreads"
 let API_GetThreadMessages = "getAllMessages"
 let API_SendChatMessage = "sendMessage"
+let API_LogOut = "logout"
+let API_GetSubscriptionPlan = "getMembershipPlanAndPoints"
 
 
+
+
+//MARK:- Apple Pay Merchant ID
+let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merchant ID here!
 
 
 

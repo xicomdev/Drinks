@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportGroupVC: UIViewController,UITextViewDelegate {
+class ReportGroupVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
 
     var group : Group!
     
@@ -17,6 +17,8 @@ class ReportGroupVC: UIViewController,UITextViewDelegate {
     @IBOutlet var btnSend: UIButton!
     @IBOutlet var txtDate: UITextField!
     @IBOutlet var txtViewReason: UITextView!
+    var datePicker = UIDatePicker()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,14 +31,21 @@ class ReportGroupVC: UIViewController,UITextViewDelegate {
         self.navTitle(title: "Report" as NSString  , color: UIColor.black , font:  FontRegular(size: 19))
 
         
-
+        
+        datePicker.datePickerMode = UIDatePickerMode.date
+        //datePicker.format = "YYYY/MM/dd"
+        // previousDate
+        datePicker.maximumDate = Date()
+        datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
         btnSend.cornerRadius(value: 22.5)
         txtViewReason.delegate = self
         txtViewReason.textColor = APP_PlaceHolderColor
         txtViewReason.text = placeHolder
+        txtDate.delegate = self
+        txtDate.inputView = datePicker
         
-        
-        txtDate.text = dateFormatter.string(from: Date())
+       // txtDate.text = dateFormatter.string(from: Date())
 
         
 
@@ -54,8 +63,34 @@ class ReportGroupVC: UIViewController,UITextViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    func dateChanged(_ sender: UIDatePicker) {
+        
+        let today = Date()
+        
+        if sender.date.compare(today) == .orderedAscending ||  sender.date.compare(today) == .orderedSame
+        {
+            txtDate.text = dateFormatter.string(from: sender.date)
+        }
+        
+        
+    }
+    
+
+    
+    //MARK:- TextField Delegates
+    //MARK:-
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        txtDate.text = dateFormatter.string(from: datePicker.date)
+
+    }
+    
+    
     //MARK:- TextView Delegates
     //MARK:-
+    
+    
     
     
     

@@ -10,7 +10,9 @@ import UIKit
 
 class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet var imgViewNoThread: UIImageView!
     
+    @IBOutlet var lblNoThread: UILabel!
     
     @IBOutlet var viewOuter: UIView!
     @IBOutlet weak var btnHistory: UIButton!
@@ -43,6 +45,9 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         
         self.tableviewGroupMessages.reloadData()
         self.navigationController?.isNavigationBarHidden = true
+        self.updateUI()
+        
+       
     }
     
     @IBAction func btnDrinkTodayAction(_ sender: AnyObject) {
@@ -65,8 +70,15 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     //MARK:-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appDelegate().arrayThread.count
+        
+        if btnDrinkToday.isSelected {
+            return appDelegate().arrayThread.count
             
+        }else {
+            return 0
+        }
+
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,7 +123,7 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
             let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
            // chatvc.thread = appDelegate().arrayThread[indexPath.row]
             
-            appDelegate().currentThread = appDelegate().arrayThread[indexPath.row]
+            chatvc.thread = appDelegate().arrayThread[indexPath.row]
             chatvc.hidesBottomBarWhenPushed = true
 
             self.navigationController?.pushViewController(chatvc, animated: true)
@@ -144,5 +156,27 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         //showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
+    }
+    
+    
+    func updateUI(){
+        
+        
+        if appDelegate().arrayThread.count > 0
+        {
+            tableviewGroupMessages.isHidden = false
+            imgViewNoThread.isHidden = true
+            
+          lblNoThread.isHidden = true
+        }else{
+            
+            tableviewGroupMessages.isHidden = true
+            imgViewNoThread.isHidden = false
+            
+            lblNoThread.isHidden = false
+
+        }
+        
+        
     }
  }

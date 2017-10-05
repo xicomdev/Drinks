@@ -13,6 +13,20 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     var scrlWidth  : CGFloat = 0.0
     var scrlHeight  : CGFloat = 0.0
 
+    @IBOutlet var imgViewBG: UIImageView!
+    
+    @IBOutlet var imgViewBG2: UIImageView!
+    
+    
+    @IBOutlet var imgViewBG3: UIImageView!
+    
+    
+    @IBOutlet var imgViewBG4: UIImageView!
+    
+    
+    
+    @IBOutlet var btnTermsOfUse: UIButton!
+    @IBOutlet var btnPrivacyPolicy: UIButton!
     @IBOutlet var pageControl: UIPageControl!
 
     @IBOutlet var scrlViewImages: UIScrollView!
@@ -29,21 +43,24 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         scrlViewImages.decelerationRate = UIScrollViewDecelerationRateNormal;
         scrlViewImages.contentSize = CGSize(width: scrlWidth*4, height: scrlHeight)
         
+        btnPrivacyPolicy.underlineButton(text: "Privacy policy", font: FontRegular(size: 14))
+           btnTermsOfUse.underlineButton(text: "Terms of use", font: FontRegular(size: 14))
         
+       
         
         let firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))
-        firstImage.image = landLogo
+        firstImage.image = WT1
         firstImage.contentMode = .center
         let secondImage = UIImageView(frame: CGRect(x: scrlWidth, y: 0, width: scrlWidth, height: scrlHeight))
-        secondImage.image = landLogo
+        secondImage.image = WT2
         secondImage.contentMode = .center
 
         let thirdImage = UIImageView(frame: CGRect(x:scrlWidth*2, y: 0, width: scrlWidth, height: scrlHeight))
-        thirdImage.image = landLogo
+        thirdImage.image = WT3
         thirdImage.contentMode = .center
 
         let forthImage = UIImageView(frame: CGRect(x: scrlWidth*3, y: 0, width: scrlWidth, height: scrlHeight))
-        forthImage.image = landLogo
+        forthImage.image = WT4
         forthImage.contentMode = .center
 
  
@@ -65,8 +82,11 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
+            
+            
             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
             appDelegate().window?.rootViewController = tabBarController
+            
         }
     }
 
@@ -87,11 +107,24 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                 if let dictFB = response as? Dictionary <String , Any>
                 {
                     
+                    
+                    print(dictFB["id"] as! String)
                    LoginManager.getMe.firstName = dictFB["first_name"] as! String
                       LoginManager.getMe.lastName = dictFB["last_name"] as! String
                       LoginManager.getMe.socialID = dictFB["id"] as! String
                     LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
                     LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
+                    
+                    
+                    if dictFB["gender"] as! String == "male"
+                    {
+                        LoginManager.getMe.myGender = Gender.Male
+
+                    }else{
+                        
+                        LoginManager.getMe.myGender = Gender.Female
+
+                    }
                     self.checkUserExists()
                     
                 }
@@ -110,6 +143,51 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+        
+        
+        if Int(pageNumber) == 0 {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+
+            self.imgViewBG.alpha = 1
+                self.imgViewBG2.alpha = 0
+
+                self.imgViewBG3.alpha = 0
+                 self.imgViewBG4.alpha = 0
+
+            
+            })
+            
+        }else if Int(pageNumber) == 1
+        {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.imgViewBG.alpha = 0
+                self.imgViewBG2.alpha = 1
+                
+                self.imgViewBG3.alpha = 0
+                self.imgViewBG4.alpha = 0
+            })
+            
+        }else if Int(pageNumber) == 2
+        {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.imgViewBG.alpha = 0
+                self.imgViewBG2.alpha = 0
+                
+                self.imgViewBG3.alpha = 1
+                self.imgViewBG4.alpha = 0
+            })
+            
+        }else {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.imgViewBG.alpha = 0
+                self.imgViewBG2.alpha = 0
+                
+                self.imgViewBG3.alpha = 0
+                self.imgViewBG4.alpha = 1
+            })
+        }
 
     }
     
@@ -136,4 +214,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         }
         
     }
-}
+    
+    
+    
+   }

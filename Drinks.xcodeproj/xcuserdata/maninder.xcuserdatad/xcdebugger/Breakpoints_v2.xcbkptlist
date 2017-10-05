@@ -25,22 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Profile/ProfileSecond/ProfileSecondVC.swift"
-            timestampString = "525005762.311984"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "actionBtnSubmitPressed(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Drinks/Utility/MSExtensions.swift"
             timestampString = "526824411.477341"
             startingColumnNumber = "9223372036854775807"
@@ -58,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drinks/ViewController/Filter/FilterVC.swift"
-            timestampString = "525615473.999547"
+            timestampString = "528794571.193754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,12 +57,140 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Filter/FilterSelectionVC/FilterSelectionVC.swift"
-            timestampString = "525613220.626002"
+            filePath = "Drinks/Handler/CoreDataManager/MSCoreData.swift"
+            timestampString = "527684707.949731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "getSavedMessagesForThread(threadID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/CoreDataManager/MSCoreData.swift"
+            timestampString = "527684708.239301"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "getSavedMessagesForThread(threadID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/CoreDataManager/MSCoreData.swift"
+            timestampString = "527684708.932204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "getSavedMessagesForThread(threadID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/ApplePayManager/ApplePayManager.swift"
+            timestampString = "528286792.369056"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "paymentAuthorizationViewController(_:didAuthorizePayment:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
+            timestampString = "528733099.341028"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getRequest(urlLink:paramters:handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "528805859.716338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "sendOrRemoveInterest(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "528805895.906684"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "sendOrRemoveInterest(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "528805896.474918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "sendOrRemoveInterest(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/MapVC/MapVC.swift"
+            timestampString = "528808432.96002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "actionBtnDonePressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,13 +201,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/Model/Group/Group.swift"
-            timestampString = "527083547.246046"
+            filePath = "Drinks/ViewController/Filter/FilterSelectionVC/FilterSelectionVC.swift"
+            timestampString = "528808521.551054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "getFilteredGroupListing(filterInfo:handler:)"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
+            landmarkName = "moveWithSelection(selected:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Offer/OfferVC.swift"
-            timestampString = "527002135.946231"
+            filePath = "Drinks/ViewController/Filter/FilterSelectionVC/FilterSelectionVC.swift"
+            timestampString = "528808521.903522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
+            landmarkName = "moveWithSelection(selected:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Offer/OfferVC.swift"
-            timestampString = "527002137.5224"
+            filePath = "Drinks/ViewController/Filter/FilterSelectionVC/FilterSelectionVC.swift"
+            timestampString = "528808534.30987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "moveWithSelection(selected:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,173 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/Offer/OfferVC.swift"
-            timestampString = "527002604.33556"
+            filePath = "Drinks/ViewController/LandingVC/LandingVC.swift"
+            timestampString = "528874342.019136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "actionBtnOptionChanged(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "527075794.51097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "checkSessionExpired(dictResponse:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Utility/Utility.swift"
-            timestampString = "527083547.246046"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "getOutOfApp()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Utility/Utility.swift"
-            timestampString = "527083547.246046"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "getOutOfApp()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "527075794.51097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "checkSessionExpired(dictResponse:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Drinks.HTTPRequest.checkSessionExpired (dictResponse : Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/Handler/HTTPManager/HTTPRequest.swift"
-                  timestampString = "527074209.01971"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "38">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Drinks.HTTPRequest.checkSessionExpired (dictResponse : Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maninder/Documents/Drinks/Drinks/Handler/HTTPManager/HTTPRequest.swift"
-                  timestampString = "527074209.021845"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "286">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/LoginManager/LoginManager.swift"
-            timestampString = "527073276.515156"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "checkUserExists(handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "527075794.51097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "postRequest(urlLink:paramters:handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "527075794.51097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "postRequest(urlLink:paramters:handler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/Handler/HTTPManager/HTTPRequest.swift"
-            timestampString = "527075794.51097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "postRequest(urlLink:paramters:handler:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "actionBtnLoginPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

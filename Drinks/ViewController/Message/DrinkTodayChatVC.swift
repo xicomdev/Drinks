@@ -1,6 +1,10 @@
 class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
- //   var thread = ChatThread()
+    var thread = ChatThread()
+    
+   // var arrayMessages = [MessageEntity]()
+    var timerChat : Timer!
+
     
     @IBOutlet weak var bottomMargin: NSLayoutConstraint!
     @IBOutlet weak var bottomMsgVwHgt: NSLayoutConstraint!
@@ -28,7 +32,7 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.actionBtnBackPressed))
         self.navigationItem.leftBarButtonItem = btnLeftBar
         
-        let secondUserInfo =  (appDelegate().currentThread?.threadMember.fullName!)! + " " + (appDelegate().currentThread?.threadMember.age.description)!
+        let secondUserInfo =  (thread.threadMember.fullName!) + " " + (thread.threadMember.age.description)
         
         self.navTitle(title: secondUserInfo  as NSString , color: UIColor.black , font:  FontRegular(size: 17))
         
@@ -36,7 +40,22 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         tblChat.dataSource = self
         self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
         lblGroupTag.cornerRadius(value : 10)
-      //  self.getAllThreadMessages()
+        self.getAllThreadMessages()
+        
+        imgVwGroup.sd_setImage(with: URL(string :  thread.group.imageURL))
+        
+        setNoOfMembers(groups: thread.group.groupConditions , label: lblNoOfPersons)
+        
+        lblLocation.text = thread.group.location?.LocationName
+
+       lblGroupTag.isHidden =  !thread.group.tagEnabled
+        
+        
+        timerChat =  Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (result) in
+            self.getAllThreadMessages()
+            
+        })
+
         
     }
     
@@ -44,6 +63,8 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         self.startKeyboardObserver()
         IQKeyboardManager.sharedManager().enable = false
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        
+        self.getAllThreadMessages()
      //   arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
         tblChat.reloadData()
         
@@ -97,7 +118,13 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
             
             if let keyboardSize: CGSize =  (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)!.cgRectValue.size
             {
-                bottomMargin.constant = keyboardSize.height
+
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.bottomMargin.constant = keyboardSize.height
+
+                })
+                self.view.layoutIfNeeded()
+
             }
             self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
 
@@ -106,6 +133,11 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     
     func keyboardWillHide(_ notification: Notification) {
         bottomMargin.constant = 0
+
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.layoutIfNeeded()
+        })
+
     }
     
     func scrollToBottomInitial() {
@@ -131,11 +163,11 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         }
     }
     
-    //MARK: - TableView Delegate and datasource methods
+    //MARK: - TableView Delegate and datasource methods=
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return appDelegate().currentThread!.messages.count
+        return thread.messages.count
         
     }
     
@@ -144,18 +176,17 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         
         var returnCell : UITableViewCell!
         
-        let message  = appDelegate().currentThread?.messages[indexPath.row]
-        
-        if LoginManager.getMe.ID == message?.senderUser.ID
+        let message = thread.messages[indexPath.row]
+        if LoginManager.getMe.ID == message.senderID
         {
             let cell = tblChat.dequeueReusableCell(withIdentifier: "SentMsgCell", for: indexPath) as! SentMsgCell
-            cell.setMessageDetails(msgInfo: message!)
+            cell.setMessageDetails(msgInfo: message)
            returnCell = cell
             
         }else{
             
             let cell = tblChat.dequeueReusableCell(withIdentifier: "RecievedMsgCell", for: indexPath) as! RecievedMsgCell
-            cell.setMessageDetails(msgInfo: message!)
+            cell.setMessageDetails(msgInfo: message)
             returnCell = cell
             
         }
@@ -173,41 +204,38 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     //MARK:- Get All Thread Messages
     //MARK:-
     
-//    func getAllThreadMessages(){
-//    
-//        appDelegate().currentThread.getAllMessages { (isSuccess, response, error) in
-//            if isSuccess
-//            {
-//                if let thread = response as? ChatThread
-//                {
-//                    self.tblChat.reloadData()
-//                }
-//                
-//                
-//            }else
-//            {
-//                showAlert(title: "Drinks", message: error!, controller: self)
-//            }
-//        }
-//        
-//    }
+    func getAllThreadMessages(){
+        
+        thread.getAllMessages { (isSuccess, response, error) in
+            if isSuccess{
+                if let thread = response  as? ChatThread
+                {
+                    self.thread = thread
+                    self.tblChat.reloadData()
+                    self.moveToLastCell()
+                }
+            }
+        }
+    }
     
     func sendMessageAPI(textMessage : String)
     {
-        appDelegate().currentThread?.sendMessage(message: textMessage) { (isSuccess, response, error) in
+        thread.sendMessage(message: textMessage) { (isSuccess, response, error) in
             if isSuccess
             {
                 if let newMessage = response as? Message
                 {
-                    
-                    self.tblChat.reloadData()
-                    self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
-
+                  self.thread.messages.append(newMessage)
+                   self.tblChat.reloadData()
+                    self.moveToLastCell()
                 }
-                
             }else{
                 showAlert(title: "Drinks", message: error!, controller: self)
             }
         }
+    }
+    
+    func moveToLastCell(){
+        self.perform(#selector(self.scrollToBottomInitial), with: nil, afterDelay: 0.1)
     }
 }

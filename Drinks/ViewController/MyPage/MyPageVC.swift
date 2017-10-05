@@ -10,6 +10,10 @@ import UIKit
 
 class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    
+    @IBOutlet var imgViewCoverPic: UIImageView!
+    
+    
     @IBOutlet weak var clctnNavBtnHgt: NSLayoutConstraint!
     @IBOutlet weak var collctnVwNavBtns: UICollectionView!
     @IBOutlet weak var collctnVwGroups: UICollectionView!
@@ -25,6 +29,12 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+               self.view.layoutIfNeeded()
+        
+        //Full Screen (Remove top Padding)
+         self.edgesForExtendedLayout = UIRectEdge.top
+        let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
+        collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
         
     }
     
@@ -34,21 +44,22 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
+        imgViewCoverPic.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         lblNameAge.text = "\(LoginManager.getMe.fullName!) (\(LoginManager.getMe.age))"
         lblOccupation.text =  LoginManager.getMe.job.engName
         
-        let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
-        collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
+    
         
   
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1
         clctnNavBtnHgt.constant = CGFloat(noOfLines * Int(self.view.frame.width/3))
-        collctnVwNavBtns.isScrollEnabled = false
+        collctnVwNavBtns.isScrollEnabled = true
         
         collctnVwNavBtns.delegate = self
         collctnVwNavBtns.dataSource = self
         
+        self.navigationController?.isNavigationBarHidden = true
         
     }
     @IBAction func btnStatusAction(_ sender: AnyObject) {
@@ -72,7 +83,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collctnVwNavBtns {
-            return CGSize(width: (self.view.frame.width/3)-2, height: (self.view.frame.width/3)-2)
+            return CGSize(width: (self.view.frame.width/3), height: (self.view.frame.width/3))
         }else {
             return CGSize(width: (self.view.frame.width * 2)/3, height: collctnVwGroups.frame.height)
         }

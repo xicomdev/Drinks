@@ -43,11 +43,11 @@ class GroupManager: NSObject {
     func sendOrRemoveInterest(handler:@escaping CompletionHandler){
         
         var interestStatus  : String = ""
-        if self.group.drinkedStatus == .Confirmed || self.group.drinkedStatus == .Waiting
+        if self.group.drinkedStatus == .NotDrinked
         {
-            interestStatus = "undrinked"
-        }else{
             interestStatus = "drinked"
+        }else{
+            interestStatus = "undrinked"
         }
         
         
@@ -57,12 +57,12 @@ class GroupManager: NSObject {
             SwiftLoader.hide()
             if isSuccess
             {
-                if self.group.drinkedStatus == .Confirmed || self.group.drinkedStatus == .Waiting
+               if self.group.drinkedStatus == .NotDrinked
                 {
-                       self.group.drinkedStatus = .NotDrinked
+                       self.group.drinkedStatus = .Drinked
                 }else
                 {
-                    self.group.drinkedStatus = .Waiting
+                  //  self.group.drinkedStatus = .Confirmed
                 }
                 handler(true, self.group, nil)
             }else{
@@ -73,41 +73,49 @@ class GroupManager: NSObject {
     
     func acceptInterest(handler:@escaping CompletionHandler)
     {
+    
+        print( (self.group.groupRequest?.groupID)! )
+         print( (self.group.groupRequest?.groupOwner.ID)!  )
+        let params : [String : Any] = ["user_id" : (self.group.groupRequest?.groupOwner.ID)!   ,"group_id" : (self.group.groupRequest?.groupID)!
+ , "drinked_status" : "drinked" , "owner_user_id" : self.group.ownerID!]
         
-        
-        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : "confirmed" , "owner_user_id" : self.group.ownerID!]
+
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
             SwiftLoader.hide()
-            
+           
             if isSuccess
             {
-                self.group.drinkedStatus = .Confirmed
+                self.group.drinkedStatus = .Matched
+                
+                //self.group.drinkedStatus = .Confirmed
                 handler(true, self.group, nil)
             }else{
                 handler(false, nil, strError!)
             }
         }
     }
+    
+    
     func removeInterest(handler:@escaping CompletionHandler)
     {
         
-        
-        let params : [String : Any] = ["user_id" : LoginManager.getMe.ID! ,"group_id" : self.group.groupID! , "drinked_status" : "undrinked" , "owner_user_id" : self.group.ownerID!]
+        print( (self.group.groupRequest?.groupID)! )
+        let params : [String : Any] = ["user_id" : (self.group.groupRequest?.groupOwner.ID)! ,"group_id" : (self.group.groupRequest?.groupID)! , "drinked_status" : "undrinked" , "owner_user_id" : self.group.ownerID!]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
             SwiftLoader.hide()
             
-            if isSuccess
+           if isSuccess
             {
-                
-                if self.group.drinkedStatus == .Drinked || self.group.drinkedStatus == .Waiting
-                {
-                    self.group.drinkedStatus = .NotDrinked
-                }else
-                {
-                    self.group.drinkedStatus = .Waiting
-                }
+//                
+//                if self.group.drinkedStatus == .Confirmed
+//                {
+//                    self.group.drinkedStatus = .NotDrinked
+//                }else
+//                {
+//                    self.group.drinkedStatus = .Confirmed
+//                }
                 handler(true, self.group, nil)
             }else{
                 handler(false, nil, strError!)
@@ -167,8 +175,7 @@ class GroupManager: NSObject {
                 if let arryResponse = response as? [Dictionary<String ,Any>]
                 {
                     for item in arryResponse{
-                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
-                        let  groupNew = Group(groupDict: dictGroup)
+                        let  groupNew = Group(groupBoth: item)
                         arrayList.append(groupNew)
                     }
                 }
@@ -195,8 +202,7 @@ class GroupManager: NSObject {
                     print(arryResponse)
                     for item in arryResponse
                     {
-                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
-                        let  groupNew = Group(groupDict: dictGroup)
+                        let  groupNew = Group(groupBoth: item)
                         arrayList.append(groupNew)
                    }
                 }

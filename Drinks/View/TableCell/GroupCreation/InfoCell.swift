@@ -10,6 +10,7 @@ import UIKit
 
 class InfoCell: UITableViewCell {
 
+    @IBOutlet var lblRelation: UILabel!
     @IBOutlet weak var lblLowerInfo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

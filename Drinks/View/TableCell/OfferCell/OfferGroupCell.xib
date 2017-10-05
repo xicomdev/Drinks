@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="379" height="491"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="379" height="491"/>
+                <rect key="frame" x="0.0" y="0.0" width="379" height="490"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-ht-QUW">
@@ -97,12 +97,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNf-Uw-Hml">
+                        <rect key="frame" x="25" y="43" width="329" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="TDW-ht-QUW" firstAttribute="centerY" secondItem="cNf-Uw-Hml" secondAttribute="centerY" multiplier="600:145" id="1MO-O8-F0e"/>
                     <constraint firstAttribute="width" secondItem="Wl6-6I-THH" secondAttribute="width" multiplier="600:180" id="1lG-7M-cSZ"/>
                     <constraint firstItem="31V-Ns-nNR" firstAttribute="leading" secondItem="Wl6-6I-THH" secondAttribute="leading" id="3su-8Z-Rs6"/>
                     <constraint firstItem="JPG-2u-TRN" firstAttribute="leading" secondItem="31V-Ns-nNR" secondAttribute="leading" id="6Kr-UX-wc3"/>
+                    <constraint firstItem="TDW-ht-QUW" firstAttribute="width" secondItem="cNf-Uw-Hml" secondAttribute="width" multiplier="600:550" id="88C-BR-WcI"/>
                     <constraint firstItem="rjF-QF-Uuq" firstAttribute="leading" secondItem="O2K-1J-cFe" secondAttribute="leading" id="8lP-Uz-Xag"/>
                     <constraint firstItem="nr5-7Q-7Zv" firstAttribute="centerY" secondItem="iz5-Jh-KYm" secondAttribute="centerY" id="8ox-Ie-5r9"/>
                     <constraint firstItem="jFw-Kj-Sgx" firstAttribute="centerY" secondItem="TDW-ht-QUW" secondAttribute="bottom" id="9iY-s4-7EN"/>
@@ -132,20 +140,21 @@
                     <constraint firstItem="djt-tJ-uMO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tYj-Pk-J11"/>
                     <constraint firstAttribute="centerX" secondItem="jFw-Kj-Sgx" secondAttribute="centerX" multiplier="600:1020" id="vJS-b4-Gxs"/>
                     <constraint firstItem="qTE-dl-9h4" firstAttribute="top" secondItem="TDW-ht-QUW" secondAttribute="bottom" id="wnH-bY-jbi"/>
+                    <constraint firstItem="cNf-Uw-Hml" firstAttribute="centerX" secondItem="TDW-ht-QUW" secondAttribute="centerX" id="zOd-av-V8b"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnInterest" destination="jFw-Kj-Sgx" id="AeY-VO-54q"/>
-                <outlet property="btnInterested" destination="jFw-Kj-Sgx" id="I9m-1L-tPk"/>
                 <outlet property="imgViewCreator" destination="iz5-Jh-KYm" id="3aY-ds-IAb"/>
                 <outlet property="imgViewGroup" destination="TDW-ht-QUW" id="5dK-Ti-jEC"/>
+                <outlet property="lblCommentInfo" destination="cNf-Uw-Hml" id="m4u-od-OkY"/>
                 <outlet property="lblCreatorAge" destination="nr5-7Q-7Zv" id="XV3-HC-EmE"/>
                 <outlet property="lblInfo" destination="W8y-xa-Kql" id="oOh-Ec-V0m"/>
                 <outlet property="lblLocation" destination="rjF-QF-Uuq" id="3GO-c5-XHE"/>
                 <outlet property="lblNoOfPeople" destination="JPG-2u-TRN" id="JqO-pb-ccT"/>
                 <outlet property="lblTag" destination="Wl6-6I-THH" id="wWs-K1-jff"/>
             </connections>
-            <point key="canvasLocation" x="-1053" y="-345"/>
+            <point key="canvasLocation" x="-714" y="-370"/>
         </tableViewCell>
     </objects>
     <resources>

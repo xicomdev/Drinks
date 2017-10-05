@@ -69,7 +69,6 @@ class GroupCondition: NSObject {
 
 class Group: NSObject {
     
-    
     class var sharedInstance: Group {
         struct Static {
             static let instance: Group = Group()
@@ -77,23 +76,24 @@ class Group: NSObject {
         return Static.instance
     }
 
+    
+    var distance : Double = 0.0
+    
     var image : UIImage? = nil
     var imageURL : String!
 
-    
+    var groupRequest : Group? = nil
     
     var tagEnabled = false
-      var groupConditions : [GroupCondition] = [GroupCondition]()
+    var groupConditions : [GroupCondition] = [GroupCondition]()
     var relationship : String = ""
     var groupDescription : String = ""
     var groupID : String!
     var location : GroupLocation? = nil
     var ownerID : String!
     var groupOwner : User!
-    
     var drinkedStatus : DrinkStatus = .NotDrinked
     var groupBy : GroupBy = .Other
-    
     var reportedStatus : ReportedStatus = .NotReported
     
     override init()
@@ -109,11 +109,69 @@ class Group: NSObject {
         if let dictGroup = groupDict as? Dictionary<String, Any>
         {
            
+           
+            self.groupSetUp(dict: dictGroup)
+            
+            self.groupOwner = User(dictOwner:  dictGroup["user"] as Any)
+            groupBy = .Other
+            
+            if self.ownerID == LoginManager.getMe.ID{
+                groupBy = .My
+                
+                
+                self.groupOwner = LoginManager.getMe
+            }
+            
+            if let tag = dictGroup["group_tag"] as? String{
+                
+                if tag == "1"{
+                    self.tagEnabled = true
+                }else{
+                    self.tagEnabled = false
+                }
+            }
+            
+            if let drinkedStatus = dictGroup["drinked_status"] as? String
+            {
+                self.drinkedStatus =  DrinkStatus(rawValue: drinkedStatus)!
+            }
+            
+            
+            if let distance = dictGroup["distance"] as? Double
+            {
+                self.distance = distance.roundTo(places: 2)
+                
+                
+            }
+            
+            
+
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    //Init for Beoffered with Drinked Request
+    
+    convenience init(groupBoth : Any) {
+        self.init()
+        
+        
+        if let dictBoth = groupBoth as? Dictionary<String, Any>
+        {
+            
+            
+            let dictGroup = dictBoth["Group"]  as! Dictionary<String ,Any> // Other USer Group
+//            let myGroup = dictBoth["DrinkedGroup"]  as! Dictionary<String ,Any> // Other USer Performed action on My Group
             
             self.groupSetUp(dict: dictGroup)
             
             self.groupOwner = User(dictOwner:  dictGroup["user"] as Any)
-
+            
             groupBy = .Other
             if self.ownerID == LoginManager.getMe.ID{
                 groupBy = .My
@@ -132,10 +190,41 @@ class Group: NSObject {
             {
                 self.drinkedStatus =  DrinkStatus(rawValue: drinkedStatus)!
             }
-
+            self.groupRequest = Group(groupDrinked: dictBoth["DrinkedGroup"] as Any)
+            
+           
+            
+            if let distance = dictGroup["distance"] as? Double
+            {
+                self.distance = distance.roundTo(places: 2)
+            }
+            
         }
         
     }
+    
+    
+    
+    convenience init(groupDrinked : Any) {
+        self.init()
+        
+        
+        if let dictDrinkedGroup = groupDrinked as? Dictionary<String, Any>
+        {
+            self.groupID = dictDrinkedGroup["group_id"] as! String
+            
+            self.groupOwner = User(dictOnlyID: dictDrinkedGroup["user_id"] as! String)
+            
+            
+            if let distance = dictDrinkedGroup["distance"] as? Double
+            {
+                self.distance = distance.roundTo(places: 2)
+            }
+        }
+        
+    }
+
+    
     
     
     convenience init(chatGroup : Any) {
@@ -155,12 +244,12 @@ class Group: NSObject {
     func groupSetUp(dict : Dictionary<String, Any>)
     {
         
+        
         self.groupConditions = self.getConditionArray(strPara: dict["group_conditions"] as! String)
         self.groupDescription = dict["group_description"] as! String
         self.groupID = dict["id"] as! String
         
         
-        print("GroupID     "  + self.groupID)
         self.relationship = dict["relationship"] as! String
         self.imageURL = dict["image"] as! String
         self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
@@ -177,7 +266,14 @@ class Group: NSObject {
    class func getGroupListing( handler : @escaping CompletionHandler)
     {
         SwiftLoader.show(true)
-        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: nil) { (isSuccess, response, strError) in
+        var params : [String : Any] = [String : Any]()
+
+        if appDelegate().appLocation != nil
+        {
+            params["current_latitude"] = appDelegate().appLocation?.latitude
+            params["current_longitude"] = appDelegate().appLocation?.longtitude
+        }
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: params) { (isSuccess, response, strError) in
              SwiftLoader.hide()
             if isSuccess
             {
@@ -186,13 +282,21 @@ class Group: NSObject {
                 var arrayMyGroup = [Group]()
                 if let dictResponse = response as? Dictionary<String ,Any>
                 {
+                   
+                    
+                    if dictResponse.count > 0 {
+                    
                     let allGroups = dictResponse["groups"] as! [Dictionary<String ,Any>]
                     let myGroups = dictResponse["myGroups"] as! [Dictionary<String ,Any>]
-                
-                    for item in allGroups{
+
+                    for item in allGroups
+                    {
+                        
+                        
                         let dictGroup = item["Group"]  as! Dictionary<String ,Any>
                         let  groupNew = Group(groupDict: dictGroup)
                         arrayGroup.append(groupNew)
+                        
                     }
                     
                     for item in myGroups{
@@ -200,9 +304,11 @@ class Group: NSObject {
                         let  groupNew = Group(groupDict: dictGroup)
                         arrayMyGroup.append(groupNew)
                     }
-                    dictReturning["MyGroups"] = arrayMyGroup
-                    dictReturning["OtherGroups"] = arrayGroup
+                   }
                 }
+                
+                dictReturning["MyGroups"] = arrayMyGroup
+                dictReturning["OtherGroups"] = arrayGroup
                 handler(true , dictReturning, strError)
             }else{
                 handler(false , nil, strError)
@@ -217,11 +323,15 @@ class Group: NSObject {
         
         var params : [String : Any] = [String : Any]()
         
-        if appDelegate().appLocation != nil
-        {
-            params["current_latitude"] = appDelegate().appLocation?.latitude
-            params["current_longitude"] = appDelegate().appLocation?.longtitude
+
+        
+        if filterInfo.filterLocationName != nil{
+            
+            params["current_latitude"] = filterInfo.filterLocationName?.latitude
+            params["current_longitude"] = filterInfo.filterLocationName?.longtitude
+            
         }
+        
 
         if filterInfo.distance != -1{
             params["place"] = filterInfo.distance

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,8 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-s8-xuP"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-s8-xuP">
+                        <rect key="frame" x="33" y="19" width="34" height="27"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khP-cR-fCV">
+                        <rect key="frame" x="0.0" y="67" width="100" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="Bjk-8E-By7"/>
                         </constraints>
@@ -25,6 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNp-T6-9af">
+                        <rect key="frame" x="99" y="0.0" width="1" height="100"/>
                         <color key="backgroundColor" red="0.85367582900000005" green="0.85367582900000005" blue="0.85367582900000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="oJL-ys-oVU"/>
@@ -33,7 +40,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60a-bX-2f6">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60a-bX-2f6">
+                        <rect key="frame" x="0.0" y="99" width="100" height="1"/>
                         <color key="backgroundColor" red="0.85367582900000005" green="0.85367582900000005" blue="0.85367582900000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="1AP-1n-3Wd"/>
@@ -62,7 +70,7 @@
                 <outlet property="imgVwBtnIcon" destination="bhk-s8-xuP" id="vcX-PA-aXw"/>
                 <outlet property="lblBtnName" destination="khP-cR-fCV" id="eio-2B-Dl9"/>
             </connections>
-            <point key="canvasLocation" x="48" y="74"/>
+            <point key="canvasLocation" x="43" y="74"/>
         </collectionViewCell>
     </objects>
     <resources>

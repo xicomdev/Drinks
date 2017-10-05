@@ -219,6 +219,7 @@ func getOutOfApp(){
      appDelegate().timerMessage.invalidate()
         appDelegate().currentThread  = nil
     LoginManager.sharedInstance.removeUserProfile()
+    FBManager.sharedInstance.logout()
     let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "LandingVC") as! LandingVC
     let naviagtionController = UINavigationController(rootViewController: loginVC)
     naviagtionController.isNavigationBarHidden = true
@@ -280,10 +281,12 @@ func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
 func setNoOfMembers(groups :[ GroupCondition] , label : UILabel) {
     if groups.count > 1
     {
-        label.text = (groups.count).description + " Members"
+        label.text = (groups.count + 1).description + " Members"
         
+    }else if groups.count == 1 {
+     label.text = "2 Members"
     }else{
-     label.text = "1 Member"
+        label.text = "1 Member"
     }
 }
 
@@ -296,56 +299,57 @@ func setSmallDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
 //    case Confirmed = "confirmed"
     switch status
     {
-    case .Confirmed :
+    case .Matched , .Drinked:
         
         
-        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        btnStatus.setImage( UIImage(named: "Accepted"), for: .normal)
+        btnStatus.isUserInteractionEnabled = false
         break
         
     case .NotDrinked :
-        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        btnStatus.setImage( UIImage(named: "Accept"), for: .normal)
+        btnStatus.isUserInteractionEnabled = true
 
         break
         
         
-    case .Waiting :
-        btnStatus.setImage( UIImage(named: "") , for: .normal)
-
-        
-        break
-    case .Drinked :
-        btnStatus.setImage( UIImage(named: "") , for: .normal)
-        break
+   
+//    case .Drinked :
+//        btnStatus.setImage( UIImage(named: "Accepted") , for: .normal)
+//          btnStatus.isUserInteractionEnabled = false
+//        break
         
     }
 }
+
+
 func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
 {
   
     switch status
     {
-    case .Confirmed :
+        
+    case .Matched , .Drinked :
         
         
-        btnStatus.setImage( UIImage(named: ""), for: .normal)
+        btnStatus.setImage( UIImage(named: "OfferAccepted"), for: .normal)
+        btnStatus.isUserInteractionEnabled = false
         break
         
     case .NotDrinked :
-        btnStatus.setImage( UIImage(named: ""), for: .normal)
-        
+        btnStatus.setImage( UIImage(named: "OfferAccept"), for: .normal)
+        btnStatus.isUserInteractionEnabled = true
         break
         
-        
-    case .Waiting :
-        btnStatus.setImage( UIImage(named: "") , for: .normal)
-        
-        
-        break
-    case .Drinked :
-        btnStatus.setImage( UIImage(named: "") , for: .normal)
-        break
-        
+   
+//    case .Drinked :
+//        btnStatus.setImage( UIImage(named: "OfferAccepted") , for: .normal)
+//        btnStatus.isUserInteractionEnabled = false
+//
+//        break
+//    }
     }
+    
 }
 
 
@@ -358,7 +362,7 @@ func setGroupTag(boolTag : Bool , label : UILabel) {
 func userImage(imageView : UIImageView  , user : User)
 {
     let urlFinalOwner = URL(string: user.imageURL)
-    imageView.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
+    imageView.sd_setImage(with: urlFinalOwner, placeholderImage: userPlaceHolder)
     
 }
 

@@ -36,10 +36,7 @@ class ChatThread: NSObject {
 
         self.ID =  dictLocal["id"] as! String
         self.threadMember = User(messageDict: dictLocal["second_member"]as Any)
-
-        
          self.group  = Group(chatGroup: dictLocal["Group"] as Any)
-        
         if let dictLastMessage = dictLocal["last_message"] as? Dictionary<String, Any>
         {
             if dictLastMessage.count > 0 {
@@ -47,6 +44,25 @@ class ChatThread: NSObject {
             }
         }
     }
+    
+    
+    
+    convenience init(dictChatPush : Any)
+    {
+        self.init()
+        guard let dictLocal = dictChatPush as? Dictionary<String, Any> else {
+            return
+        }
+        
+        // id = 59b0dc4486d89efd1e8b4567;
+        
+        self.ID =  dictLocal["id"] as! String
+        self.threadMember = User(messageDict: dictLocal["sender_info"]as Any)
+        self.group  = Group(chatGroup: dictLocal["group_info"] as Any)
+        
+        
+    }
+
     
     
     
@@ -94,19 +110,23 @@ class ChatThread: NSObject {
     func sendMessage( message : String , handler : @escaping CompletionHandler )
     {
         
-        let params : [String : Any] = ["thread_id" : self.ID  , "receiver_id" : threadMember.ID , "message" : message  , "datetime" :  setMessageDate()]
+        let params : [String : Any] = ["thread_id" : self.ID  , "receiver_id" : threadMember.ID , "message" : message  ]
         
-        print(setMessageDate())
       //  SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_SendChatMessage, paramters: params) { (isSuccess, response, strError) in
          //   SwiftLoader.hide()
             if isSuccess
             {
-                if let dictResponse = response as? Dictionary<String ,Any>
+                
+                
+                if let message = response as? [String: Any]
                 {
-                    let myMessage = Message(selfDict : dictResponse)
-                    self.messages.append(myMessage)
+                    
+                    let myMessage = Message(selfDict: message)
+                    
                     handler(true , myMessage, nil)
+
+                    
                 }
             }else{
                 

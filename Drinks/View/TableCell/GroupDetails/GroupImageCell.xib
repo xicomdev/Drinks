@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7jH-is-pCA">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPH" translatesAutoresizingMaskIntoConstraints="NO" id="7jH-is-pCA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="306"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
@@ -46,10 +46,10 @@
                             <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="6zi-wc-DpM"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-O5-VdF">
-                        <rect key="frame" x="228" y="267" width="77" height="77"/>
-                        <state key="normal" image="AcceptDetail"/>
-                        <state key="selected" image="AcceptedDetail"/>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-O5-VdF">
+                        <rect key="frame" x="231.5" y="270.5" width="70" height="70"/>
+                        <state key="normal" image="OfferAccept"/>
+                        <state key="selected" image="OfferAccept"/>
                         <connections>
                             <action selector="actionBtnPressed:" destination="kuU-jG-Mws" eventType="touchUpInside" id="U3w-Yu-N9r"/>
                         </connections>
@@ -93,9 +93,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="AcceptDetail" width="77" height="77"/>
-        <image name="AcceptedDetail" width="77" height="77"/>
         <image name="EditOption" width="25" height="6"/>
+        <image name="GroupPH" width="375" height="356"/>
+        <image name="OfferAccept" width="70" height="70"/>
         <image name="backIcon" width="19" height="26"/>
     </resources>
 </document>

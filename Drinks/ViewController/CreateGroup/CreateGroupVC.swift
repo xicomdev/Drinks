@@ -62,7 +62,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         viewFooter.txtRelationship.delegate = self
         
         viewFooter.callbackDone = {(done : GroupAction) in
-            self.createNewGroup()
+          //  self.createNewGroup()
             
         }
         
@@ -130,7 +130,9 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         // arrayMsgs = MessageManager.shared.getMsgs(otherUserId)
     }
     
-    func createNewGroup(){
+    
+    @IBAction func actionBtnSubmitPressed(_ sender: Any)
+    {
         
         if imageSelected == nil
         {
@@ -144,9 +146,10 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             return
         }
         
-        if  group.groupConditions.count > 1{
-            for i in 1 ..<  group.groupConditions.count {
-                
+        if  group.groupConditions.count > 1
+        {
+            for i in 1 ..<  group.groupConditions.count
+            {
                 if  group.groupConditions[i].age == 0 ||  group.groupConditions[i].occupation.ID == ""
                 {
                     showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
@@ -375,17 +378,13 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                             
                                 if cellIndex < self.group.groupConditions.count
                                 {
-                                    
-                                    print(self.group.groupConditions.count)
                                     self.group.groupConditions.remove(at: cellIndex)
-                                    print(self.group.groupConditions.count)
-
                                     self.tblCreateGroup.reloadData()
                                 }
                         }
                         
                     }
-                cell.lblCounter.text = (indexPath.row + 1).description
+                cell.lblCounter.text = (indexPath.row + 2).description
                     cell.txtAge.delegate = self
                     cell.txtOccupation.delegate = self
                 cell.btnCancel.isHidden = false

@@ -20,9 +20,10 @@ class GroupConditionCell: UITableViewCell {
         
         imgViewUser.cornerRadius(value: 17.5)
         
-        lblCounter.cornerRadius(value: 17.5)
-        
-        lblCounter.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
+      //  lblCounter.cornerRadius(value: 17.5)
+        imgViewUser.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
+
+       // lblCounter.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
 
         // Initialization code
     }
@@ -36,10 +37,9 @@ class GroupConditionCell: UITableViewCell {
     func assignData(condition : GroupCondition, counter : Int){
         
         self.condition = condition
-        
-        
         lblConditionInfo.text = condition.age.description + " / " + condition.occupation.engName
-        lblCounter.text = (counter + 1).description
+        
+        
     }
 
     

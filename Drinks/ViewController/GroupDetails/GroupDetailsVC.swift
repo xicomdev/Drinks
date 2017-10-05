@@ -8,12 +8,22 @@
 
 import UIKit
 
+enum PushType : Int {
+    
+    case Home = 0
+    case BeOffered = 1
+    case Offered = 2
+    
+}
+
 class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource,MSProtocolCallback,MSSelectionCallback {
     @IBOutlet weak var tblGroupDetail: UITableView!
     
     var groupImage : UIImage? = nil
     var delegateDetail : MSProtocolCallback? = nil
     var groupInfo : Group!
+    
+    var groupAction : PushType = .Home
     
     var groupChanged = false
     
@@ -81,7 +91,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }else{
             
-            return 52
+            return 60
         }
     }
     
@@ -94,10 +104,13 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 cell.callBackVC = {(action : GroupAction , image : Any ) in
                     if action == .BACK
                     {
+                        
+                        
                         self.groupAnyActionPerformed()
                         DispatchQueue.main.async(execute: { () -> Void in
-
+                            
                         self.navigationController?.popViewController(animated: true)
+                            
                         })
                         
                     }else if action == .OPTION  {
@@ -109,7 +122,6 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                             actionSheet(btnArray: ["Report"], cancel: true, destructive: 0, controller: self, handler: { (isSuccess, index) in
                                 if isSuccess
                                 {
-                                   
                                         let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportGroupVC") as! ReportGroupVC
                                         reportVC.group = self.groupInfo
                                         reportVC.delegate = self
@@ -121,7 +133,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                         {
                             
                             self.groupImage = image as? UIImage
-                            actionSheet(btnArray: ["Edit" , "Delete"], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
+                            actionSheet(btnArray: ["Edit"], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
                                 if isSuccess
                                 {
                                     if index == 0 {
@@ -137,7 +149,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     }else
                                     {
                                         
-                                        self.deleteGroup()
+                                      //  self.deleteGroup()
                                     }
                                     
                                 }
@@ -147,6 +159,10 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                     }else if action == .ACCEPT{
                         
                         GroupManager.setGroup(group: self.groupInfo)
+                        
+                        
+                        if self.groupAction == .Home
+                        {
                         GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, group, error) in
                             if isSuccess
                             {
@@ -154,14 +170,27 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 {
                                     self.groupInfo = groupInfo
                                     self.tblGroupDetail.reloadData()
-                                    showInterestedAlert(controller: self)
-                                    self.groupChanged = true
+                                    //self.groupChanged = true
+                                    if  self.groupInfo.drinkedStatus == .Drinked{
+                                        showInterestedAlert(controller: self)
+                                    }
                                 }
                             }else
                             {
                                 showAlert(title: "Drinks", message: error!, controller: self)
                             }
                         })
+                            
+                            
+                            
+                        }else if self.groupAction == .BeOffered {
+                            self.acceptBeOfferedGroupInterest()
+                            
+                        }else{
+                            
+                         // self.actionForOfferedGroupDetails()
+                            
+                        }
                     }
                 }
                 cell.setCellInfo(groupDetail: groupInfo)
@@ -181,7 +210,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             }else if indexPath.row == 3
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"InfoCell") as! InfoCell
-                
+                cell.lblRelation.text = groupInfo.relationship
                 cell.showTopLabel()
                 return cell
             }else
@@ -289,13 +318,120 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func groupAnyActionPerformed(){
         
-        if groupChanged == true{
-            if self.delegateDetail != nil{
-                self.delegateDetail?.replaceGroup!(obj: self.groupInfo)
-            }
-            
-        }
+//        if groupChanged == true{
+//            if self.delegateDetail != nil{
+//                self.delegateDetail?.replaceGroup!(obj: self.groupInfo)
+//            }
+//            
+//        }
     }
+    
+    
+    
+    
+    
+    
+    //MARK:- BEOffered and Offered Action
+    //MARK:-
+    
+    
+//    fileprivate  func showAcceptOrRejectAlert(){
+//        
+//        if groupInfo.drinkedStatus == .Waiting
+//        {
+//            
+//            MSAlert(message: "Do you want to accept it?", firstBtn: "Reject", SecondBtn: "Accept", controller: self, handler: { (success, index) in
+//                if index == 1{
+//                    self.acceptBeOfferedGroupInterest()
+//                }else{
+//                    self.rejectBeOfferedGroupInterest()
+//                }
+//                
+//            })
+//            
+//            
+//        }else if groupInfo.drinkedStatus == .Confirmed{
+//            
+//            MSAlert(message: "Do you want to reject it?", firstBtn: "No", SecondBtn: "Yes", controller: self, handler: { (success, index) in
+//                if index == 1{
+//                    self.rejectBeOfferedGroupInterest()
+//                }
+//                
+//            })
+//            
+//        }
+//    }
+
+    
+    
+    func actionForOfferedGroupDetails(){
+        
+        
+        MSAlert(message: "Do you want to cancel it?", firstBtn: "No", SecondBtn: "Yes", controller: self, handler: { (success, index) in
+            if index == 1
+            {
+                
+                GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, response, strError) in
+                    if isSuccess
+                    {
+                        if let groupInfo = response as? Group
+                        {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }else
+                    {
+                        showAlert(title: "Drinks", message: strError!, controller: self)
+                    }
+                })
+            }
+        })
+        
+    }
+    
+    
+    
+    
+    func acceptBeOfferedGroupInterest()
+    {
+        GroupManager.sharedInstance.acceptInterest(handler: { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                if let groupInfo = response as? Group
+                {
+                    self.groupInfo = groupInfo
+                    self.tblGroupDetail.reloadData()
+                }
+            }else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        })
+        
+        
+        
+    }
+    
+//    func rejectBeOfferedGroupInterest()
+//    {
+//        GroupManager.sharedInstance.removeInterest(handler: { (isSuccess, response, strError) in
+//            if isSuccess
+//            {
+//                if let groupInfo = response as? Group
+//                {
+//                    self.tblGroupDetail.reloadData()
+//                    self.navigationController?.popViewController(animated: true)
+//                    
+//                }
+//            }else
+//            {
+//                showAlert(title: "Drinks", message: strError!, controller: self)
+//            }
+//        })
+//        
+//    }
+    
+
+    
     
     /*
      // MARK: - Navigation

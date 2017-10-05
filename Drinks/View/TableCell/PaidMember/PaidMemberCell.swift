@@ -10,6 +10,9 @@ import UIKit
 
 class PaidMemberCell: UITableViewCell {
 
+    var callbackBuy : ((PremiumPlan)-> Void)? = nil
+
+    var plan : PremiumPlan!
     @IBOutlet weak var btnBuy: SetCornerButton!
     @IBOutlet weak var lblDiscount: UILabel!
     @IBOutlet weak var lblPlanPrice: UILabel!
@@ -26,5 +29,19 @@ class PaidMemberCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func assignMember(plan : PremiumPlan)
+    {
+        self.plan = plan
+        
+    }
+    
+    
+    
+    @IBAction func actionBtnBuyPlan(_ sender: UIButton) {
+        if callbackBuy != nil{
+            self.callbackBuy!(plan)
+        }
+    }
     
 }

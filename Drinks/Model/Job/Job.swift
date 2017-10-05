@@ -39,8 +39,8 @@ class Job: NSObject,NSCoding {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        
+    required init?(coder aDecoder: NSCoder)
+    {
         let ID: String? = aDecoder.decodeObject(forKey: "ID") as? String
         if ID != nil {
             self.ID = ID!;
@@ -50,12 +50,11 @@ class Job: NSObject,NSCoding {
         if engName != nil {
             self.engName = engName!;
         }
+        
         let japName : String? = aDecoder.decodeObject(forKey: "japName") as? String
         if japName != nil {
             self.japName = japName!;
         }
-        
-        
     }
     
     public func encode(with aCoder: NSCoder) {
@@ -73,11 +72,12 @@ class Job: NSObject,NSCoding {
         
         if let dataList = defaults.object(forKey: stateLocal) as? NSData
         {
-            if let decodedList = NSKeyedUnarchiver.unarchiveObject(with: dataList as Data) as? [Job]{
+            if let decodedList = NSKeyedUnarchiver.unarchiveObject(with: dataList as Data) as? [Job]
+            {
                 arrState = decodedList
+                
             }
         }
-       
         return arrState
     }
     
@@ -91,7 +91,7 @@ class Job: NSObject,NSCoding {
                     {
                         
                         let arrayResponse = response["job_list"] as! [Any]
-                        print(arrayResponse)
+//                        print(arrayResponse)
                         var arrState = [Job]()
                         for item in arrayResponse
                         {

@@ -21,7 +21,7 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
         
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .black
-        let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "CrossActive"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnBackPressed))
+        let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "CrossActive"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileGroupOwnerVC.actionBtnBackPressed))
         self.navigationItem.leftBarButtonItem = btnLeftBar
         
         

@@ -39,9 +39,9 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
        
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnBackPressed))
         
-        let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnDonePressed))
+     //   let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnDonePressed))
         
-        self.navigationItem.rightBarButtonItem = btnRightBar
+      //  self.navigationItem.rightBarButtonItem = btnRightBar
         self.navigationItem.leftBarButtonItem = btnLeftBar
        
 
@@ -107,7 +107,9 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
        
     func actionBtnDonePressed()
     {
-           if selectType == .Occupation{
+        if selectType == .Occupation
+        {
+            
             if selectedJob.ID == ""
             {
                 showAlert(title: "Drinks", message: "Please select one occupation first.", controller: self)
@@ -124,13 +126,14 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             {
                 showAlert(title: "Drinks", message: "Please select one option first.", controller: self)
                 return
+                
             }
             if delegate != nil{
                 self.delegate?.moveWithSelection!(selected: selectedValue)
             }
         }
-        self.navigationController?.popViewController(animated: true)
         
+       _ = self.navigationController?.popViewController(animated: true)
     }
 
     
@@ -151,8 +154,6 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-       
         
         return 57
     }
@@ -223,8 +224,12 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             if selectedValue != arrayListing[indexPath.row] as? String
             {
               selectedValue   = strSelecting!
+                
+                
             }
         }
+        
+        self.actionBtnDonePressed()
 
         
 //        if isFromSideMenu == false
