@@ -29,14 +29,10 @@ class PaidMemberCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
     func assignMember(plan : PremiumPlan)
     {
         self.plan = plan
-        
     }
-    
-    
     
     @IBAction func actionBtnBuyPlan(_ sender: UIButton) {
         if callbackBuy != nil{

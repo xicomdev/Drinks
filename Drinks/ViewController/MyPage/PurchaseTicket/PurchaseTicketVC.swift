@@ -65,12 +65,23 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "PurchaseTicketCell", for: indexPath) as! PurchaseTicketCell
+            cell.callbackBuy = {() in
+                
+                self.actionBuyBtn()
+                
+                
+            }
             return cell
         }else {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
             return cell
         }
         
+    }
+    
+    func actionBuyBtn() {
+//        let buyTicketVc = mainStoryBoard.instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
+//        self.present(buyTicketVc, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2546D9B91F8768640066150F /* BecomePaidMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */; };
+		2546D9BB1F8768AB0066150F /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9BA1F8768AB0066150F /* PurchaseVC.swift */; };
 		63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63172EDB1F69519C00244656 /* MyGroupsHeader.swift */; };
 		63172EDE1F69519C00244656 /* MyGroupsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDC1F69519C00244656 /* MyGroupsHeader.xib */; };
 		63172EE01F6951B600244656 /* MyGroupsHeaderTemp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDF1F6951B600244656 /* MyGroupsHeaderTemp.xib */; };
@@ -228,6 +230,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidMemberVC.swift; sourceTree = "<group>"; };
+		2546D9BA1F8768AB0066150F /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		63172EDB1F69519C00244656 /* MyGroupsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsHeader.swift; sourceTree = "<group>"; };
 		63172EDC1F69519C00244656 /* MyGroupsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupsHeader.xib; sourceTree = "<group>"; };
 		63172EDF1F6951B600244656 /* MyGroupsHeaderTemp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupsHeaderTemp.xib; sourceTree = "<group>"; };
@@ -1050,6 +1054,7 @@
 			isa = PBXGroup;
 			children = (
 				63B8243F1F5D657200BA9F62 /* PaidMemberVC.swift */,
+				2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */,
 			);
 			path = PaidMember;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 			isa = PBXGroup;
 			children = (
 				63C05C1E1F67BD0500FDC51E /* PurchaseTicketVC.swift */,
+				2546D9BA1F8768AB0066150F /* PurchaseVC.swift */,
 			);
 			path = PurchaseTicket;
 			sourceTree = "<group>";
@@ -1765,6 +1771,7 @@
 				639F82521F3DC32E00BAFFED /* SelectPhotoVC.swift in Sources */,
 				63B8246B1F5D65F200BA9F62 /* DrinkTodayCell.swift in Sources */,
 				639954BE1F29AD700025E9C6 /* UIButton+WebCache.m in Sources */,
+				2546D9B91F8768640066150F /* BecomePaidMemberVC.swift in Sources */,
 				63C05C291F67E57100FDC51E /* MSExtensions.swift in Sources */,
 				63B824451F5D657200BA9F62 /* HistoryChatVC.swift in Sources */,
 				63C05C331F67E66800FDC51E /* SSKeychainQuery.m in Sources */,
@@ -1824,6 +1831,7 @@
 				639954AD1F29AD6F0025E9C6 /* AFURLSessionManager.m in Sources */,
 				63ED469D1F45AED400B60BB1 /* GroupConditionCell.swift in Sources */,
 				63B824481F5D657200BA9F62 /* CouponVC.swift in Sources */,
+				2546D9BB1F8768AB0066150F /* PurchaseVC.swift in Sources */,
 				63B824441F5D657200BA9F62 /* DrinkTodayChatVC.swift in Sources */,
 				639954BA1F29AD700025E9C6 /* SDWebImageDownloader.m in Sources */,
 				637AFFB21F3C8E0600235578 /* MSCameraGallery.swift in Sources */,

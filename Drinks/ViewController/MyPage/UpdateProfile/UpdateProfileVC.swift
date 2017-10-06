@@ -53,8 +53,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         txtDOB.inputView = datePicker
         
-        lblOccupation.textColor = UIColor.lightGray
-        lblOccupation.text = "Select Occupation"
+        lblOccupation.textColor = UIColor.black
+        lblOccupation.text = LoginManager.getMe.job.engName
         txtUserName.text = LoginManager.getMe.fullName
         
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
@@ -62,6 +62,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         self.txtTabacco.text = LoginManager.getMe.tabaco
         self.txtIncome.text = LoginManager.getMe.annualIncome
         self.txtSchool.text = LoginManager.getMe.schoolCareer
+        
+        self.txtDOB.isUserInteractionEnabled = false
 
     }
 

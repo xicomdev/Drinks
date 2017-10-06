@@ -63,12 +63,21 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
     }
     @IBAction func btnStatusAction(_ sender: AnyObject) {
+        let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "PaidMemberVC") as! PaidMemberVC
+        paidMemberVc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(paidMemberVc, animated: true)
     }
     
     @IBAction func btnTicketAction(_ sender: AnyObject) {
+        let ticketVc = mainStoryBoard.instantiateViewController(withIdentifier: "PurchaseTicketVC") as! PurchaseTicketVC
+        ticketVc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(ticketVc, animated: true)
     }
     
     @IBAction func btnOfferAction(_ sender: AnyObject) {
+        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+        tabBarController.selectedIndex = 1
+        appDelegate().window?.rootViewController = tabBarController
     }
     
     //MARK: - CollectionView Delegate and datasource Methods
