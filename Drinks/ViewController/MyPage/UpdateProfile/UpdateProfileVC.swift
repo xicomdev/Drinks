@@ -315,7 +315,7 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     

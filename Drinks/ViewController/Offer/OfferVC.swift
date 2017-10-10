@@ -159,7 +159,6 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectedOption == .BeOffered
         {
@@ -287,7 +286,7 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func acceptOtherGroupInterest(group : Group)
     {
-        GroupManager.sharedInstance.acceptInterest(handler: { (isSuccess, response, strError) in
+        GroupManager.sharedInstance.acceptInterestRequested(requestedGroup: group, handler: { (isSuccess, response, strError) in
             if isSuccess
             {
                 if let groupInfo = response as? Group
@@ -301,8 +300,6 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }
         })
-
-        
         
     }
     
@@ -325,10 +322,7 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }
         })
-
     }
-    
-    
     
     func showNoOfferedRecords( ){
         
@@ -344,11 +338,8 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             self.tblGroups.isHidden = false
             
         }
-
-        
         
     }
-    
     
     func showNoBeOfferedRecords( ){
         

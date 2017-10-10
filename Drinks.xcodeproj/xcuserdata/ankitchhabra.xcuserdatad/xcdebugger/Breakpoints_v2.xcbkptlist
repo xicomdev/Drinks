@@ -9,46 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/View/TableCell/GroupDetails/GroupLocationCell.swift"
-            timestampString = "528970047.184906"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "529322544.613196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "setCellInfo(groupDetail:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "sendOrRemoveInterest(handler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Drinks.GroupLocationCell.setCellInfo(groupDetail: Drinks.Group) -&gt; ()"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/View/TableCell/GroupDetails/GroupLocationCell.swift"
-                  timestampString = "528970047.749962"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1581">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Drinks.GroupLocationCell.setCellInfo(groupDetail: Drinks.Group) -&gt; ()"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/View/TableCell/GroupDetails/GroupLocationCell.swift"
-                  timestampString = "528970047.753979"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "4270">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

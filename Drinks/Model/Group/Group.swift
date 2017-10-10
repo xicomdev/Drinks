@@ -228,8 +228,6 @@ class Group: NSObject {
     }
 
     
-    
-    
     convenience init(chatGroup : Any) {
         self.init()
         
@@ -271,6 +269,8 @@ class Group: NSObject {
         SwiftLoader.show(true)
         var params : [String : Any] = [String : Any]()
 
+       
+        
         if appDelegate().appLocation != nil
         {
             params["current_latitude"] = appDelegate().appLocation?.latitude

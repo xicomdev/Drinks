@@ -10,7 +10,6 @@ import UIKit
 
 class GroupLocationCell: UITableViewCell {
 
-    
     var group : Group? = nil
     @IBOutlet weak var lblLastLogin: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
@@ -37,7 +36,7 @@ class GroupLocationCell: UITableViewCell {
             
             if group?.groupBy == .Other
             {
-                lblLastLogin.text = group?.groupOwner.lastLogin
+                lblLastLogin.text = group?.groupOwner.lastLogin.getTimeFromDate()
             }else{
                 lblLastLogin.text = appLastLoginFormat.string(from: Date())
             }

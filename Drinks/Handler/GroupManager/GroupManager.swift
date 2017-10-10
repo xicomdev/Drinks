@@ -96,6 +96,29 @@ class GroupManager: NSObject {
         }
     }
     
+    func acceptInterestRequested(requestedGroup: Group, handler:@escaping CompletionHandler)
+    {
+        
+        print( (requestedGroup.groupRequest?.groupID)! )
+        print( (requestedGroup.groupRequest?.groupOwner.ID)!  )
+        self.group = requestedGroup
+        let params : [String : Any] = ["user_id" : (requestedGroup.groupRequest?.groupOwner.ID)!   ,"group_id" : (requestedGroup.groupRequest?.groupID)!
+            , "drinked_status" : "drinked" , "owner_user_id" : requestedGroup.ownerID!]
+        
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            
+            if isSuccess
+            {
+                self.group.drinkedStatus = .Matched
+                //self.group.drinkedStatus = .Confirmed
+                handler(true, self.group, nil)
+            }else{
+                handler(false, nil, strError!)
+            }
+        }
+    }
     
     func removeInterest(handler:@escaping CompletionHandler)
     {
@@ -184,7 +207,6 @@ class GroupManager: NSObject {
                 handler(false , nil, strError)
             }
         }
-
     }
     
     func getSentOfferedGroup(handler:@escaping CompletionHandler)
@@ -198,7 +220,6 @@ class GroupManager: NSObject {
                 var arrayList = [Group]()
                 if let arryResponse = response as? [Dictionary<String ,Any>]
                 {
-                    
                     print(arryResponse)
                     for item in arryResponse
                     {
@@ -212,5 +233,4 @@ class GroupManager: NSObject {
             }
         }
     }
-    
 }

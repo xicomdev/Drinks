@@ -83,7 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
         
       //  IQKeyboardManager.sharedManager().disabledToolbarClasses = [CreateGroupVC.self]
 
-        
+//        OLKitePrintSDK.setAPIKey("YOUR_TEST_API_KEY", withEnvironment: kOLKitePrintSDKEnvironmentSandbox)
+
         
         
         
@@ -300,6 +301,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
         }else{
             print("Getting location fine")
             self.currentlocation = location!
+            self.appLocation = GroupLocation(name: "addressCurrent", lat: (self.currentlocation?.coordinate.latitude)!.description, long: (self.currentlocation?.coordinate.longitude)!.description)
             self.getLocationNameFromLatAndLong()
         }
     }

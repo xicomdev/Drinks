@@ -60,7 +60,9 @@ class PremiumPlan: NSObject
     
     class func getPremiumPlans(handler:@escaping CompletionHandler)
     {
+        SwiftLoader.show(true)
        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetSubscriptionPlan, paramters: nil) { (isSuccess, response, strError) in
+        SwiftLoader.hide()
                if isSuccess
                {
                     var plans = [PremiumPlan]()

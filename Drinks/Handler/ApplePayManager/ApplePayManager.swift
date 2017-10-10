@@ -9,10 +9,6 @@
 import UIKit
 import PassKit
 
-
-
-
-
 class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
 {
     
@@ -27,7 +23,8 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
         request.merchantIdentifier = ApplePayDrinksMerchantID
         request.supportedNetworks = [PKPaymentNetwork.amex, PKPaymentNetwork.visa ,  PKPaymentNetwork.discover,  PKPaymentNetwork.JCB , PKPaymentNetwork.masterCard]
         request.merchantCapabilities = .capability3DS
-
+        request.countryCode = "US"
+        request.currencyCode = "USD"
     }
     
     

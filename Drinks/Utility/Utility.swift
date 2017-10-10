@@ -20,7 +20,7 @@ typealias AlertHandler = ( (_ Index: Int) -> Void) // false for Cancel
     @objc optional func replaceRecords()
 
     @objc optional func moveRecordsWithType(obj : AnyObject , type : String )
-
+    @objc optional func moveHomeToAddNew()
 
     
 }
@@ -361,6 +361,8 @@ func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
 func setGroupTag(boolTag : Bool , label : UILabel) {
     label.isHidden = !boolTag
 }
+
+
 
 
 func userImage(imageView : UIImageView  , user : User)

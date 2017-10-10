@@ -157,6 +157,18 @@ extension String
         return dateFormate.date(from: self)!
     }
     
+    public func getTimeFromDate () -> String {
+        let formattr = DateFormatter()
+        formattr.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dt = formattr.date(from: self)
+        formattr.dateFormat = "hh:mm a"
+        if dt != nil {
+            return formattr.string(from: dt!)
+        }else {
+            return self
+        }
+    }
+    
     
   public  func getAgeFromDOB() -> Int
     {

@@ -40,7 +40,6 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     override func viewWillAppear(_ animated: Bool){
         
-        
     
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
@@ -49,7 +48,6 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         lblOccupation.text =  LoginManager.getMe.job.engName
         
     
-        
   
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1

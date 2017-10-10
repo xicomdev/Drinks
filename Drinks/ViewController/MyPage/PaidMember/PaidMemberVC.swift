@@ -90,13 +90,11 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
 
-    
-    
-    
+ 
     func makePayment(){
         
         
-        ApplePayManager.sharedInstance.paymentAuthorizationVC(controller: self)
+//        ApplePayManager.sharedInstance.paymentAuthorizationVC(controller: self)
         
     }
     

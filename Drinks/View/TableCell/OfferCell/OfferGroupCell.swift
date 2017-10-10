@@ -56,7 +56,6 @@ class OfferGroupCell: UITableViewCell {
     func assignData(groupInfo : Group){
         self.group = groupInfo
         
-        
         let urlFinalGroup = URL(string: groupInfo.imageURL)
         let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
         imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: nil)

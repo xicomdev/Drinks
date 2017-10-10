@@ -21,11 +21,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     var myGroups = [Group]()
     
-    
+    var timer = Timer()
     
     @IBOutlet weak var btnCreateGroup: UIButton!
     @IBOutlet var collectionFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet var collectionViewGroup: UICollectionView!
+    
+    var isFromNoRecruit = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,14 +63,24 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        
-        if globalFilter.filterEnabled == false{
-             self.getGroups()
+        if !isFromNoRecruit {
+            if globalFilter.filterEnabled == false{
+                
+                timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(callGroupsApi), userInfo: nil, repeats: true)
+            }
         }
+        isFromNoRecruit = false
        
 
     }
 
+    func callGroupsApi() {
+        if appDelegate().appLocation != nil {
+            self.getGroups()
+            timer.invalidate()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -158,7 +170,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                     }
                 }else
                 {
-                    showAlert(title: "Drinks", message: error!, controller: self)
+                    self.isFromNoRecruit = true
+                    let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
+                    noGroupVc.delegate = self
+                    self.present(noGroupVc, animated: true, completion: nil)
+//                    showAlert(title: "Drinks", message: error!, controller: self)
                 }
             })
         }
@@ -171,7 +187,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-   
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -280,6 +295,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:- Custom Delegates
     //MARK":-
     
+    func moveHomeToAddNew() {
+        let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+        createGroupVC.delegate = self
+        let navigation = UINavigationController(rootViewController: createGroupVC)
+        self.navigationController?.present(navigation, animated: true, completion: nil)
+    }
     
     func moveWithSelection(selected: Any) {
         
