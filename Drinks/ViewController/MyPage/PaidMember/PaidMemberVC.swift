@@ -15,11 +15,10 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var arrayPackages : [PremiumPlan] = [PremiumPlan]()
     @IBOutlet weak var tblHeightConst: NSLayoutConstraint!
     
-    var aryPlansCount = 4
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.hidesBackButton = true
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(PaidMemberVC.btnCrossAction))
         
@@ -29,9 +28,6 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
         
         self.getPlans()
-        
-//        tblHeightConst.constant = CGFloat(aryPlansCount*80)
-        
         
         tblVwPlans.registerNibsForCells(arryNib: ["PaidMemberCell"])
         tblVwPlans.delegate = self
@@ -60,15 +56,10 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tblVwPlans.dequeueReusableCell(withIdentifier: "PaidMemberCell", for: indexPath) as! PaidMemberCell
         cell.assignMember(plan: arrayPackages[indexPath.row])
         cell.callbackBuy = {(plan : PremiumPlan) in
-            
-           self.makePayment()
-            
-            
+            self.makePayment(getPlan: plan)
         }
         return cell
     }
-    
-    
     
     func getPlans()
     {
@@ -85,24 +76,14 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }else
         {
             showAlert(title: "Drinks", message: strError!, controller: self)
-
         }
         }
     }
 
  
-    func makePayment(){
+    func makePayment(getPlan: PremiumPlan){
         
-        
-//        ApplePayManager.sharedInstance.paymentAuthorizationVC(controller: self)
-        
+        ApplePayManager.sharedInstance.paymentVCForPremiumPlan(controller: self, plan: getPlan)
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

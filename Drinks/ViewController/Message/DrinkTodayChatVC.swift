@@ -75,6 +75,8 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = true
         
+        timerChat.invalidate()
+        
     }
     
     

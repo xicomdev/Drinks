@@ -103,7 +103,7 @@ class GroupManager: NSObject {
         print( (requestedGroup.groupRequest?.groupOwner.ID)!  )
         self.group = requestedGroup
         let params : [String : Any] = ["user_id" : (requestedGroup.groupRequest?.groupOwner.ID)!   ,"group_id" : (requestedGroup.groupRequest?.groupID)!
-            , "drinked_status" : "drinked" , "owner_user_id" : requestedGroup.ownerID!]
+            , "drinked_status" : "confirmed" , "owner_user_id" : requestedGroup.ownerID!]
         
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_Interest, paramters: params) { (isSuccess, response, strError) in

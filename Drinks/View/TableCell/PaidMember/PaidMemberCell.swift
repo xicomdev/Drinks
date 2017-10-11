@@ -32,6 +32,10 @@ class PaidMemberCell: UITableViewCell {
     func assignMember(plan : PremiumPlan)
     {
         self.plan = plan
+        lblPlanPrice.text = "¥\(NSNumber(value: plan.amount))/mon"
+        lblDiscount.text = "¥\(NSNumber(value: plan.discount)) discount!"
+        lblPopulartyNo.text = plan.planDescription
+        lblPlanDuration.text = plan.engName
     }
     
     @IBAction func actionBtnBuyPlan(_ sender: UIButton) {

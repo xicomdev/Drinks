@@ -13,15 +13,18 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tblVwTicketPlans: UITableView!
     @IBOutlet weak var tblHeightConst: NSLayoutConstraint!
 
-    var aryPlansCount = [4,2]
+    var arySettings = ["Privacy Policy","Terms of service"]
+    var aryTickets = [Ticket]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tblHeightConst.constant = CGFloat((aryPlansCount[0]*80) + (aryPlansCount[1]*60)) + 30
+        tblHeightConst.constant = CGFloat((aryTickets.count*80) + (arySettings.count*60)) + 30
         tblVwTicketPlans.registerNibsForCells(arryNib: ["PurchaseTicketCell", "SettingsCell"])
         tblVwTicketPlans.delegate = self
         tblVwTicketPlans.dataSource = self
+        self.getPlans()
+
     }
 
     @IBAction func actionBtnCross(_ sender: AnyObject) {
@@ -31,10 +34,14 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     //MARK: - TableView delegate and datasource methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return aryPlansCount.count
+        return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return aryPlansCount[section]
+        if section == 0 {
+            return aryTickets.count
+        }else {
+            return arySettings.count
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,24 +72,48 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "PurchaseTicketCell", for: indexPath) as! PurchaseTicketCell
-            cell.callbackBuy = {() in
+            cell.assignMember(ticket: aryTickets[indexPath.row])
+            cell.callbackBuy = {(ticket : Ticket) in
                 
-                self.actionBuyBtn()
-                
+                self.makePayment(getPlan: ticket)
                 
             }
             return cell
         }else {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
+            cell.lblTitle.text = arySettings[indexPath.row]
             return cell
         }
+    }
+    
+    func getPlans()
+    {
+        Ticket.getTickets { (success, response, strError) in
+            if success
+            {
+                if let planList = response as? [Ticket]
+                {
+                    self.aryTickets = planList
+                    self.tblHeightConst.constant = CGFloat( self.aryTickets.count*80)
+                    self.tblVwTicketPlans.reloadData()
+                }
+                
+            }else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+                
+            }
+        }
+    }
+    
+    
+    func makePayment(getPlan: Ticket){
+        
+        ApplePayManager.sharedInstance.paymentVCForTicket(controller: self, ticket: getPlan)
         
     }
     
-    func actionBuyBtn() {
-//        let buyTicketVc = mainStoryBoard.instantiateViewController(withIdentifier: "PurchaseVC") as! PurchaseVC
-//        self.present(buyTicketVc, animated: true, completion: nil)
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25298EBD1F8E4FB80089361A /* MatchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25298EBC1F8E4FB70089361A /* MatchedVC.swift */; };
 		25325DE31F8CA2DF002BA465 /* NoRecruitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */; };
+		25325F661F8E059000768EBF /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25325F651F8E058F00768EBF /* Ticket.swift */; };
 		2546D9B91F8768640066150F /* BecomePaidMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */; };
 		2546D9BB1F8768AB0066150F /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9BA1F8768AB0066150F /* PurchaseVC.swift */; };
 		63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63172EDB1F69519C00244656 /* MyGroupsHeader.swift */; };
@@ -231,8 +233,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25298EBC1F8E4FB70089361A /* MatchedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedVC.swift; sourceTree = "<group>"; };
 		25325DE11F8C90D9002BA465 /* current.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = current.gpx; sourceTree = "<group>"; };
 		25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecruitVC.swift; sourceTree = "<group>"; };
+		25325F651F8E058F00768EBF /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidMemberVC.swift; sourceTree = "<group>"; };
 		2546D9BA1F8768AB0066150F /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		63172EDB1F69519C00244656 /* MyGroupsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsHeader.swift; sourceTree = "<group>"; };
@@ -526,6 +530,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25325F641F8E055E00768EBF /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				25325F651F8E058F00768EBF /* Ticket.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
 		633112AF1F727A0600DE27AD /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +625,7 @@
 			children = (
 				63812EBE1F56C07E0012AE36 /* InterestedVC.swift */,
 				25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */,
+				25298EBC1F8E4FB70089361A /* MatchedVC.swift */,
 			);
 			path = Drinked;
 			sourceTree = "<group>";
@@ -797,6 +810,7 @@
 		639954C61F29AD7A0025E9C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25325F641F8E055E00768EBF /* Ticket */,
 				635E18EB1F7CD30000CF7307 /* Plan */,
 				63C129C31F613237002C12E9 /* Message */,
 				63C129C01F613082002C12E9 /* ChatThread */,
@@ -1121,7 +1135,6 @@
 			isa = PBXGroup;
 			children = (
 				63B824661F5D65F200BA9F62 /* PaidMemberCell.swift */,
-				63ED468A1F4596BB00B60BB1 /* GroupDetails */,
 				63B824671F5D65F200BA9F62 /* PaidMemberCell.xib */,
 			);
 			path = PaidMember;
@@ -1362,6 +1375,7 @@
 				63C05C201F67BE2700FDC51E /* PurchaseTicket */,
 				63B824591F5D65F200BA9F62 /* Message */,
 				63B824621F5D65F200BA9F62 /* Notification */,
+				63ED468A1F4596BB00B60BB1 /* GroupDetails */,
 				63B824651F5D65F200BA9F62 /* PaidMember */,
 				63B824681F5D65F200BA9F62 /* Settings */,
 				637E251F1F595AA500952B8C /* OfferCell */,
@@ -1734,6 +1748,7 @@
 				63D7F1AD1F330C13000E27AF /* IQTextView.swift in Sources */,
 				63D158FC1F5E6AC50089BEC9 /* VideoRecordingWriter.m in Sources */,
 				63D7F1AF1F330C13000E27AF /* IQPreviousNextView.swift in Sources */,
+				25325F661F8E059000768EBF /* Ticket.swift in Sources */,
 				63D7F1BA1F331014000E27AF /* MSImage.swift in Sources */,
 				63B8246F1F5D65F200BA9F62 /* RecievedMsgCell.swift in Sources */,
 				63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */,
@@ -1857,6 +1872,7 @@
 				639954C11F29AD700025E9C6 /* UIImage+WebP.m in Sources */,
 				63D7F1B01F330C13000E27AF /* IQTitleBarButtonItem.swift in Sources */,
 				63B86B551F46F74800E3CA55 /* FilterOptionCell.swift in Sources */,
+				25298EBD1F8E4FB80089361A /* MatchedVC.swift in Sources */,
 				639954BC1F29AD700025E9C6 /* SDWebImageManager.m in Sources */,
 				639954B71F29AD6F0025E9C6 /* SDImageCache.m in Sources */,
 				63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */,

@@ -37,8 +37,6 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         tableviewGroupMessages.delegate = self
         tableviewGroupMessages.dataSource = self
         
- 
-       // self.getThreadsForGroups()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +44,8 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         self.tableviewGroupMessages.reloadData()
         self.navigationController?.isNavigationBarHidden = true
         self.updateUI()
-        
-       
+        self.getThreadsForGroups()
+
     }
     
     @IBAction func btnDrinkTodayAction(_ sender: AnyObject) {
@@ -151,9 +149,10 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
                      appDelegate().arrayThread.removeAll()
                     appDelegate().arrayThread.append(contentsOf: arrayThreads)
                     self.tableviewGroupMessages.reloadData()
+                    self.updateUI()
                 }
             }else{
-        //showAlert(title: "Drinks", message: strError!, controller: self)
+//                    showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
     }

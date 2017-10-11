@@ -144,9 +144,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayGroups.count
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -196,10 +194,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         return size
         
     }
-    
- 
-    
-    
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -209,7 +204,6 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        
         let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
         groupVC.groupInfo = arrayGroups[indexPath.row]
         groupVC.delegateDetail = self

@@ -39,9 +39,21 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     
     
     
-    func paymentAuthorizationVC(controller : UIViewController)
+    func paymentVCForPremiumPlan(controller : UIViewController, plan:PremiumPlan)
     {
-        
+        let objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.amount))
+        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: plan.amount))
+        request.paymentSummaryItems = [objItem, total]
+        let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
+        objApplePay.delegate = self
+        controller.present(objApplePay, animated: true, completion: nil)
+    }
+    
+    func paymentVCForTicket(controller : UIViewController, ticket:Ticket)
+    {
+        let objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.amount))
+        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: ticket.amount))
+        request.paymentSummaryItems = [objItem, total]
         let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
         objApplePay.delegate = self
         controller.present(objApplePay, animated: true, completion: nil)

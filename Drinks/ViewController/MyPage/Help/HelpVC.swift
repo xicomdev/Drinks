@@ -22,6 +22,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     //MARK: - Tableview delegate and datasource methods

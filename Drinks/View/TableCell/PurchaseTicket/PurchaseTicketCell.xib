@@ -72,6 +72,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnBuy" destination="Ner-jJ-xma" id="f6m-bn-wNS"/>
+                <outlet property="lblDiscount" destination="oXm-6X-2L4" id="cFr-h7-lZJ"/>
+                <outlet property="lblName" destination="hJn-dl-VaH" id="Kcw-S7-jzx"/>
+                <outlet property="lblPrice" destination="irm-uJ-aWn" id="VAF-mH-yzb"/>
             </connections>
             <point key="canvasLocation" x="25" y="70"/>
         </tableViewCell>

@@ -68,7 +68,7 @@ enum DrinkStatus : String
 {
     case Drinked = "drinked"
     case NotDrinked = "undrinked"
-    case Matched = "matched"
+    case Matched = "confirmed"
 }
 enum GroupBy : String
 {
@@ -107,18 +107,13 @@ let API_GetChatThreads = "getThreads"
 let API_GetThreadMessages = "getAllMessages"
 let API_SendChatMessage = "sendMessage"
 let API_LogOut = "logout"
-let API_GetSubscriptionPlan = "getMembershipPlanAndPoints"
+let API_GetSubscriptionPlan = "getMembershipPlanAndTickets"
 
 
 
 
 //MARK:- Apple Pay Merchant ID
 let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merchant ID here!
-
-
-
-
-
 
 
 let userDefaults = UserDefaults.standard

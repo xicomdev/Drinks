@@ -9,22 +9,38 @@
 import UIKit
 
 class PurchaseTicketCell: UITableViewCell {
-    var callbackBuy : (()-> Void)? = nil
+    var callbackBuy : ((Ticket)-> Void)? = nil
 
     @IBOutlet weak var btnBuy: SetCornerButton!
+
+    @IBAction func actionBtnBuy(_ sender: UIButton)
+    {
+        if callbackBuy != nil{
+            self.callbackBuy!(ticket)
+        }
+    }
+    
+    var ticket : Ticket!
+    @IBOutlet weak var lblDiscount: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
-    @IBAction func actionBtnBuy(_ sender: UIButton)
+    
+    func assignMember(ticket : Ticket)
     {
-            self.callbackBuy!()
+        self.ticket = ticket
+        lblPrice.text = "¥\(NSNumber(value: ticket.amount))"
+        lblName.text = ticket.engName
     }
+    
+    
 }

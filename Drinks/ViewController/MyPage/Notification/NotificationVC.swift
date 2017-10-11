@@ -58,8 +58,6 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK:-
     
     
-    
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 57
     }
@@ -92,8 +90,6 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.btnSwitch.isEnabled = aryNotification[indexPath.row]["boolValue"] as! Bool
         
         cell.lblTitle.text = aryNotification[indexPath.row]["title"] as? String
-        
-        
         
         return cell
     }
