@@ -13,7 +13,8 @@ class MatchedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view.alpha = 0
+        self.perform(#selector(InterestedVC.dismissSelf), with: nil, afterDelay: 4)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +22,18 @@ class MatchedVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool){
+        showAlertWithAnimation(object: self)
+        
     }
-    */
-
+  
+    func dismissSelf(){
+        hideAlertWithAnimation(object: self) { (call) in
+            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+            tabBarController.selectedIndex = 2
+            appDelegate().window?.rootViewController = tabBarController
+            
+        }
+    }
+    
 }

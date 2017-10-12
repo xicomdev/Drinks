@@ -39,7 +39,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     var strDescription = "Enter description here"
     var relationship : String = ""
     
-    
+    var refreshLocationTimer : Timer!
   //  var group.groupConditions : [GroupCondition] = [GroupCondition]()
     
     var arrayJobs  = [Job]()
@@ -321,7 +321,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 cell.callbackAction = {( action : GroupAction) in
                   if action == .LOCATION
                   {
-                        self.tblCreateGroup.reloadData()
+                    SwiftLoader.show(true)
+                    appDelegate().appLocation = GroupLocation()
+                    appDelegate().intializeLocationManager()
+                    self.refreshLocationTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.refreshLocation), userInfo: nil, repeats: true)
+                    
                   }else{
                         self.tagEnabled = !self.tagEnabled
                   }
@@ -402,6 +406,14 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
     }
     
+    
+    func refreshLocation() {
+        if appDelegate().appLocation?.LocationName != "" {
+            SwiftLoader.hide()
+            self.tblCreateGroup.reloadData()
+            refreshLocationTimer.invalidate()
+        }
+    }
     //MARK:- TextView Delegates
     //MARK:-
    

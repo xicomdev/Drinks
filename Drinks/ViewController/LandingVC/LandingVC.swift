@@ -89,10 +89,6 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
             
         }
     }
-
-    
-    
-    
     
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
@@ -100,13 +96,11 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         self.navigationController?.pushViewController(camera, animated: true)
  */
        
-   
         FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
             
             if success == true{
                 if let dictFB = response as? Dictionary <String , Any>
                 {
-                    
                     
                     print(dictFB["id"] as! String)
                    LoginManager.getMe.firstName = dictFB["first_name"] as! String
@@ -188,9 +182,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                 self.imgViewBG4.alpha = 1
             })
         }
-
     }
-    
     
     func checkUserExists()
     {

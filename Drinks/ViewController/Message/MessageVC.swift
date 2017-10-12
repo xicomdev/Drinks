@@ -140,8 +140,11 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     
     func getThreadsForGroups()
     {
-        
+        if tableviewGroupMessages.isHidden {
+            SwiftLoader.show(true)
+        }
         ChatManager.getChatThreads { (success, response, strError) in
+            SwiftLoader.hide()
             if success
             {
                 if let arrayThreads = response as? [ChatThread]

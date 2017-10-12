@@ -294,6 +294,9 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     let index =  Group.getIndex(arrayGroups: self.arrayBeOffered, group: groupInfo)
                     self.arrayBeOffered[index] = groupInfo
                     self.tblGroups.reloadData()
+                    let matchVc = mainStoryBoard.instantiateViewController(withIdentifier: "MatchedVC") as! MatchedVC
+                    matchVc.view.alpha = 0
+                    self.present(matchVc, animated: false, completion: nil)
                 }
             }else
             {

@@ -327,21 +327,27 @@ func setSmallDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
 }
 
 
-func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
+func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus, fromScreen:String)
 {
   
     switch status
     {
         
     case .Matched , .Drinked :
-        
-        
-        btnStatus.setImage( UIImage(named: "OfferAccepted"), for: .normal)
+        if fromScreen == "Home" {
+            btnStatus.setImage( UIImage(named: "Accepted"), for: .normal)
+        }else {
+            btnStatus.setImage( UIImage(named: "OfferAccepted"), for: .normal)
+        }
         btnStatus.isUserInteractionEnabled = false
         break
         
     case .NotDrinked :
-        btnStatus.setImage( UIImage(named: "OfferAccept"), for: .normal)
+        if fromScreen == "Home" {
+            btnStatus.setImage( UIImage(named: "Accept"), for: .normal)
+        }else {
+            btnStatus.setImage( UIImage(named: "OfferAccept"), for: .normal)
+        }
         btnStatus.isUserInteractionEnabled = true
         break
         

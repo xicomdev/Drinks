@@ -76,7 +76,7 @@ class GroupImageCell: UITableViewCell {
                 //My Own Group
                 btnAccept.isHidden = true
             }
-            setBiggerDrinkedStatus(btnStatus: btnAccept, status: (group?.drinkedStatus)! )
+            setBiggerDrinkedStatus(btnStatus: btnAccept, status: (group?.drinkedStatus)! , fromScreen: "Home")
         }
     }
     

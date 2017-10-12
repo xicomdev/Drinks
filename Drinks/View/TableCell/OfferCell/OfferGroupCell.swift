@@ -76,7 +76,7 @@ class OfferGroupCell: UITableViewCell {
         if groupInfo.groupBy == .Other
         {
             
-            setBiggerDrinkedStatus(btnStatus: btnInterest, status: groupInfo.drinkedStatus )
+            setBiggerDrinkedStatus(btnStatus: btnInterest, status: groupInfo.drinkedStatus , fromScreen:"Offer")
 
         }else{
             //My Own Group

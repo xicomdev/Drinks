@@ -51,7 +51,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         lblOccupation.text = "Select Occupation"
         txtUserName.text = LoginManager.getMe.fullName
         
-        
+//        txtDOB.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
     }
     

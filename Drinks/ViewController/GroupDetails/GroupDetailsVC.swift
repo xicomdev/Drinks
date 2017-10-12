@@ -26,7 +26,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     var groupAction : PushType = .Home
     
     var groupChanged = false
-    
+    var interestSent = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +48,10 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.isNavigationBarHidden = true
+        if interestSent {
+            interestSent = false
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
     
@@ -173,6 +177,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     //self.groupChanged = true
                                     if  self.groupInfo.drinkedStatus == .Drinked{
                                         showInterestedAlert(controller: self)
+                                        self.interestSent = true
                                     }
                                 }
                             }else

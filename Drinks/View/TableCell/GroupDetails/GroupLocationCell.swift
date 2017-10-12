@@ -40,7 +40,6 @@ class GroupLocationCell: UITableViewCell {
             }else{
                 lblLastLogin.text = appLastLoginFormat.string(from: Date())
             }
-            
         }
     }
 
