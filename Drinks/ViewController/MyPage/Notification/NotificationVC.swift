@@ -71,8 +71,6 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return headerView
     }
     
-
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return aryNotification.count
     }
@@ -87,7 +85,7 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.btnSwitch.addTarget(self, action: #selector(self.switchActon(_:)), for: .valueChanged)
         cell.btnSwitch.tag = indexPath.row
         
-        cell.btnSwitch.isEnabled = aryNotification[indexPath.row]["boolValue"] as! Bool
+        cell.btnSwitch.isOn = aryNotification[indexPath.row]["boolValue"] as! Bool
         
         cell.lblTitle.text = aryNotification[indexPath.row]["title"] as? String
         
@@ -97,6 +95,6 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func switchActon(_ sender: UISwitch)
     {
         
-       // aryNotification[sender.tag].updateValue(!(aryNotification[sender.tag]["boolValue"] as! Bool), forKey: "boolValue")
+        aryNotification[sender.tag].updateValue(!(aryNotification[sender.tag]["boolValue"] as! Bool), forKey: "boolValue")
     }
 }

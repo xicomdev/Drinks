@@ -146,8 +146,9 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
             if isSuccess
             {
-                let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
-                appDelegate().window?.rootViewController = tabBarController
+                let referalVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignupReferalCodeVC") as! SignupReferalCodeVC
+                referalVC.delegate = self
+                self.present(referalVC, animated: true, completion: nil)
             
             }else{
                 showAlert(title: "Drinks", message: strError!, controller: self)
@@ -159,6 +160,11 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
     
     //MARK:- Custom Delegates
     //MARK:-
+    
+    func gotoHome() {
+        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+        appDelegate().window?.rootViewController = tabBarController
+    }
     
     func moveWithSelection(selected: Any) {
         

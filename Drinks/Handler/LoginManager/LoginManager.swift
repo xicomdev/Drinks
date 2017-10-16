@@ -149,7 +149,8 @@ class LoginManager: NSObject {
         self.me.socialID =  dictUser["fb_id"] as! String
         
         self.me.tabaco =  dictUser["tabaco"] as! String
-        
+        self.me.myCredits = "\(dictUser["balance"] as! Int)"
+        self.me.membershipStatus = dictUser["membership_status"] as! String
         if let imageURL = dictUser["image"] as? String
         {
             self.me.imageURL = imageURL
@@ -159,10 +160,7 @@ class LoginManager: NSObject {
             self.me.imageURL = fbImageURL
         }
         self.saveUserProfile()
-        
     }
-    
-    
     
     func logOut(handler:@escaping CompletionHandler)
     {
@@ -181,7 +179,6 @@ class LoginManager: NSObject {
         }
     }
     
-    
     //MARK:- User default functions
     //MARK:-
     
@@ -197,7 +194,6 @@ class LoginManager: NSObject {
         UserDefaults.standard.removeObject(forKey: "Me")
         UserDefaults.standard.synchronize()
         self.me = User()
-        
     }
     
     func getMeArchiver() -> User? {
@@ -209,5 +205,4 @@ class LoginManager: NSObject {
         }
     }
     
-
 }

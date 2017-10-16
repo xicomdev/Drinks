@@ -36,7 +36,6 @@ class Job: NSObject,NSCoding {
         self.engName = dictJob["eng_name"] as! String
         self.japName = dictJob["jap_name"] as! String
         
-        
     }
     
     required init?(coder aDecoder: NSCoder)

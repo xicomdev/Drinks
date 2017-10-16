@@ -38,7 +38,6 @@ class User: NSObject,NSCoding
     var ID: String!
     var sessionID : String!
     var socialID : String!
-    var myCredits : Int = 0
     var otpCode : String = ""
     var job : Job = Job()
     var DOB : String = ""
@@ -50,6 +49,9 @@ class User: NSObject,NSCoding
     var imageURL : String = ""
     var lastLogin : String = ""
     var age : Int = 18
+    var membershipStatus : String = ""
+    var offersCount : String = "0"
+    var myCredits : String = "0"
     
     var myGender : Gender = .Male
     var groupCreated : Int = 0
@@ -65,7 +67,6 @@ class User: NSObject,NSCoding
         phoneNumber  = ""
         sessionID = ""
         socialID = ""
-        
         
     }
     
@@ -254,6 +255,26 @@ class User: NSObject,NSCoding
             self.tabaco = tabaco!;
         }
 
+        let myCredits : String? = aDecoder.decodeObject(forKey: "myCredits") as? String
+        if myCredits != nil
+        {
+            self.myCredits = myCredits!;
+        }
+        
+        let membershipStatus : String? = aDecoder.decodeObject(forKey: "membershipStatus") as? String
+        if membershipStatus != nil
+        {
+            self.membershipStatus = membershipStatus!;
+        }
+        
+        
+        let offersCount : String? = aDecoder.decodeObject(forKey: "offersCount") as? String
+        if offersCount != nil
+        {
+            self.offersCount = offersCount!;
+        }
+        
+        
         let job : Job? = aDecoder.decodeObject(forKey: "job") as? Job
         if job != nil {
             self.job = job!;
@@ -289,7 +310,9 @@ class User: NSObject,NSCoding
         aCoder.encode(self.tabaco, forKey: "tabaco")
         aCoder.encode(self.imageURL, forKey: "imageURL")
         aCoder.encode(self.job, forKey: "job")
-
+        aCoder.encode(self.myCredits, forKey: "myCredits")
+        aCoder.encode(self.membershipStatus, forKey: "membershipStatus")
+        aCoder.encode(self.offersCount, forKey: "offersCount")
         aCoder.encode(self.DOB, forKey: "DOB")
 
         aCoder.encode(self.age, forKey: "age")

@@ -108,7 +108,8 @@ let API_GetThreadMessages = "getAllMessages"
 let API_SendChatMessage = "sendMessage"
 let API_LogOut = "logout"
 let API_GetSubscriptionPlan = "getMembershipPlanAndTickets"
-
+let API_BuySelectedPlan  = "payByStripe"
+let API_ApplyReferalCode = ""
 
 
 

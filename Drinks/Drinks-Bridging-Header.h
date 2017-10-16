@@ -24,7 +24,8 @@
 #import "UIButton+WebCache.h"
 
 #import "NSDate+Utilities.h"
-
+#import <Stripe/Stripe.h>
+#import <Stripe/Stripe+ApplePay.h>
 #import <FirebaseAnalytics/FirebaseAnalytics.h>
 #import <FirebaseCore/FirebaseCore.h>
 #import "SSKeychain.h"

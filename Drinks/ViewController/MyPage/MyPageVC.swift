@@ -31,6 +31,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         super.viewDidLoad()
                self.view.layoutIfNeeded()
         
+        lblTickets.text = LoginManager.getMe.myCredits
         //Full Screen (Remove top Padding)
          self.edgesForExtendedLayout = UIRectEdge.top
         let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
@@ -40,15 +41,11 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     override func viewWillAppear(_ animated: Bool){
         
-    
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         imgViewCoverPic.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         lblNameAge.text = "\(LoginManager.getMe.fullName!) (\(LoginManager.getMe.age))"
         lblOccupation.text =  LoginManager.getMe.job.engName
-        
-    
-  
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1
         clctnNavBtnHgt.constant = CGFloat(noOfLines * Int(self.view.frame.width/3))
