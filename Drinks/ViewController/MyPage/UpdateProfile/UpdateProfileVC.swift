@@ -67,6 +67,11 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -123,7 +128,6 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         else {
             var imageArray = [MSImage]()
             
-            print(imageSelected)
             if imageSelected != nil{
                 
                 let fileName = "Drinks\(self.timeStamp).jpeg"
@@ -133,18 +137,16 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
                 let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
                 imageArray.append(model)
             }
-            
-//            LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
-//                if isSuccess
-//                {
-//                    let myDetails = LoginManager.sharedInstance.getMeArchiver()
-//                    let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
-//                    appDelegate().window?.rootViewController = tabBarController
-//                    
-//                }else{
-//                    showAlert(title: "Drinks", message: strError!, controller: self)
-//                }
-//            }
+            LoginManager.sharedInstance.updateUserProfile(image: imageArray, name: txtUserName.text!) { (isSuccess, response, strError) in
+                if isSuccess
+                {
+                    LoginManager.getMe.fullName = self.txtUserName.text!
+                    self.navigationController?.popViewController(animated: true)
+                    
+                }else{
+                    showAlert(title: "Drinks", message: strError!, controller: self)
+                }
+            }
         }
         
     }

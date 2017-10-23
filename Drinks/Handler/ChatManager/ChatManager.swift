@@ -62,5 +62,31 @@ class ChatManager: NSObject {
         
     }
     
+    class  func getChatThreadsHistory(handler:@escaping CompletionHandler)
+    {
+        
+        // SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetThreadsHistory, paramters: nil) { (isSuccess, response, strError) in
+            //    SwiftLoader.hide()
+            if isSuccess
+            {
+                var arrayChats = [ChatThread]()
+                
+                if let arrayResponse = response as? [Any]
+                {
+                    for item in arrayResponse
+                    {
+                        let thread = ChatThread(groupThread: item)
+                        arrayChats.append(thread)
+                    }
+                }
+                handler(true, arrayChats, nil)
+            }else{
+                handler(false, nil, strError!)
+            }
+        }
+        
+    }
+    
 
 }

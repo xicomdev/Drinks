@@ -40,6 +40,7 @@ class User: NSObject,NSCoding
     var socialID : String!
     var otpCode : String = ""
     var job : Job = Job()
+    var notificationSettings = Notifications()
     var DOB : String = ""
     var bloodGroup : String = ""
     var relationship : String = ""
@@ -52,7 +53,7 @@ class User: NSObject,NSCoding
     var membershipStatus : String = ""
     var offersCount : String = "0"
     var myCredits : String = "0"
-    
+    var myCouponCode = ""
     var myGender : Gender = .Male
     var groupCreated : Int = 0
     //var profileStatus : ProfileStatus = .Pending
@@ -275,6 +276,11 @@ class User: NSObject,NSCoding
         }
         
         
+        let myCouponCode : String? = aDecoder.decodeObject(forKey: "myCouponCode") as? String
+        if myCouponCode != nil {
+            self.myCouponCode = myCouponCode!
+        }
+        
         let job : Job? = aDecoder.decodeObject(forKey: "job") as? Job
         if job != nil {
             self.job = job!;
@@ -314,7 +320,7 @@ class User: NSObject,NSCoding
         aCoder.encode(self.membershipStatus, forKey: "membershipStatus")
         aCoder.encode(self.offersCount, forKey: "offersCount")
         aCoder.encode(self.DOB, forKey: "DOB")
-
+        aCoder.encode(self.myCouponCode, forKey: "myCouponCode")
         aCoder.encode(self.age, forKey: "age")
         aCoder.encode(self.groupCreated, forKey: "groupCreated")
 

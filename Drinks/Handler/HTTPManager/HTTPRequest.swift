@@ -148,9 +148,6 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
         
     }
     
-    
-    
-    
     func postMulipartRequest( urlLink: String, paramters: Dictionary<String ,Any>?,  Images : [MSImage] , handler:@escaping CompletionHandler){
         
         let strFinalURL: String = Constants.webURL.URLBaseAddress + urlLink
@@ -178,8 +175,6 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
-                    
-                    
                     self.checkSessionExpired(dictResponse: dictResponse)
                     handler(false, nil, dictResponse["message"] as? String)
                 }

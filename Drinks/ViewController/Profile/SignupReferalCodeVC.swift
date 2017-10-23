@@ -24,10 +24,13 @@ class SignupReferalCodeVC: UIViewController {
         if txtfldCode.text!.isStringEmpty() == true{
             showAlert(title: "Drinks", message: "Please enter referal code.", controller: self)
         }else {
+            SwiftLoader.show(true)
+
             let params = [
-                "coupon":txtfldCode.text!
+                "coupon_code":txtfldCode.text!
             ]
-            HTTPRequest.sharedInstance().postRequest(urlLink: API_BuySelectedPlan, paramters: params) { (isSuccess, response, strError) in
+            HTTPRequest.sharedInstance().postRequest(urlLink: API_RedeemCoupon, paramters: params) { (isSuccess, response, strError) in
+                SwiftLoader.hide()
                 if isSuccess
                 {
                     self.dismiss(animated: true) {

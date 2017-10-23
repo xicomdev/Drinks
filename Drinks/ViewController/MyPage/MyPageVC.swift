@@ -10,9 +10,7 @@ import UIKit
 
 class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
     @IBOutlet var imgViewCoverPic: UIImageView!
-    
     
     @IBOutlet weak var clctnNavBtnHgt: NSLayoutConstraint!
     @IBOutlet weak var collctnVwNavBtns: UICollectionView!
@@ -31,7 +29,6 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         super.viewDidLoad()
                self.view.layoutIfNeeded()
         
-        lblTickets.text = LoginManager.getMe.myCredits
         //Full Screen (Remove top Padding)
          self.edgesForExtendedLayout = UIRectEdge.top
         let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
@@ -40,7 +37,24 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     override func viewWillAppear(_ animated: Bool){
+        self.updateUI()
+        LoginManager.sharedInstance.getUserDetail{ (success, response, strError) in
+            if success{
+                self.updateUI()
+                    
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
+        self.navigationController?.isNavigationBarHidden = true
         
+    }
+    
+   
+    func updateUI() {
+        lblTickets.text = LoginManager.getMe.myCredits
+        lblOffers.text = LoginManager.getMe.offersCount
+        lblStatus.text = LoginManager.getMe.membershipStatus
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         imgViewCoverPic.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
@@ -53,10 +67,8 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         collctnVwNavBtns.delegate = self
         collctnVwNavBtns.dataSource = self
-        
-        self.navigationController?.isNavigationBarHidden = true
-        
     }
+    
     @IBAction func btnStatusAction(_ sender: AnyObject) {
         let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "PaidMemberVC") as! PaidMemberVC
         paidMemberVc.hidesBottomBarWhenPushed = true

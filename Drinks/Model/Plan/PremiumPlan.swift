@@ -48,9 +48,19 @@ class PremiumPlan: NSObject
         engName = dictPlan["eng_name"] as! String
         japName = dictPlan["jap_name"] as! String
         planID = dictPlan["id"] as! String
-        amount = dictPlan["amount"] as! Double
+        if (dictPlan["amount"] as? String) != nil {
+            amount = Double(dictPlan["amount"] as! String)
+        }else {
+            amount = dictPlan["amount"] as! Double
+
+        }
         planDescription = dictPlan["description"] as! String
-        discount = dictPlan["discount"] as! Double
+        if (dictPlan["discount"] as? String) != nil {
+            discount = Double(dictPlan["discount"] as! String)
+        }else {
+            discount = dictPlan["discount"] as! Double
+            
+        }
 
 
         

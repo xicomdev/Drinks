@@ -21,14 +21,15 @@ class Notifications: NSObject {
         
     }
     
-    convenience init(notificationDict : Any)
+    convenience init(notificationDict : [String: Any])
     {
-        newOffer = notificationDict["notification_receive_offer"] as! Bool
-        match = notificationDict["notification_when_matching"] as! Bool
-        message = notificationDict["notification_message"] as! Bool
-        notice = notificationDict["notification_notice"] as! Bool
-
+        self.init()
+        self.newOffer = notificationDict["notification_receive_offer"] as! Bool
+        self.match = notificationDict["notification_when_matching"] as! Bool
+        self.message = notificationDict["notification_message"] as! Bool
+        self.notice = notificationDict["notification_notice"] as! Bool
     }
+    
     
     
 }

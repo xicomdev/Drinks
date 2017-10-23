@@ -86,7 +86,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "../../Drinks/Utility/current.gpx"
+         identifier = "../Drinks/Utility/current.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>

@@ -24,6 +24,27 @@ class ChatThread: NSObject {
         
     }
     
+//    convenience init(groupThread : Any)
+//    {
+//        self.init()
+//        guard let dictLocal = groupThread as? Dictionary<String, Any> else {
+//            return
+//        }
+//        print(dictLocal)
+//
+//       // id = 59b0dc4486d89efd1e8b4567;
+//
+//        self.ID =  dictLocal["id"] as! String
+//        self.threadMember = User(messageDict: dictLocal["second_member"]as Any)
+//         self.group  = Group(chatGroup: dictLocal["Group"] as Any)
+//        if let dictLastMessage = dictLocal["last_message"] as? Dictionary<String, Any>
+//        {
+//            if dictLastMessage.count > 0 {
+//                self.lastMessage = Message(messageDict: dictLocal["last_message"] as Any)
+//            }
+//        }
+//    }
+    
     convenience init(groupThread : Any)
     {
         self.init()
@@ -31,20 +52,19 @@ class ChatThread: NSObject {
             return
         }
         print(dictLocal)
-        
-       // id = 59b0dc4486d89efd1e8b4567;
+
+        // id = 59b0dc4486d89efd1e8b4567;
 
         self.ID =  dictLocal["id"] as! String
         self.threadMember = User(messageDict: dictLocal["second_member"]as Any)
-         self.group  = Group(chatGroup: dictLocal["Group"] as Any)
+        self.group  = Group(chatGroup: dictLocal["Group"] as Any)
         if let dictLastMessage = dictLocal["last_message"] as? Dictionary<String, Any>
         {
             if dictLastMessage.count > 0 {
-                self.lastMessage = Message(messageDict: dictLocal["last_message"] as Any)
+                self.lastMessage = Message(messageDictFromGroup: dictLocal)
             }
         }
     }
-    
     
     
     convenience init(dictChatPush : Any)
@@ -59,7 +79,6 @@ class ChatThread: NSObject {
         self.ID =  dictLocal["id"] as! String
         self.threadMember = User(messageDict: dictLocal["sender_info"]as Any)
         self.group  = Group(chatGroup: dictLocal["group_info"] as Any)
-        
         
     }
 

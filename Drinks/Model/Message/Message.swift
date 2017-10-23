@@ -17,7 +17,7 @@ enum MessageStatus : String
 
 
 class Message: NSObject {
-    var date : String!
+    var timestamp : Double!
     var message : String!
     var senderID : String!
     var threadID : String!
@@ -38,12 +38,27 @@ class Message: NSObject {
             return
         }
         
-
-       // self.date = dictMessage["datetime"] as! String
+        self.timestamp = (dictMessage["created"] as! NSDictionary)["sec"] as! Double
         self.message = dictMessage["message"] as! String
         self.threadID = dictMessage["thread_id"] as! String
          self.senderUser = User(messageDict: dictMessage["sender"]as Any)
           self.senderID = dictMessage["sender_id"] as! String
+    }
+    
+    convenience init(messageDictFromGroup : Dictionary<String, Any>)
+    {
+        self.init()
+        
+        guard let dictMessage = messageDictFromGroup["last_message"] as? Dictionary<String, Any> else {
+            return
+        }
+        
+        
+        self.timestamp = (dictMessage["created"] as! NSDictionary)["sec"] as! Double
+        self.message = dictMessage["message"] as! String
+        self.threadID = dictMessage["thread_id"] as! String
+        self.senderUser = User(messageDict: messageDictFromGroup["second_member"]as Any)
+        self.senderID = dictMessage["sender_id"] as! String
     }
     
     convenience init(selfDict : Any)
@@ -54,7 +69,7 @@ class Message: NSObject {
             return
         }
         
-       // self.date = dictMessage["datetime"] as! String
+        self.timestamp = (dictMessage["created"] as! NSDictionary)["sec"] as! Double
         self.message = dictMessage["message"] as! String
         self.threadID = dictMessage["thread_id"] as! String
         self.senderID = dictMessage["sender_id"] as! String

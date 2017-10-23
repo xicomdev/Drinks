@@ -17,9 +17,12 @@ class GotCouponTicketVC: UIViewController {
     }
 
     @IBAction func btnFindOpponentAction(_ sender: AnyObject) {
+        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+        appDelegate().window?.rootViewController = tabBarController
     }
+    
     @IBAction func btnCloseAction(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
-
 
 }

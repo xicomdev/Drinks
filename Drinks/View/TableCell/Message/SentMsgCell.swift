@@ -33,6 +33,7 @@ class SentMsgCell: UITableViewCell {
         message = msgInfo
         imgVwUser.sd_setImage(with: URL(string : msgInfo.senderUser.imageURL )   , placeholderImage: userPlaceHolder)
         lblMsg.text = message.message
+        lblTime.text = getMessageTime(timestamp: message.timestamp)
     }
     
 }

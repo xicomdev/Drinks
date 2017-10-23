@@ -45,6 +45,8 @@ let lastLoginDateFormat = DateFormatter()
 class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,UNUserNotificationCenterDelegate {
 
     var arrayThread = [ChatThread]()
+    var arrayHistoryThreads = [ChatThread]()
+    
     
     var currentThread : ChatThread? = nil
 

@@ -17,6 +17,9 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     
    // var controller : UIViewController? = nil
     var plan_id = String()
+    var ticket_id = String()
+    var parentVC = UIViewController()
+    var status = Bool()
     
     override init()
     {
@@ -40,27 +43,38 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
         let objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.amount))
         let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: plan.amount))
         plan_id = plan.planID
+        ticket_id = ""
         request.paymentSummaryItems = [objItem, total]
         let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
         objApplePay.delegate = self
         controller.present(objApplePay, animated: true, completion: nil)
+        parentVC = controller
     }
     
     func paymentVCForTicket(controller : UIViewController, ticket:Ticket)
     {
         let objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.amount))
         let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: ticket.amount))
+        plan_id = ""
+        ticket_id = ticket.ticketID
+
         request.paymentSummaryItems = [objItem, total]
         let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
         objApplePay.delegate = self
         controller.present(objApplePay, animated: true, completion: nil)
+        parentVC = controller
     }
     
     //MARK:- Payment Authorization Delegates
     //MARK:-
     
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: {
+            if self.status{
+                self.parentVC.navigationController!.popViewController(animated: true)
+            }
+        })
+        
     }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
@@ -74,17 +88,27 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
                 completion(PKPaymentAuthorizationStatus.failure)
                 return
             }
+            var params : Dictionary<String ,Any>?
+            if self.plan_id != "" {
+                params = [
+                    "stripeToken":(token?.tokenId)!,
+                    "plan_id":self.plan_id
+                ]
+            }else {
+                params = [
+                    "stripeToken":(token?.tokenId)!,
+                    "ticket_id":self.ticket_id
+                ]
+            }
             
-            let params = [
-                "stripeToken":(token?.tokenId)!,
-                "plan_id":self.plan_id
-            ]
             HTTPRequest.sharedInstance().postRequest(urlLink: API_BuySelectedPlan, paramters: params) { (isSuccess, response, strError) in
                 if isSuccess
                 {
                     completion(PKPaymentAuthorizationStatus.success)
+                    self.status = true
                 }else{
                     completion(PKPaymentAuthorizationStatus.failure)
+                    self.status = false
                 }
             }
         }

@@ -14,6 +14,7 @@
 		2546D9BB1F8768AB0066150F /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9BA1F8768AB0066150F /* PurchaseVC.swift */; };
 		254DFB201F949DD8000A5F26 /* SignupReferalCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DFB1F1F949DD8000A5F26 /* SignupReferalCodeVC.swift */; };
 		254DFB231F94E4B7000A5F26 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DFB221F94E4B7000A5F26 /* Notifications.swift */; };
+		2577842D1F960A800080D4E5 /* GenericPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577842C1F960A800080D4E5 /* GenericPageVC.swift */; };
 		63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63172EDB1F69519C00244656 /* MyGroupsHeader.swift */; };
 		63172EDE1F69519C00244656 /* MyGroupsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDC1F69519C00244656 /* MyGroupsHeader.xib */; };
 		63172EE01F6951B600244656 /* MyGroupsHeaderTemp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDF1F6951B600244656 /* MyGroupsHeaderTemp.xib */; };
@@ -246,6 +247,7 @@
 		2546D9BA1F8768AB0066150F /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		254DFB1F1F949DD8000A5F26 /* SignupReferalCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReferalCodeVC.swift; sourceTree = "<group>"; };
 		254DFB221F94E4B7000A5F26 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2577842C1F960A800080D4E5 /* GenericPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPageVC.swift; sourceTree = "<group>"; };
 		28310189AE8D10068DE27C82 /* Pods-Drinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drinks/Pods-Drinks.debug.xcconfig"; sourceTree = "<group>"; };
 		39126632B3EAD34DD60FB518 /* Pods-DrinksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksUITests/Pods-DrinksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F9D79127F4261A260C2AAF4 /* Pods-DrinksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksUITests/Pods-DrinksUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -858,7 +860,6 @@
 				63C129C01F613082002C12E9 /* ChatThread */,
 				63F35CC01F41825E001600D4 /* Group */,
 				63996CC51F342F1E008583BB /* Job */,
-				63D7F1B81F330FF7000E27AF /* MSImage */,
 				639954D91F29B8E90025E9C6 /* User */,
 			);
 			path = Model;
@@ -947,6 +948,7 @@
 		639954D91F29B8E90025E9C6 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				63D7F1B81F330FF7000E27AF /* MSImage */,
 				639954DA1F29B8E90025E9C6 /* User.swift */,
 			);
 			path = User;
@@ -1068,15 +1070,16 @@
 		63B824331F5D657200BA9F62 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				63B8243B1F5D657200BA9F62 /* MyPageVC.swift */,
 				63C05C1D1F67BD0500FDC51E /* PurchaseTicket */,
 				63B824341F5D657200BA9F62 /* AgeVerification */,
 				63B824361F5D657200BA9F62 /* Coupon */,
 				63B824391F5D657200BA9F62 /* Help */,
-				63B8243B1F5D657200BA9F62 /* MyPageVC.swift */,
 				63B8243C1F5D657200BA9F62 /* Notification */,
 				63B8243E1F5D657200BA9F62 /* PaidMember */,
 				63B824401F5D657200BA9F62 /* Settings */,
 				63B824421F5D657200BA9F62 /* UpdateProfile */,
+				2577842C1F960A800080D4E5 /* GenericPageVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -2082,6 +2085,7 @@
 				63812EBF1F56C07E0012AE36 /* InterestedVC.swift in Sources */,
 				63ED46891F45964B00B60BB1 /* GroupDetailsVC.swift in Sources */,
 				639F825A1F3DD00600BAFFED /* InfoCell.swift in Sources */,
+				2577842D1F960A800080D4E5 /* GenericPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

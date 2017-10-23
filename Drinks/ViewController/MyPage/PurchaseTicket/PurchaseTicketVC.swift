@@ -10,6 +10,7 @@ import UIKit
 
 class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var lblTicketsCount: UILabel!
     @IBOutlet weak var tblVwTicketPlans: UITableView!
     @IBOutlet weak var tblHeightConst: NSLayoutConstraint!
 
@@ -19,10 +20,12 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lblTicketsCount.text = LoginManager.getMe.myCredits
         tblHeightConst.constant = CGFloat((aryTickets.count*80) + (arySettings.count*60)) + 30
         tblVwTicketPlans.registerNibsForCells(arryNib: ["PurchaseTicketCell", "SettingsCell"])
         tblVwTicketPlans.delegate = self
         tblVwTicketPlans.dataSource = self
+        tblVwTicketPlans.bounces = false
         self.getPlans()
 
     }
@@ -86,6 +89,14 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+            genericVc.strTitle = arySettings[indexPath.row]
+            self.navigationController?.pushViewController(genericVc, animated: true)
+        }
+    }
+    
     func getPlans()
     {
         Ticket.getTickets { (success, response, strError) in
@@ -94,26 +105,22 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 if let planList = response as? [Ticket]
                 {
                     self.aryTickets = planList
-                    self.tblHeightConst.constant = CGFloat( self.aryTickets.count*80)
+                    self.tblHeightConst.constant = CGFloat((self.aryTickets.count*80) + (self.arySettings.count*60)) + 30
                     self.tblVwTicketPlans.reloadData()
                 }
                 
             }else
             {
                 showAlert(title: "Drinks", message: strError!, controller: self)
-                
             }
         }
     }
-    
     
     func makePayment(getPlan: Ticket){
         
         ApplePayManager.sharedInstance.paymentVCForTicket(controller: self, ticket: getPlan)
         
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

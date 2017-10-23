@@ -55,6 +55,7 @@ class DrinkTodayCell: UITableViewCell {
         lblAgeOccupation.text = lastMessageUser?.job.engName
         imgVwUser.sd_setImage(with: URL(string: lastMessageUser!.imageURL), placeholderImage: nil)
         lblMessage.text = self.thread.lastMessage!.message
+        lblTime.text = getMessageTime(timestamp: (self.thread.lastMessage?.timestamp)!)
 
         
     }

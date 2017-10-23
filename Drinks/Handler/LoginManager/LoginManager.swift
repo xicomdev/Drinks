@@ -131,6 +131,104 @@ class LoginManager: NSObject {
         }
     }
     
+    func updateUserProfile(image : [MSImage] ,name: String, handler:@escaping CompletionHandler )
+    {
+        let parms : [String : Any] = ["job_id" : self.me.job.ID  , "full_name" : name , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL  , "gender" : self.me.myGender.rawValue]
+        
+        print(parms)
+        SwiftLoader.show(true)
+        
+        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_UpdateUserDetail, paramters: parms, Images: image) { (success, response, strError) in
+            SwiftLoader.hide()
+            
+            if success{
+                
+                handler(true , nil, strError)
+                
+            }else
+            {
+                handler(false , nil, strError)
+            }
+        }
+    }
+    
+    func updateNotifications (handler:@escaping CompletionHandler ) {
+        SwiftLoader.show(true)
+        let params = [
+            "notification_receive_offer": Int(NSNumber(value:LoginManager.getMe.notificationSettings.newOffer)),
+            "notification_when_matching": Int(NSNumber(value:LoginManager.getMe.notificationSettings.match)),
+            "notification_message": Int(NSNumber(value:LoginManager.getMe.notificationSettings.message)),
+            "notification_notice": Int(NSNumber(value:LoginManager.getMe.notificationSettings.notice))
+        ]
+        print(params)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_UpdateNotifications, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                handler(true, nil, nil)
+            }else{
+                handler(isSuccess, nil, strError)
+            }
+        }
+    }
+    
+    func getUserDetail (handler:@escaping CompletionHandler ) {
+        HTTPRequest.sharedInstance().getRequest(urlLink: API_GetUSerDetail, paramters: nil) { (isSuccess, response, strError) in
+//        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetUSerDetail, paramters: nil) { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                print(response)
+                if let userInfo = response as? Dictionary< String, Any>
+                {
+                    if  let dictUser = userInfo["User"]  as? Dictionary< String, Any>
+                    {
+                        if dictUser.count > 0 {
+                            
+                            self.parseDataFromProfile(dictUser: dictUser)
+                            
+                            handler(true, self.me, nil)
+                        }else{
+                            handler(true, nil, nil)
+                        }
+                        
+                    }else{
+                        handler(true, nil, nil)
+                    }
+                }
+            }else{
+                handler(isSuccess, nil, strError)
+            }
+        }
+    }
+    
+    func parseDataFromProfile(dictUser: [String: Any]) {
+        
+        self.me.fullName = dictUser["full_name"] as! String
+        self.me.ID =  dictUser["id"] as! String
+        
+        self.me.bloodGroup =  dictUser["blood_type"] as! String
+        self.me.annualIncome =  dictUser["annual_income"] as! String
+        self.me.DOB =  dictUser["dob"] as! String
+        self.me.relationship =  dictUser["marriage"] as! String
+        self.me.schoolCareer =  dictUser["school_career"] as! String
+        self.me.socialID =  dictUser["fb_id"] as! String
+        
+        self.me.tabaco =  dictUser["tabaco"] as! String
+        self.me.myCredits = "\(dictUser["balance"] as! Int)"
+        self.me.membershipStatus = dictUser["membership_status"] as! String
+        self.me.myCouponCode = dictUser["coupon_code"] as! String
+        self.me.offersCount = "\(dictUser["offer_count"] as! Int)"
+        if dictUser["image"] as? String != ""
+        {
+            self.me.imageURL = dictUser["image"] as! String
+            
+        }else if let fbImageURL = dictUser["fb_image"] as? String
+        {
+            self.me.imageURL = fbImageURL
+        }
+        self.me.notificationSettings = Notifications(notificationDict: dictUser)
+        self.saveUserProfile()
+    }
     
     func parseUserData(dictUser : [String : Any])
     {
@@ -151,9 +249,13 @@ class LoginManager: NSObject {
         self.me.tabaco =  dictUser["tabaco"] as! String
         self.me.myCredits = "\(dictUser["balance"] as! Int)"
         self.me.membershipStatus = dictUser["membership_status"] as! String
-        if let imageURL = dictUser["image"] as? String
+        self.me.myCouponCode = dictUser["coupon_code"] as! String
+        if dictUser["offer_count"] != nil {
+            self.me.offersCount = "\(dictUser["offer_count"] as! Int)"
+        }
+        if dictUser["image"] as? String != ""
         {
-            self.me.imageURL = imageURL
+            self.me.imageURL = dictUser["image"] as! String
             
         }else if let fbImageURL = dictUser["fb_image"] as? String
         {

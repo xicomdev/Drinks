@@ -40,5 +40,11 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         cell.lblTitle.text = aryHelp[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
+        genericVc.strTitle = "Help"
+        self.navigationController?.pushViewController(genericVc, animated: true)
+    }
 
 }

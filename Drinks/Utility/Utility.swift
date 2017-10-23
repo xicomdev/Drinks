@@ -57,8 +57,24 @@ public func hideAlertWithAnimation(object : UIViewController , callBack:@escapin
     }
 }
 
-
-
+func getMessageTime(timestamp: Double) -> String{
+    
+    let userCalendar = Calendar.current
+    
+    let requestedComponent: Set<Calendar.Component> = [.day,.hour,.minute,.second]
+    let startTime = Date()
+    let endTime = Date(timeIntervalSince1970: timestamp)
+    let timeDifference = userCalendar.dateComponents(requestedComponent, from: endTime, to: startTime)
+    if timeDifference.day! > 0 {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.string(from: endTime)
+    }else {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mma"
+        return dateFormatter.string(from: endTime)
+    }
+}
 
 func  showAlert(title : String , message : String , controller : UIViewController)
 {

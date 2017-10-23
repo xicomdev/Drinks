@@ -45,10 +45,13 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.isNavigationBarHidden = true
         self.updateUI()
         self.getThreadsForGroups()
+        self.getThreadsForHistory()
 
     }
     
     @IBAction func btnDrinkTodayAction(_ sender: AnyObject) {
+        self.getThreadsForGroups()
+
         btnDrinkToday.isSelected = true
         btnHistory.isSelected = false
         btnDrinkToday.backgroundColor = APP_BlueColor
@@ -57,6 +60,8 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     }
 
     @IBAction func btnHistoryAction(_ sender: AnyObject) {
+        self.getThreadsForHistory()
+
         btnHistory.isSelected = true
         btnDrinkToday.isSelected = false
         btnDrinkToday.backgroundColor = APP_GrayColor
@@ -73,10 +78,9 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
             return appDelegate().arrayThread.count
             
         }else {
-            return 0
+            return appDelegate().arrayHistoryThreads.count
         }
 
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,25 +115,31 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
             
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryMsgCell", for: indexPath) as! HistoryMsgCell
-            cell.selectionStyle = .none
+            cell.assignCellData(thread: appDelegate().arrayHistoryThreads[indexPath.row])
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if btnDrinkToday.isSelected {
-            let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
-           // chatvc.thread = appDelegate().arrayThread[indexPath.row]
-            
-            chatvc.thread = appDelegate().arrayThread[indexPath.row]
-            chatvc.hidesBottomBarWhenPushed = true
-
-            self.navigationController?.pushViewController(chatvc, animated: true)
+        
+        if LoginManager.getMe.membershipStatus == "Regular" {
+            showAlert(title: "Drinks", message: "You must buy premium membership to send messages.", controller: self)
         }else {
-            let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "HistoryChatVC") as! HistoryChatVC
-            chatvc.hidesBottomBarWhenPushed = true
-
-            self.navigationController?.pushViewController(chatvc, animated: true)
+            if btnDrinkToday.isSelected {
+                let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
+                
+                chatvc.thread = appDelegate().arrayThread[indexPath.row]
+                chatvc.hidesBottomBarWhenPushed = true
+                
+                self.navigationController?.pushViewController(chatvc, animated: true)
+            }else {
+                let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "HistoryChatVC") as! HistoryChatVC
+                chatvc.thread = appDelegate().arrayHistoryThreads[indexPath.row]
+                
+                chatvc.hidesBottomBarWhenPushed = true
+                
+                self.navigationController?.pushViewController(chatvc, animated: true)
+            }
         }
     }
     
@@ -160,11 +170,39 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func getThreadsForHistory()
+    {
+        if tableviewGroupMessages.isHidden {
+            SwiftLoader.show(true)
+        }
+        ChatManager.getChatThreadsHistory { (success, response, strError) in
+            SwiftLoader.hide()
+            if success
+            {
+                if let arrayThreads = response as? [ChatThread]
+                {
+                    appDelegate().arrayHistoryThreads.removeAll()
+                    appDelegate().arrayHistoryThreads.append(contentsOf: arrayThreads)
+                    self.tableviewGroupMessages.reloadData()
+                    self.updateUI()
+                }
+            }else{
+                //                    showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
+    }
+    
     
     func updateUI(){
         
+        var chatArray = [ChatThread]()
+        if btnDrinkToday.isSelected {
+            chatArray = appDelegate().arrayThread
+        }else {
+            chatArray = appDelegate().arrayHistoryThreads
+        }
         
-        if appDelegate().arrayThread.count > 0
+        if chatArray.count > 0
         {
             tableviewGroupMessages.isHidden = false
             imgViewNoThread.isHidden = true
@@ -178,7 +216,6 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
             lblNoThread.isHidden = false
 
         }
-        
         
     }
  }

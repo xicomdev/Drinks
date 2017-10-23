@@ -104,13 +104,16 @@ let API_ReceivedOffer = "receivedOffers"
 let API_SentOffer = "sentOffers"
 let API_ReportGroup = "reportGroup"
 let API_GetChatThreads = "getThreads"
+let API_GetThreadsHistory = "getThreadsHistory"
 let API_GetThreadMessages = "getAllMessages"
 let API_SendChatMessage = "sendMessage"
 let API_LogOut = "logout"
 let API_GetSubscriptionPlan = "getMembershipPlanAndTickets"
 let API_BuySelectedPlan  = "payByStripe"
-let API_ApplyReferalCode = ""
-
+let API_RedeemCoupon = "redeemCouponCode"
+let API_GetUSerDetail = "getUserInfo"
+let API_UpdateUserDetail  = "updateUserInfo"
+let API_UpdateNotifications = "updateNotificationInfo"
 
 
 //MARK:- Apple Pay Merchant ID
@@ -118,8 +121,6 @@ let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merch
 
 
 let userDefaults = UserDefaults.standard
-
-
 
 let arrayBlood = ["A+", "B+", "AB+" , "O+", "O-" ]
 let arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]
@@ -132,15 +133,15 @@ let arrayDistance : [Int] = [10, 20, 30 , 40 , 50 , 100]
 let arrayAge : [String] = ["20 - 25", "26 - 30", "31 - 35" , "36 - 40" , "41 - 45"]
 let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
 
-let arrayPeople : [Int] = [1, 2, 3 , 4 , 5 ]
+let arrayPeople : [Int] = [1, 2, 3 , 4 , 5]
 var arrayMsgs = [("HEllo",0),("Hii",1)]
 
 
-let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Options"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
+let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Settings"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
 
-var aryNotification = [["title":"When I recieved an offer","boolValue":false],["title":"When matching","boolValue":false],["title":"When I got a message","boolValue":false],["title":"Notice","boolValue":false]]
+var aryNotification = ["When I recieved an offer","When matching","When I got a message","Notice"]
 
-var arySettings = [["Logout","Help","Opinions", "inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
+var arySettings = [["Logout","Help","Opinions", "Inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
 
 var aryHelp = ["What is Drinks","In order to use with confidence","Violation report response policy","How to raise the matching rate","About withdrawal"]
 
