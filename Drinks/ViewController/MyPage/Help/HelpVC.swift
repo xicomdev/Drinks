@@ -27,6 +27,19 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
 
     //MARK: - Tableview delegate and datasource methods
     
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
+        headerView.lblHeader.text = "Beginner's Guide"
+        
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return aryHelp.count
     }

@@ -192,6 +192,7 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
             returnCell = cell
             
         }
+        returnCell.selectionStyle = .none
         returnCell.layoutSubviews()
         returnCell.layoutIfNeeded()
         return returnCell

@@ -212,9 +212,7 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
             
             tableviewGroupMessages.isHidden = true
             imgViewNoThread.isHidden = false
-            
             lblNoThread.isHidden = false
-
         }
         
     }

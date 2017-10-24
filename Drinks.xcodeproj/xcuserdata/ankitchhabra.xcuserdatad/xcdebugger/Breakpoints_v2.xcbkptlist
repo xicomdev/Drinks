@@ -36,12 +36,12 @@
                   moduleName = "Drinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
-                  timestampString = "530448552.846894"
+                  timestampString = "530538429.739071"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "170"
                   endingLineNumber = "170"
-                  offsetFromSymbolStart = "1931">
+                  offsetFromSymbolStart = "1676">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,12 +51,12 @@
                   moduleName = "Drinks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
-                  timestampString = "530448552.851368"
+                  timestampString = "530538429.741953"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "171"
                   endingLineNumber = "171"
-                  offsetFromSymbolStart = "61">
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>

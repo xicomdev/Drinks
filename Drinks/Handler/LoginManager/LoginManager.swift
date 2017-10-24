@@ -32,8 +32,6 @@ class LoginManager: NSObject {
          LoginManager.sharedInstance.me = user
     }
     
- 
-    
     override init() {
         super.init()
         let me = self.getMeArchiver()
@@ -131,9 +129,9 @@ class LoginManager: NSObject {
         }
     }
     
-    func updateUserProfile(image : [MSImage] ,name: String, handler:@escaping CompletionHandler )
+    func updateUserProfile(image : [MSImage] ,UpdatedUser: User, handler:@escaping CompletionHandler )
     {
-        let parms : [String : Any] = ["job_id" : self.me.job.ID  , "full_name" : name , "dob" : me.DOB , "blood_type" : self.me.bloodGroup  , "marriage" : self.me.relationship , "tabaco" : me.tabaco , "school_career" : me.schoolCareer , "annual_income" : me.annualIncome , "fb_image" : me.imageURL  , "gender" : self.me.myGender.rawValue]
+        let parms : [String : Any] = ["job_id" : UpdatedUser.job.ID  , "full_name" : UpdatedUser.fullName , "dob" : UpdatedUser.DOB , "blood_type" : UpdatedUser.bloodGroup  , "marriage" : UpdatedUser.relationship , "tabaco" : UpdatedUser.tabaco , "school_career" : UpdatedUser.schoolCareer , "annual_income" : UpdatedUser.annualIncome , "fb_image" : UpdatedUser.imageURL  , "gender" : UpdatedUser.myGender.rawValue]
         
         print(parms)
         SwiftLoader.show(true)

@@ -178,6 +178,7 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
             returnCell = cell
             
         }
+        returnCell.selectionStyle = .none
         returnCell.layoutSubviews()
         returnCell.layoutIfNeeded()
         return returnCell
