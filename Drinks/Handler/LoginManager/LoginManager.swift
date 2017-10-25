@@ -270,6 +270,9 @@ class LoginManager: NSObject {
             SwiftLoader.hide()
             if isSuccess
             {
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut()
+                FBSDKAccessToken.setCurrent(nil)
                 handler(isSuccess, response, strError)
                 
                 //getOutOfApp()

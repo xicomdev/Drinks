@@ -120,9 +120,34 @@ extension AppDelegate {
         let dict: Dictionary? = userInfo as? Dictionary<String,AnyObject>
         if dict != nil
         {
-            let info: Dictionary? = dict!["info"] as? Dictionary<String,AnyObject>
-            if info != nil {
-                
+            if  let pushData = dict?["aps"] as?  Dictionary<String,Any>
+            {
+                let dictData =  pushData["data"]  as!  Dictionary<String,Any>
+                //                let thread = ChatThread(groupThread: dictData)
+                if self.window?.topMostController() is MSTabBarController
+                {
+                    let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                    
+                    if dictData["push_type"] as! String == "Message" && dictData["push_type"] as! String == "DrinkedGroupAccepted"{
+                        if !(topVC.visibleViewController is DrinkTodayChatVC) && !(topVC.visibleViewController is HistoryChatVC) && !(topVC.visibleViewController is MessageVC){
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 2
+                            self.window?.rootViewController = tabBarController
+                        }
+                    }else if dictData["push_type"] as! String == "DrinkedGroup" {
+                        if !(topVC.visibleViewController is OfferVC) {
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 1
+                            self.window?.rootViewController = tabBarController
+                        }
+                    }else {
+                        if !(topVC.visibleViewController is HomeVC) {
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 0
+                            self.window?.rootViewController = tabBarController
+                        }
+                    }
+                }
             }
         }
     }
@@ -138,27 +163,40 @@ extension AppDelegate {
         
         let dict : Dictionary? = response.notification.request.content.userInfo as? Dictionary<String,Any>
         if dict != nil{
-          if  let pushData = dict?["aps"] as?  Dictionary<String,Any>
-          {
-            let dictData =  pushData["data"]  as!  Dictionary<String,Any>
-            let thread = ChatThread(groupThread: dictData)
-            if self.window?.topMostController() is MSTabBarController
+            if  let pushData = dict?["aps"] as?  Dictionary<String,Any>
             {
-                let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
-                if  topVC.visibleViewController  is DrinkTodayChatVC {
-                    let openedVC =  topVC.visibleViewController  as! DrinkTodayChatVC
-                    if openedVC.thread.ID == thread.ID
-                    {
-                      openedVC.tblChat.reloadData()
-                        openedVC.moveToLastCell()
+                let dictData =  pushData["data"]  as!  Dictionary<String,Any>
+//                let thread = ChatThread(groupThread: dictData)
+                
+                    if dictData["push_type"] as! String == "Message" || dictData["push_type"] as! String == "DrinkedGroupAccepted"{
                         
-                    }else{
-                        self.openChatVC(thread: thread)
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 2
+                            self.window?.rootViewController = tabBarController
+                        
+                    }else if dictData["push_type"] as! String == "DrinkedGroup" {
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 1
+                            self.window?.rootViewController = tabBarController
+                    }else {
+                            let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                            tabBarController.selectedIndex = 0
+                            self.window?.rootViewController = tabBarController
                     }
-                }else{
-                    self.openChatVC(thread: thread)
-                }
-               }
+                    
+//                    if  topVC.visibleViewController  is DrinkTodayChatVC {
+//                        let openedVC =  topVC.visibleViewController  as! DrinkTodayChatVC
+//                        if openedVC.thread.ID == thread.ID
+//                        {
+//                            openedVC.tblChat.reloadData()
+//                            openedVC.moveToLastCell()
+//
+//                        }else{
+//                            self.openChatVC(thread: thread)
+//                        }
+//                    }else{
+//                        self.openChatVC(thread: thread)
+//                    }
             }
         }
     }
@@ -170,6 +208,7 @@ extension AppDelegate {
         if dict != nil{
             if dict?["aps"] != nil
             {
+                completionHandler([UNNotificationPresentationOptions.alert,UNNotificationPresentationOptions.sound])
             }
             
         }

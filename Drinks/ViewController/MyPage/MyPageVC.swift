@@ -10,6 +10,7 @@ import UIKit
 
 class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var lblVersion: UILabel!
     @IBOutlet var imgViewCoverPic: UIImageView!
     
     @IBOutlet weak var clctnNavBtnHgt: NSLayoutConstraint!
@@ -33,6 +34,11 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
          self.edgesForExtendedLayout = UIRectEdge.top
         let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
         collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
+        
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            lblVersion.text = "version " + version
+        }
+        
         
     }
     

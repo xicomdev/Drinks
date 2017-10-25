@@ -18,7 +18,6 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         tblvwHelp.delegate = self
         tblvwHelp.dataSource = self
         tblvwHelp.reloadData()
-
     }
     
     @IBAction func btnCrossAction(_ sender: AnyObject) {

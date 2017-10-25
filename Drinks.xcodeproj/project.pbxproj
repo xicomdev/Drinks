@@ -239,6 +239,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250D0F6F1FA0A15E004D3FEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		250D0F711FA0B40A004D3FEF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		25298EBC1F8E4FB70089361A /* MatchedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedVC.swift; sourceTree = "<group>"; };
 		25325DE11F8C90D9002BA465 /* current.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = current.gpx; sourceTree = "<group>"; };
 		25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecruitVC.swift; sourceTree = "<group>"; };
@@ -352,8 +354,6 @@
 		6399550D1F29F7900025E9C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		639955111F29F7CF0025E9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		639955121F29F7D20025E9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		639955161F29FCB00025E9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		639955171F29FCB20025E9C6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		63996CC31F342E75008583BB /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		63996CC61F342F2A008583BB /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		63996CC91F343500008583BB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -2125,8 +2125,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				639954381F29AAC90025E9C6 /* Base */,
-				639955161F29FCB00025E9C6 /* en */,
-				639955171F29FCB20025E9C6 /* ja */,
+				250D0F6F1FA0A15E004D3FEF /* en */,
+				250D0F711FA0B40A004D3FEF /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
