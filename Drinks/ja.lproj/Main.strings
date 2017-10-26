@@ -1,513 +1,341 @@
 
-/* Class = "UILabel"; text = "Age"; ObjectID = "1oB-nZ-doY"; */
 "1oB-nZ-doY.text" = "Age";
 
-/* Class = "UILabel"; text = "Tickets"; ObjectID = "1rP-7C-ZJJ"; */
 "1rP-7C-ZJJ.text" = "Tickets";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "27O-dp-P2f"; */
 "27O-dp-P2f.text" = "Name";
 
-/* Class = "UILabel"; text = "2. Profile"; ObjectID = "2sH-aD-Hxm"; */
 "2sH-aD-Hxm.text" = "2. Profile";
 
-/* Class = "UILabel"; text = "Now i can consume tickets and become a paid memeber on a special day"; ObjectID = "4Ag-HI-uRW"; */
 "4Ag-HI-uRW.text" = "Now i can consume tickets and become a paid memeber on a special day";
 
-/* Class = "UILabel"; text = "Settings"; ObjectID = "4yc-CK-M8k"; */
 "4yc-CK-M8k.text" = "Settings";
 
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "5EQ-Se-IGm"; */
 "5EQ-Se-IGm.normalTitle" = "Save";
 
-/* Class = "UILabel"; text = "Birthday"; ObjectID = "5H0-3i-u7V"; */
 "5H0-3i-u7V.text" = "Birthday";
 
-/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "5MU-zA-k3g"; */
 "5MU-zA-k3g.normalTitle" = "Send";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "5W4-0F-Onk"; */
 "5W4-0F-Onk.text" = "Required";
 
-/* Class = "UILabel"; text = "Driver's licence"; ObjectID = "5re-tZ-Ax8"; */
 "5re-tZ-Ax8.text" = "Driver's licence";
 
-/* Class = "UILabel"; text = "10"; ObjectID = "62F-hd-Wsh"; */
 "62F-hd-Wsh.text" = "10";
 
-/* Class = "UILabel"; text = "London (10 km)"; ObjectID = "6Mx-bk-JLq"; */
 "6Mx-bk-JLq.text" = "London (10 km)";
 
-/* Class = "UILabel"; text = "Occupation"; ObjectID = "7bU-Pt-viz"; */
 "7bU-Pt-viz.text" = "Occupation";
 
-/* Class = "UILabel"; text = "Matching opponent and message"; ObjectID = "7ce-ND-fdT"; */
 "7ce-ND-fdT.text" = "Matching opponent and message";
 
-/* Class = "UIButton"; normalTitle = "Become paid member for 1 day"; ObjectID = "8Lg-J3-7CV"; */
 "8Lg-J3-7CV.normalTitle" = "Become paid member for 1 day";
 
-/* Class = "UITabBarItem"; title = "Offers"; ObjectID = "8Zh-eH-L6Y"; */
 "8Zh-eH-L6Y.title" = "Offers";
 
-/* Class = "UILabel"; text = "There are no remaining tickets, please purchase a new ticket"; ObjectID = "90P-EO-6b6"; */
 "90P-EO-6b6.text" = "There are no remaining tickets, please purchase a new ticket";
 
-/* Class = "UILabel"; text = "Enter Code"; ObjectID = "9oi-ZG-dPm"; */
 "9oi-ZG-dPm.text" = "Enter Code";
 
-/* Class = "UIButton"; normalTitle = "Terms of Use"; ObjectID = "BNz-yN-brP"; */
 "BNz-yN-brP.normalTitle" = "Terms of Use";
 
-/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "BPg-68-3Ag"; */
 "BPg-68-3Ag.normalTitle" = "Skip";
 
-/* Class = "UILabel"; text = "Please shoot from just above in a bright so that 4 pieces of information can be seen."; ObjectID = "BxC-ZY-ifp"; */
 "BxC-ZY-ifp.text" = "Please shoot from just above in a bright so that 4 pieces of information can be seen.";
 
-/* Class = "UILabel"; text = "Occupation"; ObjectID = "CrU-s6-vP8"; */
 "CrU-s6-vP8.text" = "Occupation";
 
-/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "D2b-05-at5"; */
 "D2b-05-at5.normalTitle" = "Send";
 
-/* Class = "UILabel"; text = "1. Profile"; ObjectID = "DUP-C9-AMh"; */
 "DUP-C9-AMh.text" = "1. Profile";
 
-/* Class = "UIButton"; normalTitle = "Find an Opponent"; ObjectID = "DVj-Vn-UG9"; */
 "DVj-Vn-UG9.normalTitle" = "Find an Opponent";
 
-/* Class = "UIButton"; normalTitle = "Drink Today"; ObjectID = "DdY-uS-9E1"; */
 "DdY-uS-9E1.normalTitle" = "Drink Today";
 
-/* Class = "UIButton"; selectedTitle = "Drink Today"; ObjectID = "DdY-uS-9E1"; */
 "DdY-uS-9E1.selectedTitle" = "Drink Today";
 
-/* Class = "UILabel"; text = "When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets."; ObjectID = "E8a-dG-CEe"; */
 "E8a-dG-CEe.text" = "When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets.";
 
-/* Class = "UILabel"; text = "2. Birth Date"; ObjectID = "ELc-Q5-3sY"; */
 "ELc-Q5-3sY.text" = "2. Birth Date";
 
-/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "EcT-d9-tnZ"; */
-"EcT-d9-tnZ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
-/* Class = "UILabel"; text = "x1 0"; ObjectID = "Ehc-ac-BQv"; */
 "Ehc-ac-BQv.text" = "x1 0";
 
-/* Class = "UILabel"; text = "Age"; ObjectID = "Fuo-e4-5zT"; */
 "Fuo-e4-5zT.text" = "Age";
 
-/* Class = "UILabel"; text = "Only when you are looking for a drinking partner you can invite your opponent. Recruit and let'd like to drink again."; ObjectID = "GMR-e7-vfB"; */
 "GMR-e7-vfB.text" = "Only when you are looking for a drinking partner you can invite your opponent. Recruit and let'd like to drink again.";
 
-/* Class = "UIButton"; normalTitle = "Use code"; ObjectID = "GZD-oE-thP"; */
 "GZD-oE-thP.normalTitle" = "Use code";
 
-/* Class = "UIButton"; normalTitle = "Use Coupon Code"; ObjectID = "GfE-Gp-T2H"; */
 "GfE-Gp-T2H.normalTitle" = "Use Coupon Code";
 
-/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "GlW-W2-pW1"; */
 "GlW-W2-pW1.normalTitle" = "Add";
 
-/* Class = "UILabel"; text = "You can get a chance to earn free tickets by just entering a referal code."; ObjectID = "Hlv-hM-1sR"; */
 "Hlv-hM-1sR.text" = "You can get a chance to earn free tickets by just entering a referal code.";
 
-/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Hvn-Lm-LmY"; */
 "Hvn-Lm-LmY.normalTitle" = "Next";
 
-/* Class = "UILabel"; text = "Health insurance card"; ObjectID = "I4j-86-YXs"; */
 "I4j-86-YXs.text" = "Health insurance card";
 
-/* Class = "UIButton"; normalTitle = "Close up"; ObjectID = "IHr-bu-dYz"; */
 "IHr-bu-dYz.normalTitle" = "Close up";
 
-/* Class = "UILabel"; text = "Let's send message to the secretary and join together."; ObjectID = "IPu-iq-8b1"; */
 "IPu-iq-8b1.text" = "Let's send message to the secretary and join together.";
 
-/* Class = "UIButton"; normalTitle = "Start age verification"; ObjectID = "IZ2-eD-CQ2"; */
 "IZ2-eD-CQ2.normalTitle" = "Start age verification";
 
-/* Class = "UILabel"; text = "25"; ObjectID = "Ihp-Kb-1o7"; */
 "Ihp-Kb-1o7.text" = "25";
 
-/* Class = "UILabel"; text = "School Career"; ObjectID = "IpY-Mj-UNS"; */
 "IpY-Mj-UNS.text" = "School Career";
 
-/* Class = "UILabel"; text = "Regular Member"; ObjectID = "J23-Yq-acX"; */
 "J23-Yq-acX.text" = "Regular Member";
 
-/* Class = "UILabel"; text = "10 tickets allow you to become a paid member for 1 day. Let' go drinking with a wonderful group drinking near you toninght."; ObjectID = "J4k-Ay-1xF"; */
 "J4k-Ay-1xF.text" = "10 tickets allow you to become a paid member for 1 day. Let' go drinking with a wonderful group drinking near you toninght.";
 
-/* Class = "UILabel"; text = "Marriage History"; ObjectID = "Jct-bM-yUT"; */
 "Jct-bM-yUT.text" = "Marriage History";
 
-/* Class = "UILabel"; text = "1 Credit"; ObjectID = "JmG-AG-4dm"; */
 "JmG-AG-4dm.text" = "1 Credit";
 
-/* Class = "UILabel"; text = "3. Name of document"; ObjectID = "KSg-lR-UsU"; */
 "KSg-lR-UsU.text" = "3. Name of document";
 
-/* Class = "UILabel"; text = "Gender"; ObjectID = "Kne-Zh-Res"; */
 "Kne-Zh-Res.text" = "Gender";
 
-/* Class = "UILabel"; text = "Birthday"; ObjectID = "LhY-b8-2SK"; */
 "LhY-b8-2SK.text" = "Birthday";
 
-/* Class = "UIButton"; normalTitle = "Upload"; ObjectID = "MOb-Id-Ga9"; */
 "MOb-Id-Ga9.normalTitle" = "Upload";
 
-/* Class = "UILabel"; text = "Tabaco"; ObjectID = "MWB-Ss-uxy"; */
 "MWB-Ss-uxy.text" = "Tabaco";
 
-/* Class = "UILabel"; text = "Status"; ObjectID = "Mex-yO-Qqq"; */
 "Mex-yO-Qqq.text" = "Status";
 
-/* Class = "UILabel"; text = "What you can do as a paid member"; ObjectID = "Noj-ns-bJb"; */
 "Noj-ns-bJb.text" = "What you can do as a paid member";
 
-/* Class = "UILabel"; text = "ABCDEFG"; ObjectID = "O8L-KZ-afG"; */
 "O8L-KZ-afG.text" = "ABCDEFG";
 
-/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "OBv-SV-E37"; */
 "OBv-SV-E37.normalTitle" = "Send";
 
-/* Class = "UILabel"; text = "Purchase Tickets"; ObjectID = "OFF-59-qa2"; */
 "OFF-59-qa2.text" = "Purchase Tickets";
 
-/* Class = "UILabel"; text = "Reason"; ObjectID = "OGk-hb-3A8"; */
 "OGk-hb-3A8.text" = "Reason";
 
-/* Class = "UILabel"; text = "Tabaco"; ObjectID = "P1M-dc-KRW"; */
 "P1M-dc-KRW.text" = "Tabaco";
 
-/* Class = "UILabel"; text = "Age confirmation is required for user safety."; ObjectID = "P4c-fw-HA2"; */
 "P4c-fw-HA2.text" = "Age confirmation is required for user safety.";
 
-/* Class = "UIButton"; normalTitle = "Close up"; ObjectID = "P5e-an-aeh"; */
 "P5e-an-aeh.normalTitle" = "Close up";
 
-/* Class = "UILabel"; text = "+ 10"; ObjectID = "P8u-6W-Tra"; */
 "P8u-6W-Tra.text" = "+ 10";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "PCP-nF-VkP"; */
 "PCP-nF-VkP.text" = "Required";
 
-/* Class = "UILabel"; text = "A drinking party was established"; ObjectID = "PGc-W0-WjR"; */
 "PGc-W0-WjR.text" = "A drinking party was established";
 
-/* Class = "UIButton"; normalTitle = "Purchase"; ObjectID = "PTH-35-RXh"; */
 "PTH-35-RXh.normalTitle" = "Purchase";
 
-/* Class = "UITextField"; placeholder = "Coupon code"; ObjectID = "PiT-ck-19o"; */
 "PiT-ck-19o.placeholder" = "Coupon code";
 
-/* Class = "UILabel"; text = "Preview you posted"; ObjectID = "Pj6-XM-ldN"; */
 "Pj6-XM-ldN.text" = "Preview you posted";
 
-/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "Pqm-cs-VKJ"; */
 "Pqm-cs-VKJ.normalTitle" = "Filter";
 
-/* Class = "UIButton"; selectedTitle = "Filter"; ObjectID = "Pqm-cs-VKJ"; */
 "Pqm-cs-VKJ.selectedTitle" = "Filter";
 
-/* Class = "UITextField"; placeholder = "YYYY/MM/YY"; ObjectID = "Q4K-gq-AXL"; */
 "Q4K-gq-AXL.placeholder" = "YYYY/MM/YY";
 
-/* Class = "UILabel"; text = "Paid Member oppotunities!"; ObjectID = "QNE-ee-gkb"; */
 "QNE-ee-gkb.text" = "Paid Member oppotunities!";
 
-/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "Qoi-V7-U51"; */
 "Qoi-V7-U51.normalTitle" = "Skip";
 
-/* Class = "UILabel"; text = "Message exchange can be used when registering for paid members!"; ObjectID = "R2k-tD-n2G"; */
 "R2k-tD-n2G.text" = "Message exchange can be used when registering for paid members!";
 
-/* Class = "UILabel"; text = "Help"; ObjectID = "SVS-5n-CaS"; */
 "SVS-5n-CaS.text" = "Help";
 
-/* Class = "UITabBarItem"; title = "My Page"; ObjectID = "SX6-sJ-isu"; */
 "SX6-sJ-isu.title" = "My Page";
 
-/* Class = "UILabel"; text = "Others, identification document issued by govt. agencies can also be used (My number cards are not allowed)"; ObjectID = "SbZ-Tx-SUm"; */
 "SbZ-Tx-SUm.text" = "Others, identification document issued by govt. agencies can also be used (My number cards are not allowed)";
 
-/* Class = "UILabel"; text = "Have a referal code?"; ObjectID = "StF-1a-1Ov"; */
 "StF-1a-1Ov.text" = "Have a referal code?";
 
-/* Class = "UITextField"; placeholder = "Select blood type"; ObjectID = "T1H-wT-sde"; */
 "T1H-wT-sde.placeholder" = "Select blood type";
 
-/* Class = "UIButton"; normalTitle = "Be Offered"; ObjectID = "TgI-kN-bfm"; */
 "TgI-kN-bfm.normalTitle" = "Be Offered";
 
-/* Class = "UIButton"; selectedTitle = "Be Offered"; ObjectID = "TgI-kN-bfm"; */
 "TgI-kN-bfm.selectedTitle" = "Be Offered";
 
-/* Class = "UILabel"; text = "3. Send"; ObjectID = "TkX-X7-yeI"; */
 "TkX-X7-yeI.text" = "3. Send";
 
-/* Class = "UILabel"; text = "Developer"; ObjectID = "UGG-Oh-BfL"; */
 "UGG-Oh-BfL.text" = "Developer";
 
-/* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "UWG-B2-eMd"; */
 "UWG-B2-eMd.normalTitle" = "Sort";
 
-/* Class = "UIButton"; selectedTitle = "Sort"; ObjectID = "UWG-B2-eMd"; */
 "UWG-B2-eMd.selectedTitle" = "Sort";
 
-/* Class = "UITextField"; placeholder = "Select marriage history"; ObjectID = "Ufp-Yy-78c"; */
 "Ufp-Yy-78c.placeholder" = "Select marriage history";
 
-/* Class = "UILabel"; text = "School Career"; ObjectID = "Uuk-h6-lFL"; */
 "Uuk-h6-lFL.text" = "School Career";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "VER-9k-8Qf"; */
 "VER-9k-8Qf.placeholder" = "Select Option";
 
-/* Class = "UILabel"; text = "Offers"; ObjectID = "Vcv-fF-Fwa"; */
 "Vcv-fF-Fwa.text" = "Offers";
 
-/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "WDJ-ni-Irp"; */
 "WDJ-ni-Irp.normalTitle" = "Submit";
 
-/* Class = "UITextField"; placeholder = "Enter your DOB"; ObjectID = "Wdd-ue-mem"; */
 "Wdd-ue-mem.placeholder" = "Enter your DOB";
 
-/* Class = "UILabel"; text = "Terms"; ObjectID = "XwT-h1-BXs"; */
 "XwT-h1-BXs.text" = "Terms";
 
-/* Class = "UILabel"; text = "Warning text would be here"; ObjectID = "Y3p-Yn-CMs"; */
 "Y3p-Yn-CMs.text" = "Warning text would be here";
 
-/* Class = "UILabel"; text = "Version 0.1"; ObjectID = "YXM-ed-4Jy"; */
 "YXM-ed-4Jy.text" = "Version 0.1";
 
-/* Class = "UILabel"; text = "tickets"; ObjectID = "Ydp-dG-fL1"; */
 "Ydp-dG-fL1.text" = "tickets";
 
-/* Class = "UILabel"; text = "Blood Type"; ObjectID = "a8m-St-0K9"; */
 "a8m-St-0K9.text" = "Blood Type";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "aEL-Ef-Pdw"; */
 "aEL-Ef-Pdw.placeholder" = "Select Option";
 
-/* Class = "UIButton"; normalTitle = "Share Coupon Code"; ObjectID = "aKr-yV-0nM"; */
 "aKr-yV-0nM.normalTitle" = "Share Coupon Code";
 
-/* Class = "UILabel"; text = "Filter"; ObjectID = "afw-mK-bkV"; */
 "afw-mK-bkV.text" = "Filter";
 
-/* Class = "UILabel"; text = "Date"; ObjectID = "b1h-O7-wWg"; */
 "b1h-O7-wWg.text" = "Date";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "b8K-yH-bYt"; */
 "b8K-yH-bYt.text" = "Required";
 
-/* Class = "UIButton"; normalTitle = "Privacy policy"; ObjectID = "b9f-SX-0qV"; */
 "b9f-SX-0qV.normalTitle" = "Privacy policy";
 
-/* Class = "UILabel"; text = "!. Name"; ObjectID = "bCP-Lo-cpT"; */
 "bCP-Lo-cpT.text" = "!. Name";
 
-/* Class = "UIButton"; normalTitle = "Offered"; ObjectID = "bEY-Uc-VsW"; */
 "bEY-Uc-VsW.normalTitle" = "Offered";
 
-/* Class = "UIButton"; selectedTitle = "Offered"; ObjectID = "bEY-Uc-VsW"; */
 "bEY-Uc-VsW.selectedTitle" = "Offered";
 
-/* Class = "UILabel"; text = "Paid Members"; ObjectID = "bNk-l5-4tj"; */
 "bNk-l5-4tj.text" = "Paid Members";
 
-/* Class = "UITextField"; placeholder = "Coupon code"; ObjectID = "ba9-N0-3cz"; */
 "ba9-N0-3cz.placeholder" = "Coupon code";
 
-/* Class = "UITextField"; placeholder = "Enter your DOB"; ObjectID = "bis-dD-BZQ"; */
 "bis-dD-BZQ.placeholder" = "Enter your DOB";
 
-/* Class = "UILabel"; text = "I got 10 tickets !"; ObjectID = "cBz-gt-CC5"; */
 "cBz-gt-CC5.text" = "I got 10 tickets !";
 
-/* Class = "UILabel"; text = "You have drinked to the group"; ObjectID = "cQi-nR-sG9"; */
 "cQi-nR-sG9.text" = "You have drinked to the group";
 
-/* Class = "UILabel"; text = "Please mention your reason with details"; ObjectID = "cd5-Gp-Dh5"; */
 "cd5-Gp-Dh5.text" = "Please mention your reason with details";
 
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "ceX-LR-Rcx"; */
 "ceX-LR-Rcx.normalTitle" = "Save";
 
-/* Class = "UILabel"; text = "error"; ObjectID = "dE8-sP-ECr"; */
 "dE8-sP-ECr.text" = "error";
 
-/* Class = "UITabBarItem"; title = "Search"; ObjectID = "dGk-w6-CZk"; */
 "dGk-w6-CZk.title" = "Search";
 
-/* Class = "UILabel"; text = "Blood Type"; ObjectID = "dUz-rb-HFt"; */
 "dUz-rb-HFt.text" = "Blood Type";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "dWt-6G-jqC"; */
 "dWt-6G-jqC.text" = "Required";
 
-/* Class = "UILabel"; text = "Your report has been submitted."; ObjectID = "e4B-96-SRp"; */
 "e4B-96-SRp.text" = "Your report has been submitted.";
 
-/* Class = "UITextField"; placeholder = "Select marriage history"; ObjectID = "eW8-U7-y9z"; */
 "eW8-U7-y9z.placeholder" = "Select marriage history";
 
-/* Class = "UITabBarItem"; title = "Message"; ObjectID = "f8x-95-5D4"; */
 "f8x-95-5D4.title" = "Message";
 
-/* Class = "UILabel"; text = "Ankit (25)"; ObjectID = "fN3-Qc-Pdo"; */
 "fN3-Qc-Pdo.text" = "Ankit (25)";
 
-/* Class = "UILabel"; text = "Age confirmation is usually completed within 24 hours. Upon completion, the result will be notified by notification in the application"; ObjectID = "fQH-8b-SFZ"; */
 "fQH-8b-SFZ.text" = "Age confirmation is usually completed within 24 hours. Upon completion, the result will be notified by notification in the application";
 
-/* Class = "UIButton"; normalTitle = "Facebook login"; ObjectID = "fYE-hD-aIV"; */
 "fYE-hD-aIV.normalTitle" = "Facebook login";
 
-/* Class = "UILabel"; text = "4. Name of Publisher"; ObjectID = "fml-H9-PmU"; */
 "fml-H9-PmU.text" = "4. Name of Publisher";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "g4F-Ve-lyT"; */
 "g4F-Ve-lyT.placeholder" = "Select Option";
 
-/* Class = "UILabel"; text = "Group tag"; ObjectID = "gGD-WO-QYa"; */
 "gGD-WO-QYa.text" = "Group tag";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "gLn-ia-qQN"; */
 "gLn-ia-qQN.placeholder" = "Select Option";
 
-/* Class = "UIButton"; normalTitle = "History"; ObjectID = "gZ8-jQ-kjk"; */
 "gZ8-jQ-kjk.normalTitle" = "History";
 
-/* Class = "UIButton"; selectedTitle = "History"; ObjectID = "gZ8-jQ-kjk"; */
 "gZ8-jQ-kjk.selectedTitle" = "History";
 
-/* Class = "UILabel"; text = "Your code"; ObjectID = "h6P-vm-E0x"; */
 "h6P-vm-E0x.text" = "Your code";
 
-/* Class = "UILabel"; text = "Remaining Tickets"; ObjectID = "ihv-SW-CDa"; */
 "ihv-SW-CDa.text" = "Remaining Tickets";
 
-/* Class = "UILabel"; text = "There are no remaining tickets, please purchase a new ticket"; ObjectID = "ilt-Vt-1QO"; */
 "ilt-Vt-1QO.text" = "There are no remaining tickets, please purchase a new ticket";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "irU-Sj-z7c"; */
 "irU-Sj-z7c.text" = "Required";
 
-/* Class = "UILabel"; text = "Help"; ObjectID = "iub-vL-xcB"; */
 "iub-vL-xcB.text" = "Help";
 
-/* Class = "UILabel"; text = "20"; ObjectID = "izs-1X-tvK"; */
 "izs-1X-tvK.text" = "20";
 
-/* Class = "UILabel"; text = "No group found!"; ObjectID = "jRT-sa-vtm"; */
 "jRT-sa-vtm.text" = "No group found!";
 
-/* Class = "UILabel"; text = "Notifications"; ObjectID = "jaC-vT-CYC"; */
 "jaC-vT-CYC.text" = "Notifications";
 
-/* Class = "UIButton"; normalTitle = "Recruit"; ObjectID = "k2U-xa-Lve"; */
 "k2U-xa-Lve.normalTitle" = "Recruit";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "lNg-d0-Q4g"; */
 "lNg-d0-Q4g.text" = "Name";
 
-/* Class = "UILabel"; text = "Invite a friend, Give it to friend"; ObjectID = "lUd-ml-cKq"; */
 "lUd-ml-cKq.text" = "Invite a friend, Give it to friend";
 
-/* Class = "UILabel"; text = "Lets go drinking with a nice group drinking near you"; ObjectID = "lbB-9Z-G88"; */
 "lbB-9Z-G88.text" = "Lets go drinking with a nice group drinking near you";
 
-/* Class = "UILabel"; text = "Let's invite after recruiting"; ObjectID = "leZ-BJ-hBq"; */
 "leZ-BJ-hBq.text" = "Let's invite after recruiting";
 
-/* Class = "UILabel"; text = "Annual Income"; ObjectID = "mRS-sg-m93"; */
 "mRS-sg-m93.text" = "Annual Income";
 
-/* Class = "UILabel"; text = "No offer found!"; ObjectID = "nQI-bd-CQD"; */
 "nQI-bd-CQD.text" = "No offer found!";
 
-/* Class = "UILabel"; text = "Filter"; ObjectID = "nhd-tT-T17"; */
 "nhd-tT-T17.text" = "Filter";
 
-/* Class = "UILabel"; text = "error"; ObjectID = "oCA-yL-Zrh"; */
 "oCA-yL-Zrh.text" = "error";
 
-/* Class = "UITextField"; placeholder = "Select blood type"; ObjectID = "oEA-AP-ibO"; */
 "oEA-AP-ibO.placeholder" = "Select blood type";
 
-/* Class = "UILabel"; text = "First of all find a group that is drinking nearby and try inviting."; ObjectID = "oEO-Of-70o"; */
 "oEO-Of-70o.text" = "First of all find a group that is drinking nearby and try inviting.";
 
-/* Class = "UILabel"; text = "I do not have enough tickets"; ObjectID = "olR-Dh-35v"; */
 "olR-Dh-35v.text" = "I do not have enough tickets";
 
-/* Class = "UILabel"; text = "1. Prepare one target docoument"; ObjectID = "pAj-8O-1Rt"; */
 "pAj-8O-1Rt.text" = "1. Prepare one target docoument";
 
-/* Class = "UILabel"; text = "Filter"; ObjectID = "pYP-aS-pcb"; */
 "pYP-aS-pcb.text" = "Filter";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "qKS-ml-ZvW"; */
 "qKS-ml-ZvW.placeholder" = "Select Option";
 
-/* Class = "UILabel"; text = "I want to drink partner with tickets! Appeal or be a paid member for 1 day"; ObjectID = "rJF-PG-xN6"; */
 "rJF-PG-xN6.text" = "I want to drink partner with tickets! Appeal or be a paid member for 1 day";
 
-/* Class = "UILabel"; text = "Coupon"; ObjectID = "rmk-J2-03J"; */
 "rmk-J2-03J.text" = "Coupon";
 
-/* Class = "UITextField"; placeholder = "Enter your name"; ObjectID = "s9R-gV-g1Q"; */
 "s9R-gV-g1Q.placeholder" = "Enter your name";
 
-/* Class = "UILabel"; text = "Annual Income"; ObjectID = "svS-tw-EUF"; */
 "svS-tw-EUF.text" = "Annual Income";
 
-/* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "tBz-mx-ugr"; */
 "tBz-mx-ugr.placeholder" = "Select Option";
 
-/* Class = "UILabel"; text = "Required"; ObjectID = "tJW-Ub-rHk"; */
 "tJW-Ub-rHk.text" = "Required";
 
-/* Class = "UITextField"; placeholder = "Enter your name"; ObjectID = "vLe-hN-gTC"; */
 "vLe-hN-gTC.placeholder" = "Enter your name";
 
-/* Class = "UILabel"; text = "No message thread found"; ObjectID = "vkf-YO-yU6"; */
 "vkf-YO-yU6.text" = "No message thread found";
 
-/* Class = "UIButton"; normalTitle = "Close up"; ObjectID = "vuy-MW-E4F"; */
 "vuy-MW-E4F.normalTitle" = "Close up";
 
-/* Class = "UILabel"; text = "Age verification"; ObjectID = "wh5-Rn-xRr"; */
 "wh5-Rn-xRr.text" = "Age verification";
 
-/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "wx5-G1-9HY"; */
 "wx5-G1-9HY.normalTitle" = "Submit";
 
-/* Class = "UILabel"; text = "Passport"; ObjectID = "xN6-JO-pe6"; */
 "xN6-JO-pe6.text" = "Passport";
 
-/* Class = "UILabel"; text = "2. Shoot a document"; ObjectID = "xNP-CJ-J9x"; */
 "xNP-CJ-J9x.text" = "2. Shoot a document";
 
-/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "xg1-5Z-8uP"; */
 "xg1-5Z-8uP.normalTitle" = "Cancel";
 
-/* Class = "UILabel"; text = "3 persons"; ObjectID = "xyF-9F-8OY"; */
 "xyF-9F-8OY.text" = "3 persons";
 
-/* Class = "UILabel"; text = "10 tickets gifts"; ObjectID = "yZc-UM-V4O"; */
 "yZc-UM-V4O.text" = "10 tickets gifts";
 
-/* Class = "UILabel"; text = "Marriage History"; ObjectID = "z8h-eZ-h3u"; */
 "z8h-eZ-h3u.text" = "Marriage History";
 
-/* Class = "UILabel"; text = "Basic resident register card"; ObjectID = "zDT-Ct-iCi"; */
 "zDT-Ct-iCi.text" = "Basic resident register card";
 
-/* Class = "UIButton"; normalTitle = "Close up"; ObjectID = "zNH-Tu-lHj"; */
 "zNH-Tu-lHj.normalTitle" = "Close up";

@@ -188,8 +188,8 @@ class GroupManager: NSObject {
         
         let params : [String : Any] = [
             "user_id" : LoginManager.getMe.ID!,
-            "current_latitude" : appDelegate().appLocation?.latitude!,
-            "current_longitude" : appDelegate().appLocation?.longtitude!
+            "current_latitude" : appDelegate().appLocation!.latitude!,
+            "current_longitude" : appDelegate().appLocation!.longtitude!
         ]
         
         SwiftLoader.show(true)

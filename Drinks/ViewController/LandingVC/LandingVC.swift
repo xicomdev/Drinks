@@ -23,8 +23,6 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     
     @IBOutlet var imgViewBG4: UIImageView!
     
-    
-    
     @IBOutlet var btnTermsOfUse: UIButton!
     @IBOutlet var btnPrivacyPolicy: UIButton!
     @IBOutlet var pageControl: UIPageControl!
@@ -44,8 +42,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         scrlViewImages.contentSize = CGSize(width: scrlWidth*4, height: scrlHeight)
         
         btnPrivacyPolicy.underlineButton(text: "Privacy policy", font: FontRegular(size: 14))
-           btnTermsOfUse.underlineButton(text: "Terms of use", font: FontRegular(size: 14))
-        
+        btnTermsOfUse.underlineButton(text: "Terms of use", font: FontRegular(size: 14))
        
         
         let firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))
@@ -63,7 +60,6 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         forthImage.image = WT4
         forthImage.contentMode = .center
 
- 
         scrlViewImages.addSubview(firstImage)
         scrlViewImages.addSubview(secondImage)
         scrlViewImages.addSubview(thirdImage)
@@ -82,7 +78,6 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
-            
             
             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
             appDelegate().window?.rootViewController = tabBarController

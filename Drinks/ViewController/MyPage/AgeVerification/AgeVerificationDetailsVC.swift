@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AgeVerificationDetailsVC: UIViewController {
-
+class AgeVerificationDetailsVC: UIViewController , MSGetImage{
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,10 +17,31 @@ class AgeVerificationDetailsVC: UIViewController {
     }
 
     @IBAction func btnCrossAction(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnStartVerificationAction(_ sender: AnyObject) {
+        openCustomCamera()
     }
   
+    //MARK:- Select Photo
+    //MARK:-
+    func openCustomCamera(){
+        
+        let camera =  msCameraStoryBoard.instantiateViewController(withIdentifier: "MSCameraGallery") as! MSCameraGallery
+        camera.delegate = self
+        self.present(camera, animated: true, completion: nil)
+    }
+    
+    //MARK:- MSCamera Selection Delegate
+    //MARK:-
+    
+    func moveWithSelectedImage(selected: Any) {
+        if selected is UIImage{
+            let previewVc = mainStoryBoard.instantiateViewController(withIdentifier: "PreviewVerificationVC") as! PreviewVerificationVC
+            previewVc.selectedImg = (selected as? UIImage)!
+            self.navigationController?.pushViewController(previewVc, animated: false)
+            
+        }
+    }
 }

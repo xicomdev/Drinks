@@ -135,22 +135,32 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 ticketVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(ticketVc, animated: true)
             case 2:
+                if LoginManager.getMe.ageDocument == "" {
+                    let verifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "AgeVerificationDetailsVC") as! AgeVerificationDetailsVC
+                    verifyVc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(verifyVc, animated: true)
+                }else {
+                    let verifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "VerifiedImageVC") as! VerifiedImageVC
+                    verifyVc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(verifyVc, animated: true)
+                }
+            case 3:
                 let profileVc = mainStoryBoard.instantiateViewController(withIdentifier: "UpdateProfileVC") as! UpdateProfileVC
                 profileVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(profileVc, animated: true)
-            case 3:
+            case 4:
                 let settingVc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
                 settingVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(settingVc, animated: true)
-            case 4:
+            case 5:
                 let couponVc = mainStoryBoard.instantiateViewController(withIdentifier: "CouponVC") as! CouponVC
                 couponVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(couponVc, animated: true)
-            case 5:
+            case 6:
                 let notificationVc = mainStoryBoard.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
                 notificationVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(notificationVc, animated: true)
-            case 6:
+            case 7:
                 let helpVc = mainStoryBoard.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
                 helpVc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(helpVc, animated: true)

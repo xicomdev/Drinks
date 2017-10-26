@@ -56,6 +56,8 @@ class User: NSObject,NSCoding
     var myCouponCode = ""
     var myGender : Gender = .Male
     var groupCreated : Int = 0
+    var ageVerified: String = ""
+    var ageDocument : String = ""
     //var profileStatus : ProfileStatus = .Pending
     
     

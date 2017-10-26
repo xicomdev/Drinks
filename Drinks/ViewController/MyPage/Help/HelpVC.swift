@@ -14,6 +14,8 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nibHeader = UINib(nibName: "SelectionHeader", bundle: nil)
+        tblvwHelp.register(nibHeader, forHeaderFooterViewReuseIdentifier: "SelectionHeader")
         tblvwHelp.registerNibsForCells(arryNib: ["SettingsCell"])
         tblvwHelp.delegate = self
         tblvwHelp.dataSource = self

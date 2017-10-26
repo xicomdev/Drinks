@@ -1,8 +1,59 @@
-/* 
-  Localizable.strings
-  Drinks
 
-  Created by maninder on 7/27/17.
-  Copyright © 2017 Maninderjit Singh. All rights reserved.
-*/
+"Privacy_policy"="Privacy policy";
+"Terms_of_use"="Terms of use";
+"Premium"="Premium";
+"Buy Tickets"="Buy Tickets";
+"Profile"="Profile";
+"Settings"="Settings";
+"Coupons"="Coupons";
+"Notification"="Notification";
+"Help"="Help";
+"When I recieved an offer"="When I recieved an offer";
+"When matching"="When matching";
+"When I got a message"="When I got a message";
+"Notice"="Notice";
+"Logout"="Logout";
+"Opinions"="Opinions";
+"Inquiries"="Inquiries";
+"Review Drinks"="Review Drinks";
+"Terms of Service"="Terms of Service";
+"Display based on specified commercial transaction"="Display based on specified commercial transaction";
+"What is Drinks"="What is Drinks";
+"In order to use with confidence"="In order to use with confidence";
+"Violation report response policy"="Violation report response policy";
+"How to raise the matching rate"="How to raise the matching rate";
+"About withdrawal"="About withdrawal";
+"Save"="Save";
+"You must buy premium membership to send messages."="You must buy premium membership to send messages.";
+"Use my referal code and get free tickets."="Use my referal code and get free tickets.";
+"Referal code:"="Referal code:";
+"Please enter coupon code."="Please enter coupon code.";
+"You can not use your own coupon"="You can not use your own coupon";
+"Commercial Transaction"="Commercial Transaction";
+"When in trouble"="When in trouble";
+"Other"="Other";
+"Please enter user name."="Please enter user name.";
+"Please select your occupation."="Please select your occupation.";
+"Please enter your DOB."="Please enter your DOB.";
 
+"Please select blood group first."="Please select blood group first.";
+"Please select your relationship status."="Please select your relationship status.";
+"Please select tabacco option first."="Please select tabacco option first.";
+"Please select school career first."="Please select school career first.";
+"Gallery"="Gallery";
+"Camera"="Camera";
+"Cancel"="Cancel";
+"Place"="Place";
+"Select place option"="Select place option";
+"No. of people"="No. of people";
+"Select people option"="Select people option";
+"Job"="Job";
+"Select job option"="Select job option";
+"Age"="Age";
+"Select age range"="Select age range";
+"Relationship"="Relationship";
+"Select Relationship"="Select Relationship";
+"Income"="Income";
+"Select income option."="Select income option.";
+"Location name"="Location name";
+"Please enable your location."="Please enable your location.";

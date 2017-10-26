@@ -246,8 +246,12 @@ class LoginManager: NSObject {
         
         self.me.tabaco =  dictUser["tabaco"] as! String
         self.me.myCredits = "\(dictUser["balance"] as! Int)"
-        self.me.membershipStatus = dictUser["membership_status"] as! String
-        self.me.myCouponCode = dictUser["coupon_code"] as! String
+        if dictUser["membership_status"] != nil {
+            self.me.membershipStatus = dictUser["membership_status"] as! String
+        }
+        if dictUser["coupon_code"] != nil {
+            self.me.myCouponCode = dictUser["coupon_code"] as! String
+        }
         if dictUser["offer_count"] != nil {
             self.me.offersCount = "\(dictUser["offer_count"] as! Int)"
         }
