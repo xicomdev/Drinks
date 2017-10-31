@@ -13,53 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
-            timestampString = "529492409.159007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Drinks.GroupAction, Any) -&gt; () in Drinks.GroupDetailsVC.tableView(__ObjC.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
-                  timestampString = "530716732.531848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "1931">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (Swift.Bool, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 (Drinks.GroupAction, Any) -&gt; () in Drinks.GroupDetailsVC.tableView(__ObjC.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
-                  moduleName = "Drinks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
-                  timestampString = "530716732.534619"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "171"
-                  endingLineNumber = "171"
-                  offsetFromSymbolStart = "61">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

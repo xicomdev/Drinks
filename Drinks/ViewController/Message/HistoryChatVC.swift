@@ -190,6 +190,10 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
         return UITableViewAutomaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        txtVWMsg.resignFirstResponder()
+    }
+    
     //MARK:- Get All Thread Messages
     //MARK:-
     
@@ -199,9 +203,9 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
             if isSuccess{
                 if let thread = response  as? ChatThread
                 {
-                    self.thread = thread
-                    self.tblChat.reloadData()
-                    self.moveToLastCell()
+                        self.thread = thread
+                        self.tblChat.reloadData()
+                        self.moveToLastCell()
                 }
             }
         }

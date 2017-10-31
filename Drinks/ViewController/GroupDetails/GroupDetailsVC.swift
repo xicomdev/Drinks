@@ -137,7 +137,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                         {
                             
                             self.groupImage = image as? UIImage
-                            actionSheet(btnArray: ["Edit"], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
+                            actionSheet(btnArray: ["Edit", "Delete"], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
                                 if isSuccess
                                 {
                                     if index == 0 {
@@ -153,7 +153,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                     }else
                                     {
                                         
-                                      //  self.deleteGroup()
+                                        self.deleteGroup()
                                     }
                                     
                                 }

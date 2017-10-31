@@ -90,6 +90,24 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         _ = try? AVAudioSession.sharedInstance().setActive(true)
+        
+        cameraMan.switchCamera(handler: { (camera) in
+            self.frontCamera = !self.frontCamera
+            
+            if self.frontCamera == false{
+                
+                self.btnFlash.isEnabled = true
+            }else{
+                
+                self.btnFlash.isEnabled = false
+                
+            }
+            self.btnFlash.setImage(UIImage(named: "FlashOff"), for: .normal)
+            
+            self.cameraMan.flash(.off)
+            self.flash = .OFF
+            
+        })
  
     }
 

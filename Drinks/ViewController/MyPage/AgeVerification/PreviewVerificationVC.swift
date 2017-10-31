@@ -11,7 +11,7 @@ import UIKit
 class PreviewVerificationVC: UIViewController {
 
     @IBOutlet weak var imgVw: UIImageView!
-    var selectedImg = UIImage()
+    var selectedImg : UIImage? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +27,19 @@ class PreviewVerificationVC: UIViewController {
     }
     
     @IBAction func actionUploadBtn(_ sender: Any) {
+        var imageArray = [MSImage]()
+        if selectedImg != nil{
+            
+            let fileName = "Drinks\(self.timeStamp).jpeg"
+            
+            let resizedImage = resizeImage(image: selectedImg!, size: CGSize(width: 300 , height: 300 ))
+            
+            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            imageArray.append(model)
+        }
+        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: "", paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
+            
+        })
         
     }
     

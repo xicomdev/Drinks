@@ -221,8 +221,6 @@ class User: NSObject,NSCoding
             self.socialID = fbID!;
         }
         
-        
-        
         let imgeURL : String? = aDecoder.decodeObject(forKey: "imageURL") as? String
         if imgeURL != nil {
             self.imageURL = imgeURL!;

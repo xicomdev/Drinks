@@ -35,5 +35,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
+            timestampString = "531129776.336726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "deleteGroup()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.GroupDetailsVC.deleteGroup() -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
+                  timestampString = "531129777.442834"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Drinks.GroupDetailsVC.deleteGroup() -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/GroupDetails/GroupDetailsVC.swift"
+                  timestampString = "531129777.44551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
