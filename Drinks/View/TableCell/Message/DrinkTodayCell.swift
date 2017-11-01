@@ -46,7 +46,8 @@ class DrinkTodayCell: UITableViewCell {
         
         imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
         setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
-        lblLocationDistance.text = group?.location?.LocationName
+        let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
+        lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
         setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
         
         let lastMessageUser = thread.lastMessage?.senderUser
@@ -57,7 +58,6 @@ class DrinkTodayCell: UITableViewCell {
         lblMessage.text = self.thread.lastMessage!.message
         lblTime.text = getMessageTime(timestamp: (self.thread.lastMessage?.timestamp)!)
 
-        
     }
 
 }

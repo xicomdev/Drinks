@@ -34,11 +34,17 @@ class PreviewVerificationVC: UIViewController {
             
             let resizedImage = resizeImage(image: selectedImg!, size: CGSize(width: 300 , height: 300 ))
             
-            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            let model =  MSImage.init(file: resizedImage! , variableName: "age_document", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
         }
-        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: "", paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
-            
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_ageVerify, paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess {
+                self.navigationController?.popToRootViewController(animated: true)
+            }else {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
         })
         
     }

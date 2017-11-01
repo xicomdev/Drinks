@@ -59,18 +59,13 @@ public func hideAlertWithAnimation(object : UIViewController , callBack:@escapin
 
 func getMessageTime(timestamp: Double) -> String{
     
-    let userCalendar = Calendar.current
-    
-    let requestedComponent: Set<Calendar.Component> = [.day,.hour,.minute,.second]
-    let startTime = Date()
+    let current = Date()
     let endTime = Date(timeIntervalSince1970: timestamp)
-    let timeDifference = userCalendar.dateComponents(requestedComponent, from: endTime, to: startTime)
-    if timeDifference.day! > 0 {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/yyyy"
+    if dateFormatter.string(from: endTime) != dateFormatter.string(from: current) {
         return dateFormatter.string(from: endTime)
     }else {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mma"
         return dateFormatter.string(from: endTime)
     }
@@ -302,12 +297,12 @@ func setNoOfMembers(groups :[ GroupCondition] , label : UILabel, relation:String
     }
     if groups.count > 1
     {
-        label.text = (groups.count + 1).description + " Members\n\(relationship)"
+        label.text = (groups.count + 1).description + " \(relationship)"
         
     }else if groups.count == 1 {
-     label.text = "2 Members\n\(relationship)"
+     label.text = "2 \(relationship)"
     }else{
-        label.text = "1 Member\n\(relationship)"
+        label.text = "1 \(relationship)"
     }
 }
 

@@ -31,25 +31,22 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Persons" translatesAutoresizingMaskIntoConstraints="NO" id="pzF-hA-M03">
-                        <rect key="frame" x="160" y="25" width="17" height="15"/>
+                        <rect key="frame" x="160" y="20" width="17" height="15"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 persons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQy-Lx-9vu">
-                        <rect key="frame" x="160" y="47" width="61" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 persons" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQy-Lx-9vu">
+                        <rect key="frame" x="160" y="41" width="61" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="k5v-iU-ru2"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="dIi-Mg-3r0"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="362-lO-RbA">
-                        <rect key="frame" x="236" y="24" width="14" height="17"/>
+                        <rect key="frame" x="236" y="19" width="14" height="17"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="London (10 km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-il-LOh">
-                        <rect key="frame" x="236" y="47" width="129" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="QtB-Bs-j2d"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="London (10 km)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-il-LOh">
+                        <rect key="frame" x="236" y="41" width="129" height="19.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -82,7 +79,7 @@
                             <constraint firstAttribute="height" constant="18" id="zUV-ED-s52"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm4-TD-Cl6">
@@ -127,6 +124,7 @@
                     <constraint firstItem="cQy-Lx-9vu" firstAttribute="leading" secondItem="n5z-dL-btC" secondAttribute="trailing" constant="10" id="0p4-5H-5vp"/>
                     <constraint firstAttribute="trailing" secondItem="8di-V7-oUZ" secondAttribute="trailing" id="1JJ-Wv-9gx"/>
                     <constraint firstItem="3Zk-XP-pbN" firstAttribute="leading" secondItem="Z6d-zn-0G9" secondAttribute="trailing" constant="12" id="IxS-3W-B9v"/>
+                    <constraint firstItem="GgI-il-LOh" firstAttribute="top" secondItem="362-lO-RbA" secondAttribute="bottom" constant="5" id="JWp-WQ-31J"/>
                     <constraint firstItem="8di-V7-oUZ" firstAttribute="leading" secondItem="Xht-aU-ChE" secondAttribute="leading" id="KJX-Eh-WGV"/>
                     <constraint firstAttribute="trailing" secondItem="GgI-il-LOh" secondAttribute="trailing" constant="10" id="KVo-Qw-n2I"/>
                     <constraint firstAttribute="width" secondItem="3Zk-XP-pbN" secondAttribute="width" multiplier="600:120" id="L3e-R5-HFT"/>
@@ -141,11 +139,10 @@
                     <constraint firstItem="ol9-tN-vIU" firstAttribute="leading" secondItem="3Zk-XP-pbN" secondAttribute="trailing" constant="10" id="jIu-CI-56r"/>
                     <constraint firstItem="Z6d-zn-0G9" firstAttribute="top" secondItem="n5z-dL-btC" secondAttribute="bottom" constant="14" id="jb1-nl-esp"/>
                     <constraint firstItem="O60-Cq-iVJ" firstAttribute="centerX" secondItem="n5z-dL-btC" secondAttribute="centerX" id="mF8-Bo-Ejh"/>
-                    <constraint firstItem="GgI-il-LOh" firstAttribute="centerY" secondItem="cQy-Lx-9vu" secondAttribute="centerY" id="tye-uX-a4J"/>
                     <constraint firstItem="n5z-dL-btC" firstAttribute="width" secondItem="Xht-aU-ChE" secondAttribute="width" multiplier="120:300" id="u4r-kf-gxC"/>
                     <constraint firstItem="8di-V7-oUZ" firstAttribute="top" secondItem="Xht-aU-ChE" secondAttribute="top" id="uUo-ls-0D7"/>
-                    <constraint firstItem="cQy-Lx-9vu" firstAttribute="top" secondItem="pzF-hA-M03" secondAttribute="bottom" constant="7" id="vZs-JR-QFK"/>
-                    <constraint firstItem="pzF-hA-M03" firstAttribute="top" secondItem="Xht-aU-ChE" secondAttribute="top" constant="25" id="w2T-e0-7CI"/>
+                    <constraint firstItem="cQy-Lx-9vu" firstAttribute="top" secondItem="pzF-hA-M03" secondAttribute="bottom" constant="6" id="vZs-JR-QFK"/>
+                    <constraint firstItem="pzF-hA-M03" firstAttribute="top" secondItem="Xht-aU-ChE" secondAttribute="top" constant="20" id="w2T-e0-7CI"/>
                     <constraint firstItem="n5z-dL-btC" firstAttribute="leading" secondItem="Xht-aU-ChE" secondAttribute="leading" id="wDf-6u-gEx"/>
                     <constraint firstItem="n5z-dL-btC" firstAttribute="top" secondItem="Xht-aU-ChE" secondAttribute="top" constant="5" id="wYO-Rb-NiQ"/>
                     <constraint firstAttribute="trailing" secondItem="TQt-ov-dB7" secondAttribute="trailing" constant="10" id="wpj-ch-gE6"/>
@@ -167,7 +164,7 @@
                 <outlet property="lblTime" destination="TQt-ov-dB7" id="Cq9-x9-Low"/>
                 <outlet property="lblUserName" destination="3Zk-XP-pbN" id="q9m-Xr-e0G"/>
             </connections>
-            <point key="canvasLocation" x="-244" y="-61"/>
+            <point key="canvasLocation" x="-244.5" y="-61"/>
         </tableViewCell>
     </objects>
     <resources>

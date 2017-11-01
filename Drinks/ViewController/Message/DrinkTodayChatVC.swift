@@ -21,7 +21,6 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
         tblChat.tableFooterView = UIView()
         
         txtVWMsg.delegate = self
@@ -45,9 +44,8 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         imgVwGroup.sd_setImage(with: URL(string :  thread.group.imageURL))
         
         setNoOfMembers(groups: thread.group.groupConditions , label: lblNoOfPersons, relation: thread.group.relationship)
-        
-        lblLocation.text = thread.group.location?.LocationName
-
+        let firstLoc = thread.group.location?.LocationName!.components(separatedBy: ",").first
+        lblLocation.text = firstLoc! + " (\(NSNumber(value: (thread.group.distance)))km)"
        lblGroupTag.isHidden =  !thread.group.tagEnabled
         
         
@@ -61,6 +59,8 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         self.startKeyboardObserver()
+        self.navigationController?.isNavigationBarHidden = false
+
         IQKeyboardManager.sharedManager().enable = false
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         
@@ -79,6 +79,13 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         
     }
     
+    @IBAction func actionGrouopDetailBtn(_ sender: Any) {
+        
+        txtVWMsg.resignFirstResponder()
+        let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+        groupVC.groupInfo = thread.group
+        self.navigationController?.pushViewController(groupVC, animated: true)
+    }
     
     func actionBtnBackPressed() {
         appDelegate().currentThread = nil
@@ -202,6 +209,10 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tblChat.estimatedRowHeight = 80
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        txtVWMsg.resignFirstResponder()
     }
     
     //MARK:- Get All Thread Messages

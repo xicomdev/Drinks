@@ -136,6 +136,14 @@ class User: NSObject,NSCoding
             
         }
         
+        if let ageDocument = dictLocal["age_document"] as? String {
+            self.ageDocument = ageDocument
+        }
+        
+        if let ageVerified = dictLocal["is_age_verified"] as? Bool {
+            self.ageVerified = String(ageVerified)
+        }
+        
     }
 
     
@@ -286,11 +294,17 @@ class User: NSObject,NSCoding
             self.job = job!;
         }
         
-      self.age = aDecoder.decodeInteger(forKey: "age")
+        self.age = aDecoder.decodeInteger(forKey: "age")
         
         self.groupCreated = aDecoder.decodeInteger(forKey: "groupCreated")
 
         
+        
+        let ageVerified : String? = aDecoder.decodeObject(forKey: "ageVerified") as? String
+        if ageVerified != nil
+        {
+            self.ageVerified = ageVerified!;
+        }
         
         let dob : String? = aDecoder.decodeObject(forKey: "DOB") as? String
         if dob != nil
@@ -298,11 +312,18 @@ class User: NSObject,NSCoding
             self.DOB = dob!;
         }
         
+        let ageDocument : String? = aDecoder.decodeObject(forKey: "ageDocument") as? String
+        if ageDocument != nil
+        {
+            self.ageDocument = dob!;
+        }
         
     }
     
     public func encode(with aCoder: NSCoder) {
         
+        aCoder.encode(self.ageDocument, forKey: "ageDocument")
+        aCoder.encode(self.ageVerified, forKey: "ageVerified")
         aCoder.encode(self.fullName, forKey: "fullName")
         aCoder.encode(self.emailAddress, forKey: "emailAddress")
         aCoder.encode(self.phoneNumber, forKey: "phoneNumber")

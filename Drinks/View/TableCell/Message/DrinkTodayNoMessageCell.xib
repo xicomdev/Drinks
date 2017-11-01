@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PwG-uv-bnW" id="ggg-xM-Nef">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOp-D2-Kld">
@@ -26,25 +31,22 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Persons" translatesAutoresizingMaskIntoConstraints="NO" id="7Rn-JG-XH3">
-                        <rect key="frame" x="160" y="25" width="17" height="15"/>
+                        <rect key="frame" x="160" y="20" width="17" height="15"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 persons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuP-y8-sp4">
-                        <rect key="frame" x="160" y="47" width="61" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 persons" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuP-y8-sp4">
+                        <rect key="frame" x="160" y="41" width="61" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="Rx5-Bb-mF7"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="caO-V0-JW1"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="1W1-YF-55L">
-                        <rect key="frame" x="236" y="24" width="14" height="17"/>
+                        <rect key="frame" x="236" y="19" width="14" height="17"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="London (10 km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsT-Ps-kfw">
-                        <rect key="frame" x="236" y="47" width="129" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="3Z7-IE-2Yz"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="London (10 km)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsT-Ps-kfw">
+                        <rect key="frame" x="236" y="41" width="129" height="20"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -72,7 +74,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="skY-2t-837" firstAttribute="centerX" secondItem="uOp-D2-Kld" secondAttribute="centerX" id="2VU-0H-lPK"/>
-                    <constraint firstItem="iuP-y8-sp4" firstAttribute="top" secondItem="7Rn-JG-XH3" secondAttribute="bottom" constant="7" id="4oE-pT-trI"/>
+                    <constraint firstItem="iuP-y8-sp4" firstAttribute="top" secondItem="7Rn-JG-XH3" secondAttribute="bottom" constant="6" id="4oE-pT-trI"/>
                     <constraint firstItem="7Rn-JG-XH3" firstAttribute="leading" secondItem="uOp-D2-Kld" secondAttribute="trailing" constant="10" id="8uK-Pf-HQM"/>
                     <constraint firstItem="uOp-D2-Kld" firstAttribute="top" secondItem="ggg-xM-Nef" secondAttribute="top" constant="5" id="9kp-9l-ddT"/>
                     <constraint firstItem="BsT-Ps-kfw" firstAttribute="leading" secondItem="iuP-y8-sp4" secondAttribute="trailing" constant="15" id="Ego-Sg-BWw"/>
@@ -80,10 +82,10 @@
                     <constraint firstItem="vM3-Hz-lfg" firstAttribute="leading" secondItem="ggg-xM-Nef" secondAttribute="leading" id="auP-zw-OsK"/>
                     <constraint firstItem="uOp-D2-Kld" firstAttribute="width" secondItem="skY-2t-837" secondAttribute="width" multiplier="600:350" id="bFl-Lz-EeY"/>
                     <constraint firstAttribute="trailing" secondItem="vM3-Hz-lfg" secondAttribute="trailing" id="dCC-bF-9in"/>
+                    <constraint firstItem="BsT-Ps-kfw" firstAttribute="top" secondItem="1W1-YF-55L" secondAttribute="bottom" constant="5" id="dae-F6-Udk"/>
                     <constraint firstItem="1W1-YF-55L" firstAttribute="centerY" secondItem="7Rn-JG-XH3" secondAttribute="centerY" id="f8n-gh-2OG"/>
                     <constraint firstItem="skY-2t-837" firstAttribute="centerY" secondItem="uOp-D2-Kld" secondAttribute="centerY" id="fuX-Nc-ssa"/>
-                    <constraint firstItem="BsT-Ps-kfw" firstAttribute="centerY" secondItem="iuP-y8-sp4" secondAttribute="centerY" id="gnf-0x-Erg"/>
-                    <constraint firstItem="7Rn-JG-XH3" firstAttribute="top" secondItem="ggg-xM-Nef" secondAttribute="top" constant="25" id="hd7-2o-Lup"/>
+                    <constraint firstItem="7Rn-JG-XH3" firstAttribute="top" secondItem="ggg-xM-Nef" secondAttribute="top" constant="20" id="hd7-2o-Lup"/>
                     <constraint firstItem="vM3-Hz-lfg" firstAttribute="top" secondItem="ggg-xM-Nef" secondAttribute="top" id="jgR-da-WxA"/>
                     <constraint firstAttribute="trailing" secondItem="BsT-Ps-kfw" secondAttribute="trailing" constant="10" id="khu-LS-jaA"/>
                     <constraint firstItem="iuP-y8-sp4" firstAttribute="leading" secondItem="uOp-D2-Kld" secondAttribute="trailing" constant="10" id="mxz-PX-UX9"/>

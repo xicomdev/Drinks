@@ -114,6 +114,7 @@ let API_RedeemCoupon = "redeemCouponCode"
 let API_GetUSerDetail = "getUserInfo"
 let API_UpdateUserDetail  = "updateUserInfo"
 let API_UpdateNotifications = "updateNotificationInfo"
+let API_ageVerify = "updateAgeDocument"
 
 
 //MARK:- Apple Pay Merchant ID

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VerifiedImageVC: UIViewController {
+class VerifiedImageVC: UIViewController, MSGetImage {
 
     @IBOutlet weak var lblDocumentStatus: UILabel!
     @IBOutlet weak var imgVW: UIImageView!
@@ -16,7 +16,7 @@ class VerifiedImageVC: UIViewController {
         super.viewDidLoad()
 
         imgVW.sd_setImage(with: URL(string: LoginManager.getMe.ageDocument))
-        if Bool(NSNumber(value: Int(LoginManager.getMe.ageVerified)!)) {
+        if (LoginManager.getMe.ageVerified.toBool())! {
             lblDocumentStatus.text = "Document Verified"
             lblDocumentStatus.textColor = UIColor.green
         }else {
@@ -29,22 +29,33 @@ class VerifiedImageVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func actionUpdateBtn(_ sender: Any) {
-        
+        openCustomCamera()
     }
+    
+    //MARK:- Select Photo
+    //MARK:-
+    func openCustomCamera(){
+        
+        let camera =  msCameraStoryBoard.instantiateViewController(withIdentifier: "MSCameraGallery") as! MSCameraGallery
+        camera.delegate = self
+        self.present(camera, animated: true, completion: nil)
+    }
+    
+    //MARK:- MSCamera Selection Delegate
+    //MARK:-
+    
+    func moveWithSelectedImage(selected: Any) {
+        if selected is UIImage{
+            let previewVc = mainStoryBoard.instantiateViewController(withIdentifier: "PreviewVerificationVC") as! PreviewVerificationVC
+            previewVc.selectedImg = (selected as? UIImage)!
+            self.navigationController?.pushViewController(previewVc, animated: false)
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

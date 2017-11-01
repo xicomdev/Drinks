@@ -224,6 +224,14 @@ class LoginManager: NSObject {
         {
             self.me.imageURL = fbImageURL
         }
+        if let ageDocument = dictUser["age_document"] as? String {
+            self.me.ageDocument = ageDocument
+        }
+        
+        if let ageVerified = dictUser["is_age_verified"] as? Bool {
+            self.me.ageVerified = String(ageVerified)
+        }
+        
         self.me.notificationSettings = Notifications(notificationDict: dictUser)
         self.saveUserProfile()
     }
@@ -263,6 +271,14 @@ class LoginManager: NSObject {
         {
             self.me.imageURL = fbImageURL
         }
+        if let ageDocument = dictUser["age_document"] as? String {
+            self.me.ageDocument = ageDocument
+        }
+        
+        if let ageVerified = dictUser["is_age_verified"] as? Bool {
+            self.me.ageVerified = String(ageVerified)
+        }
+        
         self.saveUserProfile()
     }
     

@@ -385,7 +385,7 @@ class Group: NSObject {
         
         let groupMembers = createParameters(group: self)
         
-        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : location?.latitude,"group_longitude" : location?.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : (location?.LocationName)! ,"group_latitude" : (location?.latitude)!,"group_longitude" : (location?.longtitude)! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
         
         print(parms)
         

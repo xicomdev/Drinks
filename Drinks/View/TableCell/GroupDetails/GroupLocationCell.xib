@@ -53,7 +53,7 @@
                         <rect key="frame" x="213.5" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="0c5-Z2-tkr">
-                                <rect key="frame" x="41.5" y="9.5" width="23" height="23"/>
+                                <rect key="frame" x="41" y="9.5" width="23" height="23"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtp-bO-7jr">
                                 <rect key="frame" x="5" y="40" width="96" height="20.5"/>
@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Relationship" translatesAutoresizingMaskIntoConstraints="NO" id="aDr-Ym-cdC">
-                                <rect key="frame" x="41.5" y="11" width="24" height="20"/>
+                                <rect key="frame" x="42" y="11" width="24" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1mI-PS-HuR">
                                 <rect key="frame" x="5" y="33" width="96.5" height="35"/>

@@ -125,21 +125,26 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         if LoginManager.getMe.membershipStatus == "Regular" {
             showAlert(title: "Drinks", message: "You must buy premium membership to send messages.", controller: self)
         }else {
-            if btnDrinkToday.isSelected {
-                let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
-                
-                chatvc.thread = appDelegate().arrayThread[indexPath.row]
-                chatvc.hidesBottomBarWhenPushed = true
-                
-                self.navigationController?.pushViewController(chatvc, animated: true)
+            if (LoginManager.getMe.ageVerified.toBool())! {
+                if btnDrinkToday.isSelected {
+                    let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
+                    
+                    chatvc.thread = appDelegate().arrayThread[indexPath.row]
+                    chatvc.hidesBottomBarWhenPushed = true
+                    
+                    self.navigationController?.pushViewController(chatvc, animated: true)
+                }else {
+                    let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "HistoryChatVC") as! HistoryChatVC
+                    chatvc.thread = appDelegate().arrayHistoryThreads[indexPath.row]
+                    
+                    chatvc.hidesBottomBarWhenPushed = true
+                    
+                    self.navigationController?.pushViewController(chatvc, animated: true)
+                }
             }else {
-                let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "HistoryChatVC") as! HistoryChatVC
-                chatvc.thread = appDelegate().arrayHistoryThreads[indexPath.row]
-                
-                chatvc.hidesBottomBarWhenPushed = true
-                
-                self.navigationController?.pushViewController(chatvc, animated: true)
+                showAlert(title: "Drinks", message: "You must verify you age first.", controller: self)
             }
+            
         }
     }
     

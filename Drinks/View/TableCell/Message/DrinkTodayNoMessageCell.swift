@@ -38,7 +38,8 @@ class DrinkTodayNoMessageCell: UITableViewCell {
         
         imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
         setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
-        lblLocationDistance.text = group?.location?.LocationName
+        let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
+        lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
         setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
         
     }

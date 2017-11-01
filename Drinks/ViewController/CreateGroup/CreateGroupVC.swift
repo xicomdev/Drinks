@@ -134,43 +134,43 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     @IBAction func actionBtnSubmitPressed(_ sender: Any)
     {
         
-        if imageSelected == nil
-        {
-            showAlert(title: "Drinks", message: "Please add image first.", controller: self)
-            return
-        }
+//        if imageSelected == nil
+//        {
+//            showAlert(title: "Drinks", message: "Please add image first.", controller: self)
+//            return
+//        }
         
-        if group.groupConditions[0].age == 0 ||  group.groupConditions[0].occupation.ID == ""
-        {
-            showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
-            return
-        }
+//        if group.groupConditions[0].age == 0 ||  group.groupConditions[0].occupation.ID == ""
+//        {
+//            showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
+//            return
+//        }
         
-        if  group.groupConditions.count > 1
-        {
-            for i in 1 ..<  group.groupConditions.count
-            {
-                if  group.groupConditions[i].age == 0 ||  group.groupConditions[i].occupation.ID == ""
-                {
-                    showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
-                    return
-                }
-            }
-        }
+//        if  group.groupConditions.count > 1
+//        {
+//            for i in 1 ..<  group.groupConditions.count
+//            {
+//                if  group.groupConditions[i].age == 0 ||  group.groupConditions[i].occupation.ID == ""
+//                {
+//                    showAlert(title: "Drinks", message: "Please enter group type values.", controller: self)
+//                    return
+//                }
+//            }
+//        }
         
         
-        if viewFooter.txtRelationship.text == ""
-        {
-            showAlert(title: "Drinks", message: "Please enter relationship for group.", controller: self)
-            return
-        }
+//        if viewFooter.txtRelationship.text == ""
+//        {
+//            showAlert(title: "Drinks", message: "Please enter relationship for group.", controller: self)
+//            return
+//        }
         
-        if viewFooter.txtViewDescription.text == ""
-        {
-            showAlert(title: "Drinks", message: "Please enter description for group.", controller: self)
-            return
-        }
-        group.groupDescription = viewFooter.txtViewDescription.text.removeEndingSpaces()
+//        if viewFooter.txtViewDescription.text == ""
+//        {
+//            showAlert(title: "Drinks", message: "Please enter description for group.", controller: self)
+//            return
+//        }
+        group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: "Enter description here", with: "")
         group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
         group.tagEnabled = self.tagEnabled
         
