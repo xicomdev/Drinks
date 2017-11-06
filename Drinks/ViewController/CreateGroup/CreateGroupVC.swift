@@ -44,6 +44,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     var arrayJobs  = [Job]()
     var arrayAges  : [Int] = [18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55]
+    
+    var UserDp = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
@@ -60,7 +62,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         viewFooter.txtViewDescription.text = "Enter description here"
         viewFooter.txtRelationship.inputView = pickerRelationShip
         viewFooter.txtRelationship.delegate = self
-        
+        UserDp.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
+
         viewFooter.callbackDone = {(done : GroupAction) in
           //  self.createNewGroup()
             
@@ -158,7 +161,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 //            }
 //        }
         
-        
 //        if viewFooter.txtRelationship.text == ""
 //        {
 //            showAlert(title: "Drinks", message: "Please enter relationship for group.", controller: self)
@@ -171,7 +173,12 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 //            return
 //        }
         group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: "Enter description here", with: "")
-        group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
+        if viewFooter.txtRelationship.text!.removeEndingSpaces() != "" {
+            group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
+        }else {
+            group.relationship = "Open"
+
+        }
         group.tagEnabled = self.tagEnabled
         
         var imageArray = [MSImage]()
@@ -184,6 +191,13 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
             
+        }else {
+            
+            let fileName = "Drinks\(self.timeStamp).jpeg"
+            // print(fileName)
+            let resizedImage = resizeImage(image: UserDp.image!, size: CGSize(width: 400 , height: 400 ))
+            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            imageArray.append(model)
         }
 
 
@@ -211,7 +225,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
         else{
             
-            
             group.editGroup(image: imageArray, handler: { (isSuccess, response, strError) in
                 if isSuccess
                 {
@@ -224,15 +237,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                     showAlert(title: "Drinks", message: strError!, controller: self)
                 }
             })
-            
-            
+
             
         }
     }
-    
-    
-       
-    
+
     //MARK:- TableView Delegate
     //MARK:-
     
@@ -251,7 +260,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 return group.groupConditions.count + 1
 
             }else{
-                  return group.groupConditions.count
+                  return group.groupConditions.count + 1
             }
         }
         
@@ -399,10 +408,8 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 
                     cell.setNewValues()
                     return cell
-                    
               
             }
-          
         }
     }
     

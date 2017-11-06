@@ -188,9 +188,10 @@ class GroupManager: NSObject {
         
         let params : [String : Any] = [
             "user_id" : LoginManager.getMe.ID!,
-            "current_latitude" : appDelegate().appLocation!.latitude!,
-            "current_longitude" : appDelegate().appLocation!.longtitude!
+            "current_latitude" : appDelegate().appLocation!.latitude,
+            "current_longitude" : appDelegate().appLocation!.longtitude
         ]
+        
         
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_ReceivedOffer  , paramters: params) { (isSuccess, response, strError) in
@@ -217,8 +218,8 @@ class GroupManager: NSObject {
     {
         let params : [String : Any] = [
             "user_id" : LoginManager.getMe.ID!,
-            "current_latitude" : appDelegate().appLocation!.latitude!,
-            "current_longitude" : appDelegate().appLocation!.longtitude!
+            "current_latitude" : appDelegate().appLocation!.latitude,
+            "current_longitude" : appDelegate().appLocation!.longtitude
         ]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_SentOffer  , paramters: params) { (isSuccess, response, strError) in

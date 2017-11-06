@@ -55,6 +55,7 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
     var flash : Flash = .OFF
     
     var pinch : UIPinchGestureRecognizer!
+    var cameFor = "front"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,23 +92,26 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
         super.viewWillAppear(animated)
         _ = try? AVAudioSession.sharedInstance().setActive(true)
         
-        cameraMan.switchCamera(handler: { (camera) in
-            self.frontCamera = !self.frontCamera
-            
-            if self.frontCamera == false{
+        if cameFor == "front" {
+            cameraMan.switchCamera(handler: { (camera) in
+                self.frontCamera = !self.frontCamera
                 
-                self.btnFlash.isEnabled = true
-            }else{
+                if self.frontCamera == false{
+                    
+                    self.btnFlash.isEnabled = true
+                }else{
+                    
+                    self.btnFlash.isEnabled = false
+                    
+                }
+                self.btnFlash.setImage(UIImage(named: "FlashOff"), for: .normal)
                 
-                self.btnFlash.isEnabled = false
+                self.cameraMan.flash(.off)
+                self.flash = .OFF
                 
-            }
-            self.btnFlash.setImage(UIImage(named: "FlashOff"), for: .normal)
-            
-            self.cameraMan.flash(.off)
-            self.flash = .OFF
-            
-        })
+            })
+        }
+        
  
     }
 

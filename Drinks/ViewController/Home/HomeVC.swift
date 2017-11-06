@@ -13,6 +13,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     @IBOutlet weak var imgViewNotice: UIImageView!
 
     var globalFilter = FilterInfo()
+    var globalSort = SortInfo()
     
     @IBOutlet var viewPreviewConstraint: NSLayoutConstraint!
     
@@ -95,6 +96,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     {
         let filterVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
         filterVC.filterDelegate = self
+        filterVC.sortDetails = globalSort
         filterVC.filterDetails = globalFilter
         let navigation = UINavigationController(rootViewController: filterVC)
         self.navigationController?.present(navigation, animated: true, completion: nil)
@@ -269,7 +271,37 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 
                 if let arrayNewGroups = response as? [Group]
                 {
-                  
+                    self.arrayGroups = arrayNewGroups
+                }
+                self.collectionViewGroup.reloadData()
+                
+                if self.arrayGroups.count > 0 {
+                    self.collectionViewGroup.isHidden = false
+                    self.lblNotice.isHidden = true
+                    self.imgViewNotice.isHidden = true
+                }else{
+                    self.collectionViewGroup.isHidden = true
+                    self.lblNotice.isHidden = false
+                    self.imgViewNotice.isHidden = false
+                }
+            } else
+            {
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
+        
+    }
+    
+    func getSortedRecords(){
+        Group.getSortedGroupListing(sortInfo: globalSort) { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                
+                self.myGroups.removeAll()
+                self.arrayGroups.removeAll()
+                
+                if let arrayNewGroups = response as? [Group]
+                {
                     self.arrayGroups = arrayNewGroups
                 }
                 self.collectionViewGroup.reloadData()
@@ -289,8 +321,8 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
             }
         }
 
-        
     }
+    
     //MARK:- Custom Delegates
     //MARK":-
     
@@ -307,6 +339,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         {
             globalFilter = filteredObj
             self.getFilteredRecords()
+        }else if let filteredObj = selected as? SortInfo {
+            globalSort = filteredObj
+            self.getSortedRecords()
         }
         
     }

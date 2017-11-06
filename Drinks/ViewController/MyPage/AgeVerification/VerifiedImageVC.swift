@@ -37,6 +37,7 @@ class VerifiedImageVC: UIViewController, MSGetImage {
     func openCustomCamera(){
         
         let camera =  msCameraStoryBoard.instantiateViewController(withIdentifier: "MSCameraGallery") as! MSCameraGallery
+        camera.cameFor = "rear"
         camera.delegate = self
         self.present(camera, animated: true, completion: nil)
     }

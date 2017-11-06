@@ -304,7 +304,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
         }else{
             print("Getting location fine")
             self.currentlocation = location!
-            self.appLocation = GroupLocation(name: "", lat: (self.currentlocation?.coordinate.latitude)!.description, long: (self.currentlocation?.coordinate.longitude)!.description)
+            self.appLocation = GroupLocation(name: "", lat: Double((self.currentlocation?.coordinate.latitude)!), long: Double((self.currentlocation?.coordinate.longitude)!))
             self.getLocationNameFromLatAndLong()
         }
     }
@@ -357,7 +357,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
                         }
                     }
                     self.myLocationName = addressCurrent
-                    self.appLocation = GroupLocation(name: addressCurrent, lat: (self.currentlocation?.coordinate.latitude)!.description, long: (self.currentlocation?.coordinate.longitude)!.description)
+                    self.appLocation = GroupLocation(name: addressCurrent, lat: Double((self.currentlocation?.coordinate.latitude)!), long: Double((self.currentlocation?.coordinate.longitude)!))
                 }
                 else {
                     print("Problem with the data received from geocoder")

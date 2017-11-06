@@ -138,6 +138,8 @@ let arrayPeople : [Int] = [1, 2, 3 , 4 , 5]
 var arrayMsgs = [("HEllo",0),("Hii",1)]
 
 
+let arySortAge = ["Ascending","Descending"]
+let arySortLastLogin = ["Recent","Older"]
 let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "id_icon"),"Age Verification"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Settings"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
 
 var aryNotification = ["When I recieved an offer","When matching","When I got a message","Notice"]

@@ -31,15 +31,11 @@ enum FilterListing : Int
 enum SortListing : Int
 {
     case Place = 0,
+    Offers,
     Age,
-  //  LastLogin,
-    NumberOfPeople,
-    Job,
-    Relation,
-    Action
-    
-}
+    LastLogin
 
+}
 
 //let arrayDistance : [Int] = [10, 20, 30 , 40 , 50 , 100]
 //
@@ -56,15 +52,25 @@ struct FilterInfo {
     var relation : [String] = [String]()
     var people : [Int] = [Int]()
     var job : [Job] = [Job]()
-    
 
 }
 
+struct SortInfo {
+    var sortEnabled = false
+    var filterLocationName : GroupLocation? = nil
+    var Place :String = String()
+    var age :String = String()
+    var LastLogin :String = String()
+    var Offers :String = String()
+    
+}
 class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSelectionCallback {
     
     var filterDetails : FilterInfo = FilterInfo()
+    var sortDetails: SortInfo = SortInfo()
     
     var arrFilter : [String] = ["Place","Age","Number Of People" , "Job" , "Relation"]
+    var arrSort = ["Place",  "Offers", "Age","Last Login"]
     @IBOutlet weak var btnCancel: UIButton!
     
     var selectedOption : OptionEnabled = .Filter
@@ -162,6 +168,8 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
         
         if selectedOption == .Filter{
              return FilterListing.Action.rawValue + 1
+        }else if selectedOption == .Sort{
+            return arrSort.count + 1
         }else{
              return FilterListing.Action.rawValue  + 1
         }
@@ -175,42 +183,40 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if selectedOption == .Filter{
-                  if indexPath.row <= 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier:"FilterOptionCell") as! FilterOptionCell
-            cell.viewBottomLine.isHidden = false
-            if indexPath.row == 0 {
-                
-                if self.filterDetails.distance != -1 {
+            if indexPath.row <= 4 {
+                let cell = tableView.dequeueReusableCell(withIdentifier:"FilterOptionCell") as! FilterOptionCell
+                cell.viewBottomLine.isHidden = false
+                if indexPath.row == 0 {
                     
-                    cell.lblSelected.text = self.filterDetails.distance.description + " KM"
-                }else{
-                    cell.lblSelected.text = ""
-                }
-                
-                }else  if indexPath.row == 1
-                    {
-                         cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.age, type: .Age)
+                    if self.filterDetails.distance != -1 {
                         
-                    }else  if indexPath.row == 2
-                    {
-                        cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.people, type: .NumberOfPeople)
-
-
-                    }else  if indexPath.row == 3
-                    {
-                        cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.job, type: .Job)
-
-
-                    }else if indexPath.row == 4
-                    {
-                        cell.viewBottomLine.isHidden = true
-                      cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.relation, type: .Relation)
+                        cell.lblSelected.text = self.filterDetails.distance.description + " KM"
+                    }else{
+                        cell.lblSelected.text = ""
                     }
                     
-            cell.lblOptionName.text = arrFilter[indexPath.row]
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
+                }else  if indexPath.row == 1
+                {
+                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.age, type: .Age)
+                    
+                }else  if indexPath.row == 2
+                {
+                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.people, type: .NumberOfPeople)
+                    
+                }else  if indexPath.row == 3
+                {
+                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.job, type: .Job)
+                    
+                }else if indexPath.row == 4
+                {
+                    cell.viewBottomLine.isHidden = true
+                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.relation, type: .Relation)
+                }
+                
+                cell.lblOptionName.text = arrFilter[indexPath.row]
+                return cell
+            }
+            let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
             cell.callbackAction = { (action : GroupAction , data : Any?) in
                 
                 if action == .CANCEL
@@ -228,47 +234,77 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                     }else{
                         showAlert(title: "Drinks", message: "Please enable your location.", controller: self)
                     }
-                    
-                    
                 }
-                
             }
-        return cell
+            return cell
         }else{
-            if indexPath.row <= 4 {
+            if indexPath.row < 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"FilterOptionCell") as! FilterOptionCell
                 cell.viewBottomLine.isHidden = false
-                if indexPath.row == 4{
-                    cell.viewBottomLine.isHidden = true
+                if indexPath.row == 0 {
+                    
+                    cell.lblSelected.text = self.sortDetails.Place
+                    
+                }else  if indexPath.row == 1
+                {
+                    cell.lblSelected.text = self.sortDetails.Offers
+
+                }else  if indexPath.row == 2
+                {
+                    cell.lblSelected.text = self.sortDetails.age
+
+                }else  if indexPath.row == 3
+                {
+                    cell.lblSelected.text = self.sortDetails.LastLogin
+
                 }
-                cell.lblSelected.text = ""
+                cell.lblOptionName.text = arrSort[indexPath.row]
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
             cell.callbackAction = { (action : GroupAction , data : Any?) in
                 
+                if action == .CANCEL
+                {
+                    self.sortDetails = SortInfo()
+                    self.tblListing.reloadData()
+                }else if action == .FILTER
+                {
+                    
+                    if appDelegate().appLocation != nil{
+                        
+                        self.sortDetails.sortEnabled = true
+                        self.filterDelegate?.moveWithSelection!(selected: self.sortDetails)
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        showAlert(title: "Drinks", message: "Please enable your location.", controller: self)
+                    }
+                }
             }
-       return cell
+            return cell
         }
-     }
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectedOption == .Filter
         {
-            
-          //  let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapVC") as! MapVC
-          //  self.navigationController?.pushViewController(mapVC, animated: true)
-            
-            
             let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterSelectionVC") as! FilterSelectionVC
             selectionVC.selectType = FilterListing(rawValue: indexPath.row)!
             selectionVC.filterDetails = filterDetails
+            selectionVC.selectedOption = selectedOption
+            selectionVC.delegate = self
+            self.navigationController?.pushViewController(selectionVC, animated: true)
+        }else if selectedOption == .Sort
+        {
+            let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterSelectionVC") as! FilterSelectionVC
+            selectionVC.sortType = SortListing(rawValue: indexPath.row)!
+            selectionVC.sortDetails = sortDetails
+            selectionVC.selectedOption = selectedOption
             selectionVC.delegate = self
             self.navigationController?.pushViewController(selectionVC, animated: true)
         }
     }
-    
     
        
     //MARK:- Custom Delegates
@@ -279,26 +315,17 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
         {
             self.filterDetails = filteredObj
             self.tblListing.reloadData()
+        }else if let filteredObj = selected as? SortInfo
+        {
+            self.sortDetails = filteredObj
+            self.tblListing.reloadData()
         }
-        
     }
-    
     
     //MARK:- Filter API
     //MARK:-
     
-    
    // func getFilteredResults()
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

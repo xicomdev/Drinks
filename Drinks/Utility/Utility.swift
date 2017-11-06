@@ -300,7 +300,11 @@ func setNoOfMembers(groups :[ GroupCondition] , label : UILabel, relation:String
         label.text = (groups.count + 1).description + " \(relationship)"
         
     }else if groups.count == 1 {
-     label.text = "2 \(relationship)"
+        if groups[0].age == 0 && groups[0].occupation.engName == "" {
+            label.text = "1 \(relationship)"
+        }else {
+            label.text = "2 \(relationship)"
+        }
     }else{
         label.text = "1 \(relationship)"
     }
@@ -344,7 +348,7 @@ func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus, fromScr
   
     switch status
     {
-        
+       
     case .Matched , .Drinked :
         if fromScreen == "Home" {
             btnStatus.setImage( UIImage(named: "Accepted"), for: .normal)

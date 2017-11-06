@@ -13,8 +13,8 @@ import UIKit
 class GroupLocation: NSObject {
     
     var LocationName : String? = nil
-    var latitude : Double!
-    var longtitude : Double!
+    var latitude : Double = 0.0
+    var longtitude : Double = 0.0
     
     var age : String? = nil
     
@@ -24,24 +24,15 @@ class GroupLocation: NSObject {
     }
     
     
-    convenience init(name : String , lat : String , long : String) {
+    convenience init(name : String , lat : Double , long : Double) {
         self.init()
         self.LocationName = name
-        if let latitude = Double(lat) {
-             self.latitude = latitude
-        }else{
-             self.latitude = 0.0
-        }
+        self.latitude = lat
         
-        if let longitude = Double(long) {
-            self.longtitude = longitude
-        }else{
-            self.longtitude = 0.0
-        }
+        self.longtitude = long
+        
     }
 }
-
-
 
 
 class GroupCondition: NSObject {
@@ -253,7 +244,7 @@ class Group: NSObject {
         
         self.relationship = dict["relationship"] as! String
         self.imageURL = dict["image"] as! String
-        self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
+        self.location = GroupLocation(name: dict["group_location"] as! String, lat: Double(dict["group_latitude"] as! String)!, long: Double(dict["group_longitude"] as! String)!)
         self.ownerID = dict["user_id"] as! String
 
         if let drinkedStatus = dict["drinked_status"] as? String
@@ -333,8 +324,10 @@ class Group: NSObject {
             params["current_latitude"] = filterInfo.filterLocationName?.latitude
             params["current_longitude"] = filterInfo.filterLocationName?.longtitude
             
+        }else if appDelegate().appLocation != nil{
+            params["current_latitude"] = appDelegate().appLocation?.latitude
+            params["current_longitude"] = appDelegate().appLocation?.longtitude
         }
-        
 
         if filterInfo.distance != -1{
             params["place"] = filterInfo.distance
@@ -378,6 +371,73 @@ class Group: NSObject {
         }
     }
     
+    class func getSortedGroupListing( sortInfo : SortInfo ,  handler : @escaping CompletionHandler)
+    {
+        SwiftLoader.show(true)
+        
+        var params : [String : Any] = [String : Any]()
+        
+        
+        
+        if sortInfo.filterLocationName != nil{
+            
+            params["current_latitude"] = sortInfo.filterLocationName?.latitude
+            params["current_longitude"] = sortInfo.filterLocationName?.longtitude
+            
+        }else if appDelegate().appLocation != nil{
+            params["current_latitude"] = appDelegate().appLocation?.latitude
+            params["current_longitude"] = appDelegate().appLocation?.longtitude
+        }
+        var sortValues = ""
+        if sortInfo.Place == "Ascending"{
+            sortValues = sortValues + "distance_asc"
+        }else if sortInfo.Place == "Descending" {
+            sortValues = sortValues + ", distance_desc"
+        }
+        
+        if sortInfo.age == "Ascending"{
+            sortValues = sortValues + ", age_asc"
+        }else if sortInfo.age == "Descending" {
+            sortValues = sortValues + ", age_desc"
+        }
+        
+        if sortInfo.Offers == "Ascending"{
+            sortValues = sortValues + ", offer_asc"
+        }else if sortInfo.Offers == "Descending" {
+            sortValues = sortValues + ", offer_desc"
+        }
+        
+        if sortInfo.LastLogin == "Recent"{
+            sortValues = sortValues + ", login_new"
+        }else if sortInfo.LastLogin == "Older" {
+            sortValues = sortValues + ", login_old"
+        }
+        if sortValues != "" {
+            params["sort_value"] = sortValues.trimmingCharacters(in: CharacterSet(charactersIn: ", "))
+        }
+        print(params)
+        
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                var arrayList = [Group]()
+                
+                if let arryResponse = response as? [Dictionary<String ,Any>]
+                {
+                    
+                    for item in arryResponse{
+                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                        let  groupNew = Group(groupDict: dictGroup)
+                        arrayList.append(groupNew)
+                    }
+                }
+                handler(true , arrayList, strError)
+            }else{
+                handler(false , nil, strError)
+            }
+        }
+    }
     
     func createNewGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
     {

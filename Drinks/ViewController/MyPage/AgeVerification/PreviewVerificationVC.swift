@@ -31,8 +31,13 @@ class PreviewVerificationVC: UIViewController {
         if selectedImg != nil{
             
             let fileName = "Drinks\(self.timeStamp).jpeg"
+            let imgWidth = (selectedImg?.size.width)!
+            let imgHgt = (selectedImg?.size.height)!
             
-            let resizedImage = resizeImage(image: selectedImg!, size: CGSize(width: 300 , height: 300 ))
+            let ratio = imgWidth/imgHgt
+            
+            
+            let resizedImage = resizeImage(image: selectedImg!, size: CGSize(width: 400, height: 400/ratio))
             
             let model =  MSImage.init(file: resizedImage! , variableName: "age_document", fileName: fileName, andMimeType: "image/jpeg")
             imageArray.append(model)
@@ -41,7 +46,10 @@ class PreviewVerificationVC: UIViewController {
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_ageVerify, paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
             SwiftLoader.hide()
             if isSuccess {
-                self.navigationController?.popToRootViewController(animated: true)
+                showAlert(title: "Drinks", message: "your age proof is sent for verifcation", controller: self, handler: { (_) in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+
             }else {
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }

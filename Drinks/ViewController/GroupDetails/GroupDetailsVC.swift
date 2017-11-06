@@ -68,7 +68,11 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         {
             return 5
         }else{
-            return groupInfo.groupConditions.count
+            if groupInfo.groupConditions[0].age == 0 && groupInfo.groupConditions[0].occupation.engName == "" {
+                return 0
+            }else {
+                return groupInfo.groupConditions.count
+            }
         }
         
     }
@@ -82,7 +86,11 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 //return screen
             }else if indexPath.row == 1
             {
-                return 70
+                if groupInfo.groupDescription == "" {
+                    return 0
+                }else  {
+                    return 70
+                }
             }else if indexPath.row == 2
             {
                 return 75
