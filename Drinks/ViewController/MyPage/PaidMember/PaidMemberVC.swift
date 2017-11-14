@@ -24,7 +24,7 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     
         self.navigationItem.leftBarButtonItem = btnLeftBar
-        self.navTitle(title: "Premium" as NSString, color: UIColor.black , font:  FontRegular(size: 18))
+        self.navTitle(title: NSLocalizedString("Premium", comment: "") as NSString, color: UIColor.black , font:  FontRegular(size: 18))
 
         
         self.getPlans()

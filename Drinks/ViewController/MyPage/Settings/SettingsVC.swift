@@ -42,9 +42,9 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerVw = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
         if section == 0 {
-            headerVw.lblHeader.text = "When in trouble"
+            headerVw.lblHeader.text = NSLocalizedString("When in trouble", comment: "")
         }else {
-            headerVw.lblHeader.text = "Other"
+            headerVw.lblHeader.text = NSLocalizedString("Other", comment: "")
         }
         headerVw.backgroundColor = APP_GrayColor
         return headerVw
@@ -59,7 +59,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-        cell.lblTitle.text = (arySettings[indexPath.section])[indexPath.row]
+        cell.lblTitle.text = NSLocalizedString((arySettings[indexPath.section])[indexPath.row], comment: "")
         return cell
     }
     

@@ -105,28 +105,28 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         self.view.endEditing(true)
         
         if txtUserName.text!.isStringEmpty() == true{
-            showAlert(title: "Drinks", message: "Please enter user name.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter user name.", comment: ""), controller: self)
         }
         else if LoginManager.getMe.job.ID == ""{
-            showAlert(title: "Drinks", message: "Please select your occupation.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select your occupation.", comment: ""), controller: self)
         }
         else if txtDOB.text! == ""{
-            showAlert(title: "Drinks", message: "Please enter your DOB.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
         }
         else  if LoginManager.getMe.bloodGroup == ""{
-            showAlert(title: "Drinks", message: "Please select blood group first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
         }
         else if LoginManager.getMe.relationship == ""{
-            showAlert(title: "Drinks", message: "Please select your relationship status.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
         }
         else if LoginManager.getMe.tabaco == ""{
-            showAlert(title: "Drinks", message: "Please select tabacco option first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
         }
         else if LoginManager.getMe.schoolCareer == ""{
-            showAlert(title: "Drinks", message: "Please select school career first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
         }
         else if LoginManager.getMe.annualIncome == "" {
-            showAlert(title: "Drinks", message: "Please select annual income first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
         }
         else {
             var imageArray = [MSImage]()
@@ -163,16 +163,16 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     {
         
         let actionSheetController: UIAlertController = UIAlertController(title: nil , message: nil , preferredStyle: .actionSheet)
-        let GalleryAction: UIAlertAction = UIAlertAction(title: "Gallery", style: .default) { action -> Void in
+        let GalleryAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Gallery", comment: ""), style: .default) { action -> Void in
             
             self.openGalleryWithPermissions()
             //Just dismiss the action sheet
         }
-        let cameraAction: UIAlertAction = UIAlertAction(title: "Camera", style: .default) { action -> Void in
+        let cameraAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { action -> Void in
             self.openCameraWithPermissions()
             //Just dismiss the action sheet
         }
-        let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let cancelAction : UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
             //Just dismiss the action sheet
         }
         

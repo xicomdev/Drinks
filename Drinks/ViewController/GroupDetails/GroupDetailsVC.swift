@@ -131,7 +131,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                         {
                             
                             
-                            actionSheet(btnArray: ["Report"], cancel: true, destructive: 0, controller: self, handler: { (isSuccess, index) in
+                            actionSheet(btnArray: [NSLocalizedString("Report", comment: "")], cancel: true, destructive: 0, controller: self, handler: { (isSuccess, index) in
                                 if isSuccess
                                 {
                                         let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportGroupVC") as! ReportGroupVC
@@ -145,7 +145,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                         {
                             
                             self.groupImage = image as? UIImage
-                            actionSheet(btnArray: ["Edit", "Delete"], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
+                            actionSheet(btnArray: [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Delete", comment: "")], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
                                 if isSuccess
                                 {
                                     if index == 0 {

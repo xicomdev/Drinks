@@ -66,8 +66,8 @@ struct SortInfo {
 }
 class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSelectionCallback {
     
-    var filterDetails : FilterInfo = FilterInfo()
-    var sortDetails: SortInfo = SortInfo()
+    var filterDetails = FilterInfo()
+    var sortDetails = SortInfo()
     
     var arrFilter : [String] = ["Place","Age","Number Of People" , "Job" , "Relation"]
     var arrSort = ["Place",  "Offers", "Age","Last Login"]
@@ -77,7 +77,8 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
     @IBOutlet weak var tblListing: UITableView!
 
     
-    var filterDelegate : MSSelectionCallback? = nil
+    var selectionDelegate : MSSelectionCallback? = nil
+    var filterDelegate : FilterCallback? = nil
     @IBOutlet weak var btnSort: UIButton!
     @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var viewNavigation: UIView!
@@ -125,7 +126,7 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
         if filterDetails.distance == -1 && filterDetails.age.count == 0 && filterDetails.relation.count == 0 && filterDetails.people.count == 0
             && filterDetails.job.count == 0 {
             
-            self.filterDelegate?.replaceRecords!()
+            self.selectionDelegate?.replaceRecords!()
             
         }
         
@@ -187,33 +188,33 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 let cell = tableView.dequeueReusableCell(withIdentifier:"FilterOptionCell") as! FilterOptionCell
                 cell.viewBottomLine.isHidden = false
                 if indexPath.row == 0 {
-                    
                     if self.filterDetails.distance != -1 {
-                        
+                            
                         cell.lblSelected.text = self.filterDetails.distance.description + " KM"
-                    }else{
+                    }
+                    else{
                         cell.lblSelected.text = ""
                     }
                     
                 }else  if indexPath.row == 1
                 {
-                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.age, type: .Age)
+                    cell.lblSelected.text = NSLocalizedString(getStringToDisplay(array: self.filterDetails.age, type: .Age), comment: "")
                     
                 }else  if indexPath.row == 2
                 {
-                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.people, type: .NumberOfPeople)
+                    cell.lblSelected.text = NSLocalizedString(getStringToDisplay(array: self.filterDetails.people, type: .NumberOfPeople), comment: "")
                     
                 }else  if indexPath.row == 3
                 {
-                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.job, type: .Job)
+                    cell.lblSelected.text = NSLocalizedString(getStringToDisplay(array: self.filterDetails.job, type: .Job), comment: "")
                     
                 }else if indexPath.row == 4
                 {
                     cell.viewBottomLine.isHidden = true
-                    cell.lblSelected.text = getStringToDisplay(array: self.filterDetails.relation, type: .Relation)
+                    cell.lblSelected.text = NSLocalizedString(getStringToDisplay(array: self.filterDetails.relation, type: .Relation), comment: "")
                 }
                 
-                cell.lblOptionName.text = arrFilter[indexPath.row]
+                cell.lblOptionName.text = NSLocalizedString(arrFilter[indexPath.row], comment: "")
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
@@ -222,17 +223,16 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 if action == .CANCEL
                 {
                     self.filterDetails = FilterInfo()
+                    self.sortDetails = SortInfo()
                     self.tblListing.reloadData()
                 }else if action == .FILTER
                 {
                     
                     if appDelegate().appLocation != nil{
                         
-                        self.filterDetails.filterEnabled = true
-                        self.filterDelegate?.moveWithSelection!(selected: self.filterDetails)
-                        self.dismiss(animated: true, completion: nil)
+                        self.moveBack()
                     }else{
-                        showAlert(title: "Drinks", message: "Please enable your location.", controller: self)
+                        showAlert(title: "Drinks", message: NSLocalizedString("Please enable your location.", comment: ""), controller: self)
                     }
                 }
             }
@@ -243,22 +243,22 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 cell.viewBottomLine.isHidden = false
                 if indexPath.row == 0 {
                     
-                    cell.lblSelected.text = self.sortDetails.Place
+                    cell.lblSelected.text = NSLocalizedString(self.sortDetails.Place, comment: "")
                     
                 }else  if indexPath.row == 1
                 {
-                    cell.lblSelected.text = self.sortDetails.Offers
+                    cell.lblSelected.text = NSLocalizedString(self.sortDetails.Offers, comment: "")
 
                 }else  if indexPath.row == 2
                 {
-                    cell.lblSelected.text = self.sortDetails.age
+                    cell.lblSelected.text = NSLocalizedString(self.sortDetails.age, comment: "")
 
                 }else  if indexPath.row == 3
                 {
-                    cell.lblSelected.text = self.sortDetails.LastLogin
+                    cell.lblSelected.text = NSLocalizedString(self.sortDetails.LastLogin, comment: "")
 
                 }
-                cell.lblOptionName.text = arrSort[indexPath.row]
+                cell.lblOptionName.text = NSLocalizedString(arrSort[indexPath.row], comment: "")
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
@@ -266,6 +266,7 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 
                 if action == .CANCEL
                 {
+                    self.filterDetails = FilterInfo()
                     self.sortDetails = SortInfo()
                     self.tblListing.reloadData()
                 }else if action == .FILTER
@@ -273,11 +274,9 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                     
                     if appDelegate().appLocation != nil{
                         
-                        self.sortDetails.sortEnabled = true
-                        self.filterDelegate?.moveWithSelection!(selected: self.sortDetails)
-                        self.dismiss(animated: true, completion: nil)
+                        self.moveBack()
                     }else{
-                        showAlert(title: "Drinks", message: "Please enable your location.", controller: self)
+                        showAlert(title: "Drinks", message: NSLocalizedString("Please enable your location.", comment: ""), controller: self)
                     }
                 }
             }
@@ -306,6 +305,14 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
         }
     }
     
+    func moveBack() {
+        
+        self.filterDetails.filterEnabled = true
+        self.sortDetails.sortEnabled = true
+        self.filterDelegate?.moveWithSelectionFilter(filterInfo: filterDetails, sortInfo: sortDetails)
+        self.dismiss(animated: true, completion: nil)
+        
+    }
        
     //MARK:- Custom Delegates
     //MARK:-

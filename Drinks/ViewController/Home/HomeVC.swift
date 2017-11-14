@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback,MSProtocolCallback {
+class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback,MSProtocolCallback , FilterCallback {
     @IBOutlet weak var lblNotice: UILabel!
     @IBOutlet weak var imgViewNotice: UIImageView!
 
@@ -70,10 +70,13 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
         self.navigationController?.isNavigationBarHidden = false
         if !isFromNoRecruit {
-            if globalFilter.filterEnabled == false{
-                
-                timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(callGroupsApi), userInfo: nil, repeats: true)
-            }
+           
+                if globalFilter.filterEnabled == false{
+                    
+                    timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(callGroupsApi), userInfo: nil, repeats: true)
+                }
+            
+            
         }
         isFromNoRecruit = false
        
@@ -96,6 +99,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     {
         let filterVC =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
         filterVC.filterDelegate = self
+        filterVC.selectionDelegate = self
         filterVC.sortDetails = globalSort
         filterVC.filterDetails = globalFilter
         let navigation = UINavigationController(rootViewController: filterVC)
@@ -262,10 +266,9 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     }
     
     func getFilteredRecords(){
-         Group.getFilteredGroupListing(filterInfo: globalFilter) { (isSuccess, response, strError) in
+        Group.getFilteredGroupListing(filterInfo: globalFilter, sortInfo: globalSort) { (isSuccess, response, strError) in
             if isSuccess
             {
-                
                   self.myGroups.removeAll()
                   self.arrayGroups.removeAll()
 
@@ -292,36 +295,36 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         
     }
     
-    func getSortedRecords(){
-        Group.getSortedGroupListing(sortInfo: globalSort) { (isSuccess, response, strError) in
-            if isSuccess
-            {
-                
-                self.myGroups.removeAll()
-                self.arrayGroups.removeAll()
-                
-                if let arrayNewGroups = response as? [Group]
-                {
-                    self.arrayGroups = arrayNewGroups
-                }
-                self.collectionViewGroup.reloadData()
-                
-                if self.arrayGroups.count > 0 {
-                    self.collectionViewGroup.isHidden = false
-                    self.lblNotice.isHidden = true
-                    self.imgViewNotice.isHidden = true
-                }else{
-                    self.collectionViewGroup.isHidden = true
-                    self.lblNotice.isHidden = false
-                    self.imgViewNotice.isHidden = false
-                }
-            } else
-            {
-                showAlert(title: "Drinks", message: strError!, controller: self)
-            }
-        }
-
-    }
+//    func getSortedRecords(){
+//        Group.getSortedGroupListing(sortInfo: globalSort) { (isSuccess, response, strError) in
+//            if isSuccess
+//            {
+//
+//                self.myGroups.removeAll()
+//                self.arrayGroups.removeAll()
+//
+//                if let arrayNewGroups = response as? [Group]
+//                {
+//                    self.arrayGroups = arrayNewGroups
+//                }
+//                self.collectionViewGroup.reloadData()
+//
+//                if self.arrayGroups.count > 0 {
+//                    self.collectionViewGroup.isHidden = false
+//                    self.lblNotice.isHidden = true
+//                    self.imgViewNotice.isHidden = true
+//                }else{
+//                    self.collectionViewGroup.isHidden = true
+//                    self.lblNotice.isHidden = false
+//                    self.imgViewNotice.isHidden = false
+//                }
+//            } else
+//            {
+//                showAlert(title: "Drinks", message: strError!, controller: self)
+//            }
+//        }
+//
+//    }
     
     //MARK:- Custom Delegates
     //MARK":-
@@ -333,17 +336,22 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         self.navigationController?.present(navigation, animated: true, completion: nil)
     }
     
-    func moveWithSelection(selected: Any) {
-        
-        if let filteredObj = selected as? FilterInfo
-        {
-            globalFilter = filteredObj
-            self.getFilteredRecords()
-        }else if let filteredObj = selected as? SortInfo {
-            globalSort = filteredObj
-            self.getSortedRecords()
-        }
-        
+//    func moveWithSelection(selected: Any) {
+//
+//        if let filteredObj = selected as? FilterInfo
+//        {
+//
+//        }else if let filteredObj = selected as? SortInfo {
+//            globalSort = filteredObj
+//            self.getSortedRecords()
+//        }
+//
+//    }
+    
+    func moveWithSelectionFilter(filterInfo: FilterInfo, sortInfo: SortInfo) {
+        globalFilter = filterInfo
+        globalSort = sortInfo
+        self.getFilteredRecords()
     }
     
     func replaceRecords()

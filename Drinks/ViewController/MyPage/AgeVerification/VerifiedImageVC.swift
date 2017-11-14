@@ -16,11 +16,14 @@ class VerifiedImageVC: UIViewController, MSGetImage {
         super.viewDidLoad()
 
         imgVW.sd_setImage(with: URL(string: LoginManager.getMe.ageDocument))
-        if (LoginManager.getMe.ageVerified.toBool())! {
-            lblDocumentStatus.text = "Document Verified"
+        if LoginManager.getMe.ageVerified == "approve" {
+            lblDocumentStatus.text = NSLocalizedString("Document verification successfull.", comment: "")
             lblDocumentStatus.textColor = UIColor.green
-        }else {
-            lblDocumentStatus.text = "Verification Pending"
+        }else if LoginManager.getMe.ageVerified == "reject" {
+            lblDocumentStatus.text = NSLocalizedString("Document verification rejected.", comment: "")
+            lblDocumentStatus.textColor = UIColor.green
+        }else if LoginManager.getMe.ageVerified == "pending" {
+            lblDocumentStatus.text = NSLocalizedString("Document verification pending.", comment: "")
             lblDocumentStatus.textColor = UIColor.red
         }
     }
@@ -28,6 +31,7 @@ class VerifiedImageVC: UIViewController, MSGetImage {
     @IBAction func actionCrossBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func actionUpdateBtn(_ sender: Any) {
         openCustomCamera()
     }
@@ -50,7 +54,6 @@ class VerifiedImageVC: UIViewController, MSGetImage {
             let previewVc = mainStoryBoard.instantiateViewController(withIdentifier: "PreviewVerificationVC") as! PreviewVerificationVC
             previewVc.selectedImg = (selected as? UIImage)!
             self.navigationController?.pushViewController(previewVc, animated: false)
-            
         }
     }
     

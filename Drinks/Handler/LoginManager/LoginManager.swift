@@ -228,8 +228,8 @@ class LoginManager: NSObject {
             self.me.ageDocument = ageDocument
         }
         
-        if let ageVerified = dictUser["is_age_verified"] as? Bool {
-            self.me.ageVerified = String(ageVerified)
+        if let ageVerified = dictUser["is_age_verified"] as? String {
+            self.me.ageVerified = ageVerified
         }
         
         self.me.notificationSettings = Notifications(notificationDict: dictUser)
@@ -275,8 +275,8 @@ class LoginManager: NSObject {
             self.me.ageDocument = ageDocument
         }
         
-        if let ageVerified = dictUser["is_age_verified"] as? Bool {
-            self.me.ageVerified = String(ageVerified)
+        if let ageVerified = dictUser["is_age_verified"] as? String {
+            self.me.ageVerified = ageVerified
         }
         
         self.saveUserProfile()

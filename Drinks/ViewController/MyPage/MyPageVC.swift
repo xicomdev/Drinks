@@ -60,7 +60,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func updateUI() {
         lblTickets.text = LoginManager.getMe.myCredits
         lblOffers.text = LoginManager.getMe.offersCount
-        lblStatus.text = LoginManager.getMe.membershipStatus
+        lblStatus.text = NSLocalizedString(LoginManager.getMe.membershipStatus, comment: "")
         imgVwDP.cornerRadius(value: self.view.frame.width/6)
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         imgViewCoverPic.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
@@ -114,7 +114,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collctnVwNavBtns {
             let cell = collctnVwNavBtns.dequeueReusableCell(withReuseIdentifier: "MyPageNavBtnCell", for: indexPath) as! MyPageNavBtnCell
-            cell.lblBtnName.text = aryMyPageNavBtns[indexPath.row].1
+            cell.lblBtnName.text = NSLocalizedString(aryMyPageNavBtns[indexPath.row].1, comment: "")
             cell.imgVwBtnIcon.image = aryMyPageNavBtns[indexPath.row].0
             return cell
         }else {

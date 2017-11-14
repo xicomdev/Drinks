@@ -36,7 +36,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
-        headerView.lblHeader.text = "Beginner's Guide"
+        headerView.lblHeader.text = NSLocalizedString("Beginner's Guide", comment: "")
         
         return headerView
     }
@@ -51,7 +51,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblvwHelp.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-        cell.lblTitle.text = aryHelp[indexPath.row]
+        cell.lblTitle.text = NSLocalizedString(aryHelp[indexPath.row], comment: "")
         return cell
     }
     

@@ -864,6 +864,7 @@
 				63C129C01F613082002C12E9 /* ChatThread */,
 				63F35CC01F41825E001600D4 /* Group */,
 				63996CC51F342F1E008583BB /* Job */,
+				63D7F1B81F330FF7000E27AF /* MSImage */,
 				639954D91F29B8E90025E9C6 /* User */,
 			);
 			path = Model;
@@ -952,7 +953,6 @@
 		639954D91F29B8E90025E9C6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				63D7F1B81F330FF7000E27AF /* MSImage */,
 				639954DA1F29B8E90025E9C6 /* User.swift */,
 			);
 			path = User;

@@ -31,7 +31,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         imgViewUser.cornerRadius(value: imgViewUser.frame.size.width/2)
         imgViewUser.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         
-        lblGender.text = LoginManager.getMe.myGender.rawValue
+        lblGender.text = NSLocalizedString(LoginManager.getMe.myGender.rawValue, comment: "")
         
         datePicker.datePickerMode = UIDatePickerMode.date
         // previousDate
@@ -48,7 +48,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         txtDOB.inputView = datePicker
         
         lblOccupation.textColor = UIColor.lightGray
-        lblOccupation.text = "Select Occupation"
+        lblOccupation.text = NSLocalizedString("Select Occupation", comment: "")
         txtUserName.text = LoginManager.getMe.fullName
         
 //        txtDOB.isUserInteractionEnabled = false
@@ -94,19 +94,19 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         self.view.endEditing(true)
         
         if txtUserName.text!.isStringEmpty() == true{
-            showAlert(title: "Drinks", message: "Please enter user name.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter user name.", comment: ""), controller: self)
             return
         }
         
         if LoginManager.getMe.job.ID == ""
         {
-            showAlert(title: "Drinks", message: "Please select your occupation.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select your occupation.", comment: ""), controller: self)
             return
         }
         
         if txtDOB.text! == ""
         {
-            showAlert(title: "Drinks", message: "Please enter your DOB.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
             return
         }
         
@@ -170,16 +170,16 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     {
         
         let actionSheetController: UIAlertController = UIAlertController(title: nil , message: nil , preferredStyle: .actionSheet)
-        let GalleryAction: UIAlertAction = UIAlertAction(title: "Gallery", style: .default) { action -> Void in
+        let GalleryAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Gallery", comment: ""), style: .default) { action -> Void in
             
             self.openGalleryWithPermissions()
             //Just dismiss the action sheet
         }
-        let cameraAction: UIAlertAction = UIAlertAction(title: "Camera", style: .default) { action -> Void in
+        let cameraAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { action -> Void in
             self.openCameraWithPermissions()
             //Just dismiss the action sheet
         }
-        let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let cancelAction : UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
             //Just dismiss the action sheet
         }
         

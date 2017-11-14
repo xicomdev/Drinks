@@ -1,8 +1,9 @@
 
-"Privacy_policy"="Privacy policy";
-"Terms_of_use"="Terms of use";
+"Privacy policy"="Privacy policy";
+"Terms of use"="Terms of use";
 "Premium"="Premium";
 "Buy Tickets"="Buy Tickets";
+"Age Verification"="Age Verification";
 "Profile"="Profile";
 "Settings"="Settings";
 "Coupons"="Coupons";
@@ -25,8 +26,8 @@
 "About withdrawal"="About withdrawal";
 "Save"="Save";
 "You must buy premium membership to send messages."="You must buy premium membership to send messages.";
-"Use my referal code and get free tickets."="Use my referal code and get free tickets.";
-"Referal code:"="Referal code:";
+"Use my referal code and get free tickets."="Use my referral code and get free tickets.";
+"Referral code:"="Referal code:";
 "Please enter coupon code."="Please enter coupon code.";
 "You can not use your own coupon"="You can not use your own coupon";
 "Commercial Transaction"="Commercial Transaction";
@@ -35,7 +36,6 @@
 "Please enter user name."="Please enter user name.";
 "Please select your occupation."="Please select your occupation.";
 "Please enter your DOB."="Please enter your DOB.";
-
 "Please select blood group first."="Please select blood group first.";
 "Please select your relationship status."="Please select your relationship status.";
 "Please select tabacco option first."="Please select tabacco option first.";
@@ -57,3 +57,33 @@
 "Select income option."="Select income option.";
 "Location name"="Location name";
 "Please enable your location."="Please enable your location.";
+
+"your age proof is sent for verifcation"="your age proof is sent for verifcation";
+"Document verification successfull."="Document verification successfull.";
+"Document verification rejected."="Document verification rejected.";
+"Document verification pending."="Document verification pending.";
+"Beginner's Guide"="Beginner's Guide";
+"Push Notification"="Push Notification";
+"Edit"="Edit";
+"Delete"="Delete";
+"Report"="Report";
+"Select Occupation"="Select Occupation";
+"Select blood type"="Select blood type";
+"Select marriage option"="Select marriage option";
+"Select tabacco option"="Select tabacco option";
+"Select school career"="Select school career";
+"Occupation"="Occupation";
+"Blood type"="Blood type";
+"Marriage History"="Marriage History";
+"Tabbaco"="Tabbaco";
+"School Career"="School Career";
+"Please select one occupation first."="Please select one occupation first.";
+"Please select one option first."="Please select one option first.";
+"Male"="Male";
+"Female"="Female";
+"Please select annual income first."="Please select annual income first.";
+"Enter description here"="Enter description here";
+"Edit Group"="Edit Group";
+"Create Group"="Create Group";
+"Number Of People"="Number Of People";
+"Relation"="Relation";

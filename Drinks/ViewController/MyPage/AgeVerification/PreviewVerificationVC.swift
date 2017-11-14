@@ -46,7 +46,7 @@ class PreviewVerificationVC: UIViewController {
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_ageVerify, paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
             SwiftLoader.hide()
             if isSuccess {
-                showAlert(title: "Drinks", message: "your age proof is sent for verifcation", controller: self, handler: { (_) in
+                showAlert(title: "Drinks", message: NSLocalizedString("your age proof is sent for verifcation", comment: ""), controller: self, handler: { (_) in
                     self.navigationController?.popToRootViewController(animated: true)
                 })
 

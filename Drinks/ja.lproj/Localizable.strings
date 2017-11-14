@@ -1,8 +1,88 @@
-/* 
-  Localizable.strings
-  Drinks
 
-  Created by maninder on 7/27/17.
-  Copyright © 2017 Maninderjit Singh. All rights reserved.
-*/
-
+"Privacy policy"="プライバシーポリシー";
+"Terms of use"="利用規約";
+"Premium"="有料会員登録";
+"Buy Tickets"="チケット購入";
+"Age Verification"="年齢確認";
+"Profile"="プロフィール";
+"Settings"="設定";
+"Coupons"="クーポン";
+"Notification"="通知";
+"Help"="ヘルプ";
+"When I recieved an offer"="オファーをもらった時";
+"When matching"="マッチングした時";
+"When I got a message"="メッセージをもらった時";
+"Notice"="お知らせ";
+"Logout"="ログアウト";
+"Opinions"="ご意見";
+"Inquiries"="お問合せ";
+"Review Drinks"="drinksをレビューする";
+"Terms of Service"="利用規約";
+"Display based on specified commercial transaction"="特定商取引法に基づく表示";
+"What is Drinks"="drinksとは";
+"In order to use with confidence"="安心にご利用いただくために";
+"Violation report response policy"="違反報告の対応ポリシー";
+"How to raise the matching rate"="マッチング率を上げるには";
+"About withdrawal"="退会について";
+"Save"="保存";
+"You must buy premium membership to send messages."="今夜飲むために、メッセージのやり取りを行うには、有料会員の登録が必要です。";
+"Use my referal code and get free tickets."="紹介コードを使用して無料のチケットを取得してください。";
+"Referal code:"="紹介コード：";
+"Please enter coupon code."="クーポンコードを入力してください。";
+"You can not use your own coupon"="自分のクーポンは使用できません";
+"Commercial Transaction"="商業取引";
+"When in trouble"="トラブル時に";
+"Other"="その他";
+"Please enter user name."="お名前を入力してください";
+"Please select your occupation."="職業を入力してください";
+"Please enter your DOB."="DOBを入力してください.";
+"Please select blood group first."="血液型を選択してください";
+"Please select your relationship status."="結婚歴を選択してください";
+"Please select tabacco option first."="タバコを選択してください";
+"Please select school career first."="学歴を選択してください";
+"Gallery"="ギャラリー";
+"Camera"="写真";
+"Cancel"="キャンセル";
+"Place"="場所";
+"Select place option"="場所を選択してください";
+"No. of people"="人数";
+"Select people option"="人を選択するオプション";
+"Job"="職業";
+"Select job option"="職業を選択してください";
+"Age"="年齢";
+"Select age range"="年齢を選択してください";
+"Relationship"="Relationship";
+"Select Relationship"="メンバーとの関係性を選択";
+"Income"="収入";
+"Select income option."="収入を選択";
+"Location name"="エリア";
+"Please enable your location."="エリアを入力してください";
+"your age proof is sent for verifcation"="あなたの年齢証明は検証のために送られます";
+"Document verification successfull."="ドキュメント検証成功";
+"Document verification rejected."="ドキュメントの検証は拒否されました。";
+"Document verification pending."="保留中のドキュメント検証";
+"Beginner's Guide"="初心者ガイド";
+"Push Notification"="プッシュ通知";
+"Edit"="編集";
+"Delete"="削除";
+"Report"="レポート";
+"Select Occupation"="職業選択";
+"Select blood type"="血液型の選択";
+"Select marriage option"="結婚の選択";
+"Select tabacco option"="タバコオプションを選択";
+"Select school career"="学校のキャリアを選択";
+"Occupation"="職業";
+"Blood type"="血液型";
+"Marriage History"="結婚歴";
+"Tabbaco"="タバコ";
+"School Career"="スクールキャリア";
+"Please select one occupation first."="最初に1つの職業を選択してください。";
+"Please select one option first."="最初に一つのオプションを選択してください。";
+"Male"="男性";
+"Female"="女性";
+"Please select annual income first."="年収を最初に選択してください。";
+"Enter description here"="ここに説明を入力";
+"Edit Group"="編集グループ";
+"Create Group"="グループの作成";
+"Number Of People"="人々の数";
+"Relation"="関係";

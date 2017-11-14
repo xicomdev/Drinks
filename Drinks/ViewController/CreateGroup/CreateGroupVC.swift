@@ -36,7 +36,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     var viewFooter : GroupFooterView!
     var imageSelected : UIImage? = nil
     var tagEnabled = false
-    var strDescription = "Enter description here"
+    var strDescription = NSLocalizedString("Enter description here", comment: "")
     var relationship : String = ""
     
     var refreshLocationTimer : Timer!
@@ -59,7 +59,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         
         viewFooter = GroupFooterView.instanceFromNib(width: ScreenWidth, height: CGFloat(335))
         viewFooter.txtViewDescription.delegate = self
-        viewFooter.txtViewDescription.text = "Enter description here"
+        viewFooter.txtViewDescription.text = NSLocalizedString("Enter description here", comment: "")
         viewFooter.txtRelationship.inputView = pickerRelationShip
         viewFooter.txtRelationship.delegate = self
         UserDp.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
@@ -72,7 +72,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         
         if  classAction == .Editing{
             
-            self.navTitle(title: "Edit Group" as NSString, color: UIColor.black , font:  FontRegular(size: 17))
+            self.navTitle(title: NSLocalizedString("Edit Group", comment: "") as NSString, color: UIColor.black , font:  FontRegular(size: 17))
             self.tagEnabled = group.tagEnabled
             viewFooter.txtViewDescription.text = group.groupDescription
             viewFooter.txtViewDescription.textColor = .black
@@ -80,7 +80,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
           
         }else{
-            self.navTitle(title: "Create Group" as NSString, color: UIColor.black , font:  FontRegular(size: 17))
+            self.navTitle(title: NSLocalizedString("Create Group", comment: "") as NSString, color: UIColor.black , font:  FontRegular(size: 17))
             let firstCondition = GroupCondition()
             group.groupConditions.append(firstCondition)
             
@@ -172,7 +172,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 //            showAlert(title: "Drinks", message: "Please enter description for group.", controller: self)
 //            return
 //        }
-        group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: "Enter description here", with: "")
+        group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: NSLocalizedString("Enter description here", comment: ""), with: "")
         if viewFooter.txtRelationship.text!.removeEndingSpaces() != "" {
             group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
         }else {
@@ -206,7 +206,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
             if appDelegate().appLocation == nil
             {
-                showAlert(title: "Drinks", message: "Please enable your device location first.", controller: self)
+                showAlert(title: "Drinks", message: NSLocalizedString("Please enable your location.", comment: ""), controller: self)
                 return
                 
             }
@@ -427,7 +427,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.checkIsEmpty() == true{
             textView.textColor = UIColor.gray
-            textView.text = "Enter description here"
+            textView.text = NSLocalizedString("Enter description here", comment: "")
         }else{
             textView.textColor = UIColor.black
         }
@@ -438,7 +438,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.textColor = UIColor.black
 
-        if textView.text == "Enter description here"
+        if textView.text == NSLocalizedString("Enter description here", comment: "")
         {
             textView.text  = ""
         }

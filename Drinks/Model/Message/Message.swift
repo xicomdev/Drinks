@@ -29,7 +29,6 @@ class Message: NSObject {
         
     }
     
-    
     convenience init(messageDict : Any)
     {
         self.init()

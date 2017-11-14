@@ -109,24 +109,24 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         if LoginManager.getMe.bloodGroup == ""
         {
             
-            showAlert(title: "Drinks", message: "Please select blood group first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
             return
         }else if LoginManager.getMe.relationship == ""
         {
-            showAlert(title: "Drinks", message: "Please select your relationship status.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
              return
 
         }else if LoginManager.getMe.tabaco == ""{
-            showAlert(title: "Drinks", message: "Please select tabacco option first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
              return
 
         }else if LoginManager.getMe.schoolCareer == ""{
-            showAlert(title: "Drinks", message: "Please select school career first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
              return
  
             
         }else if LoginManager.getMe.annualIncome == "" {
-            showAlert(title: "Drinks", message: "Please select annual income first.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
             return
             
         }

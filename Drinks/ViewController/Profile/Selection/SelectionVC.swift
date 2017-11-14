@@ -97,7 +97,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
         }
         
-        self.navTitle(title: strTitle as NSString, color: UIColor.black , font:  FontRegular(size: 19))
+        self.navTitle(title: NSLocalizedString(strTitle, comment: "") as NSString, color: UIColor.black , font:  FontRegular(size: 19))
 
 
         // Do any additional setup after loading the view.
@@ -112,7 +112,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             
             if selectedJob.ID == ""
             {
-                showAlert(title: "Drinks", message: "Please select one occupation first.", controller: self)
+                showAlert(title: "Drinks", message: NSLocalizedString("Please select one occupation first.", comment: ""), controller: self)
                 return
             }
             if delegate != nil{
@@ -124,7 +124,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
             if selectedValue == ""
             {
-                showAlert(title: "Drinks", message: "Please select one option first.", controller: self)
+                showAlert(title: "Drinks", message: NSLocalizedString("Please select one option first.", comment: ""), controller: self)
                 return
                 
             }
@@ -162,7 +162,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
-        headerView.lblHeader.text = strHeaderTitle
+        headerView.lblHeader.text = NSLocalizedString(strHeaderTitle, comment: "")
    
         return headerView
     }
@@ -194,7 +194,7 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
             
         }else{
-            cell.lblName.text = arrayListing[indexPath.row] as? String
+            cell.lblName.text = NSLocalizedString((arrayListing[indexPath.row] as? String)!, comment: "")
             
             if selectedValue == arrayListing[indexPath.row] as? String
             {

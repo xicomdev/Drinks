@@ -23,7 +23,10 @@ typealias AlertHandler = ( (_ Index: Int) -> Void) // false for Cancel
     @objc optional func moveHomeToAddNew()
     @objc optional func gotoHome()
 
-    
+}
+
+protocol FilterCallback {
+    func moveWithSelectionFilter(filterInfo : FilterInfo, sortInfo: SortInfo)
 }
 
 

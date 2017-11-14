@@ -140,8 +140,8 @@ class User: NSObject,NSCoding
             self.ageDocument = ageDocument
         }
         
-        if let ageVerified = dictLocal["is_age_verified"] as? Bool {
-            self.ageVerified = String(ageVerified)
+        if let ageVerified = dictLocal["is_age_verified"] as? String {
+            self.ageVerified = ageVerified
         }
         
     }
@@ -345,11 +345,6 @@ class User: NSObject,NSCoding
         aCoder.encode(self.age, forKey: "age")
         aCoder.encode(self.groupCreated, forKey: "groupCreated")
 
-
-
-
     }
-    
-    
 
 }

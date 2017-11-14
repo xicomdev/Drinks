@@ -84,7 +84,7 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             return cell
         }else {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-            cell.lblTitle.text = arySettings[indexPath.row]
+            cell.lblTitle.text = NSLocalizedString(arySettings[indexPath.row], comment: "")
             return cell
         }
     }

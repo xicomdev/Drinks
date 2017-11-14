@@ -311,7 +311,7 @@ class Group: NSObject {
     }
 
     
-    class func getFilteredGroupListing( filterInfo : FilterInfo ,  handler : @escaping CompletionHandler)
+    class func getFilteredGroupListing( filterInfo : FilterInfo, sortInfo: SortInfo , handler : @escaping CompletionHandler)
     {
         SwiftLoader.show(true)
         
@@ -347,47 +347,7 @@ class Group: NSObject {
             params["number_people"] = getStringToDisplay(array: filterInfo.people, type: .NumberOfPeople)
 
         }
-        print(params)
         
-        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: params) { (isSuccess, response, strError) in
-            SwiftLoader.hide()
-            if isSuccess
-            {
-                var arrayList = [Group]()
-                
-                if let arryResponse = response as? [Dictionary<String ,Any>]
-                {
-                    
-                    for item in arryResponse{
-                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
-                        let  groupNew = Group(groupDict: dictGroup)
-                        arrayList.append(groupNew)
-                    }
-                }
-                handler(true , arrayList, strError)
-            }else{
-                handler(false , nil, strError)
-            }
-        }
-    }
-    
-    class func getSortedGroupListing( sortInfo : SortInfo ,  handler : @escaping CompletionHandler)
-    {
-        SwiftLoader.show(true)
-        
-        var params : [String : Any] = [String : Any]()
-        
-        
-        
-        if sortInfo.filterLocationName != nil{
-            
-            params["current_latitude"] = sortInfo.filterLocationName?.latitude
-            params["current_longitude"] = sortInfo.filterLocationName?.longtitude
-            
-        }else if appDelegate().appLocation != nil{
-            params["current_latitude"] = appDelegate().appLocation?.latitude
-            params["current_longitude"] = appDelegate().appLocation?.longtitude
-        }
         var sortValues = ""
         if sortInfo.Place == "Ascending"{
             sortValues = sortValues + "distance_asc"
@@ -438,6 +398,74 @@ class Group: NSObject {
             }
         }
     }
+    
+//    class func getSortedGroupListing( sortInfo : SortInfo ,  handler : @escaping CompletionHandler)
+//    {
+//        SwiftLoader.show(true)
+//
+//        var params : [String : Any] = [String : Any]()
+//
+//
+//
+//        if sortInfo.filterLocationName != nil{
+//
+//            params["current_latitude"] = sortInfo.filterLocationName?.latitude
+//            params["current_longitude"] = sortInfo.filterLocationName?.longtitude
+//
+//        }else if appDelegate().appLocation != nil{
+//            params["current_latitude"] = appDelegate().appLocation?.latitude
+//            params["current_longitude"] = appDelegate().appLocation?.longtitude
+//        }
+//        var sortValues = ""
+//        if sortInfo.Place == "Ascending"{
+//            sortValues = sortValues + "distance_asc"
+//        }else if sortInfo.Place == "Descending" {
+//            sortValues = sortValues + ", distance_desc"
+//        }
+//
+//        if sortInfo.age == "Ascending"{
+//            sortValues = sortValues + ", age_asc"
+//        }else if sortInfo.age == "Descending" {
+//            sortValues = sortValues + ", age_desc"
+//        }
+//
+//        if sortInfo.Offers == "Ascending"{
+//            sortValues = sortValues + ", offer_asc"
+//        }else if sortInfo.Offers == "Descending" {
+//            sortValues = sortValues + ", offer_desc"
+//        }
+//
+//        if sortInfo.LastLogin == "Recent"{
+//            sortValues = sortValues + ", login_new"
+//        }else if sortInfo.LastLogin == "Older" {
+//            sortValues = sortValues + ", login_old"
+//        }
+//        if sortValues != "" {
+//            params["sort_value"] = sortValues.trimmingCharacters(in: CharacterSet(charactersIn: ", "))
+//        }
+//        print(params)
+//
+//        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: params) { (isSuccess, response, strError) in
+//            SwiftLoader.hide()
+//            if isSuccess
+//            {
+//                var arrayList = [Group]()
+//
+//                if let arryResponse = response as? [Dictionary<String ,Any>]
+//                {
+//
+//                    for item in arryResponse{
+//                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+//                        let  groupNew = Group(groupDict: dictGroup)
+//                        arrayList.append(groupNew)
+//                    }
+//                }
+//                handler(true , arrayList, strError)
+//            }else{
+//                handler(false , nil, strError)
+//            }
+//        }
+//    }
     
     func createNewGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
     {

@@ -95,40 +95,33 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
         if indexPath.row == 1
         {
             
-            cell.lblInfoType.text = "Blood Type"
+            cell.lblInfoType.text = NSLocalizedString("Blood Type", comment: "")
             cell.lblValue.text = self.ownerUser.bloodGroup
 
         }else if  indexPath.row == 2
         {
-            cell.lblInfoType.text = "Marriage History"
+            cell.lblInfoType.text = NSLocalizedString("Marriage History", comment: "")
             cell.lblValue.text = self.ownerUser.relationship
-
 
         }
         else if  indexPath.row == 3
         {
-            cell.lblInfoType.text = "Tabaco"
+            cell.lblInfoType.text = NSLocalizedString("Tabaco", comment: "")
             cell.lblValue.text = self.ownerUser.tabaco
 
         }
         else if  indexPath.row == 4
         {
-            cell.lblInfoType.text = "School Career"
+            cell.lblInfoType.text = NSLocalizedString("School Career", comment: "")
             cell.lblValue.text = self.ownerUser.schoolCareer
 
-
-            
         }
         else if  indexPath.row == 5
         {
-            cell.lblInfoType.text = "Annual Income"
+            cell.lblInfoType.text = NSLocalizedString("Annual Income", comment: "")
             cell.lblValue.text = self.ownerUser.annualIncome
-
-
         }
-        
          return cell
-
         
         }
         

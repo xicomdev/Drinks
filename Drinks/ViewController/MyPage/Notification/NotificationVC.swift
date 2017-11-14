@@ -65,7 +65,7 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
-        headerView.lblHeader.text = "Push Notification"
+        headerView.lblHeader.text = NSLocalizedString("Push Notification", comment: "")
         
         return headerView
     }
@@ -96,7 +96,7 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             break
         }
         
-        cell.lblTitle.text = aryNotification[indexPath.row]
+        cell.lblTitle.text = NSLocalizedString(aryNotification[indexPath.row], comment: "")
         
         return cell
     }

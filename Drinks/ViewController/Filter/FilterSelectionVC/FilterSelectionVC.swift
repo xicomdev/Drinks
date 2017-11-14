@@ -122,7 +122,7 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         }
         
         
-        self.navTitle(title: strTitle as NSString, color: UIColor.black , font:  FontRegular(size: 19))
+        self.navTitle(title: NSLocalizedString(strTitle, comment: "") as NSString, color: UIColor.black , font:  FontRegular(size: 19))
         
         
         // Do any additional setup after loading the view.
@@ -184,13 +184,13 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
          
             if section == 1 {
                 let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
-                headerView.lblHeader.text = "Location name"
+                headerView.lblHeader.text = NSLocalizedString("Location name", comment: "")
                 headerView.backgroundColor = .red
                 return headerView
             }
         }
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
-        headerView.lblHeader.text = strHeaderTitle
+        headerView.lblHeader.text = NSLocalizedString(strHeaderTitle, comment: "")
         headerView.backgroundColor = .red
         return headerView
     }
@@ -233,14 +233,13 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
                 
             }else{
                 
-                
                 if indexPath.section == 1 && selectType == .Place{
                     cell.lblName.text =  self.filterDetails.filterLocationName?.LocationName
                     cell.imgViewSelection.isHidden = true
                     return cell
                 }
                 
-                cell.lblName.text = String(describing: arrayListing[indexPath.row])
+                cell.lblName.text = NSLocalizedString(String(describing: arrayListing[indexPath.row]), comment: "")
                 if self.checkAlreadySelected(info: arrayListing[indexPath.row])
                 {
                     cell.imgViewSelection.isHidden = false
@@ -255,7 +254,7 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
                 return cell
             }
             
-            cell.lblName.text = String(describing: arrayListing[indexPath.row])
+            cell.lblName.text = NSLocalizedString(String(describing: arrayListing[indexPath.row]), comment: "")
             if self.checkAlreadySelected(info: arrayListing[indexPath.row])
             {
                 cell.imgViewSelection.isHidden = false

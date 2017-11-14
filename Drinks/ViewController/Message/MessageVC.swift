@@ -123,7 +123,7 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if LoginManager.getMe.membershipStatus == "Regular" {
-            showAlert(title: "Drinks", message: "You must buy premium membership to send messages.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("You must buy premium membership to send messages.", comment: ""), controller: self)
         }else {
             if (LoginManager.getMe.ageVerified.toBool())! {
                 if btnDrinkToday.isSelected {
@@ -142,7 +142,7 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
                     self.navigationController?.pushViewController(chatvc, animated: true)
                 }
             }else {
-                showAlert(title: "Drinks", message: "You must verify you age first.", controller: self)
+                showAlert(title: "Drinks", message: NSLocalizedString("You must verify you age first.", comment: ""), controller: self)
             }
             
         }

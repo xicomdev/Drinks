@@ -42,9 +42,9 @@ class CouponVC: UIViewController {
     
     @IBAction func btnUseCodeAction(_ sender: AnyObject) {
         if txtFldCode.text!.isStringEmpty() == true{
-            showAlert(title: "Drinks", message: "Please enter coupon code.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter coupon code.", comment: ""), controller: self)
         }else if txtFldCode.text! == lblMyCode.text! {
-            showAlert(title: "Drinks", message: "You can not use your own coupon", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("You can not use your own coupon", comment: ""), controller: self)
         } else {
             SwiftLoader.show(true)
 
