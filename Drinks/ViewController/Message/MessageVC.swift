@@ -125,7 +125,7 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         if LoginManager.getMe.membershipStatus == "Regular" {
             showAlert(title: "Drinks", message: NSLocalizedString("You must buy premium membership to send messages.", comment: ""), controller: self)
         }else {
-            if (LoginManager.getMe.ageVerified.toBool())! {
+            if LoginManager.getMe.ageVerified == "approve" {
                 if btnDrinkToday.isSelected {
                     let chatvc = mainStoryBoard.instantiateViewController(withIdentifier: "DrinkTodayChatVC") as! DrinkTodayChatVC
                     
@@ -138,11 +138,10 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
                     chatvc.thread = appDelegate().arrayHistoryThreads[indexPath.row]
                     
                     chatvc.hidesBottomBarWhenPushed = true
-                    
                     self.navigationController?.pushViewController(chatvc, animated: true)
                 }
             }else {
-                showAlert(title: "Drinks", message: NSLocalizedString("You must verify you age first.", comment: ""), controller: self)
+                showAlert(title: "Drinks", message: NSLocalizedString("You must verify your age first.", comment: ""), controller: self)
             }
             
         }

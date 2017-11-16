@@ -54,6 +54,60 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
+    @IBAction func actionOptions(_ sender: Any) {
+        
+        if self.groupInfo.groupBy == .Other
+        {
+            
+            
+            actionSheet(btnArray: [NSLocalizedString("Report", comment: "")], cancel: true, destructive: 0, controller: self, handler: { (isSuccess, index) in
+                if isSuccess
+                {
+                    let reportVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportGroupVC") as! ReportGroupVC
+                    reportVC.group = self.groupInfo
+                    reportVC.delegate = self
+                    self.navigationController?.pushViewController(reportVC, animated: true)
+                    
+                }
+            })
+        }else
+        {
+            let cell = tblGroupDetail.cellForRow(at: IndexPath(row: 0, section: 0)) as! GroupImageCell
+            
+            self.groupImage = cell.imgViewGroup.image
+            actionSheet(btnArray: [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Delete", comment: "")], cancel: true, destructive: 1, controller: self, handler: { (isSuccess, index) in
+                if isSuccess
+                {
+                    if index == 0 {
+                        let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+                        createGroupVC.delegate = self
+                        createGroupVC.group = self.groupInfo
+                        createGroupVC.imageSelected = self.groupImage
+                        createGroupVC.classAction = .Editing
+                        
+                        let navigation = UINavigationController(rootViewController: createGroupVC)
+                        self.navigationController?.present(navigation, animated: true, completion: nil)
+                        
+                    }else
+                    {
+                        
+                        self.deleteGroup()
+                    }
+                    
+                }
+            })
+        }
+        
+    }
+    
+    @IBAction func actionBack(_ sender: Any) {
+        self.groupAnyActionPerformed()
+        DispatchQueue.main.async(execute: { () -> Void in
+            
+            self.navigationController?.popViewController(animated: true)
+            
+        })
+    }
     
     //MARK:- TableView Delegate
     //MARK:-
@@ -68,11 +122,16 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         {
             return 5
         }else{
-            if groupInfo.groupConditions[0].age == 0 && groupInfo.groupConditions[0].occupation.engName == "" {
-                return 0
+            if groupInfo.groupConditions.count > 0 {
+                if groupInfo.groupConditions[0].age == 0 && groupInfo.groupConditions[0].occupation.engName == "" {
+                    return 0
+                }else {
+                    return groupInfo.groupConditions.count
+                }
             }else {
-                return groupInfo.groupConditions.count
+                return 0
             }
+            
         }
         
     }

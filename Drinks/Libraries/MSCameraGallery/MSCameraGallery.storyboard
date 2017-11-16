@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,25 +31,11 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="df2-sz-ZqO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="378"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="355.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-ph-2M5">
-                                <rect key="frame" x="11" y="20.5" width="59" height="59"/>
-                                <state key="normal" image="Cancel"/>
-                                <connections>
-                                    <action selector="actionBtnCancelPressed:" destination="fRv-UK-ELO" eventType="touchUpInside" id="h0j-lV-MFb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGs-08-3fH">
-                                <rect key="frame" x="305" y="20.5" width="59" height="59"/>
-                                <state key="normal" image="Done"/>
-                                <connections>
-                                    <action selector="actionBtnDonePressed:" destination="fRv-UK-ELO" eventType="touchUpInside" id="1ma-IL-Vjg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-Ij-UvW">
-                                <rect key="frame" x="176.5" y="366.5" width="22" height="22"/>
+                                <rect key="frame" x="147" y="378.5" width="81" height="81"/>
                                 <state key="normal" image="Camera"/>
                                 <state key="selected" image="Retake"/>
                                 <connections>
@@ -57,21 +43,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Et-2h-byJ">
-                                <rect key="frame" x="48.5" y="348.5" width="59" height="59"/>
+                                <rect key="frame" x="48.5" y="390" width="59" height="59"/>
                                 <state key="normal" image="ChangeCamera"/>
                                 <connections>
                                     <action selector="actionBtnToggle:" destination="fRv-UK-ELO" eventType="touchUpInside" id="lsD-En-B5u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-EL-Zjb">
-                                <rect key="frame" x="267.5" y="348.5" width="59" height="59"/>
+                                <rect key="frame" x="267.5" y="390" width="59" height="59"/>
                                 <state key="normal" image="FlashOff"/>
                                 <connections>
                                     <action selector="actionBtnFlash:" destination="fRv-UK-ELO" eventType="touchUpInside" id="1uA-3x-bhG"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YXQ-sQ-yfS">
-                                <rect key="frame" x="7.5" y="394" width="359" height="273"/>
+                                <rect key="frame" x="7.5" y="465" width="359" height="202"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yTp-ts-2Gd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -80,29 +66,58 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmT-2K-7O8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-KC-2B6">
+                                        <rect key="frame" x="8" y="2" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="3cZ-ER-Cpu"/>
+                                            <constraint firstAttribute="width" constant="40" id="drP-D6-Qb1"/>
+                                        </constraints>
+                                        <state key="normal" image="CrossActive"/>
+                                        <connections>
+                                            <action selector="actionBtnCancelPressed:" destination="fRv-UK-ELO" eventType="touchUpInside" id="fvi-dO-zq0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-7a-cJn">
+                                        <rect key="frame" x="134" y="13" width="106.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99990195035934448" green="1" blue="0.99987989664077759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hQd-KC-2B6" firstAttribute="leading" secondItem="dmT-2K-7O8" secondAttribute="leading" constant="8" id="1FM-MO-6xB"/>
+                                    <constraint firstAttribute="height" constant="44" id="PNg-92-v0i"/>
+                                    <constraint firstItem="i4s-7a-cJn" firstAttribute="centerY" secondItem="hQd-KC-2B6" secondAttribute="centerY" id="kDv-ph-flM"/>
+                                    <constraint firstItem="i4s-7a-cJn" firstAttribute="centerX" secondItem="dmT-2K-7O8" secondAttribute="centerX" id="lBN-Mv-NxR"/>
+                                    <constraint firstItem="hQd-KC-2B6" firstAttribute="top" secondItem="dmT-2K-7O8" secondAttribute="top" constant="2" id="yBM-7X-YML"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="df2-sz-ZqO" firstAttribute="centerX" secondItem="fTC-iB-mfk" secondAttribute="centerX" id="23y-1R-vOd"/>
                             <constraint firstItem="df2-sz-ZqO" firstAttribute="centerX" secondItem="7Et-2h-byJ" secondAttribute="centerX" multiplier="600:250" id="2Fx-LG-3z8"/>
-                            <constraint firstItem="df2-sz-ZqO" firstAttribute="top" secondItem="Glf-pa-gPl" secondAttribute="bottom" id="3Ya-jb-geL"/>
-                            <constraint firstAttribute="centerX" secondItem="zb9-ph-2M5" secondAttribute="centerX" multiplier="600:130" id="44k-om-juS"/>
+                            <constraint firstItem="df2-sz-ZqO" firstAttribute="top" secondItem="Glf-pa-gPl" secondAttribute="bottom" constant="64" id="3Ya-jb-geL"/>
                             <constraint firstItem="Glf-pa-gPl" firstAttribute="width" secondItem="fTC-iB-mfk" secondAttribute="width" id="48Y-OD-CEZ"/>
                             <constraint firstItem="Glf-pa-gPl" firstAttribute="top" secondItem="fTC-iB-mfk" secondAttribute="top" id="C9z-ot-Hcq"/>
                             <constraint firstItem="df2-sz-ZqO" firstAttribute="centerX" secondItem="t3R-EL-Zjb" secondAttribute="centerX" multiplier="600:950" id="FAm-gP-AaM"/>
                             <constraint firstItem="t3R-EL-Zjb" firstAttribute="centerY" secondItem="BvU-Ij-UvW" secondAttribute="centerY" id="Kea-ui-7Vj"/>
-                            <constraint firstAttribute="height" secondItem="df2-sz-ZqO" secondAttribute="height" multiplier="600:340" id="Ofy-ZK-kAe"/>
+                            <constraint firstAttribute="height" secondItem="df2-sz-ZqO" secondAttribute="height" multiplier="600:320" id="Ofy-ZK-kAe"/>
                             <constraint firstItem="BvU-Ij-UvW" firstAttribute="bottom" secondItem="YXQ-sQ-yfS" secondAttribute="top" constant="-5" id="Ry4-E2-dqp"/>
+                            <constraint firstItem="dmT-2K-7O8" firstAttribute="top" secondItem="fTC-iB-mfk" secondAttribute="top" id="Uny-B9-sMO"/>
                             <constraint firstItem="BvU-Ij-UvW" firstAttribute="centerX" secondItem="df2-sz-ZqO" secondAttribute="centerX" id="WOR-xR-szm"/>
-                            <constraint firstAttribute="centerY" secondItem="zb9-ph-2M5" secondAttribute="centerY" multiplier="600:90" id="Z0m-h3-TZ0"/>
                             <constraint firstItem="YXQ-sQ-yfS" firstAttribute="centerX" secondItem="fTC-iB-mfk" secondAttribute="centerX" id="cM3-ad-jnv"/>
                             <constraint firstItem="Glf-pa-gPl" firstAttribute="centerX" secondItem="fTC-iB-mfk" secondAttribute="centerX" id="fXN-nT-UgM"/>
-                            <constraint firstAttribute="centerX" secondItem="NGs-08-3fH" secondAttribute="centerX" multiplier="600:1070" id="fgP-vW-6Vt"/>
                             <constraint firstItem="WLw-Wd-J0e" firstAttribute="top" secondItem="YXQ-sQ-yfS" secondAttribute="bottom" id="gEa-u0-x1u"/>
                             <constraint firstItem="7Et-2h-byJ" firstAttribute="centerY" secondItem="BvU-Ij-UvW" secondAttribute="centerY" id="hEd-rq-cYF"/>
-                            <constraint firstItem="NGs-08-3fH" firstAttribute="centerY" secondItem="zb9-ph-2M5" secondAttribute="centerY" id="hd1-Iz-luF"/>
                             <constraint firstAttribute="width" secondItem="YXQ-sQ-yfS" secondAttribute="width" constant="16" id="jmP-JQ-BLx"/>
                             <constraint firstItem="BvU-Ij-UvW" firstAttribute="centerY" secondItem="df2-sz-ZqO" secondAttribute="bottom" id="obb-K6-0T0"/>
+                            <constraint firstItem="dmT-2K-7O8" firstAttribute="leading" secondItem="fTC-iB-mfk" secondAttribute="leading" id="qZI-ps-zOy"/>
+                            <constraint firstAttribute="trailing" secondItem="dmT-2K-7O8" secondAttribute="trailing" id="qii-ho-xX3"/>
                             <constraint firstItem="df2-sz-ZqO" firstAttribute="width" secondItem="fTC-iB-mfk" secondAttribute="width" id="tIF-HL-yk5"/>
                         </constraints>
                     </view>
@@ -121,10 +136,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="22" height="18"/>
-        <image name="Cancel" width="59" height="59"/>
+        <image name="Camera" width="81" height="81"/>
         <image name="ChangeCamera" width="59" height="59"/>
-        <image name="Done" width="59" height="59"/>
+        <image name="CrossActive" width="18" height="18"/>
         <image name="FlashOff" width="59" height="59"/>
         <image name="Retake" width="81" height="81"/>
     </resources>

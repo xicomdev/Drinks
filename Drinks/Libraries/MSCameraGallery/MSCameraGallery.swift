@@ -112,7 +112,6 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
             })
         }
         
- 
     }
 
     override func didReceiveMemoryWarning() {
@@ -161,6 +160,28 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
         self.dismiss(animated: true, completion: nil)
     }
     
+    func moveBack() {
+        if capturedImage == nil && selectedImage == nil{
+            return
+        }else if capturedImage == nil && selectedImage != nil
+        {
+            AssetManager.resolveAssetMS(selectedImage!, size: CGSize(width: 500, height: 500)) { image in
+                if let image = image {
+                    self.delegate?.moveWithSelectedImage!(selected: image)
+                }
+            }
+            
+            
+            
+        }else if capturedImage != nil && selectedImage == nil
+        {
+            
+            self.delegate?.moveWithSelectedImage!(selected: capturedImage!)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func actionBtnCancelPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -173,32 +194,25 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
             {
                 self.btnCapture.isSelected = true
                 self.capturedImage = image
+                self.moveBack()
             }else{
                 self.btnCapture.isSelected = false
-            self.capturedImage = nil
+                self.capturedImage = nil
             }
         }
-        
-        
     }
-    
     
     @IBAction func actionBtnToggle(_ sender: Any) {
         
          if self.capturedImage == nil
          {
-            
             cameraMan.switchCamera(handler: { (camera) in
                self.frontCamera = !self.frontCamera
-                
                 if self.frontCamera == false{
                     
                     self.btnFlash.isEnabled = true
                 }else{
-                    
                     self.btnFlash.isEnabled = false
-                   
-
                 }
                 self.btnFlash.setImage(UIImage(named: "FlashOff"), for: .normal)
 
@@ -206,9 +220,6 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
                  self.flash = .OFF
                 
             })
-            
-            
-            
         
         }
         
@@ -356,21 +367,22 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
             selectedImage = nil
             
         }else{
-        
-        if selectedImage == nil{
-         selectedImage = assets[indexPath.row]
-        }else{
             
-            if selectedImage == assets[indexPath.row]
-            {
-                selectedImage = nil
-            }else{
+            if selectedImage == nil{
                 selectedImage = assets[indexPath.row]
+            }else{
+                
+                if selectedImage == assets[indexPath.row]
+                {
+                    selectedImage = nil
+                }else{
+                    selectedImage = assets[indexPath.row]
+                }
+                
             }
-            
-        }
         }
         self.collectionViewImages.reloadItems(at: collectionViewImages.indexPathsForVisibleItems )
+        moveBack()
         
     }
     
