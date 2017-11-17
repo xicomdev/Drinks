@@ -269,14 +269,23 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         Group.getFilteredGroupListing(filterInfo: globalFilter, sortInfo: globalSort) { (isSuccess, response, strError) in
             if isSuccess
             {
-                  self.myGroups.removeAll()
-                  self.arrayGroups.removeAll()
-
-                if let arrayNewGroups = response as? [Group]
+                if let dictGroups = response as? Dictionary<String,Any>
                 {
-                    self.arrayGroups = arrayNewGroups
+                    
+                    let myGroups = dictGroups["MyGroups"] as! [Group]
+                    let AllGroups = dictGroups["OtherGroups"] as! [Group]
+                    
+                    self.myGroups.removeAll()
+                    self.myGroups.append(contentsOf: myGroups)
+                    
+                    self.arrayGroups.removeAll()
+                    self.arrayGroups = AllGroups
+                    self.collectionViewGroup.reloadData()
+                    // self.updateCollectionInsects()
+                    
+                    
+                    self.updatePreviewView()
                 }
-                self.collectionViewGroup.reloadData()
                 
                 if self.arrayGroups.count > 0 {
                     self.collectionViewGroup.isHidden = false

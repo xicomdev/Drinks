@@ -570,10 +570,6 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
         
 }
-
-    
-
-    
     
     
     //MARK:- Select Photo

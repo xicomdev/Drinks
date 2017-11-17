@@ -10,13 +10,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drinks/Model/Group/Group.swift"
-            timestampString = "532352036.846721"
+            timestampString = "532614516.109308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "378"
             endingLineNumber = "378"
             landmarkName = "getFilteredGroupListing(filterInfo:sortInfo:handler:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/ViewController/Home/HomeVC.swift"
+            timestampString = "532614516.109403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "getGroups()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.HomeVC.getGroups() -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/Home/HomeVC.swift"
+                  timestampString = "532614517.043108"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Drinks.HomeVC.getGroups() -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankitchhabra/Desktop/Drinks%20working/Drinks/ViewController/Home/HomeVC.swift"
+                  timestampString = "532614517.046545"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

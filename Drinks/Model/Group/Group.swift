@@ -381,18 +381,39 @@ class Group: NSObject {
             SwiftLoader.hide()
             if isSuccess
             {
-                var arrayList = [Group]()
-                
-                if let arryResponse = response as? [Dictionary<String ,Any>]
+                var dictReturning = [String : Any]()
+                var arrayGroup = [Group]()
+                var arrayMyGroup = [Group]()
+                if let dictResponse = response as? Dictionary<String ,Any>
                 {
                     
-                    for item in arryResponse{
-                        let dictGroup = item["Group"]  as! Dictionary<String ,Any>
-                        let  groupNew = Group(groupDict: dictGroup)
-                        arrayList.append(groupNew)
+                    
+                    if dictResponse.count > 0 {
+                        
+                        let allGroups = dictResponse["groups"] as! [Dictionary<String ,Any>]
+                        let myGroups = dictResponse["myGroups"] as! [Dictionary<String ,Any>]
+                        
+                        for item in allGroups
+                        {
+                            
+                            
+                            let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                            let  groupNew = Group(groupDict: dictGroup)
+                            arrayGroup.append(groupNew)
+                            
+                        }
+                        
+                        for item in myGroups{
+                            let dictGroup = item["Group"]  as! Dictionary<String ,Any>
+                            let  groupNew = Group(groupDict: dictGroup)
+                            arrayMyGroup.append(groupNew)
+                        }
                     }
                 }
-                handler(true , arrayList, strError)
+                
+                dictReturning["MyGroups"] = arrayMyGroup
+                dictReturning["OtherGroups"] = arrayGroup
+                handler(true , dictReturning, strError)
             }else{
                 handler(false , nil, strError)
             }

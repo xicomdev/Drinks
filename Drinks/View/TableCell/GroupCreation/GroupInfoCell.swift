@@ -86,6 +86,8 @@ class GroupInfoCell: UITableViewCell {
         
         if groupCond.age != 0 {
             self.txtAge.text = groupCond.age.description
+        }else {
+            self.txtAge.text = ""
         }
          self.txtOccupation.text = groupCond.occupation.engName
     }
