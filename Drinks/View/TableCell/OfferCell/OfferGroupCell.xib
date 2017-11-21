@@ -57,6 +57,10 @@
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Relationship" translatesAutoresizingMaskIntoConstraints="NO" id="31V-Ns-nNR">
                         <rect key="frame" x="31.5" y="372.5" width="24" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="05E-Be-cQT"/>
+                            <constraint firstAttribute="width" constant="24" id="n4p-Yh-njA"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPG-2u-TRN">
                         <rect key="frame" x="31.5" y="400.5" width="132.5" height="19.5"/>

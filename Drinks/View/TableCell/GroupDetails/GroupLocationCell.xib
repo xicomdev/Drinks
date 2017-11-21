@@ -29,6 +29,10 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationBig" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-V6-xUs">
                                 <rect key="frame" x="44.5" y="10" width="18" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="9kb-gr-Omc"/>
+                                    <constraint firstAttribute="height" constant="22" id="kzE-tV-16s"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="42K-XN-Bfz">
                                 <rect key="frame" x="5" y="32.5" width="97" height="35"/>
@@ -53,7 +57,11 @@
                         <rect key="frame" x="213.5" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Time" translatesAutoresizingMaskIntoConstraints="NO" id="0c5-Z2-tkr">
-                                <rect key="frame" x="41.5" y="9.5" width="23" height="23"/>
+                                <rect key="frame" x="41" y="9.5" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="IOX-6J-5dw"/>
+                                    <constraint firstAttribute="width" constant="23" id="lFB-lY-gGL"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtp-bO-7jr">
                                 <rect key="frame" x="5" y="40" width="96" height="20.5"/>
@@ -72,7 +80,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="72.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Relationship" translatesAutoresizingMaskIntoConstraints="NO" id="aDr-Ym-cdC">
-                                <rect key="frame" x="41.5" y="11" width="24" height="20"/>
+                                <rect key="frame" x="42" y="11" width="24" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5eR-P1-zdE"/>
+                                    <constraint firstAttribute="width" constant="24" id="6SM-2L-LeD"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1mI-PS-HuR">
                                 <rect key="frame" x="5" y="33" width="96.5" height="35"/>

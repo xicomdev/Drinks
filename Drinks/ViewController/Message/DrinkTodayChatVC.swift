@@ -31,7 +31,7 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.actionBtnBackPressed))
         self.navigationItem.leftBarButtonItem = btnLeftBar
         
-        let secondUserInfo =  (thread.threadMember.fullName!) + " " + (thread.threadMember.age.description)
+        let secondUserInfo =  (thread.threadMember.fullName!) + " " + "(\(thread.threadMember.age))"
         
         self.navTitle(title: secondUserInfo  as NSString , color: UIColor.black , font:  FontRegular(size: 17))
         

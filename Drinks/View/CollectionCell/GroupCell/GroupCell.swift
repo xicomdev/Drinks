@@ -44,7 +44,7 @@ class GroupCell: UICollectionViewCell {
         
         
         imgViewGroup.sd_setImage(with: URL(string: groupInfo.imageURL), placeholderImage: GroupPlaceHolder)
-        imgViewCreator.sd_setImage(with: URL(string: groupInfo.groupOwner.imageURL), placeholderImage: nil)
+        imgViewCreator.sd_setImage(with: URL(string: groupInfo.groupOwner.imageURL), placeholderImage: userPlaceHolder)
         let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
         lblOwnerInfo.text = strInfo
         
