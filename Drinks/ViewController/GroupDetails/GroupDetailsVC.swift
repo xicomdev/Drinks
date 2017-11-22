@@ -172,6 +172,17 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"GroupImageCell") as! GroupImageCell
+                if self.groupAction == .BeOffered {
+                    cell.imgvwGradient.isHidden = false
+                    cell.lblOfferedFrom.text = NSLocalizedString("Offered from ", comment: "") + groupInfo.groupOwner.fullName
+                }else if self.groupAction == .Offered {
+                    cell.imgvwGradient.isHidden = false
+                    cell.imgvwGradient.image = nil
+                    cell.lblOfferedFrom.text = NSLocalizedString("I just want to drink it", comment: "")
+                }else {
+                    cell.imgvwGradient.isHidden = true
+                    cell.lblOfferedFrom.isHidden = true
+                }
                 cell.callBackVC = {(action : GroupAction , image : Any ) in
                     if action == .BACK
                     {

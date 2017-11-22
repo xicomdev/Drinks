@@ -39,7 +39,7 @@ class GroupOwnerCell: UITableViewCell {
 //        
         
         userImage(imageView: imgViewOwner, user: groupInfo.groupOwner)
-        let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
+        let strInfo = groupInfo.groupOwner.fullName + "(\(groupInfo.groupOwner.age))" + " / " + groupInfo.groupOwner.job.engName
         lblGroupOwner.text = strInfo
         
     }

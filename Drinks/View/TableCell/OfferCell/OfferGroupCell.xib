@@ -163,7 +163,7 @@
                 <outlet property="lblNoOfPeople" destination="JPG-2u-TRN" id="JqO-pb-ccT"/>
                 <outlet property="lblTag" destination="Wl6-6I-THH" id="wWs-K1-jff"/>
             </connections>
-            <point key="canvasLocation" x="-714" y="-370"/>
+            <point key="canvasLocation" x="-714.5" y="-370.5"/>
         </tableViewCell>
     </objects>
     <resources>

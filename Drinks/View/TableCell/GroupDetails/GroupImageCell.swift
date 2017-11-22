@@ -11,6 +11,8 @@ import UIKit
 class GroupImageCell: UITableViewCell {
 
     
+    @IBOutlet weak var lblOfferedFrom: UILabel!
+    @IBOutlet weak var imgvwGradient: UIImageView!
     var group : Group? = nil
     @IBOutlet weak var lblTag: UILabel!
     var callBackVC: ((GroupAction , Any?)-> Void)? = nil
