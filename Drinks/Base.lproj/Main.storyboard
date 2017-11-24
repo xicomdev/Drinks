@@ -1099,63 +1099,63 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGF-wi-ho9">
-                                <rect key="frame" x="0.0" y="309" width="320" height="41.5"/>
+                                <rect key="frame" x="0.0" y="309" width="320" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4F-Ve-lyT">
-                                <rect key="frame" x="16" y="309" width="258" height="41.5"/>
+                                <rect key="frame" x="16" y="309" width="258" height="41"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0p-fF-kQa">
-                                <rect key="frame" x="16" y="309" width="288" height="41.5"/>
+                                <rect key="frame" x="16" y="309" width="288" height="41"/>
                                 <state key="normal" image="Next"/>
                                 <connections>
                                     <action selector="actionBtnSelectionPressed:" destination="5Ia-l0-BWt" eventType="touchUpInside" id="CSe-4q-NqQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Career" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuk-h6-lFL">
-                                <rect key="frame" x="16" y="366" width="288" height="18"/>
+                                <rect key="frame" x="16" y="365.5" width="288" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vED-63-8Vr">
-                                <rect key="frame" x="0.0" y="389.5" width="320" height="41.5"/>
+                                <rect key="frame" x="0.0" y="389" width="320" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qKS-ml-ZvW">
-                                <rect key="frame" x="16" y="389.5" width="258" height="41.5"/>
+                                <rect key="frame" x="16" y="389" width="258" height="41"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Al-WR-xB9">
-                                <rect key="frame" x="16" y="389.5" width="288" height="41.5"/>
+                                <rect key="frame" x="16" y="389" width="288" height="41"/>
                                 <state key="normal" image="Next"/>
                                 <connections>
                                     <action selector="actionBtnSelectionPressed:" destination="5Ia-l0-BWt" eventType="touchUpInside" id="Qwn-rn-xts"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Annual Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svS-tw-EUF">
-                                <rect key="frame" x="16" y="445.5" width="288" height="18"/>
+                                <rect key="frame" x="16" y="444" width="288" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oj5-Dc-ohO">
-                                <rect key="frame" x="0.0" y="468.5" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="467" width="320" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLn-ia-qQN">
-                                <rect key="frame" x="16" y="468.5" width="258" height="42"/>
+                                <rect key="frame" x="16" y="467" width="258" height="42"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-xc-4mG">
-                                <rect key="frame" x="16" y="468.5" width="288" height="42"/>
+                                <rect key="frame" x="16" y="467" width="288" height="42"/>
                                 <state key="normal" image="Next"/>
                                 <connections>
                                     <action selector="actionBtnSelectionPressed:" destination="5Ia-l0-BWt" eventType="touchUpInside" id="44M-VA-5Fv"/>
@@ -2027,16 +2027,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ig-yd-rrF" customClass="SetCornerButton" customModule="Drinks" customModuleProvider="target">
-                                <rect key="frame" x="10" y="84" width="300" height="280.5"/>
+                                <rect key="frame" x="10" y="79" width="300" height="290.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKr-yV-0nM" customClass="SetCornerButton" customModule="Drinks" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="225.5" width="240" height="45"/>
+                                        <rect key="frame" x="30" y="235.5" width="240" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ouk-rp-j5w"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Share Coupon Code">
+                                        <state key="normal" title="クーポンコードを共有する">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -2048,32 +2048,35 @@
                                             <action selector="btnShareCodeAction:" destination="8Yo-0H-91n" eventType="touchUpInside" id="JLQ-mJ-6y4"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8a-dG-CEe">
-                                        <rect key="frame" x="15" y="83.5" width="270" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8a-dG-CEe">
+                                        <rect key="frame" x="15" y="82" width="270" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite a friend, Give it to friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUd-ml-cKq">
-                                        <rect key="frame" x="15" y="8.5" width="270" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友人を招待すると、あなたと友人に" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUd-ml-cKq">
+                                        <rect key="frame" x="15" y="9.5" width="270" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 tickets gifts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZc-UM-V4O">
-                                        <rect key="frame" x="15" y="36.5" width="270" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10チケットプレゼント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZc-UM-V4O">
+                                        <rect key="frame" x="15" y="36.5" width="270" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABCDEFG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-KZ-afG">
-                                        <rect key="frame" x="95.5" y="183.5" width="110" height="22"/>
+                                        <rect key="frame" x="95.5" y="190" width="110" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="HzE-o9-89V"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         <color key="textColor" red="0.17254901959999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Your code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-vm-E0x">
-                                        <rect key="frame" x="115.5" y="157.5" width="70" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="あなたのコード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-vm-E0x">
+                                        <rect key="frame" x="96.5" y="164" width="108" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2091,7 +2094,7 @@
                                     <constraint firstItem="yZc-UM-V4O" firstAttribute="centerX" secondItem="8ig-yd-rrF" secondAttribute="centerX" id="ZOo-Uu-bOb"/>
                                     <constraint firstItem="E8a-dG-CEe" firstAttribute="leading" secondItem="8ig-yd-rrF" secondAttribute="leading" constant="15" id="a6Y-EB-OI3"/>
                                     <constraint firstItem="E8a-dG-CEe" firstAttribute="centerY" secondItem="8ig-yd-rrF" secondAttribute="centerY" constant="-30" id="jZC-n2-8xU"/>
-                                    <constraint firstItem="h6P-vm-E0x" firstAttribute="top" secondItem="E8a-dG-CEe" secondAttribute="bottom" constant="20" id="l7U-dd-ldr"/>
+                                    <constraint firstItem="h6P-vm-E0x" firstAttribute="top" secondItem="E8a-dG-CEe" secondAttribute="bottom" constant="15" id="l7U-dd-ldr"/>
                                     <constraint firstItem="aKr-yV-0nM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="O8L-KZ-afG" secondAttribute="bottom" constant="20" id="oDL-06-mSr"/>
                                     <constraint firstItem="E8a-dG-CEe" firstAttribute="top" secondItem="yZc-UM-V4O" secondAttribute="bottom" constant="20" id="rgQ-Fd-juU"/>
                                     <constraint firstItem="yZc-UM-V4O" firstAttribute="width" secondItem="E8a-dG-CEe" secondAttribute="width" id="tFn-oR-8Pz"/>
@@ -2111,7 +2114,7 @@
                                     <constraint firstAttribute="height" constant="45" id="dqN-jp-TEN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Use Coupon Code">
+                                <state key="normal" title="クーポンコードを使用する">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -2124,16 +2127,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STB-C8-lI7">
-                                <rect key="frame" x="105.5" y="528" width="109" height="30"/>
+                                <rect key="frame" x="131" y="528" width="58" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bzO-DA-9O4"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Terms of Service">
+                                        <fragment content="利用規約">
                                             <attributes>
                                                 <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
@@ -2144,8 +2147,8 @@
                                     <action selector="btnTermsAction:" destination="8Yo-0H-91n" eventType="touchUpInside" id="JMI-9D-9g6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oi-ZG-dPm">
-                                <rect key="frame" x="16" y="384.5" width="77" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コードを入力する" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oi-ZG-dPm">
+                                <rect key="frame" x="16" y="384.5" width="123" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2154,7 +2157,7 @@
                                 <rect key="frame" x="0.0" y="410.5" width="320" height="47.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Coupon code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ba9-N0-3cz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="クーポンコード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ba9-N0-3cz">
                                 <rect key="frame" x="16" y="410.5" width="288" height="47.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2195,7 +2198,7 @@
                         <constraints>
                             <constraint firstItem="STB-C8-lI7" firstAttribute="centerX" secondItem="spe-G1-SCz" secondAttribute="centerX" id="1Cy-rF-07L"/>
                             <constraint firstItem="GfE-Gp-T2H" firstAttribute="leading" secondItem="spe-G1-SCz" secondAttribute="leading" constant="40" id="1Fw-Q7-d5Q"/>
-                            <constraint firstItem="8ig-yd-rrF" firstAttribute="top" secondItem="11Q-RI-mtm" secondAttribute="bottom" constant="20" id="2Jl-Rs-qRg"/>
+                            <constraint firstItem="8ig-yd-rrF" firstAttribute="top" secondItem="11Q-RI-mtm" secondAttribute="bottom" constant="15" id="2Jl-Rs-qRg"/>
                             <constraint firstItem="ba9-N0-3cz" firstAttribute="height" secondItem="nR5-6j-yhy" secondAttribute="height" id="3jQ-vp-zoI"/>
                             <constraint firstItem="GfE-Gp-T2H" firstAttribute="top" secondItem="nR5-6j-yhy" secondAttribute="bottom" constant="15" id="4A4-iz-Uw1"/>
                             <constraint firstItem="8ig-yd-rrF" firstAttribute="leading" secondItem="spe-G1-SCz" secondAttribute="leading" constant="10" id="CYx-sV-nTF"/>
@@ -2215,7 +2218,7 @@
                             <constraint firstItem="nR5-6j-yhy" firstAttribute="height" secondItem="spe-G1-SCz" secondAttribute="height" multiplier="50:600" id="h7G-LF-nuK"/>
                             <constraint firstAttribute="trailing" secondItem="GfE-Gp-T2H" secondAttribute="trailing" constant="40" id="izI-8M-fK7"/>
                             <constraint firstItem="9oi-ZG-dPm" firstAttribute="leading" secondItem="spe-G1-SCz" secondAttribute="leading" constant="16" id="mhB-XE-cEg"/>
-                            <constraint firstItem="9oi-ZG-dPm" firstAttribute="top" secondItem="8ig-yd-rrF" secondAttribute="bottom" constant="20" id="n8i-2N-ueA"/>
+                            <constraint firstItem="9oi-ZG-dPm" firstAttribute="top" secondItem="8ig-yd-rrF" secondAttribute="bottom" constant="15" id="n8i-2N-ueA"/>
                             <constraint firstAttribute="trailing" secondItem="ba9-N0-3cz" secondAttribute="trailing" constant="16" id="nqh-4o-v4p"/>
                             <constraint firstItem="GfE-Gp-T2H" firstAttribute="centerX" secondItem="8ig-yd-rrF" secondAttribute="centerX" id="srH-r3-W0X"/>
                         </constraints>

@@ -57,8 +57,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         collectionFlowLayout.sectionInset = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
 
         
-        FBManager.sharedInstance.getFriendList { (isSuccess, response, strError) in
-        }
+        
         
         LoginManager.sharedInstance.getUserDetail{ (success, response, strError) in
         }
@@ -66,7 +65,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     }
     override func viewWillAppear(_ animated: Bool) {
         
-        
+        FBManager.sharedInstance.getFriendList()
         
         self.navigationController?.isNavigationBarHidden = false
         if !isFromNoRecruit {

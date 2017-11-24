@@ -87,40 +87,46 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
-      /*   let camera =  self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as! FilterVC
-        self.navigationController?.pushViewController(camera, animated: true)
- */
-       
-        FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
-            
-            if success == true{
-                if let dictFB = response as? Dictionary <String , Any>
-                {
-                    
-                    print(dictFB["id"] as! String)
-                   LoginManager.getMe.firstName = dictFB["first_name"] as! String
-                      LoginManager.getMe.lastName = dictFB["last_name"] as! String
-                      LoginManager.getMe.socialID = dictFB["id"] as! String
-                    LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
-                    LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
-                    
-                    
-                    if dictFB["gender"] as! String == "male"
+        let alert = UIAlertController(title: "Facebook Authentication", message: "We will access your birthday to complete your profile. Do you want to continue.", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+            FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
+                
+                if success == true{
+                    if let dictFB = response as? Dictionary <String , Any>
                     {
-                        LoginManager.getMe.myGender = Gender.Male
-
-                    }else{
                         
-                        LoginManager.getMe.myGender = Gender.Female
-
+                        print(dictFB["id"] as! String)
+                        LoginManager.getMe.firstName = dictFB["first_name"] as! String
+                        LoginManager.getMe.lastName = dictFB["last_name"] as! String
+                        LoginManager.getMe.socialID = dictFB["id"] as! String
+                        LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
+                        LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
+                        
+                        
+                        if dictFB["gender"] as! String == "male"
+                        {
+                            LoginManager.getMe.myGender = Gender.Male
+                            
+                        }else{
+                            
+                            LoginManager.getMe.myGender = Gender.Female
+                            
+                        }
+                        self.checkUserExists()
+                        
                     }
-                    self.checkUserExists()
-                    
+                }else{
+                    showAlert(title: "Drinks", message: strError!, controller: self)
                 }
-            }else{
-                showAlert(title: "Drinks", message: strError!, controller: self)
             }
         }
+        
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+       
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        self.present(alert, animated: true, completion: nil)
+        
     
     }
     

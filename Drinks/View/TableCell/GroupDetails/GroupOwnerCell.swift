@@ -10,8 +10,8 @@ import UIKit
 
 class GroupOwnerCell: UITableViewCell {
 
-    @IBOutlet weak var btnUserCount: UIButton!
-    @IBOutlet weak var btnAcceptedCount: UIButton!
+    @IBOutlet weak var btnFriendsCount: UIButton!
+    @IBOutlet weak var btnOffersCount: UIButton!
     @IBOutlet weak var lblGroupOwner: UILabel!
     
     var group : Group? = nil
@@ -40,6 +40,8 @@ class GroupOwnerCell: UITableViewCell {
         
         userImage(imageView: imgViewOwner, user: groupInfo.groupOwner)
         let strInfo = groupInfo.groupOwner.fullName + "(\(groupInfo.groupOwner.age))" + " / " + groupInfo.groupOwner.job.engName
+        btnOffersCount.setTitle(groupInfo.groupOwner.offersCount, for: .normal)
+        btnFriendsCount.setTitle(groupInfo.groupOwner.fbFriendsCount, for: .normal)
         lblGroupOwner.text = strInfo
         
     }

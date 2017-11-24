@@ -52,6 +52,7 @@ class User: NSObject,NSCoding
     var age : Int = 18
     var membershipStatus : String = ""
     var offersCount : String = "0"
+    var fbFriendsCount : String = "0"
     var myCredits : String = "0"
     var myCouponCode = ""
     var myGender : Gender = .Male
@@ -102,28 +103,37 @@ class User: NSObject,NSCoding
             self.age = strDOB.getAgeFromDOB()
         }
         
+        if let offers = dictLocal["offer_count"] as? String{
+            self.offersCount = offers
+        }else if let offers = dictLocal["offer_count"] as? Int{
+            self.offersCount = "\(offers)"
+        }
+        
+        if let friends = dictLocal["friends_count"] as? String{
+            self.fbFriendsCount = friends
+        }else if let friends = dictLocal["friends_count"] as? Int{
+            self.fbFriendsCount = "\(friends)"
+        }
         
         if let annualIncome = dictLocal["annual_income"] as? String{
-            
             self.annualIncome = annualIncome
- 
+        }else if let annualIncome = dictLocal["annual_income"] as? Int{
+            self.annualIncome = "\(annualIncome)"
         }
+        
         if let schoolCareer = dictLocal["school_career"] as? String{
-            
             self.schoolCareer = schoolCareer
-
         }
+        
         if let tabacoInfo = dictLocal["tabaco"] as? String
         {
-            
             self.tabaco = tabacoInfo
         }
         
         if let bloodType = dictLocal["blood_type"] as? String{
-           
             self.bloodGroup = bloodType
-            
         }
+        
         if let relationship = dictLocal["marriage"] as? String{
             self.relationship = relationship
         }
@@ -132,8 +142,6 @@ class User: NSObject,NSCoding
             
             //let date = lastLoginDateFormat.date(from: lastLogin)
             self.lastLogin = lastLogin
-            
-            
         }
         
         if let ageDocument = dictLocal["age_document"] as? String {
@@ -170,7 +178,18 @@ class User: NSObject,NSCoding
             self.DOB = dictLocal["dob"] as! String
             self.age = strDOB.getAgeFromDOB()
         }
-
+        
+        if let offers = dictLocal["offer_count"] as? String{
+            self.offersCount = offers
+        }else if let offers = dictLocal["offer_count"] as? Int{
+            self.offersCount = "\(offers)"
+        }
+        
+        if let friends = dictLocal["friends_count"] as? String{
+            self.fbFriendsCount = friends
+        }else if let friends = dictLocal["friends_count"] as? Int{
+            self.fbFriendsCount = "\(friends)"
+        }
         
         if let lastLogin = dictLocal["last_login"] as? String{
            // let date = lastLoginDateFormat.date(from: lastLogin)

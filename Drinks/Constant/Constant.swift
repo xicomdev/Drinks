@@ -116,6 +116,8 @@ let API_UpdateUserDetail  = "updateUserInfo"
 let API_UpdateNotifications = "updateNotificationInfo"
 let API_ageVerify = "updateAgeDocument"
 
+let API_UpdateFbFriends = "updateFacebookFriends"
+
 
 //MARK:- Apple Pay Merchant ID
 let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merchant ID here!

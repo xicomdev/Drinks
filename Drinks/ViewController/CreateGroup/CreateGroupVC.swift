@@ -376,7 +376,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 
             }else{
                 
-                    let cell = tableView.dequeueReusableCell(withIdentifier:"GroupInfoCell") as! GroupInfoCell
+                let cell = tableView.dequeueReusableCell(withIdentifier:"GroupInfoCell") as! GroupInfoCell
                 cell.groupCond =  group.groupConditions[indexPath.row]
 
                 
@@ -433,6 +433,20 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print(textView.text!.characters.count)
+        if text.characters.count == 0 {
+            return true
+        }else {
+            if textView.text!.characters.count == 500 || textView.text!.characters.count + text.characters.count > 500 {
+                showAlert(title: "Drinks", message: "Maximum characters limit reached.", controller: self)
+                return false
+            }else {
+                return true
+            }
+        }
+       
+    }
     
     
     func textViewDidBeginEditing(_ textView: UITextView) {

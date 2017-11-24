@@ -172,7 +172,9 @@ extension String
     public func getTimeFromDate () -> String {
         let formattr = DateFormatter()
         formattr.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formattr.timeZone = TimeZone(abbreviation: "UTC")
         let dt = formattr.date(from: self)
+        formattr.timeZone = TimeZone.current
         formattr.dateFormat = "hh:mm a"
         if dt != nil {
             return formattr.string(from: dt!)

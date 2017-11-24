@@ -81,32 +81,48 @@ class FBManager: NSObject  {
         
     }
     
-    func getFriendList(callBack:@escaping (Bool,AnyObject?,String?)->()) {
+    func getFriendList() {
         
-        let params : [String : Any] = ["fields": "id, first_name, last_name, name, email, picture"]
-    
+        let params : [String : Any] = ["fields": "id, name, email, picture"]
         
-        let graphRequest = FBSDKGraphRequest(graphPath: "/me/taggable_friends", parameters: params)
-
-   // let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
-    let connection = FBSDKGraphRequestConnection()
-    connection.add(graphRequest, completionHandler: { (connection, result, error) in
-    if error == nil {
-    if let userData = result as? [String:Any] {
-    print(userData)
         
-        callBack(true,userData as AnyObject?, nil)
+        let graphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params)
+        
+        let connection = FBSDKGraphRequestConnection()
+        connection.add(graphRequest, completionHandler: { (connection, result, error) in
+            if error == nil {
+                if let userData = result as? NSDictionary {
+                    let aryData = (userData)["data"] as! NSArray
+                    let aryFriends = NSMutableArray()
+                    for obj in aryData {
+                        let dict = obj as! NSDictionary
+                        let newDict = [
+                            "name": dict["name"] as! String,
+                            "id": dict["id"] as! String,
+                            "image" : dict.value(forKeyPath: "picture.data.url") as! String
+                        ]
+                        aryFriends.add(newDict)
+                    }
+                    if let objectData = try? JSONSerialization.data(withJSONObject: aryFriends, options: JSONSerialization.WritingOptions(rawValue: 0)) {
+                        let objectString = String(data: objectData, encoding: .utf8)
 
-    }
-    } else {
-
-    print("Error Getting Friends \(error)");
-    }
-    
-    })
-    
-    connection.start()
-    
+                        let param = ["friends_list":objectString!]
+                    
+                        HTTPRequest.sharedInstance().postRequest(urlLink: API_UpdateFbFriends, paramters: param, handler: { (flag, response, errorStr) in
+                            print(flag)
+                        })
+                    
+                    }
+                }
+            } else {
+                
+                print("Error Getting Friends \(error)");
+            }
+            
+        })
+        
+        connection.start()
+        
     }
   
     
