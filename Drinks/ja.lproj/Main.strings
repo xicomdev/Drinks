@@ -1,49 +1,53 @@
 
-"1oB-nZ-doY.text" = "Age";
+"fYE-hD-aIV.normalTitle" = "Facebookで始める";
+
+"vDE-Nc-oO8.text" = "Facebookには一切投稿されません。";
+
+"1oB-nZ-doY.text" = "年齢";
 
 "1rP-7C-ZJJ.text" = "Tickets";
 
-"27O-dp-P2f.text" = "Name";
+"27O-dp-P2f.text" = "お名前";
 
 "2sH-aD-Hxm.text" = "2. Profile";
 
 "4Ag-HI-uRW.text" = "Now i can consume tickets and become a paid memeber on a special day";
 
-"4yc-CK-M8k.text" = "Settings";
+"4yc-CK-M8k.text" = "設定";
 
-"5EQ-Se-IGm.normalTitle" = "Save";
+"5EQ-Se-IGm.normalTitle" = "保存";
 
-"5H0-3i-u7V.text" = "Birthday";
+"5H0-3i-u7V.text" = "誕生日";
 
 "5MU-zA-k3g.normalTitle" = "Send";
 
-"5W4-0F-Onk.text" = "Required";
+"5W4-0F-Onk.text" = "必須";
 
 "5re-tZ-Ax8.text" = "Driver's licence";
 
 "62F-hd-Wsh.text" = "10";
 
-"6Mx-bk-JLq.text" = "London (10 km)";
+"6Mx-bk-JLq.text" = "London";
 
-"7bU-Pt-viz.text" = "Occupation";
+"7bU-Pt-viz.text" = "職業";
 
-"7ce-ND-fdT.text" = "Matching opponent and message";
+"7ce-ND-fdT.text" = "マッチングした相手とメッセージ";
 
 "8Lg-J3-7CV.normalTitle" = "Become paid member for 1 day";
 
-"8Zh-eH-L6Y.title" = "Offers";
+"8Zh-eH-L6Y.title" = "飲みたい";
 
 "90P-EO-6b6.text" = "There are no remaining tickets, please purchase a new ticket";
 
-"9oi-ZG-dPm.text" = "Enter Code";
+"9oi-ZG-dPm.text" = "コードを入力する";
 
-"BNz-yN-brP.normalTitle" = "Terms of Use";
+"BNz-yN-brP.normalTitle" = "利用規約";
 
 "BPg-68-3Ag.normalTitle" = "Skip";
 
 "BxC-ZY-ifp.text" = "Please shoot from just above in a bright so that 4 pieces of information can be seen.";
 
-"CrU-s6-vP8.text" = "Occupation";
+"CrU-s6-vP8.text" = "職業";
 
 "D2b-05-at5.normalTitle" = "Send";
 
@@ -55,20 +59,23 @@
 
 "DdY-uS-9E1.selectedTitle" = "Drink Today";
 
-"E8a-dG-CEe.text" = "When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets.";
+"E8a-dG-CEe.text" = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。";
 
 "ELc-Q5-3sY.text" = "2. Birth Date";
 
+"EcT-d9-tnZ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
-"Ehc-ac-BQv.text" = "x1 0";
+"Ehc-ac-BQv.text" = "x 10";
 
-"Fuo-e4-5zT.text" = "Age";
+"Elv-VC-f4N.text" = "年齢認証";
+
+"Fuo-e4-5zT.text" = "年齢";
 
 "GMR-e7-vfB.text" = "Only when you are looking for a drinking partner you can invite your opponent. Recruit and let'd like to drink again.";
 
 "GZD-oE-thP.normalTitle" = "Use code";
 
-"GfE-Gp-T2H.normalTitle" = "Use Coupon Code";
+"GfE-Gp-T2H.normalTitle" = "クーポンコードを使用する";
 
 "GlW-W2-pW1.normalTitle" = "Add";
 
@@ -86,13 +93,13 @@
 
 "Ihp-Kb-1o7.text" = "25";
 
-"IpY-Mj-UNS.text" = "School Career";
+"IpY-Mj-UNS.text" = "学歴";
 
 "J23-Yq-acX.text" = "Regular Member";
 
 "J4k-Ay-1xF.text" = "10 tickets allow you to become a paid member for 1 day. Let' go drinking with a wonderful group drinking near you toninght.";
 
-"Jct-bM-yUT.text" = "Marriage History";
+"Jct-bM-yUT.text" = "結婚歴";
 
 "JmG-AG-4dm.text" = "1 Credit";
 
@@ -100,25 +107,25 @@
 
 "Kne-Zh-Res.text" = "Gender";
 
-"LhY-b8-2SK.text" = "Birthday";
+"LhY-b8-2SK.text" = "誕生日";
 
 "MOb-Id-Ga9.normalTitle" = "Upload";
 
-"MWB-Ss-uxy.text" = "Tabaco";
+"MWB-Ss-uxy.text" = "タバコ";
 
 "Mex-yO-Qqq.text" = "Status";
 
-"Noj-ns-bJb.text" = "What you can do as a paid member";
+"Noj-ns-bJb.text" = "有料会員になるとできること";
 
 "O8L-KZ-afG.text" = "ABCDEFG";
 
 "OBv-SV-E37.normalTitle" = "Send";
 
-"OFF-59-qa2.text" = "Purchase Tickets";
+"OFF-59-qa2.text" = "チケット購入";
 
 "OGk-hb-3A8.text" = "Reason";
 
-"P1M-dc-KRW.text" = "Tabaco";
+"P1M-dc-KRW.text" = "タバコ";
 
 "P4c-fw-HA2.text" = "Age confirmation is required for user safety.";
 
@@ -126,7 +133,7 @@
 
 "P8u-6W-Tra.text" = "+ 10";
 
-"PCP-nF-VkP.text" = "Required";
+"PCP-nF-VkP.text" = "必須";
 
 "PGc-W0-WjR.text" = "A drinking party was established";
 
@@ -134,29 +141,33 @@
 
 "PiT-ck-19o.placeholder" = "Coupon code";
 
-"Pj6-XM-ldN.text" = "Preview you posted";
+"Pj6-XM-ldN.text" = "自分の募集をプレビュー";
 
-"Pqm-cs-VKJ.normalTitle" = "Filter";
+"Pqm-cs-VKJ.normalTitle" = "絞り込み";
 
-"Pqm-cs-VKJ.selectedTitle" = "Filter";
+"Pqm-cs-VKJ.selectedTitle" = "絞り込み";
+
+"Puh-Oe-HYe.text" = "Label";
 
 "Q4K-gq-AXL.placeholder" = "YYYY/MM/YY";
 
 "QNE-ee-gkb.text" = "Paid Member oppotunities!";
 
+"QX6-MD-q4Z.normalTitle" = "キャンセル";
+
 "Qoi-V7-U51.normalTitle" = "Skip";
 
-"R2k-tD-n2G.text" = "Message exchange can be used when registering for paid members!";
+"R2k-tD-n2G.text" = "有料会員に登録するとメッセージ交換が利用できます！";
 
-"SVS-5n-CaS.text" = "Help";
+"SVS-5n-CaS.text" = "ヘルプ";
 
-"SX6-sJ-isu.title" = "My Page";
+"SX6-sJ-isu.title" = "マイページ";
 
 "SbZ-Tx-SUm.text" = "Others, identification document issued by govt. agencies can also be used (My number cards are not allowed)";
 
 "StF-1a-1Ov.text" = "Have a referal code?";
 
-"T1H-wT-sde.placeholder" = "Select blood type";
+"T1H-wT-sde.placeholder" = "血液型の選択";
 
 "TgI-kN-bfm.normalTitle" = "Be Offered";
 
@@ -166,13 +177,13 @@
 
 "UGG-Oh-BfL.text" = "Developer";
 
-"UWG-B2-eMd.normalTitle" = "Sort";
+"UWG-B2-eMd.normalTitle" = "絞り込み";
 
-"UWG-B2-eMd.selectedTitle" = "Sort";
+"UWG-B2-eMd.selectedTitle" = "絞り込み";
 
 "Ufp-Yy-78c.placeholder" = "Select marriage history";
 
-"Uuk-h6-lFL.text" = "School Career";
+"Uuk-h6-lFL.text" = "学歴";
 
 "VER-9k-8Qf.placeholder" = "Select Option";
 
@@ -184,25 +195,27 @@
 
 "XwT-h1-BXs.text" = "Terms";
 
-"Y3p-Yn-CMs.text" = "Warning text would be here";
+"Y3p-Yn-CMs.text" = "18歳未満の方や独身でない方はご登録いただけません";
 
 "YXM-ed-4Jy.text" = "Version 0.1";
 
 "Ydp-dG-fL1.text" = "tickets";
 
-"a8m-St-0K9.text" = "Blood Type";
+"a8m-St-0K9.text" = "血液型";
 
 "aEL-Ef-Pdw.placeholder" = "Select Option";
 
-"aKr-yV-0nM.normalTitle" = "Share Coupon Code";
+"aKr-yV-0nM.normalTitle" = "クーポンコードを共有する";
 
-"afw-mK-bkV.text" = "Filter";
+"afw-mK-bkV.text" = "表示設定";
+
+"amG-sn-Xqg.normalTitle" = "Upload";
 
 "b1h-O7-wWg.text" = "Date";
 
-"b8K-yH-bYt.text" = "Required";
+"b8K-yH-bYt.text" = "必須";
 
-"b9f-SX-0qV.normalTitle" = "Privacy policy";
+"b9f-SX-0qV.normalTitle" = "プライバシーポリシー";
 
 "bCP-Lo-cpT.text" = "!. Name";
 
@@ -210,9 +223,9 @@
 
 "bEY-Uc-VsW.selectedTitle" = "Offered";
 
-"bNk-l5-4tj.text" = "Paid Members";
+"bNk-l5-4tj.text" = "有料会員";
 
-"ba9-N0-3cz.placeholder" = "Coupon code";
+"ba9-N0-3cz.placeholder" = "クーポンコード";
 
 "bis-dD-BZQ.placeholder" = "Enter your DOB";
 
@@ -222,33 +235,33 @@
 
 "cd5-Gp-Dh5.text" = "Please mention your reason with details";
 
-"ceX-LR-Rcx.normalTitle" = "Save";
+"ceX-LR-Rcx.normalTitle" = "保存";
 
 "dE8-sP-ECr.text" = "error";
 
-"dGk-w6-CZk.title" = "Search";
+"dGk-w6-CZk.title" = "探す";
 
-"dUz-rb-HFt.text" = "Blood Type";
+"dUz-rb-HFt.text" = "血液型";
 
-"dWt-6G-jqC.text" = "Required";
+"dWt-6G-jqC.text" = "必須";
+
+"dxk-lZ-3wJ.normalTitle" = "画像をアップロード";
 
 "e4B-96-SRp.text" = "Your report has been submitted.";
 
 "eW8-U7-y9z.placeholder" = "Select marriage history";
 
-"f8x-95-5D4.title" = "Message";
+"f8x-95-5D4.title" = "メッセージ";
 
 "fN3-Qc-Pdo.text" = "Ankit (25)";
 
 "fQH-8b-SFZ.text" = "Age confirmation is usually completed within 24 hours. Upon completion, the result will be notified by notification in the application";
 
-"fYE-hD-aIV.normalTitle" = "Facebook login";
-
 "fml-H9-PmU.text" = "4. Name of Publisher";
 
 "g4F-Ve-lyT.placeholder" = "Select Option";
 
-"gGD-WO-QYa.text" = "Group tag";
+"gGD-WO-QYa.text" = "My Treat";
 
 "gLn-ia-qQN.placeholder" = "Select Option";
 
@@ -256,41 +269,41 @@
 
 "gZ8-jQ-kjk.selectedTitle" = "History";
 
-"h6P-vm-E0x.text" = "Your code";
+"h6P-vm-E0x.text" = "あなたのコード";
 
 "ihv-SW-CDa.text" = "Remaining Tickets";
 
 "ilt-Vt-1QO.text" = "There are no remaining tickets, please purchase a new ticket";
 
-"irU-Sj-z7c.text" = "Required";
+"irU-Sj-z7c.text" = "必須";
 
-"iub-vL-xcB.text" = "Help";
+"iub-vL-xcB.text" = "プロフィール";
 
 "izs-1X-tvK.text" = "20";
 
-"jRT-sa-vtm.text" = "No group found!";
+"jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません";
 
 "jaC-vT-CYC.text" = "Notifications";
 
 "k2U-xa-Lve.normalTitle" = "Recruit";
 
-"lNg-d0-Q4g.text" = "Name";
+"lNg-d0-Q4g.text" = "お名前";
 
-"lUd-ml-cKq.text" = "Invite a friend, Give it to friend";
+"lUd-ml-cKq.text" = "友人を招待すると、あなたと友人に";
 
-"lbB-9Z-G88.text" = "Lets go drinking with a nice group drinking near you";
+"lbB-9Z-G88.text" = "アナタの近くで飲んでいるステキなグループと飲みに行こう";
 
 "leZ-BJ-hBq.text" = "Let's invite after recruiting";
 
-"mRS-sg-m93.text" = "Annual Income";
+"mRS-sg-m93.text" = "年収";
 
 "nQI-bd-CQD.text" = "No offer found!";
 
-"nhd-tT-T17.text" = "Filter";
+"nhd-tT-T17.text" = "絞り込み";
 
 "oCA-yL-Zrh.text" = "error";
 
-"oEA-AP-ibO.placeholder" = "Select blood type";
+"oEA-AP-ibO.placeholder" = "血液型の選択";
 
 "oEO-Of-70o.text" = "First of all find a group that is drinking nearby and try inviting.";
 
@@ -298,7 +311,7 @@
 
 "pAj-8O-1Rt.text" = "1. Prepare one target docoument";
 
-"pYP-aS-pcb.text" = "Filter";
+"pYP-aS-pcb.text" = "絞り込み";
 
 "qKS-ml-ZvW.placeholder" = "Select Option";
 
@@ -308,11 +321,11 @@
 
 "s9R-gV-g1Q.placeholder" = "Enter your name";
 
-"svS-tw-EUF.text" = "Annual Income";
+"svS-tw-EUF.text" = "年収";
 
 "tBz-mx-ugr.placeholder" = "Select Option";
 
-"tJW-Ub-rHk.text" = "Required";
+"tJW-Ub-rHk.text" = "必須";
 
 "vLe-hN-gTC.placeholder" = "Enter your name";
 
@@ -320,7 +333,7 @@
 
 "vuy-MW-E4F.normalTitle" = "Close up";
 
-"wh5-Rn-xRr.text" = "Age verification";
+"wh5-Rn-xRr.text" = "年齢認証";
 
 "wx5-G1-9HY.normalTitle" = "Submit";
 
@@ -328,14 +341,17 @@
 
 "xNP-CJ-J9x.text" = "2. Shoot a document";
 
-"xg1-5Z-8uP.normalTitle" = "Cancel";
+"xba-h3-f7h.text" = "年齢認証";
+
+"xg1-5Z-8uP.normalTitle" = "キャンセル";
 
 "xyF-9F-8OY.text" = "3 persons";
 
-"yZc-UM-V4O.text" = "10 tickets gifts";
+"yZc-UM-V4O.text" = "10チケットプレゼント";
 
-"z8h-eZ-h3u.text" = "Marriage History";
+"z8h-eZ-h3u.text" = "結婚歴";
 
 "zDT-Ct-iCi.text" = "Basic resident register card";
 
 "zNH-Tu-lHj.normalTitle" = "Close up";
+

@@ -35,8 +35,8 @@
 /* Class = "UILabel"; text = "10"; ObjectID = "62F-hd-Wsh"; */
 "62F-hd-Wsh.text" = "10";
 
-/* Class = "UILabel"; text = "London (10 km)"; ObjectID = "6Mx-bk-JLq"; */
-"6Mx-bk-JLq.text" = "London (10 km)";
+/* Class = "UILabel"; text = "London"; ObjectID = "6Mx-bk-JLq"; */
+"6Mx-bk-JLq.text" = "London";
 
 /* Class = "UILabel"; text = "Occupation"; ObjectID = "7bU-Pt-viz"; */
 "7bU-Pt-viz.text" = "Occupation";
@@ -53,8 +53,8 @@
 /* Class = "UILabel"; text = "There are no remaining tickets, please purchase a new ticket"; ObjectID = "90P-EO-6b6"; */
 "90P-EO-6b6.text" = "There are no remaining tickets, please purchase a new ticket";
 
-/* Class = "UILabel"; text = "Enter Code"; ObjectID = "9oi-ZG-dPm"; */
-"9oi-ZG-dPm.text" = "Enter Code";
+/* Class = "UILabel"; text = "コードを入力する"; ObjectID = "9oi-ZG-dPm"; */
+"9oi-ZG-dPm.text" = "コードを入力する";
 
 /* Class = "UIButton"; normalTitle = "Terms of Use"; ObjectID = "BNz-yN-brP"; */
 "BNz-yN-brP.normalTitle" = "Terms of Use";
@@ -83,8 +83,8 @@
 /* Class = "UIButton"; selectedTitle = "Drink Today"; ObjectID = "DdY-uS-9E1"; */
 "DdY-uS-9E1.selectedTitle" = "Drink Today";
 
-/* Class = "UILabel"; text = "When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets."; ObjectID = "E8a-dG-CEe"; */
-"E8a-dG-CEe.text" = "When you invite a friend, register as a member and enter a coupon code, i will give you 10 tickets.";
+/* Class = "UILabel"; text = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。"; ObjectID = "E8a-dG-CEe"; */
+"E8a-dG-CEe.text" = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。";
 
 /* Class = "UILabel"; text = "2. Birth Date"; ObjectID = "ELc-Q5-3sY"; */
 "ELc-Q5-3sY.text" = "2. Birth Date";
@@ -92,8 +92,11 @@
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "EcT-d9-tnZ"; */
 "EcT-d9-tnZ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
-/* Class = "UILabel"; text = "x1 0"; ObjectID = "Ehc-ac-BQv"; */
-"Ehc-ac-BQv.text" = "x1 0";
+/* Class = "UILabel"; text = "x 10"; ObjectID = "Ehc-ac-BQv"; */
+"Ehc-ac-BQv.text" = "x 10";
+
+/* Class = "UILabel"; text = "Age verification"; ObjectID = "Elv-VC-f4N"; */
+"Elv-VC-f4N.text" = "Age verification";
 
 /* Class = "UILabel"; text = "Age"; ObjectID = "Fuo-e4-5zT"; */
 "Fuo-e4-5zT.text" = "Age";
@@ -104,8 +107,8 @@
 /* Class = "UIButton"; normalTitle = "Use code"; ObjectID = "GZD-oE-thP"; */
 "GZD-oE-thP.normalTitle" = "Use code";
 
-/* Class = "UIButton"; normalTitle = "Use Coupon Code"; ObjectID = "GfE-Gp-T2H"; */
-"GfE-Gp-T2H.normalTitle" = "Use Coupon Code";
+/* Class = "UIButton"; normalTitle = "クーポンコードを使用する"; ObjectID = "GfE-Gp-T2H"; */
+"GfE-Gp-T2H.normalTitle" = "クーポンコードを使用する";
 
 /* Class = "UIButton"; normalTitle = "Add"; ObjectID = "GlW-W2-pW1"; */
 "GlW-W2-pW1.normalTitle" = "Add";
@@ -212,11 +215,17 @@
 /* Class = "UIButton"; selectedTitle = "Filter"; ObjectID = "Pqm-cs-VKJ"; */
 "Pqm-cs-VKJ.selectedTitle" = "Filter";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "Puh-Oe-HYe"; */
+"Puh-Oe-HYe.text" = "Label";
+
 /* Class = "UITextField"; placeholder = "YYYY/MM/YY"; ObjectID = "Q4K-gq-AXL"; */
 "Q4K-gq-AXL.placeholder" = "YYYY/MM/YY";
 
 /* Class = "UILabel"; text = "Paid Member oppotunities!"; ObjectID = "QNE-ee-gkb"; */
 "QNE-ee-gkb.text" = "Paid Member oppotunities!";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "QX6-MD-q4Z"; */
+"QX6-MD-q4Z.normalTitle" = "Cancel";
 
 /* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "Qoi-V7-U51"; */
 "Qoi-V7-U51.normalTitle" = "Skip";
@@ -278,14 +287,14 @@
 /* Class = "UILabel"; text = "Terms"; ObjectID = "XwT-h1-BXs"; */
 "XwT-h1-BXs.text" = "Terms";
 
-/* Class = "UILabel"; text = "Warning text would be here"; ObjectID = "Y3p-Yn-CMs"; */
-"Y3p-Yn-CMs.text" = "Warning text would be here";
+/* Class = "UILabel"; text = "Those under 18 and those who are not single can not register."; ObjectID = "Y3p-Yn-CMs"; */
+"Y3p-Yn-CMs.text" = "Those under 18 and those who are not single can not register.";
 
 /* Class = "UILabel"; text = "Version 0.1"; ObjectID = "YXM-ed-4Jy"; */
 "YXM-ed-4Jy.text" = "Version 0.1";
 
 /* Class = "UILabel"; text = "tickets"; ObjectID = "Ydp-dG-fL1"; */
-"Ydp-dG-fL1.text" = "tickets";
+"Ydp-dG-fL1.text" = "チケット";
 
 /* Class = "UILabel"; text = "Blood Type"; ObjectID = "a8m-St-0K9"; */
 "a8m-St-0K9.text" = "Blood Type";
@@ -293,11 +302,14 @@
 /* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "aEL-Ef-Pdw"; */
 "aEL-Ef-Pdw.placeholder" = "Select Option";
 
-/* Class = "UIButton"; normalTitle = "Share Coupon Code"; ObjectID = "aKr-yV-0nM"; */
-"aKr-yV-0nM.normalTitle" = "Share Coupon Code";
+/* Class = "UIButton"; normalTitle = "クーポンコードを共有する"; ObjectID = "aKr-yV-0nM"; */
+"aKr-yV-0nM.normalTitle" = "クーポンコードを共有する";
 
 /* Class = "UILabel"; text = "Filter"; ObjectID = "afw-mK-bkV"; */
-"afw-mK-bkV.text" = "Filter";
+"afw-mK-bkV.text" = "Display Setting";
+
+/* Class = "UIButton"; normalTitle = "Upload"; ObjectID = "amG-sn-Xqg"; */
+"amG-sn-Xqg.normalTitle" = "Upload";
 
 /* Class = "UILabel"; text = "Date"; ObjectID = "b1h-O7-wWg"; */
 "b1h-O7-wWg.text" = "Date";
@@ -320,8 +332,8 @@
 /* Class = "UILabel"; text = "Paid Members"; ObjectID = "bNk-l5-4tj"; */
 "bNk-l5-4tj.text" = "Paid Members";
 
-/* Class = "UITextField"; placeholder = "Coupon code"; ObjectID = "ba9-N0-3cz"; */
-"ba9-N0-3cz.placeholder" = "Coupon code";
+/* Class = "UITextField"; placeholder = "クーポンコード"; ObjectID = "ba9-N0-3cz"; */
+"ba9-N0-3cz.placeholder" = "クーポンコード";
 
 /* Class = "UITextField"; placeholder = "Enter your DOB"; ObjectID = "bis-dD-BZQ"; */
 "bis-dD-BZQ.placeholder" = "Enter your DOB";
@@ -350,6 +362,9 @@
 /* Class = "UILabel"; text = "Required"; ObjectID = "dWt-6G-jqC"; */
 "dWt-6G-jqC.text" = "Required";
 
+/* Class = "UIButton"; normalTitle = "Update Document"; ObjectID = "dxk-lZ-3wJ"; */
+"dxk-lZ-3wJ.normalTitle" = "Update Document";
+
 /* Class = "UILabel"; text = "Your report has been submitted."; ObjectID = "e4B-96-SRp"; */
 "e4B-96-SRp.text" = "Your report has been submitted.";
 
@@ -374,8 +389,8 @@
 /* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "g4F-Ve-lyT"; */
 "g4F-Ve-lyT.placeholder" = "Select Option";
 
-/* Class = "UILabel"; text = "Group tag"; ObjectID = "gGD-WO-QYa"; */
-"gGD-WO-QYa.text" = "Group tag";
+/* Class = "UILabel"; text = "My Treat"; ObjectID = "gGD-WO-QYa"; */
+"gGD-WO-QYa.text" = "My Treat";
 
 /* Class = "UITextField"; placeholder = "Select Option"; ObjectID = "gLn-ia-qQN"; */
 "gLn-ia-qQN.placeholder" = "Select Option";
@@ -386,11 +401,11 @@
 /* Class = "UIButton"; selectedTitle = "History"; ObjectID = "gZ8-jQ-kjk"; */
 "gZ8-jQ-kjk.selectedTitle" = "History";
 
-/* Class = "UILabel"; text = "Your code"; ObjectID = "h6P-vm-E0x"; */
-"h6P-vm-E0x.text" = "Your code";
+/* Class = "UILabel"; text = "あなたのコード"; ObjectID = "h6P-vm-E0x"; */
+"h6P-vm-E0x.text" = "あなたのコード";
 
 /* Class = "UILabel"; text = "Remaining Tickets"; ObjectID = "ihv-SW-CDa"; */
-"ihv-SW-CDa.text" = "Remaining Tickets";
+"ihv-SW-CDa.text" = "残チケット";
 
 /* Class = "UILabel"; text = "There are no remaining tickets, please purchase a new ticket"; ObjectID = "ilt-Vt-1QO"; */
 "ilt-Vt-1QO.text" = "There are no remaining tickets, please purchase a new ticket";
@@ -399,7 +414,7 @@
 "irU-Sj-z7c.text" = "Required";
 
 /* Class = "UILabel"; text = "Help"; ObjectID = "iub-vL-xcB"; */
-"iub-vL-xcB.text" = "Help";
+"iub-vL-xcB.text" = "Profile";
 
 /* Class = "UILabel"; text = "20"; ObjectID = "izs-1X-tvK"; */
 "izs-1X-tvK.text" = "20";
@@ -416,8 +431,8 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "lNg-d0-Q4g"; */
 "lNg-d0-Q4g.text" = "Name";
 
-/* Class = "UILabel"; text = "Invite a friend, Give it to friend"; ObjectID = "lUd-ml-cKq"; */
-"lUd-ml-cKq.text" = "Invite a friend, Give it to friend";
+/* Class = "UILabel"; text = "友人を招待すると、あなたと友人に"; ObjectID = "lUd-ml-cKq"; */
+"lUd-ml-cKq.text" = "友人を招待すると、あなたと友人に";
 
 /* Class = "UILabel"; text = "Lets go drinking with a nice group drinking near you"; ObjectID = "lbB-9Z-G88"; */
 "lbB-9Z-G88.text" = "Lets go drinking with a nice group drinking near you";
@@ -456,7 +471,7 @@
 "qKS-ml-ZvW.placeholder" = "Select Option";
 
 /* Class = "UILabel"; text = "I want to drink partner with tickets! Appeal or be a paid member for 1 day"; ObjectID = "rJF-PG-xN6"; */
-"rJF-PG-xN6.text" = "I want to drink partner with tickets! Appeal or be a paid member for 1 day";
+"rJF-PG-xN6.text" = "チケットで相手に飲みたい！アピールをしたり、１日有料会員になれます。";
 
 /* Class = "UILabel"; text = "Coupon"; ObjectID = "rmk-J2-03J"; */
 "rmk-J2-03J.text" = "Coupon";
@@ -472,6 +487,9 @@
 
 /* Class = "UILabel"; text = "Required"; ObjectID = "tJW-Ub-rHk"; */
 "tJW-Ub-rHk.text" = "Required";
+
+/* Class = "UILabel"; text = "It will not be posted o facebook at all."; ObjectID = "vDE-Nc-oO8"; */
+"vDE-Nc-oO8.text" = "It will not be posted o facebook at all.";
 
 /* Class = "UITextField"; placeholder = "Enter your name"; ObjectID = "vLe-hN-gTC"; */
 "vLe-hN-gTC.placeholder" = "Enter your name";
@@ -494,14 +512,17 @@
 /* Class = "UILabel"; text = "2. Shoot a document"; ObjectID = "xNP-CJ-J9x"; */
 "xNP-CJ-J9x.text" = "2. Shoot a document";
 
+/* Class = "UILabel"; text = "Age verification"; ObjectID = "xba-h3-f7h"; */
+"xba-h3-f7h.text" = "Age verification";
+
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "xg1-5Z-8uP"; */
 "xg1-5Z-8uP.normalTitle" = "Cancel";
 
 /* Class = "UILabel"; text = "3 persons"; ObjectID = "xyF-9F-8OY"; */
 "xyF-9F-8OY.text" = "3 persons";
 
-/* Class = "UILabel"; text = "10 tickets gifts"; ObjectID = "yZc-UM-V4O"; */
-"yZc-UM-V4O.text" = "10 tickets gifts";
+/* Class = "UILabel"; text = "10チケットプレゼント"; ObjectID = "yZc-UM-V4O"; */
+"yZc-UM-V4O.text" = "10チケットプレゼント";
 
 /* Class = "UILabel"; text = "Marriage History"; ObjectID = "z8h-eZ-h3u"; */
 "z8h-eZ-h3u.text" = "Marriage History";

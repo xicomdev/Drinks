@@ -146,7 +146,7 @@ let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#ima
 
 var aryNotification = ["When I recieved an offer","When matching","When I got a message","Notice"]
 
-var arySettings = [["Logout","Help","Opinions", "Inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
+var arySettings = [["Logout","Help","Opinions・Inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
 
 var aryHelp = ["What is Drinks","In order to use with confidence","Violation report response policy","How to raise the matching rate","About withdrawal"]
 

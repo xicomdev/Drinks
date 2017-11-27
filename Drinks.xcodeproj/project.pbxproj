@@ -241,8 +241,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		250D0F6F1FA0A15E004D3FEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		250D0F711FA0B40A004D3FEF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		250680F21FCC3E3200B5250F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		250680F31FCC3E3600B5250F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		25298EBC1F8E4FB70089361A /* MatchedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedVC.swift; sourceTree = "<group>"; };
 		25325DE11F8C90D9002BA465 /* current.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = current.gpx; sourceTree = "<group>"; };
 		25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecruitVC.swift; sourceTree = "<group>"; };
@@ -2133,8 +2133,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				639954381F29AAC90025E9C6 /* Base */,
-				250D0F6F1FA0A15E004D3FEF /* en */,
-				250D0F711FA0B40A004D3FEF /* ja */,
+				250680F21FCC3E3200B5250F /* en */,
+				250680F31FCC3E3600B5250F /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

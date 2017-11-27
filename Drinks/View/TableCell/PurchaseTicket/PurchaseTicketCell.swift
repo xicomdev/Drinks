@@ -27,6 +27,7 @@ class PurchaseTicketCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        btnBuy.setTitle(NSLocalizedString("Buy", comment: ""), for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,7 +39,7 @@ class PurchaseTicketCell: UITableViewCell {
     func assignMember(ticket : Ticket)
     {
         self.ticket = ticket
-        lblPrice.text = "¥\(NSNumber(value: ticket.amount))"
+        lblPrice.text = "¥\(Int(ticket.amount))"
         lblName.text = ticket.engName
     }
     

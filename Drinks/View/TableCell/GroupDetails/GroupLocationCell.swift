@@ -32,7 +32,8 @@ class GroupLocationCell: UITableViewCell {
         {
             setNoOfMembers(groups: (group?.groupConditions)!, label: self.lblMemberCount, relation:(group?.relationship)!)
             let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
-            lblLocation.text = firstLoc! + "\n(\(NSNumber(value: (group?.distance)!))km)"
+            let distanceStr = String(format: "%.2f", (group?.distance)!)
+            lblLocation.text = firstLoc! + "\n(\(distanceStr)km)"
             
             if group?.groupBy == .Other
             {

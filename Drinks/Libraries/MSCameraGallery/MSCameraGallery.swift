@@ -303,7 +303,7 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -456,7 +456,7 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
             self.dismiss(animated: true, completion: nil)
         }
         

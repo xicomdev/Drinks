@@ -40,7 +40,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         let btnRightBar:UIBarButtonItem =  UIBarButtonItem.init(image:UIImage(named: "FilterOption"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.actionBtnDonePressed))
         
         self.navigationItem.rightBarButtonItem = btnRightBar
-        self.navTitle(title:"Search" , color: UIColor.black , font:  FontRegular(size: 17))
+        self.navTitle(title: NSLocalizedString("Search", comment: "") as NSString , color: UIColor.black , font:  FontRegular(size: 17))
         
         
 //        let nibHeader = UINib(nibName: "MyGroupsHeader", bundle: nil)

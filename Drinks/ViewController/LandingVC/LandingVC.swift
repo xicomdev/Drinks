@@ -41,8 +41,8 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         scrlViewImages.decelerationRate = UIScrollViewDecelerationRateNormal;
         scrlViewImages.contentSize = CGSize(width: scrlWidth*4, height: scrlHeight)
         
-        btnPrivacyPolicy.underlineButton(text: "Privacy policy", font: FontRegular(size: 14))
-        btnTermsOfUse.underlineButton(text: "Terms of use", font: FontRegular(size: 14))
+        btnPrivacyPolicy.underlineButton(text: NSLocalizedString("Privacy policy", comment: ""), font: FontRegular(size: 14))
+        btnTermsOfUse.underlineButton(text: NSLocalizedString("Terms of use", comment: ""), font: FontRegular(size: 14))
        
         
         let firstImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrlWidth, height: scrlHeight))

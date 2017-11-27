@@ -148,7 +148,7 @@ func actionSheet(btnArray : [String] , cancel : Bool , destructive : Int  ,  con
     
     if cancel == true{
         
-        let actionNew: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let actionNew: UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
             handler(false, -1)
         }
         actionSheetController.addAction(actionNew)

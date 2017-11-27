@@ -20,7 +20,7 @@ class PaidMemberCell: UITableViewCell {
     @IBOutlet weak var lblPlanDuration: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        btnBuy.setTitle(NSLocalizedString("Buy", comment: ""), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,8 +32,14 @@ class PaidMemberCell: UITableViewCell {
     func assignMember(plan : PremiumPlan)
     {
         self.plan = plan
-        lblPlanPrice.text = "¥\(NSNumber(value: plan.amount))/mon"
-        lblDiscount.text = "¥\(NSNumber(value: plan.discount)) discount!"
+        if plan.engName.contains("day") || plan.engName.contains("Day") || plan.engName.contains("Days") || plan.engName.contains("days"){
+            btnBuy.setTitle(NSLocalizedString("Exchange", comment: ""), for: .normal)
+            lblPlanPrice.text = "¥\(Int(plan.amount))/\(NSLocalizedString("day", comment: ""))"
+        }else {
+            btnBuy.setTitle(NSLocalizedString("Buy", comment: ""), for: .normal)
+            lblPlanPrice.text = "¥\(Int(plan.amount))/\(NSLocalizedString("mon", comment: ""))"
+        }
+        lblDiscount.text = "¥\(NSNumber(value: plan.discount)) \(NSLocalizedString("discount!", comment: ""))"
         lblPopulartyNo.text = plan.planDescription
         lblPlanDuration.text = plan.engName
     }

@@ -27,7 +27,7 @@ class MapVC: UIViewController,MKMapViewDelegate {
         self.navigationItem.hidesBackButton = true
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(MapVC.btnCrossAction))
         
-        let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MapVC.actionBtnDonePressed))
+        let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("Save", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(MapVC.actionBtnDonePressed))
         
         self.navigationItem.rightBarButtonItem = btnRightBar
         self.navigationItem.leftBarButtonItem = btnLeftBar

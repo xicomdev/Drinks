@@ -14,7 +14,7 @@
 "When I got a message"="メッセージをもらった時";
 "Notice"="お知らせ";
 "Logout"="ログアウト";
-"Opinions"="ご意見";
+"Opinions・Inquiries"="ご意見・お問合せ";
 "Inquiries"="お問合せ";
 "Review Drinks"="drinksをレビューする";
 "Terms of Service"="利用規約";
@@ -31,7 +31,7 @@
 "Please enter coupon code."="クーポンコードを入力してください。";
 "You can not use your own coupon"="自分のクーポンは使用できません";
 "Commercial Transaction"="商業取引";
-"When in trouble"="トラブル時に";
+"When in trouble"="困った時は";
 "Other"="その他";
 "Please enter user name."="お名前を入力してください";
 "Please select your occupation."="職業を入力してください";
@@ -51,7 +51,7 @@
 "Select job option"="職業を選択してください";
 "Age"="年齢";
 "Select age range"="年齢を選択してください";
-"Relationship"="Relationship";
+"Relationship"="関係性";
 "Select Relationship"="メンバーとの関係性を選択";
 "Income"="収入";
 "Select income option."="収入を選択";
@@ -76,6 +76,8 @@
 "Marriage History"="結婚歴";
 "Tabbaco"="タバコ";
 "School Career"="スクールキャリア";
+"Buy"="購入";
+
 "Please select one occupation first."="最初に1つの職業を選択してください。";
 "Please select one option first."="最初に一つのオプションを選択してください。";
 "Male"="男性";
@@ -84,7 +86,13 @@
 "Enter description here"="ここに説明を入力";
 "Edit Group"="編集グループ";
 "Create Group"="グループの作成";
-"Number Of People"="人々の数";
+"Number Of People"="人数";
 "Relation"="関係";
 "I just want to drink it"="私はただそれを飲みたい";
 "Offered from "="提供元";
+"Search"="探す";
+"discount!"="お得！";
+"months"="ヶ月";
+"mon"="月";
+"Exchange"="交換";
+"day"="日";

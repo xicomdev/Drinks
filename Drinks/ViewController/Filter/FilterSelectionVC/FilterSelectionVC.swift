@@ -33,7 +33,7 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnBackPressed))
         
-        let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnDonePressed))
+        let btnRightBar:UIBarButtonItem = UIBarButtonItem.init(title: NSLocalizedString("Save", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionVC.actionBtnDonePressed))
         
         self.navigationItem.rightBarButtonItem = btnRightBar
         self.navigationItem.leftBarButtonItem = btnLeftBar
