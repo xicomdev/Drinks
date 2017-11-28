@@ -36,13 +36,16 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
         datePicker.datePickerMode = UIDatePickerMode.date
         // previousDate
         
-        let minimumDate = (Date() as? NSDate)?.addingYears(-18)
-        datePicker.setDate(minimumDate!, animated: false)
+//        let minimumDate = (Date() as? NSDate)?.addingYears(-18)
+//        datePicker.setDate(minimumDate!, animated: false)
+//
+//        txtDOB.text = dateFormatter.string(from: minimumDate!)
+//        lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
+//        LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
+//        LoginManager.getMe.DOB = txtDOB.text!
         
-        txtDOB.text = dateFormatter.string(from: minimumDate!)
-        lblAge.text = "\(txtDOB.text!.getAgeFromDOB())"
-        LoginManager.getMe.age = txtDOB.text!.getAgeFromDOB()
-        LoginManager.getMe.DOB = txtDOB.text!
+        txtDOB.text = LoginManager.getMe.DOB
+        lblAge.text = "\(LoginManager.getMe.DOB.getAgeFromDOB())"
         
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         txtDOB.inputView = datePicker

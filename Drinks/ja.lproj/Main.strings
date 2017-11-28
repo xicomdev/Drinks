@@ -5,7 +5,7 @@
 
 "1oB-nZ-doY.text" = "年齢";
 
-"1rP-7C-ZJJ.text" = "Tickets";
+"1rP-7C-ZJJ.text" = "チケット";
 
 "27O-dp-P2f.text" = "お名前";
 
@@ -39,7 +39,7 @@
 
 "90P-EO-6b6.text" = "There are no remaining tickets, please purchase a new ticket";
 
-"9oi-ZG-dPm.text" = "コードを入力する";
+"9oi-ZG-dPm.text" = "友人のクーポンコードを入力";
 
 "BNz-yN-brP.normalTitle" = "利用規約";
 
@@ -55,11 +55,11 @@
 
 "DVj-Vn-UG9.normalTitle" = "Find an Opponent";
 
-"DdY-uS-9E1.normalTitle" = "Drink Today";
+"DdY-uS-9E1.normalTitle" = "今日飲める";
 
-"DdY-uS-9E1.selectedTitle" = "Drink Today";
+"DdY-uS-9E1.selectedTitle" = "今日飲める";
 
-"E8a-dG-CEe.text" = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。";
+"E8a-dG-CEe.text" = "なたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。";
 
 "ELc-Q5-3sY.text" = "2. Birth Date";
 
@@ -75,7 +75,7 @@
 
 "GZD-oE-thP.normalTitle" = "Use code";
 
-"GfE-Gp-T2H.normalTitle" = "クーポンコードを使用する";
+"GfE-Gp-T2H.normalTitle" = "クーポンコードを使う";
 
 "GlW-W2-pW1.normalTitle" = "Add";
 
@@ -113,7 +113,7 @@
 
 "MWB-Ss-uxy.text" = "タバコ";
 
-"Mex-yO-Qqq.text" = "Status";
+"Mex-yO-Qqq.text" = "ステータス";
 
 "Noj-ns-bJb.text" = "有料会員になるとできること";
 
@@ -169,9 +169,9 @@
 
 "T1H-wT-sde.placeholder" = "血液型の選択";
 
-"TgI-kN-bfm.normalTitle" = "Be Offered";
+"TgI-kN-bfm.normalTitle" = "相手から";
 
-"TgI-kN-bfm.selectedTitle" = "Be Offered";
+"TgI-kN-bfm.selectedTitle" = "相手から";
 
 "TkX-X7-yeI.text" = "3. Send";
 
@@ -187,7 +187,7 @@
 
 "VER-9k-8Qf.placeholder" = "Select Option";
 
-"Vcv-fF-Fwa.text" = "Offers";
+"Vcv-fF-Fwa.text" = "飲みたいされた";
 
 "WDJ-ni-Irp.normalTitle" = "Submit";
 
@@ -199,13 +199,13 @@
 
 "YXM-ed-4Jy.text" = "Version 0.1";
 
-"Ydp-dG-fL1.text" = "tickets";
+"Ydp-dG-fL1.text" = "チケット";
 
 "a8m-St-0K9.text" = "血液型";
 
 "aEL-Ef-Pdw.placeholder" = "Select Option";
 
-"aKr-yV-0nM.normalTitle" = "クーポンコードを共有する";
+"aKr-yV-0nM.normalTitle" = "コードをシェアする";
 
 "afw-mK-bkV.text" = "表示設定";
 
@@ -219,13 +219,13 @@
 
 "bCP-Lo-cpT.text" = "!. Name";
 
-"bEY-Uc-VsW.normalTitle" = "Offered";
+"bEY-Uc-VsW.normalTitle" = "自分から";
 
-"bEY-Uc-VsW.selectedTitle" = "Offered";
+"bEY-Uc-VsW.selectedTitle" = "自分から";
 
 "bNk-l5-4tj.text" = "有料会員";
 
-"ba9-N0-3cz.placeholder" = "クーポンコード";
+"ba9-N0-3cz.placeholder" = "クーポンコードを入力して下さい";
 
 "bis-dD-BZQ.placeholder" = "Enter your DOB";
 
@@ -265,13 +265,13 @@
 
 "gLn-ia-qQN.placeholder" = "Select Option";
 
-"gZ8-jQ-kjk.normalTitle" = "History";
+"gZ8-jQ-kjk.normalTitle" = "履歴";
 
-"gZ8-jQ-kjk.selectedTitle" = "History";
+"gZ8-jQ-kjk.selectedTitle" = "履歴";
 
 "h6P-vm-E0x.text" = "あなたのコード";
 
-"ihv-SW-CDa.text" = "Remaining Tickets";
+"ihv-SW-CDa.text" = "残チケット";
 
 "ilt-Vt-1QO.text" = "There are no remaining tickets, please purchase a new ticket";
 
@@ -283,7 +283,7 @@
 
 "jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません";
 
-"jaC-vT-CYC.text" = "Notifications";
+"jaC-vT-CYC.text" = "通知";
 
 "k2U-xa-Lve.normalTitle" = "Recruit";
 
@@ -317,7 +317,7 @@
 
 "rJF-PG-xN6.text" = "I want to drink partner with tickets! Appeal or be a paid member for 1 day";
 
-"rmk-J2-03J.text" = "Coupon";
+"rmk-J2-03J.text" = "クーポン";
 
 "s9R-gV-g1Q.placeholder" = "Enter your name";
 
@@ -329,7 +329,7 @@
 
 "vLe-hN-gTC.placeholder" = "Enter your name";
 
-"vkf-YO-yU6.text" = "No message thread found";
+"vkf-YO-yU6.text" = "今日はまだマッチングしていません\nマッチングしたら飲む場所を決めよう";
 
 "vuy-MW-E4F.normalTitle" = "Close up";
 

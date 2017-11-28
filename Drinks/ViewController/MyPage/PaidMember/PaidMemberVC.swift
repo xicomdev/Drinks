@@ -82,8 +82,27 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
  
     func makePayment(getPlan: PremiumPlan){
-        
-        ApplePayManager.sharedInstance.paymentVCForPremiumPlan(controller: self, plan: getPlan)
+        if  getPlan.amount > 0.0 {
+            ApplePayManager.sharedInstance.paymentVCForPremiumPlan(controller: self, plan: getPlan)
+        }else {
+            PurchaseFreePlan(getPlan)
+        }
+    }
+    
+    func PurchaseFreePlan(_ plan:PremiumPlan) {
+        let params = [
+            "plan_id":plan.planID
+        ]
+        SwiftLoader.show(true)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_BuySelectedPlan, paramters: params) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            if isSuccess
+            {
+                self.navigationController!.popViewController(animated: true)
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
     }
     
 }

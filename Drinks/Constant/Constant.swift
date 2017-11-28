@@ -126,15 +126,15 @@ let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merch
 let userDefaults = UserDefaults.standard
 
 let arrayBlood = ["A+", "B+", "AB+" , "O+", "O-" ]
-let arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]
-let arrayToabacco = ["ABC", "DEF", "GHI" , "JKL", "MNO" ]
-let arraySchool = ["Middle", "Graduate", "Master" , "Ph.d"]
-let arrayIncome = ["$ 1000 - 3000", "$ 3000 - 5000", "$ 5000 - 8000" , "$ 8000 - 15000" , "$ 15000 +"]
+var arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]
+var arrayToabacco = ["ABC", "DEF", "GHI" , "JKL", "MNO" ]
+var arraySchool = ["Middle", "Graduate", "Master" , "Ph.d"]
+var arrayIncome = ["$ 1000 - 3000", "$ 3000 - 5000", "$ 5000 - 8000" , "$ 8000 - 15000" , "$ 15000 +"]
 
 let arrayDistance : [Int] = [10, 20, 30 , 40 , 50 , 100]
 
 let arrayAge : [String] = ["20 - 25", "26 - 30", "31 - 35" , "36 - 40" , "41 - 45"]
-let arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
+var arrayRelations : [String] = ["Collegues","School Friends","College Friends","Family", "Open"]
 
 let arrayPeople : [Int] = [1, 2, 3 , 4 , 5]
 var arrayMsgs = [("HEllo",0),("Hii",1)]

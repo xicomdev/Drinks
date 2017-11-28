@@ -23,7 +23,7 @@ class FBManager: NSObject  {
     override init() {
         
        // super.init()
-        self.permissions = ["public_profile","email","user_friends"]
+        self.permissions = ["public_profile","email","user_friends","user_birthday"]
         self.loginManager = FBSDKLoginManager()
         
     }
@@ -91,6 +91,7 @@ class FBManager: NSObject  {
         let connection = FBSDKGraphRequestConnection()
         connection.add(graphRequest, completionHandler: { (connection, result, error) in
             if error == nil {
+                print(result as! NSDictionary)
                 if let userData = result as? NSDictionary {
                     let aryData = (userData)["data"] as! NSArray
                     let aryFriends = NSMutableArray()

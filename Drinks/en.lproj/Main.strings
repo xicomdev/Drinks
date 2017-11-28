@@ -54,7 +54,7 @@
 "90P-EO-6b6.text" = "There are no remaining tickets, please purchase a new ticket";
 
 /* Class = "UILabel"; text = "コードを入力する"; ObjectID = "9oi-ZG-dPm"; */
-"9oi-ZG-dPm.text" = "コードを入力する";
+"9oi-ZG-dPm.text" = "Enter friend's coupon code";
 
 /* Class = "UIButton"; normalTitle = "Terms of Use"; ObjectID = "BNz-yN-brP"; */
 "BNz-yN-brP.normalTitle" = "Terms of Use";
@@ -84,7 +84,7 @@
 "DdY-uS-9E1.selectedTitle" = "Drink Today";
 
 /* Class = "UILabel"; text = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。"; ObjectID = "E8a-dG-CEe"; */
-"E8a-dG-CEe.text" = "あなたの招待した友人が会員登録を行い、クーポンコードを入力すると、あなたと友人に10チケットづつプレゼントします。";
+"E8a-dG-CEe.text" = "When a friend invited by you enters a member registration and enters a coupon code, we will give 10 tickets to you and a friend for 10 tickets.";
 
 /* Class = "UILabel"; text = "2. Birth Date"; ObjectID = "ELc-Q5-3sY"; */
 "ELc-Q5-3sY.text" = "2. Birth Date";
@@ -108,7 +108,7 @@
 "GZD-oE-thP.normalTitle" = "Use code";
 
 /* Class = "UIButton"; normalTitle = "クーポンコードを使用する"; ObjectID = "GfE-Gp-T2H"; */
-"GfE-Gp-T2H.normalTitle" = "クーポンコードを使用する";
+"GfE-Gp-T2H.normalTitle" = "Use coupon code";
 
 /* Class = "UIButton"; normalTitle = "Add"; ObjectID = "GlW-W2-pW1"; */
 "GlW-W2-pW1.normalTitle" = "Add";
@@ -303,7 +303,7 @@
 "aEL-Ef-Pdw.placeholder" = "Select Option";
 
 /* Class = "UIButton"; normalTitle = "クーポンコードを共有する"; ObjectID = "aKr-yV-0nM"; */
-"aKr-yV-0nM.normalTitle" = "クーポンコードを共有する";
+"aKr-yV-0nM.normalTitle" = "Share the code";
 
 /* Class = "UILabel"; text = "Filter"; ObjectID = "afw-mK-bkV"; */
 "afw-mK-bkV.text" = "Display Setting";
@@ -333,7 +333,7 @@
 "bNk-l5-4tj.text" = "Paid Members";
 
 /* Class = "UITextField"; placeholder = "クーポンコード"; ObjectID = "ba9-N0-3cz"; */
-"ba9-N0-3cz.placeholder" = "クーポンコード";
+"ba9-N0-3cz.placeholder" = "Please enter the coupon code";
 
 /* Class = "UITextField"; placeholder = "Enter your DOB"; ObjectID = "bis-dD-BZQ"; */
 "bis-dD-BZQ.placeholder" = "Enter your DOB";
@@ -402,10 +402,10 @@
 "gZ8-jQ-kjk.selectedTitle" = "History";
 
 /* Class = "UILabel"; text = "あなたのコード"; ObjectID = "h6P-vm-E0x"; */
-"h6P-vm-E0x.text" = "あなたのコード";
+"h6P-vm-E0x.text" = "your code";
 
 /* Class = "UILabel"; text = "Remaining Tickets"; ObjectID = "ihv-SW-CDa"; */
-"ihv-SW-CDa.text" = "残チケット";
+"ihv-SW-CDa.text" = "Remaining Tickets";
 
 /* Class = "UILabel"; text = "There are no remaining tickets, please purchase a new ticket"; ObjectID = "ilt-Vt-1QO"; */
 "ilt-Vt-1QO.text" = "There are no remaining tickets, please purchase a new ticket";
@@ -432,7 +432,7 @@
 "lNg-d0-Q4g.text" = "Name";
 
 /* Class = "UILabel"; text = "友人を招待すると、あなたと友人に"; ObjectID = "lUd-ml-cKq"; */
-"lUd-ml-cKq.text" = "友人を招待すると、あなたと友人に";
+"lUd-ml-cKq.text" = "Invite a friend, Give it to friend";
 
 /* Class = "UILabel"; text = "Lets go drinking with a nice group drinking near you"; ObjectID = "lbB-9Z-G88"; */
 "lbB-9Z-G88.text" = "Lets go drinking with a nice group drinking near you";
@@ -522,7 +522,7 @@
 "xyF-9F-8OY.text" = "3 persons";
 
 /* Class = "UILabel"; text = "10チケットプレゼント"; ObjectID = "yZc-UM-V4O"; */
-"yZc-UM-V4O.text" = "10チケットプレゼント";
+"yZc-UM-V4O.text" = "10 tickets gifts";
 
 /* Class = "UILabel"; text = "Marriage History"; ObjectID = "z8h-eZ-h3u"; */
 "z8h-eZ-h3u.text" = "Marriage History";

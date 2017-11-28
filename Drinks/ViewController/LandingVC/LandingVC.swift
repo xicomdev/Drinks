@@ -101,7 +101,16 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                         LoginManager.getMe.socialID = dictFB["id"] as! String
                         LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
                         LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
-                        
+                        if let birthday = dictFB["birthday"] as? String
+                        {
+                            if birthday != "" {
+                                let formttr = DateFormatter()
+                                formttr.dateFormat = "dd/MM/yyyy"
+                                let dt = formttr.date(from: birthday)
+                                LoginManager.getMe.DOB = dateFormatter.string(from: dt!)
+                                LoginManager.getMe.age = LoginManager.getMe.DOB.getAgeFromDOB()
+                            }
+                        }
                         
                         if dictFB["gender"] as! String == "male"
                         {
@@ -111,6 +120,12 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                             
                             LoginManager.getMe.myGender = Gender.Female
                             
+                        }
+                        if LoginManager.getMe.DOB != "" {
+                            if LoginManager.getMe.age < 18 {
+                                showAlert(title: "Drinks", message: "Your age is less than 18.\nSo you can not login to Drinks.", controller: self)
+                                return
+                            }
                         }
                         self.checkUserExists()
                         

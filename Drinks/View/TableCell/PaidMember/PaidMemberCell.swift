@@ -34,13 +34,17 @@ class PaidMemberCell: UITableViewCell {
         self.plan = plan
         if plan.engName.contains("day") || plan.engName.contains("Day") || plan.engName.contains("Days") || plan.engName.contains("days"){
             btnBuy.setTitle(NSLocalizedString("Exchange", comment: ""), for: .normal)
-            lblPlanPrice.text = "¥\(Int(plan.amount))/\(NSLocalizedString("day", comment: ""))"
+            lblPlanPrice.text = plan.planDescription
+            lblDiscount.isHidden = true
+            lblPopulartyNo.isHidden = true
         }else {
             btnBuy.setTitle(NSLocalizedString("Buy", comment: ""), for: .normal)
             lblPlanPrice.text = "¥\(Int(plan.amount))/\(NSLocalizedString("mon", comment: ""))"
+            lblDiscount.text = "¥\(NSNumber(value: plan.discount)) \(NSLocalizedString("discount!", comment: ""))"
+            lblPopulartyNo.text = plan.planDescription
+            lblDiscount.isHidden = false
+            lblPopulartyNo.isHidden = false
         }
-        lblDiscount.text = "¥\(NSNumber(value: plan.discount)) \(NSLocalizedString("discount!", comment: ""))"
-        lblPopulartyNo.text = plan.planDescription
         lblPlanDuration.text = plan.engName
     }
     

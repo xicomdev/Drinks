@@ -82,8 +82,8 @@ class Job: NSObject,NSCoding {
     
     class func saveJobListing()
     {
-       if  defaults.object(forKey: stateLocal) as? NSData == nil
-        {
+//       if  defaults.object(forKey: stateLocal) as? NSData == nil
+//        {
             HTTPRequest.sharedInstance().getRequest(urlLink: API_GetJobs, paramters: nil) { (isSuccess, response, strError) in
                 if isSuccess{
                     if let response = response as? [String: Any]
@@ -98,10 +98,76 @@ class Job: NSObject,NSCoding {
                             arrState.append(state)
                         }
                         defaults.set(NSKeyedArchiver.archivedData(withRootObject: arrState), forKey: stateLocal)
+                        
+                        if let marriageAry = response["marriage_types"] as? [NSDictionary] {
+                            if marriageAry.count > 0 {
+                                arrayMarriage = []
+                                for dict in marriageAry {
+                                    if Locale.preferredLanguages[0].contains("en") {
+                                        arrayMarriage.append(dict["eng_name"] as! String)
+                                    }else {
+                                        arrayMarriage.append(dict["jap_name"] as! String)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if let educationAry = response["education_types"] as? [NSDictionary] {
+                            if educationAry.count > 0 {
+                                arraySchool = []
+                                for dict in educationAry {
+                                    if Locale.preferredLanguages[0].contains("en") {
+                                        arraySchool.append(dict["eng_name"] as! String)
+                                    }else {
+                                        arraySchool.append(dict["jap_name"] as! String)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if let relationAry = response["relationship_types"] as? [NSDictionary] {
+                            if relationAry.count > 0 {
+                                arrayRelations = []
+                                for dict in relationAry {
+                                    if Locale.preferredLanguages[0].contains("en") {
+                                        arrayRelations.append(dict["eng_name"] as! String)
+                                    }else {
+                                        arrayRelations.append(dict["jap_name"] as! String)
+                                    }
+                                }
+                            }
+                        }
+                        
+
+                        if let salaryAry = response["salary_types"] as? [NSDictionary] {
+                            if salaryAry.count > 0 {
+                                arrayIncome = []
+                                for dict in salaryAry {
+                                    if Locale.preferredLanguages[0].contains("en") {
+                                        arrayIncome.append(dict["eng_name"] as! String)
+                                    }else {
+                                        arrayIncome.append(dict["jap_name"] as! String)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if let tobacoAry = response["tobacco_types"] as? [NSDictionary] {
+                            if tobacoAry.count > 0 {
+                                arrayToabacco = []
+                                for dict in tobacoAry {
+                                    if Locale.preferredLanguages[0].contains("en") {
+                                        arrayToabacco.append(dict["eng_name"] as! String)
+                                    }else {
+                                        arrayToabacco.append(dict["jap_name"] as! String)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
+//        }
     }
 
 
