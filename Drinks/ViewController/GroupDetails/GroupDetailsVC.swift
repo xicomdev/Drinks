@@ -293,7 +293,7 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             }else if indexPath.row == 3
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"InfoCell") as! InfoCell
-                cell.lblRelation.text = groupInfo.relationship
+                cell.lblRelation.text = NSLocalizedString("Today's Members", comment: "")
                 cell.showTopLabel()
                 return cell
             }else

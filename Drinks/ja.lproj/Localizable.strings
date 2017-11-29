@@ -45,6 +45,7 @@
 "Cancel"="キャンセル";
 "Place"="場所";
 "Select place option"="場所を選択してください";
+"Select place order"="距離を指定";
 "No. of people"="人数";
 "Select people option"="人を選択するオプション";
 "Job"="職業";
@@ -73,11 +74,12 @@
 "Select school career"="学校のキャリアを選択";
 "Occupation"="職業";
 "Blood type"="血液型";
+"Blood Type"="血液型";
 "Marriage History"="結婚歴";
 "Tabbaco"="タバコ";
-"School Career"="スクールキャリア";
+"Tobacco"="タバコ";
+"School Career"="年収";
 "Buy"="購入";
-
 "Please select one occupation first."="最初に1つの職業を選択してください。";
 "Please select one option first."="最初に一つのオプションを選択してください。";
 "Male"="男性";
@@ -96,3 +98,23 @@
 "mon"="月";
 "Exchange"="交換";
 "day"="日";
+"Offers"="オファー";
+"Last Login"="最終ログイン";
+"Ascending"="近い順";
+"Descending"="遠い順";
+"Select offer's count order"="オファーの数を指定";
+"Select age order"="年齢を指定";
+"Select last login order"="最終ログインを指定";
+"Annual Income"="年収";
+"My Treat"="おごります";
+"Please mention your reason."="内容を入力してください";
+"Closer order"="近い順";
+"In order of distance"="遠い順";
+"Most to least"="多い順";
+"Less in order"="少ない順";
+"High to low"="高い順";
+"Low to high"="低から高";
+"Oldest first"="古い順";
+"Clear"="クリア";
+"Filter"="絞り込む";
+"Today's Members"="今日のメンバー";

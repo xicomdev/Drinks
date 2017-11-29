@@ -16,6 +16,7 @@
 		254DFB231F94E4B7000A5F26 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DFB221F94E4B7000A5F26 /* Notifications.swift */; };
 		25517E1E1FA1F62C00D12379 /* PreviewVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25517E1D1FA1F62C00D12379 /* PreviewVerificationVC.swift */; };
 		25517E201FA1F64E00D12379 /* VerifiedImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25517E1F1FA1F64E00D12379 /* VerifiedImageVC.swift */; };
+		25554DD31FCE9D1D00E97783 /* WithdrawalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25554DD21FCE9D1D00E97783 /* WithdrawalVC.swift */; };
 		2577842D1F960A800080D4E5 /* GenericPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577842C1F960A800080D4E5 /* GenericPageVC.swift */; };
 		63172EDD1F69519C00244656 /* MyGroupsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63172EDB1F69519C00244656 /* MyGroupsHeader.swift */; };
 		63172EDE1F69519C00244656 /* MyGroupsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63172EDC1F69519C00244656 /* MyGroupsHeader.xib */; };
@@ -254,6 +255,7 @@
 		25517E1C1FA1C7D600D12379 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		25517E1D1FA1F62C00D12379 /* PreviewVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVerificationVC.swift; sourceTree = "<group>"; };
 		25517E1F1FA1F64E00D12379 /* VerifiedImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedImageVC.swift; sourceTree = "<group>"; };
+		25554DD21FCE9D1D00E97783 /* WithdrawalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalVC.swift; sourceTree = "<group>"; };
 		2577842C1F960A800080D4E5 /* GenericPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPageVC.swift; sourceTree = "<group>"; };
 		28310189AE8D10068DE27C82 /* Pods-Drinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Drinks/Pods-Drinks.debug.xcconfig"; sourceTree = "<group>"; };
 		39126632B3EAD34DD60FB518 /* Pods-DrinksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksUITests/Pods-DrinksUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1084,6 +1086,7 @@
 				63B824401F5D657200BA9F62 /* Settings */,
 				63B824421F5D657200BA9F62 /* UpdateProfile */,
 				2577842C1F960A800080D4E5 /* GenericPageVC.swift */,
+				25554DD21FCE9D1D00E97783 /* WithdrawalVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1983,6 +1986,7 @@
 				63A995171F349F69005DDFA4 /* GroupCell.swift in Sources */,
 				63D158FA1F5E6AC50089BEC9 /* VideoRecordingManager.m in Sources */,
 				635E18F01F7CD3D900CF7307 /* ApplePayManager.swift in Sources */,
+				25554DD31FCE9D1D00E97783 /* WithdrawalVC.swift in Sources */,
 				63B8244D1F5D657200BA9F62 /* PaidMemberVC.swift in Sources */,
 				637AFFA91F3C872C00235578 /* Helper.swift in Sources */,
 				639954DB1F29B8E90025E9C6 /* User.swift in Sources */,

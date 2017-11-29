@@ -21,6 +21,7 @@ class ProfileGroupOwnerCell: UITableViewCell {
         
         imgViewOwner.cornerRadius(value: imgViewOwner.frame.size.width/2)
         lblTag.cornerRadius(value:10)
+        lblTag.text = NSLocalizedString("My Treat", comment: "")
         // Initialization code
     }
 

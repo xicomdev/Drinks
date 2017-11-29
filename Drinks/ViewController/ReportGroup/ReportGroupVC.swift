@@ -13,7 +13,7 @@ class ReportGroupVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     var group : Group!
     
     var delegate : MSProtocolCallback? = nil
-    let placeHolder = "Please mention your reason."
+    let placeHolder = NSLocalizedString("Please mention your reason.", comment: "")
     @IBOutlet var btnSend: UIButton!
     @IBOutlet var txtDate: UITextField!
     @IBOutlet var txtViewReason: UITextView!
@@ -28,7 +28,7 @@ class ReportGroupVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         let btnLeftBar:UIBarButtonItem = UIBarButtonItem.init(image:UIImage(named: "backIcon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ReportGroupVC.actionBtnBackPressed))
         
         self.navigationItem.leftBarButtonItem = btnLeftBar
-        self.navTitle(title: "Report" as NSString  , color: UIColor.black , font:  FontRegular(size: 19))
+        self.navTitle(title: NSLocalizedString("Report", comment: "") as NSString  , color: UIColor.black , font:  FontRegular(size: 19))
 
         
         
@@ -131,7 +131,7 @@ class ReportGroupVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
         
         if txtViewReason.text == placeHolder || (txtViewReason.text).checkIsEmpty()
         {
-            showAlert(title: "Drinks" , message: "Please mention your reason first.", controller: self)
+            showAlert(title: "Drinks" , message: NSLocalizedString("Please mention your reason.", comment: ""), controller: self)
         }else{
             
             self.view.endEditing(true)

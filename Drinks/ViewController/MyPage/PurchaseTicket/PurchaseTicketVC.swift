@@ -14,7 +14,7 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tblVwTicketPlans: UITableView!
     @IBOutlet weak var tblHeightConst: NSLayoutConstraint!
 
-    var arySettings = ["Privacy Policy","Terms of service"]
+    var arySettings = ["Privacy policy","Terms of Service"]
     var aryTickets = [Ticket]()
 
     override func viewDidLoad() {

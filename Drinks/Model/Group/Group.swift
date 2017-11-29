@@ -349,27 +349,27 @@ class Group: NSObject {
         }
         
         var sortValues = ""
-        if sortInfo.Place == "Ascending"{
+        if sortInfo.Place == "Closer order"{
             sortValues = sortValues + "distance_asc"
-        }else if sortInfo.Place == "Descending" {
+        }else if sortInfo.Place == "In order of distance" {
             sortValues = sortValues + ", distance_desc"
         }
         
-        if sortInfo.age == "Ascending"{
+        if sortInfo.age == "High to low"{
             sortValues = sortValues + ", age_asc"
-        }else if sortInfo.age == "Descending" {
+        }else if sortInfo.age == "Low to high" {
             sortValues = sortValues + ", age_desc"
         }
         
-        if sortInfo.Offers == "Ascending"{
+        if sortInfo.Offers == "Most to least"{
             sortValues = sortValues + ", offer_asc"
-        }else if sortInfo.Offers == "Descending" {
+        }else if sortInfo.Offers == "Less in order" {
             sortValues = sortValues + ", offer_desc"
         }
         
-        if sortInfo.LastLogin == "Recent"{
+        if sortInfo.LastLogin == "Closer order"{
             sortValues = sortValues + ", login_new"
-        }else if sortInfo.LastLogin == "Older" {
+        }else if sortInfo.LastLogin == "Oldest first" {
             sortValues = sortValues + ", login_old"
         }
         if sortValues != "" {

@@ -106,7 +106,7 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
         }
         else if  indexPath.row == 3
         {
-            cell.lblInfoType.text = NSLocalizedString("Tabaco", comment: "")
+            cell.lblInfoType.text = NSLocalizedString("Tobacco", comment: "")
             cell.lblValue.text = self.ownerUser.tabaco
 
         }

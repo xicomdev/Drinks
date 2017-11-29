@@ -20,7 +20,9 @@ class FilterActionCell: UITableViewCell {
         btnCancel.cornerRadius(value: 21)
         btnFilter.cornerRadius(value: 21)
         btnCancel.addBorderWithColorAndLineWidth(color: .darkGray, borderWidth: 0.5)
-        
+        btnCancel.setTitle(NSLocalizedString("Clear", comment: ""), for: .normal)
+        btnFilter.setTitle(NSLocalizedString("Filter", comment: ""), for: .normal)
+
         // Initialization code
     }
 

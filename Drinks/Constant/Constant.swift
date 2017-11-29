@@ -115,6 +115,7 @@ let API_GetUSerDetail = "getUserInfo"
 let API_UpdateUserDetail  = "updateUserInfo"
 let API_UpdateNotifications = "updateNotificationInfo"
 let API_ageVerify = "updateAgeDocument"
+let API_LeaveUser = "deleteUser"
 
 let API_UpdateFbFriends = "updateFacebookFriends"
 
@@ -140,8 +141,10 @@ let arrayPeople : [Int] = [1, 2, 3 , 4 , 5]
 var arrayMsgs = [("HEllo",0),("Hii",1)]
 
 
-let arySortAge = ["Ascending","Descending"]
-let arySortLastLogin = ["Recent","Older"]
+let arySortAge = ["High to low","Low to high"]
+let arySortPlace = ["Closer order","In order of distance"]
+let arySortOffer = ["Most to least","Less in order"]
+let arySortLastLogin = ["Closer order","Oldest first"]
 let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#imageLiteral(resourceName: "cup"),"Buy Tickets"),(#imageLiteral(resourceName: "id_icon"),"Age Verification"),(#imageLiteral(resourceName: "user_tab"),"Profile"),(#imageLiteral(resourceName: "settings"),"Settings"),(#imageLiteral(resourceName: "gifts"),"Coupons"),(#imageLiteral(resourceName: "notificaton"),"Notification"),(#imageLiteral(resourceName: "think"),"Help")]
 
 var aryNotification = ["When I recieved an offer","When matching","When I got a message","Notice"]

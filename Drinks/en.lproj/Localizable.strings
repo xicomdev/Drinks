@@ -45,6 +45,7 @@
 "Cancel"="Cancel";
 "Place"="Place";
 "Select place option"="Select place option";
+"Select place order"="Select place order";
 "No. of people"="No. of people";
 "Select people option"="Select people option";
 "Job"="Job";
@@ -57,7 +58,6 @@
 "Select income option."="Select income option.";
 "Location name"="Location name";
 "Please enable your location."="Please enable your location.";
-
 "your age proof is sent for verifcation"="your age proof is sent for verifcation";
 "Document verification successfull."="Document verification successfull.";
 "Document verification rejected."="Document verification rejected.";
@@ -74,8 +74,10 @@
 "Select school career"="Select school career";
 "Occupation"="Occupation";
 "Blood type"="Blood type";
+"Blood Type"="Blood Type";
 "Marriage History"="Marriage History";
 "Tabbaco"="Tabbaco";
+"Tobacco"="タバコ";
 "School Career"="School Career";
 "Please select one occupation first."="Please select one occupation first.";
 "Please select one option first."="Please select one option first.";
@@ -95,4 +97,24 @@
 "months"="months";
 "mon"="mon";
 "Exchange"="Exchange";
+"Offers"="Offers";
 "day"="day";
+"Last Login"="Last Login";
+"Ascending"="Ascending";
+"Descending"="Descending";
+"Select offer's count order"="Select offer's count order";
+"Select age order"="Select age order";
+"Select last login order"="Select last login order";
+"Annual Income"="Annual Income";
+"My Treat"="My Treat";
+"Please mention your reason."="Please mention your reason.";
+"Closer order"="Closer order";
+"In order of distance"="In order of distance";
+"Most to least"="Most to least";
+"Less in order"="Less in order";
+"High to low"="High to low";
+"Low to high"="Low to high";
+"Oldest first"="Oldest first";
+"Clear"="Clear";
+"Filter"="Filter";
+"Today's Members"="Today's Members";

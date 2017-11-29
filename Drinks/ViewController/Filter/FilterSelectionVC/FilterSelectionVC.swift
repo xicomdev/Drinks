@@ -96,7 +96,7 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         }else {
             if sortType == .Place
             {
-                arrayListing = arySortAge
+                arrayListing = arySortPlace
                 strTitle = "Place"
                 strHeaderTitle = "Select place order"
                 
@@ -110,7 +110,7 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
                 strHeaderTitle = "Select age order"
             }else if sortType == .Offers
             {
-                arrayListing = arySortAge
+                arrayListing = arySortOffer
                 strTitle = "Offers"
                 strHeaderTitle = "Select offer's count order"
             }else if sortType == .LastLogin

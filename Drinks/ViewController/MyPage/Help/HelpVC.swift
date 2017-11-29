@@ -56,9 +56,14 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
-        genericVc.strTitle = "Help"
-        self.navigationController?.pushViewController(genericVc, animated: true)
+        if indexPath.row == aryHelp.count - 1 {
+            let leaveVC = mainStoryBoard.instantiateViewController(withIdentifier: "WithdrawalVC") as! WithdrawalVC
+            self.navigationController?.pushViewController(leaveVC, animated: true)
+        }else {
+            let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
+            genericVc.strTitle = "Help"
+            self.navigationController?.pushViewController(genericVc, animated: true)
+        }
     }
 
 }
