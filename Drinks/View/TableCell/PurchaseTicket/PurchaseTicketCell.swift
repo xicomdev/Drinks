@@ -40,7 +40,11 @@ class PurchaseTicketCell: UITableViewCell {
     {
         self.ticket = ticket
         lblPrice.text = "¥\(Int(ticket.amount))"
-        lblName.text = ticket.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblName.text = ticket.engName
+        }else {
+            lblName.text = ticket.japName
+        }
     }
     
     

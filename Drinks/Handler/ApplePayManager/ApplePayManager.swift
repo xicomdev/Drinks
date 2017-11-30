@@ -40,8 +40,13 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     
     func paymentVCForPremiumPlan(controller : UIViewController, plan:PremiumPlan)
     {
-        let objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.amount))
-        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: plan.amount))
+        var objItem = PKPaymentSummaryItem()
+        if Locale.preferredLanguages[0].contains("en") {
+            objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.amount))
+        }else {
+            objItem = PKPaymentSummaryItem(label: plan.japName , amount: NSDecimalNumber(value: plan.amount))
+        }
+        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: plan.amount))
         plan_id = plan.planID
         ticket_id = ""
         request.paymentSummaryItems = [objItem, total]
@@ -53,8 +58,13 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     
     func paymentVCForTicket(controller : UIViewController, ticket:Ticket)
     {
-        let objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.amount))
-        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: ticket.amount))
+        var objItem = PKPaymentSummaryItem()
+        if Locale.preferredLanguages[0].contains("en") {
+            objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.amount))
+        }else {
+            objItem = PKPaymentSummaryItem(label: ticket.japName , amount: NSDecimalNumber(value: ticket.amount))
+        }
+        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: ticket.amount))
         plan_id = ""
         ticket_id = ticket.ticketID
 

@@ -65,7 +65,11 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         imgVwDP.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         imgViewCoverPic.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         lblNameAge.text = "\(LoginManager.getMe.fullName!) (\(LoginManager.getMe.age))"
-        lblOccupation.text =  LoginManager.getMe.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblOccupation.text =  LoginManager.getMe.job.engName
+        }else {
+            lblOccupation.text =  LoginManager.getMe.job.japName
+        }
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1
         clctnNavBtnHgt.constant = CGFloat(noOfLines * Int(self.view.frame.width/3))

@@ -160,7 +160,11 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     
     func moveWithSelection(selected: Any) {
         LoginManager.getMe.job = selected as! Job
-        lblOccupation.text =  LoginManager.getMe.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblOccupation.text =  LoginManager.getMe.job.engName
+        }else {
+            lblOccupation.text =  LoginManager.getMe.job.japName
+        }
         lblOccupation.textColor = UIColor.black
         
     }

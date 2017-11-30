@@ -33,13 +33,17 @@ class GroupOwnerCell: UITableViewCell {
     func assignData(groupInfo : Group){
         self.group = groupInfo
         
-        
 //        let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
 //        imgViewOwner.sd_setImage(with: urlFinalOwner, placeholderImage: nil)
 //        
         
         userImage(imageView: imgViewOwner, user: groupInfo.groupOwner)
-        let strInfo = groupInfo.groupOwner.fullName + "(\(groupInfo.groupOwner.age))" + " / " + groupInfo.groupOwner.job.engName
+        var strInfo = ""
+        if Locale.preferredLanguages[0].contains("en") {
+            strInfo = groupInfo.groupOwner.fullName + "(\(groupInfo.groupOwner.age))" + " / " + groupInfo.groupOwner.job.engName
+        }else {
+            strInfo = groupInfo.groupOwner.fullName + "(\(groupInfo.groupOwner.age))" + " / " + groupInfo.groupOwner.job.japName
+        }
         btnOffersCount.setTitle(groupInfo.groupOwner.offersCount, for: .normal)
         btnFriendsCount.setTitle(groupInfo.groupOwner.fbFriendsCount, for: .normal)
         lblGroupOwner.text = strInfo

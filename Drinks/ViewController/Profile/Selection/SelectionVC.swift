@@ -184,7 +184,11 @@ class SelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if selectType == .Occupation{
             
            let objJob = arrayListing[indexPath.row] as! Job
-            cell.lblName.text = objJob.engName
+            if Locale.preferredLanguages[0].contains("en") {
+                cell.lblName.text = objJob.engName
+            }else {
+                cell.lblName.text = objJob.japName
+            }
             
             if selectedJob.ID == objJob.ID
             {

@@ -27,7 +27,11 @@ class OwnerCell: UITableViewCell {
     func setOwnerInfo(){
         
         lblName.text = LoginManager.getMe.fullName + " (\(LoginManager.getMe.DOB.getAgeFromDOB()))"
-        lblOccupation.text = LoginManager.getMe.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblOccupation.text = LoginManager.getMe.job.engName
+        }else {
+            lblOccupation.text = LoginManager.getMe.job.japName
+        }
         imgViewOwner.sd_setImage(with: URL(string : LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
         
     }

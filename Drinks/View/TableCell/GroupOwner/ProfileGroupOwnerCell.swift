@@ -44,7 +44,11 @@ class ProfileGroupOwnerCell: UITableViewCell {
         self.user = user
         
        lblOwnerName.text  = self.user.fullName + " (\(self.user.age))"
-        lblOccupation.text  = self.user.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblOccupation.text  = self.user.job.engName
+        }else {
+            lblOccupation.text  = self.user.job.japName
+        }
         userImage(imageView: imgViewOwner, user: user)
         userImage(imageView: imgViewCover, user: user)
 

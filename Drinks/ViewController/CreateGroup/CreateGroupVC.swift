@@ -567,7 +567,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         }else if pickerView == pickerAgeSelection {
             return arrayAges[row].description
         }else {
-            return arrayJobs[row].engName
+            if Locale.preferredLanguages[0].contains("en") {
+                return arrayJobs[row].engName
+            }else {
+                return arrayJobs[row].japName
+            }
         }
    }
     
@@ -578,7 +582,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             cellSelected?.txtAge.text = arrayAges[row].description
             cellSelected?.groupCond.age = arrayAges[row]
         }else {
-            cellSelected?.txtOccupation.text = arrayJobs[row].engName
+            if Locale.preferredLanguages[0].contains("en") {
+                cellSelected?.txtOccupation.text = arrayJobs[row].engName
+            }else {
+                cellSelected?.txtOccupation.text = arrayJobs[row].japName
+            }
             cellSelected?.groupCond.occupation = arrayJobs[row]
 
         }

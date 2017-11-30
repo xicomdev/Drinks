@@ -55,7 +55,11 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         txtDOB.inputView = datePicker
         
         lblOccupation.textColor = UIColor.black
-        lblOccupation.text = LoginManager.getMe.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblOccupation.text = LoginManager.getMe.job.engName
+        }else {
+            lblOccupation.text = LoginManager.getMe.job.japName
+        }
         txtUserName.text = LoginManager.getMe.fullName
         
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
@@ -352,7 +356,11 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         
         if activeSelection == .Occupation {
             tempUser.job = selected as! Job
-            lblOccupation.text =  tempUser.job.engName
+            if Locale.preferredLanguages[0].contains("en") {
+                lblOccupation.text =  tempUser.job.engName
+            }else {
+                lblOccupation.text =  tempUser.job.japName
+            }
             lblOccupation.textColor = UIColor.black
         }else {
             let strSelected = selected as! String

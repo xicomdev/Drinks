@@ -223,7 +223,11 @@ class FilterSelectionVC: UIViewController,UITableViewDelegate,UITableViewDataSou
         if selectedOption == .Filter {
             if selectType == .Job{
                 let objJob = arrayListing[indexPath.row] as! Job
-                cell.lblName.text = objJob.engName
+                if Locale.preferredLanguages[0].contains("en") {
+                    cell.lblName.text = objJob.engName
+                }else {
+                    cell.lblName.text = objJob.japName
+                }
                 if self.checkJobSelected(job: objJob)
                 {
                     cell.imgViewSelection.isHidden = false

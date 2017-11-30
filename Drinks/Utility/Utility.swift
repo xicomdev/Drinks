@@ -272,7 +272,12 @@ func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
             }
         }else if type == .Job{
             let arrayNew = array as! [Job]
-            let stringArray = arrayNew.flatMap { String($0.engName) }
+            var stringArray = [String]()
+            if Locale.preferredLanguages[0].contains("en") {
+                stringArray = arrayNew.flatMap { String($0.engName) }
+            }else {
+                stringArray = arrayNew.flatMap { String($0.japName) }
+            }
             strToDisplay = stringArray.joined(separator: ",")
         }else if type == .Relation
         {

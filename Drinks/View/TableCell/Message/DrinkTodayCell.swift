@@ -53,7 +53,11 @@ class DrinkTodayCell: UITableViewCell {
         let lastMessageUser = thread.lastMessage?.senderUser
         
         lblUserName.text = (lastMessageUser?.fullName)! + " " + (lastMessageUser?.age.description)!
-        lblAgeOccupation.text = lastMessageUser?.job.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            lblAgeOccupation.text = lastMessageUser?.job.engName
+        }else {
+            lblAgeOccupation.text = lastMessageUser?.job.japName
+        }
         imgVwUser.sd_setImage(with: URL(string: lastMessageUser!.imageURL), placeholderImage: nil)
         lblMessage.text = self.thread.lastMessage!.message
         lblTime.text = getMessageTime(timestamp: (self.thread.lastMessage?.timestamp)!)

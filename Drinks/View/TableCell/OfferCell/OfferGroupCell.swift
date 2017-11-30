@@ -60,7 +60,12 @@ class OfferGroupCell: UITableViewCell {
         let urlFinalOwner = URL(string: groupInfo.groupOwner.imageURL)
         imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: GroupPlaceHolder)
         imgViewCreator.sd_setImage(with: urlFinalOwner, placeholderImage: userPlaceHolder)
-        let strInfo = "\(groupInfo.groupOwner.age)" + " / " + groupInfo.groupOwner.job.engName
+        var strInfo = ""
+        if Locale.preferredLanguages[0].contains("en") {
+            strInfo = "\(groupInfo.groupOwner.age)" + " / " + groupInfo.groupOwner.job.engName
+        }else {
+            strInfo = "\(groupInfo.groupOwner.age)" + " / " + groupInfo.groupOwner.job.japName
+        }
         lblCreatorAge.text = strInfo
         lblLocation.text = groupInfo.location?.LocationName!
         

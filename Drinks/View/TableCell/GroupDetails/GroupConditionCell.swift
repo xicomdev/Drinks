@@ -37,7 +37,12 @@ class GroupConditionCell: UITableViewCell {
     func assignData(condition : GroupCondition, counter : Int){
         
         self.condition = condition
-        lblConditionInfo.text = condition.age.description + " / " + condition.occupation.engName
+        
+        if Locale.preferredLanguages[0].contains("en") {
+            lblConditionInfo.text = condition.age.description + " / " + condition.occupation.engName
+        }else {
+            lblConditionInfo.text = condition.age.description + " / " + condition.occupation.japName
+        }
         
         
     }

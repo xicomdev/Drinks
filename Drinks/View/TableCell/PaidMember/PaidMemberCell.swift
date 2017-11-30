@@ -34,18 +34,29 @@ class PaidMemberCell: UITableViewCell {
         self.plan = plan
         if plan.engName.contains("day") || plan.engName.contains("Day") || plan.engName.contains("Days") || plan.engName.contains("days"){
             btnBuy.setTitle(NSLocalizedString("Exchange", comment: ""), for: .normal)
-            lblPlanPrice.text = plan.planDescription
+            if Locale.preferredLanguages[0].contains("en") {
+                lblPlanDuration.text = plan.engName
+                lblPlanPrice.text = plan.engDesc
+            }else {
+                lblPlanDuration.text = plan.japName
+                lblPlanPrice.text = plan.japDesc
+            }
             lblDiscount.isHidden = true
             lblPopulartyNo.isHidden = true
         }else {
             btnBuy.setTitle(NSLocalizedString("Buy", comment: ""), for: .normal)
             lblPlanPrice.text = "¥\(Int(plan.amount))/\(NSLocalizedString("mon", comment: ""))"
             lblDiscount.text = "¥\(NSNumber(value: plan.discount)) \(NSLocalizedString("discount!", comment: ""))"
-            lblPopulartyNo.text = plan.planDescription
+            if Locale.preferredLanguages[0].contains("en") {
+                lblPlanDuration.text = plan.engName
+                lblPopulartyNo.text = plan.engDesc
+            }else {
+                lblPlanDuration.text = plan.japName
+                lblPopulartyNo.text = plan.japDesc
+            }
             lblDiscount.isHidden = false
             lblPopulartyNo.isHidden = false
         }
-        lblPlanDuration.text = plan.engName
     }
     
     @IBAction func actionBtnBuyPlan(_ sender: UIButton) {

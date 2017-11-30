@@ -15,7 +15,8 @@ class PremiumPlan: NSObject
     var japName : String!
     var amount : Double!
     var planID : String!
-    var planDescription : String!
+    var engDesc : String!
+    var japDesc : String!
 
     var discount : Double!
 
@@ -54,7 +55,8 @@ class PremiumPlan: NSObject
             amount = dictPlan["amount"] as! Double
 
         }
-        planDescription = dictPlan["description"] as! String
+        engDesc = dictPlan["description"] as! String
+        japDesc = dictPlan["jap_description"] as! String
         if (dictPlan["discount"] as? String) != nil {
             discount = Double(dictPlan["discount"] as! String)
         }else {

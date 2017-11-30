@@ -45,7 +45,13 @@ class GroupCell: UICollectionViewCell {
         
         imgViewGroup.sd_setImage(with: URL(string: groupInfo.imageURL), placeholderImage: GroupPlaceHolder)
         imgViewCreator.sd_setImage(with: URL(string: groupInfo.groupOwner.imageURL), placeholderImage: userPlaceHolder)
-        let strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
+        var strInfo = ""
+
+        if Locale.preferredLanguages[0].contains("en") {
+            strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.engName
+        }else {
+            strInfo = groupInfo.groupOwner.age.description + " / " + groupInfo.groupOwner.job.japName
+        }
         lblOwnerInfo.text = strInfo
         
         lblLastLogin.text = groupInfo.groupOwner.lastLogin
@@ -62,7 +68,6 @@ class GroupCell: UICollectionViewCell {
         
         lblGroupComment.text = groupInfo.groupDescription
         
-        
         if groupInfo.groupBy == .Other
         {
             btnInterested.isHidden = false
@@ -76,14 +81,11 @@ class GroupCell: UICollectionViewCell {
         setSmallDrinkedStatus(btnStatus: btnInterested, status: groupInfo.drinkedStatus )
     }
     
-    
     @IBAction func actionBtnDrinked(_ sender: UIButton) {
         if callbackAction != nil
         {
             self.callbackAction!(group!)
             
          }
-       
     }
-    
 }

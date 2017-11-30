@@ -89,7 +89,11 @@ class GroupInfoCell: UITableViewCell {
         }else {
             self.txtAge.text = ""
         }
-         self.txtOccupation.text = groupCond.occupation.engName
+        if Locale.preferredLanguages[0].contains("en") {
+            self.txtOccupation.text = groupCond.occupation.engName
+        }else {
+            self.txtOccupation.text = groupCond.occupation.japName
+        }
     }
     
     
