@@ -23,6 +23,8 @@ class LocationCell: UITableViewCell {
         super.awakeFromNib()
         btnRefresh.cornerRadius(value: 18)
         btnRefresh.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
+        lblTagName.text = NSLocalizedString("I will treat you.", comment: "")
+        btnRefresh.setTitle(NSLocalizedString("Refresh", comment: ""), for: .normal)
         // Initialization code
     }
 

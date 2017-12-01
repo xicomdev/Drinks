@@ -12,6 +12,8 @@ class SelectPhotoVC: UITableViewCell {
 
     var callbackImage : ((GroupAction)-> Void)? = nil
 
+    @IBOutlet weak var lbl1UploadPhoto: UILabel!
+    @IBOutlet weak var lbl2UploadPhoto: UILabel!
     
     @IBOutlet weak var btnChangePhoto: UIButton!
     @IBOutlet weak var imgViewGroup: UIImageView!
@@ -22,6 +24,10 @@ class SelectPhotoVC: UITableViewCell {
         btnChangePhoto.cornerRadius(value: 22.5)
         btnChangePhoto.isHidden = true
         btnSelectPhoto.cornerRadius(value: 22.5)
+        lbl2UploadPhoto.text = NSLocalizedString("If you do not set a photo,\nThe secretary's profile picture is displayed.", comment: "")
+        lbl1UploadPhoto.text = NSLocalizedString("Posting self-portrait photos,\nMatching rate will rise", comment: "")
+        btnChangePhoto.setTitle(NSLocalizedString("Change", comment: ""), for: .normal)
+        btnSelectPhoto.setTitle(NSLocalizedString("Upload", comment: ""), for: .normal)
         // Initialization code
     }
 

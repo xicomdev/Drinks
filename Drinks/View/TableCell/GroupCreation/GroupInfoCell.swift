@@ -56,6 +56,8 @@ class GroupInfoCell: UITableViewCell {
         lblCounter.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
          lblJobBorder.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
          lblOccupationBorder.addBorderWithColorAndLineWidth(color: UIColor.gray, borderWidth: 0.5)
+        txtAge.placeholder = NSLocalizedString("Age", comment: "")
+        txtOccupation.placeholder = NSLocalizedString("Occupation", comment: "")
         // Initialization code
     }
 

@@ -15,6 +15,7 @@ class AddMoreCell: UITableViewCell {
     @IBOutlet weak var btnAddMore: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnAddMore.setTitle(NSLocalizedString("Add More", comment: ""), for: .normal)
         // Initialization code
     }
 

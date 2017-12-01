@@ -34,6 +34,8 @@ class GroupCell: UICollectionViewCell {
         viewOuter.cornerRadius(value: 5)
         lblTag.cornerRadius(value: 7.5)
         imgViewCreator.cornerRadius(value: 15)
+        lblTag.text = NSLocalizedString("My Treat", comment: "")
+
         // Initialization code
     }
 

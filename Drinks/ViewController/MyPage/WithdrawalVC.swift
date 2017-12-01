@@ -16,7 +16,7 @@ class WithdrawalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        txtfldSelectreason.text = "Select reason for leaving"
+        txtfldSelectreason.text = NSLocalizedString("Select reason for leaving", comment: "")
         txtfldSelectreason.inputView = picker
         picker.delegate = self
         picker.dataSource = self
@@ -24,8 +24,8 @@ class WithdrawalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if txtfldSelectreason.text == "Select reason for leaving" {
-            txtfldSelectreason.text = "A lover was found in DRINKS."
+        if txtfldSelectreason.text == NSLocalizedString("Select reason for leaving", comment: "") {
+            txtfldSelectreason.text = NSLocalizedString("A lover was found in DRINKS.", comment: "")
         }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -37,11 +37,11 @@ class WithdrawalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return aryReasons[row]
+        return NSLocalizedString(aryReasons[row], comment: "")
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        txtfldSelectreason.text = aryReasons[row]
+        txtfldSelectreason.text = NSLocalizedString(aryReasons[row], comment: "")
     }
     
     @IBAction func actionClose(_ sender: Any) {
@@ -49,7 +49,7 @@ class WithdrawalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func actionLeaveBtn(_ sender: Any) {
-        if txtfldSelectreason.text !=  "Select reason for leaving"{
+        if txtfldSelectreason.text !=  NSLocalizedString("Select reason for leaving", comment: ""){
             let parms = ["deleted_reason":txtfldSelectreason.text!]
             
             print(parms)
@@ -64,7 +64,7 @@ class WithdrawalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                 }
             })
         }else {
-            showAlert(title: "Drinks", message: "Please select reason for leaving.", controller: self)
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select reason for leaving.", comment: ""), controller: self)
         }
 
     }

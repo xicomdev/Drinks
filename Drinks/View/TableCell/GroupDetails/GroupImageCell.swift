@@ -24,6 +24,8 @@ class GroupImageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         lblTag.cornerRadius(value: 10)
+        lblTag.text = NSLocalizedString("My Treat", comment: "")
+
         // Initialization code
     }
 

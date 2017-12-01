@@ -14,7 +14,8 @@ class InfoCell: UITableViewCell {
     @IBOutlet weak var lblLowerInfo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        lblRelation.text = NSLocalizedString("Creator Info", comment: "")
+        lblLowerInfo.text = NSLocalizedString("Select group options for friends to be invited with age groups and occupations.", comment: "")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

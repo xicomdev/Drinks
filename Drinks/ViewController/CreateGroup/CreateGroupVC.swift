@@ -62,6 +62,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         viewFooter.txtViewDescription.text = NSLocalizedString("Enter description here", comment: "")
         viewFooter.txtRelationship.inputView = pickerRelationShip
         viewFooter.txtRelationship.delegate = self
+        viewFooter.txtRelationship.placeholder = NSLocalizedString("Relationship", comment: "")
         UserDp.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
 
         viewFooter.callbackDone = {(done : GroupAction) in

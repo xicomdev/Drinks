@@ -31,6 +31,7 @@ class OfferGroupCell: UITableViewCell {
         super.awakeFromNib()
         lblTag.cornerRadius(value: 10)
         imgViewCreator.cornerRadius(value: 20)
+        lblTag.text = NSLocalizedString("My Treat", comment: "")
 
         // Initialization code
     }
