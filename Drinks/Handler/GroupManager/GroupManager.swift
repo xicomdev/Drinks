@@ -186,11 +186,13 @@ class GroupManager: NSObject {
     func getBeOfferedGroup(handler:@escaping CompletionHandler)
     {
         
-        let params : [String : Any] = [
+        var params : [String : Any] = [
             "user_id" : LoginManager.getMe.ID!,
-            "current_latitude" : appDelegate().appLocation!.latitude,
-            "current_longitude" : appDelegate().appLocation!.longtitude
         ]
+        if appDelegate().appLocation?.latitude != nil {
+            params.updateValue(appDelegate().appLocation!.latitude, forKey: "current_latitude")
+            params.updateValue(appDelegate().appLocation!.longtitude, forKey: "current_longitude")
+        }
         
         
         SwiftLoader.show(true)

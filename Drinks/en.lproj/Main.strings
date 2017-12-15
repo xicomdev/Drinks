@@ -382,7 +382,7 @@
 
 /* Class = "UIButton"; normalTitle = "Facebook login"; ObjectID = "fYE-hD-aIV"; */
 "fYE-hD-aIV.normalTitle" = "Facebook login";
-
+"FLn-Wv-cDu.text" = "By agreeing to terms and privacy policy";
 /* Class = "UILabel"; text = "4. Name of Publisher"; ObjectID = "fml-H9-PmU"; */
 "fml-H9-PmU.text" = "4. Name of Publisher";
 
@@ -420,7 +420,7 @@
 "izs-1X-tvK.text" = "20";
 
 /* Class = "UILabel"; text = "No group found!"; ObjectID = "jRT-sa-vtm"; */
-"jRT-sa-vtm.text" = "No group found!";
+"jRT-sa-vtm.text" = "No group found!\nLet's wait a moment.";
 
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "jaC-vT-CYC"; */
 "jaC-vT-CYC.text" = "Notifications";
@@ -488,8 +488,8 @@
 /* Class = "UILabel"; text = "Required"; ObjectID = "tJW-Ub-rHk"; */
 "tJW-Ub-rHk.text" = "Required";
 
-/* Class = "UILabel"; text = "It will not be posted o facebook at all."; ObjectID = "vDE-Nc-oO8"; */
-"vDE-Nc-oO8.text" = "It will not be posted o facebook at all.";
+/* Class = "UILabel"; text = "It will not be posted to facebook at all."; ObjectID = "vDE-Nc-oO8"; */
+"vDE-Nc-oO8.text" = "It will not be posted to facebook at all.";
 
 /* Class = "UITextField"; placeholder = "Enter your name"; ObjectID = "vLe-hN-gTC"; */
 "vLe-hN-gTC.placeholder" = "Enter your name";
@@ -503,8 +503,8 @@
 /* Class = "UILabel"; text = "Age verification"; ObjectID = "wh5-Rn-xRr"; */
 "wh5-Rn-xRr.text" = "Age verification";
 
-/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "wx5-G1-9HY"; */
-"wx5-G1-9HY.normalTitle" = "Submit";
+/* Class = "UIButton"; normalTitle = "Complete"; ObjectID = "wx5-G1-9HY"; */
+"wx5-G1-9HY.normalTitle" = "Complete";
 
 /* Class = "UILabel"; text = "Passport"; ObjectID = "xN6-JO-pe6"; */
 "xN6-JO-pe6.text" = "Passport";
@@ -546,3 +546,8 @@
 "dJS-kG-fp2.normalTitle" = "Leave DRINKS";
 
 "YvE-dS-ht6.text" = "To cancel the service, please read the following notes carefully, select the reason for cancellation, and press the \"Delete\" button";
+"yCT-u3-Efu.text" = "Recruit and wait";
+
+"06d-Qc-1of.text" = "First off here";
+
+"6jO-Hg-4Sd.text" = "First off here";

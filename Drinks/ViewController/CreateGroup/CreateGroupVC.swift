@@ -36,7 +36,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     var viewFooter : GroupFooterView!
     var imageSelected : UIImage? = nil
     var tagEnabled = false
-    var strDescription = NSLocalizedString("Enter description here", comment: "")
+    var strDescription = NSLocalizedString("We are drinking by three people, let's drink together! We are waiting for an offer!", comment: "")
     var relationship : String = ""
     
     var refreshLocationTimer : Timer!
@@ -59,10 +59,10 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         
         viewFooter = GroupFooterView.instanceFromNib(width: ScreenWidth, height: CGFloat(335))
         viewFooter.txtViewDescription.delegate = self
-        viewFooter.txtViewDescription.text = NSLocalizedString("Enter description here", comment: "")
+        viewFooter.txtViewDescription.text = NSLocalizedString("We are drinking by three people, let's drink together! We are waiting for an offer!", comment: "")
         viewFooter.txtRelationship.inputView = pickerRelationShip
         viewFooter.txtRelationship.delegate = self
-        viewFooter.txtRelationship.placeholder = NSLocalizedString("Relationship", comment: "")
+        viewFooter.txtRelationship.placeholder = NSLocalizedString("Select relationship with members", comment: "")
         UserDp.sd_setImage(with: URL(string: LoginManager.getMe.imageURL), placeholderImage: userPlaceHolder)
 
         viewFooter.callbackDone = {(done : GroupAction) in
@@ -173,11 +173,11 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 //            showAlert(title: "Drinks", message: "Please enter description for group.", controller: self)
 //            return
 //        }
-        group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: NSLocalizedString("Enter description here", comment: ""), with: "")
+        group.groupDescription = (viewFooter.txtViewDescription.text.removeEndingSpaces()).replacingOccurrences(of: NSLocalizedString("We are drinking by three people, let's drink together! We are waiting for an offer!", comment: ""), with: "")
         if viewFooter.txtRelationship.text!.removeEndingSpaces() != "" {
             group.relationship = viewFooter.txtRelationship.text!.removeEndingSpaces()
         }else {
-            group.relationship = "Open"
+            group.relationship = NSLocalizedString("None", comment: "")
 
         }
         group.tagEnabled = self.tagEnabled
@@ -366,7 +366,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 cell.callbackAddMore = {(action : GroupAction ) in
                     
                     if self.group.groupConditions.count == 5{
-                        showAlert(title: "Drinks", message: "Maximum limit reached.", controller: self)
+                        showAlert(title: NSLocalizedString("The number of people has exceeded.", comment: ""), message: NSLocalizedString("Up to 6 people can be registered for this recruitment.", comment: ""), controller: self)
                         return
                     }
                     let firstCondition = GroupCondition()
@@ -409,7 +409,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 
                     cell.setNewValues()
                     return cell
-              
+               
             }
         }
     }
@@ -428,7 +428,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.checkIsEmpty() == true{
             textView.textColor = UIColor.gray
-            textView.text = NSLocalizedString("Enter description here", comment: "")
+            textView.text = NSLocalizedString("We are drinking by three people, let's drink together! We are waiting for an offer!", comment: "")
         }else{
             textView.textColor = UIColor.black
         }
@@ -453,7 +453,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.textColor = UIColor.black
 
-        if textView.text == NSLocalizedString("Enter description here", comment: "")
+        if textView.text == NSLocalizedString("We are drinking by three people, let's drink together! We are waiting for an offer!", comment: "")
         {
             textView.text  = ""
         }
@@ -505,7 +505,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
 
         }
         else{
-            if textField.text != ""
+            if textField.text != "" && textField.text != NSLocalizedString("None", comment: "") && textField.text != NSLocalizedString("Open", comment: "")
             {
                 let index = arrayRelations.index(of: textField.text!)
                 pickerRelationShip.selectRow(index!, inComponent: 0, animated: false)

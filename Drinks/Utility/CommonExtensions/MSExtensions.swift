@@ -174,14 +174,34 @@ extension String
         formattr.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formattr.timeZone = TimeZone(abbreviation: "UTC")
         let dt = formattr.date(from: self)
-        formattr.timeZone = TimeZone.current
-        formattr.dateFormat = "hh:mm a"
+        
+        let calendar = NSCalendar.current
+
         if dt != nil {
-            return formattr.string(from: dt!)
+            let components = calendar.dateComponents([.day, .hour, .minute], from: dt!, to: Date())
+            if components.day != 0 {
+                return "\(components.day!)" + " " + NSLocalizedString("day ago", comment: "")
+            }else if components.hour != 0 {
+                return "\(components.hour!)" + " " + NSLocalizedString("hour ago", comment: "")
+            }else if components.minute != 0 {
+                return "\(components.minute!)" + " " + NSLocalizedString("minute ago", comment: "")
+            }else {
+                return NSLocalizedString("Just now", comment: "")
+            }
         }else {
-            return self
+            return ""
         }
+        
+        
+//        formattr.timeZone = TimeZone.current
+//        formattr.dateFormat = "hh:mm a"
+//        if dt != nil {
+//            return formattr.string(from: dt!)
+//        }else {
+//            return self
+//        }
     }
+    
     
     
   public  func getAgeFromDOB() -> Int

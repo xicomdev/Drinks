@@ -162,29 +162,33 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         cell.assignData(groupInfo: arrayGroups[indexPath.row])
         cell.callbackAction = { (group : Group) in
             GroupManager.setGroup(group: group)
-            GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, group, error) in
-                if isSuccess
-                {
-                    if let groupInfo = group as? Group
+            if LoginManager.getMe.myCredits == "0" {
+                showAlert(title: "Drinks", message: NSLocalizedString("You don't have enough tickets to make interest", comment: ""), controller: self)
+            }else {
+                GroupManager.sharedInstance.sendOrRemoveInterest(handler: { (isSuccess, group, error) in
+                    if isSuccess
                     {
-                        cell.group  = groupInfo
-                        cell.assignData(groupInfo: groupInfo)
-                        let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
-                        self.arrayGroups[index] = groupInfo
-                        self.collectionViewGroup.reloadData()
-                        if groupInfo.drinkedStatus == .Drinked{
-                            showInterestedAlert(controller: self)
+                        if let groupInfo = group as? Group
+                        {
+                            cell.group  = groupInfo
+                            cell.assignData(groupInfo: groupInfo)
+                            let index =  Group.getIndex(arrayGroups: self.arrayGroups, group: groupInfo)
+                            self.arrayGroups[index] = groupInfo
+                            self.collectionViewGroup.reloadData()
+                            if groupInfo.drinkedStatus == .Drinked{
+                                showInterestedAlert(controller: self)
+                            }
                         }
+                    }else
+                    {
+                        self.isFromNoRecruit = true
+                        let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
+                        noGroupVc.delegate = self
+                        self.present(noGroupVc, animated: true, completion: nil)
+                        //                    showAlert(title: "Drinks", message: error!, controller: self)
                     }
-                }else
-                {
-                    self.isFromNoRecruit = true
-                    let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
-                    noGroupVc.delegate = self
-                    self.present(noGroupVc, animated: true, completion: nil)
-//                    showAlert(title: "Drinks", message: error!, controller: self)
-                }
-            })
+                })
+            }
         }
          return cell
     }

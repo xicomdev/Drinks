@@ -524,7 +524,7 @@ class Group: NSObject {
         
         let groupMembers = createParameters(group: self)
         
-        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : location?.latitude,"group_longitude" : location?.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled , "id" : self.groupID]
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : (location?.latitude)!,"group_longitude" : (location?.longtitude)! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled , "id" : self.groupID]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_EditGroup, paramters: parms, Images: image) { (success, response, strError) in
             SwiftLoader.hide()
@@ -583,7 +583,14 @@ class Group: NSObject {
     
     func createParameters(group : Group) -> String
     {
-        let arrConds = group.groupConditions
+        var arrConds = [GroupCondition]()
+        for item in group.groupConditions {
+            if item.age != 0 ||  item.occupation.ID != "" {
+                arrConds.append(item)
+            }
+        }
+        
+        
         var arrayNew = [[String : Any]]()
         
         for item in arrConds

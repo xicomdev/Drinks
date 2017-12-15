@@ -87,8 +87,8 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
-        let alert = UIAlertController(title: "Facebook Authentication", message: "We will access your birthday to complete your profile. Do you want to continue.", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+        let alert = UIAlertController(title: NSLocalizedString("Facebook Authentication", comment: ""), message: NSLocalizedString("We will access your birthday to complete your profile. Do you want to continue?", comment: ""), preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { (_) in
             FBManager.sharedInstance.currentUserProfile(viewController: self) { (success, response, strError) in
                 
                 if success == true{
@@ -107,8 +107,11 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                                 let formttr = DateFormatter()
                                 formttr.dateFormat = "dd/MM/yyyy"
                                 let dt = formttr.date(from: birthday)
-                                LoginManager.getMe.DOB = dateFormatter.string(from: dt!)
-                                LoginManager.getMe.age = LoginManager.getMe.DOB.getAgeFromDOB()
+                                if dt != nil {
+                                    LoginManager.getMe.DOB = dateFormatter.string(from: dt!)
+                                    LoginManager.getMe.age = LoginManager.getMe.DOB.getAgeFromDOB()
+                                }
+                                
                             }
                         }
                         
@@ -123,7 +126,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                         }
                         if LoginManager.getMe.DOB != "" {
                             if LoginManager.getMe.age < 18 {
-                                showAlert(title: "Drinks", message: "Your age is less than 18.\nSo you can not login to Drinks.", controller: self)
+                                showAlert(title: "Drinks", message: NSLocalizedString("Your age is less than 18.\nSo you can not login to Drinks.", comment: ""), controller: self)
                                 return
                             }
                         }
@@ -136,7 +139,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
             }
         }
         
-        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: nil)
        
         alert.addAction(noAction)
         alert.addAction(yesAction)

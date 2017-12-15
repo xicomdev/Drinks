@@ -1,5 +1,6 @@
 
 "fYE-hD-aIV.normalTitle" = "Facebookで始める";
+"FLn-Wv-cDu.text" = "利用規約とプライバシーポリシーに同意する";
 
 "vDE-Nc-oO8.text" = "Facebookには一切投稿されません。";
 
@@ -143,9 +144,9 @@
 
 "Pj6-XM-ldN.text" = "自分の募集をプレビュー";
 
-"Pqm-cs-VKJ.normalTitle" = "絞り込み";
+"Pqm-cs-VKJ.normalTitle" = "並び替え";
 
-"Pqm-cs-VKJ.selectedTitle" = "絞り込み";
+"Pqm-cs-VKJ.selectedTitle" = "並び替え";
 
 "Puh-Oe-HYe.text" = "Label";
 
@@ -177,9 +178,9 @@
 
 "UGG-Oh-BfL.text" = "Developer";
 
-"UWG-B2-eMd.normalTitle" = "絞り込み";
+"UWG-B2-eMd.normalTitle" = "並び替え";
 
-"UWG-B2-eMd.selectedTitle" = "絞り込み";
+"UWG-B2-eMd.selectedTitle" = "並び替え";
 
 "Ufp-Yy-78c.placeholder" = "結婚歴を選択";
 
@@ -189,7 +190,7 @@
 
 "Vcv-fF-Fwa.text" = "飲みたいされた";
 
-"WDJ-ni-Irp.normalTitle" = "提出する";
+"WDJ-ni-Irp.normalTitle" = "募集\n開始";
 
 "Wdd-ue-mem.placeholder" = "あなたのDOBを入力してください";
 
@@ -281,7 +282,7 @@
 
 "izs-1X-tvK.text" = "20";
 
-"jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません";
+"jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません\nちょっと待ってみましょう。";
 
 "jaC-vT-CYC.text" = "通知";
 
@@ -299,7 +300,7 @@
 
 "nQI-bd-CQD.text" = "相手から飲みたいがされていませんこちらから飲みたいをして、アピールしよう";
 
-"nhd-tT-T17.text" = "絞り込み";
+"nhd-tT-T17.text" = "並び替え";
 
 "oCA-yL-Zrh.text" = "エラー";
 
@@ -311,7 +312,7 @@
 
 "pAj-8O-1Rt.text" = "1.対象となる書類を１つ用意";
 
-"pYP-aS-pcb.text" = "絞り込み";
+"pYP-aS-pcb.text" = "並び替え";
 
 "qKS-ml-ZvW.placeholder" = "選択肢を選択";
 
@@ -335,7 +336,7 @@
 
 "wh5-Rn-xRr.text" = "年齢認証";
 
-"wx5-G1-9HY.normalTitle" = "提出する";
+"wx5-G1-9HY.normalTitle" = "完了";
 
 "xN6-JO-pe6.text" = "パスポート";
 
@@ -369,3 +370,8 @@
 
 "YvE-dS-ht6.text" = "サービスをキャンセルするには、以下の注意事項をよく読み、キャンセルの理由を選択し、「削除」ボタンを押してください";
 
+"yCT-u3-Efu.text" = "募集して待とう";
+
+"06d-Qc-1of.text" = "まずはここから";
+
+"6jO-Hg-4Sd.text" = "まずはここから";

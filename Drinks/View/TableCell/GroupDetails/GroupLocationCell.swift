@@ -39,7 +39,7 @@ class GroupLocationCell: UITableViewCell {
             {
                 lblLastLogin.text = group?.groupOwner.lastLogin.getTimeFromDate()
             }else{
-                lblLastLogin.text = appLastLoginFormat.string(from: Date())
+                lblLastLogin.text = NSLocalizedString("Just now", comment: "")
             }
         }
     }

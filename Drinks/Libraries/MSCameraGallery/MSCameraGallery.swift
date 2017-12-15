@@ -32,6 +32,7 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
 {
 
     
+    @IBOutlet weak var lblTitle: UILabel!
     var capturedImage : UIImage? = nil
     var selectingImage : UIImage? = nil
 
@@ -63,7 +64,7 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
         windowWidth = self.view.frame.width
         windowHeight = self.view.frame.height
         
-        
+        lblTitle.text = NSLocalizedString("Photo selection", comment: "")
         
         cameraMan.delegate = self
         cameraMan.setup(self.frontCamera)

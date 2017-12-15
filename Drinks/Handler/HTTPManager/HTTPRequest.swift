@@ -85,7 +85,13 @@ class HTTPRequest: NSObject {
                     handler(true, dictResponse["data"]  , nil)
                 }else {
                     self.checkSessionExpired(dictResponse: dictResponse)
-                    handler(false, nil, dictResponse["message"] as? String)
+                    var errorMsg = String()
+                    if Locale.preferredLanguages[0].contains("en") {
+                        errorMsg = dictResponse["message"] as! String
+                    }else {
+                        errorMsg = dictResponse["jap_message"] as! String
+                    }
+                    handler(false, nil, errorMsg)
                 }
             }
             
@@ -133,7 +139,13 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                 }else {
                     
                     self.checkSessionExpired(dictResponse: dictResponse)
-                    handler(false, nil, dictResponse["message"] as? String)
+                    var errorMsg = String()
+                    if Locale.preferredLanguages[0].contains("en") {
+                        errorMsg = dictResponse["message"] as! String
+                    }else {
+                        errorMsg = dictResponse["jap_message"] as! String
+                    }
+                    handler(false, nil, errorMsg)
                 }
             }
             
@@ -176,7 +188,13 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
                     handler(true, dictResponse["data"]  , nil)
                 }else {
                     self.checkSessionExpired(dictResponse: dictResponse)
-                    handler(false, nil, dictResponse["message"] as? String)
+                    var errorMsg = String()
+                    if Locale.preferredLanguages[0].contains("en") {
+                        errorMsg = dictResponse["message"] as! String
+                    }else {
+                        errorMsg = dictResponse["jap_message"] as! String
+                    }
+                    handler(false, nil, errorMsg)
                 }
             }
 
@@ -185,6 +203,9 @@ func postRequest( urlLink: String, paramters : Dictionary<String ,Any>?, handler
 //            let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
 //            print("content received : \(str)")
             handler(false, nil, error.localizedDescription)
+//              let responseData:NSData = (error as NSError).userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] as! NSData
+//               let str :String = String(data: responseData as Data, encoding: String.Encoding.utf8)!
+//             print("content received : \(str)")
 
         })
     }

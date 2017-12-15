@@ -27,7 +27,7 @@ class CouponVC: UIViewController {
     
     @IBAction func btnShareCodeAction(_ sender: AnyObject) {
         
-        let text = "Use my referal code and get free tickets.\nReferal code:\(lblMyCode.text!)"
+        let text = NSLocalizedString("Use my referal code and get free tickets.\nReferal code:", comment: "") + "\(lblMyCode.text!)" + "\n" + NSLocalizedString("If you enter this introduction code on the DRINKS application, you can get a ticket for free.", comment: "") + "\n" + "https://itunes.apple.com/" + NSLocalizedString("\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight.", comment: "")
         
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
@@ -59,7 +59,11 @@ class CouponVC: UIViewController {
                     let gotTicketsVc = mainStoryBoard.instantiateViewController(withIdentifier: "GotCouponTicketVC") as! GotCouponTicketVC
                     self.present(gotTicketsVc, animated: true, completion: nil)
                 }else{
-                    showAlert(title: "Drinks", message: strError!, controller: self)
+                    if strError == "Coupon not exists" || strError == "クーポンは存在しません"{
+                        showAlert(title: NSLocalizedString("The corresponding code does not exist.", comment: ""), message: NSLocalizedString("Please double check the code you entered.", comment: ""), controller: self)
+                    }else {
+                        showAlert(title: "Drinks", message: strError!, controller: self)
+                    }
                 }
             }
         }

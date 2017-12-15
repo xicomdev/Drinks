@@ -36,7 +36,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            lblVersion.text = "version " + version
+            lblVersion.text = NSLocalizedString("version", comment: "") + " " + version
         }
         
         

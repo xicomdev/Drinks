@@ -37,7 +37,7 @@ class Ticket: NSObject
         japName = dictPlan["jap_name"] as! String
         ticketID = dictPlan["id"] as! String
         amount = Double(dictPlan["amount"] as! String)
-        tickets = Int(dictPlan["point"] as! String)
+        tickets = Int(dictPlan["ticket"] as! String)
         
     }
     

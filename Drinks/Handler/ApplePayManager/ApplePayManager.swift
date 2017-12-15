@@ -52,8 +52,12 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
         request.paymentSummaryItems = [objItem, total]
         let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
         objApplePay.delegate = self
-        controller.present(objApplePay, animated: true, completion: nil)
         parentVC = controller
+        
+        if PKPaymentAuthorizationViewController.canMakePayments() {
+            controller.present(objApplePay, animated: true, completion: nil)
+        }
+
     }
     
     func paymentVCForTicket(controller : UIViewController, ticket:Ticket)
@@ -71,8 +75,11 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
         request.paymentSummaryItems = [objItem, total]
         let objApplePay = PKPaymentAuthorizationViewController(paymentRequest: request)
         objApplePay.delegate = self
-        controller.present(objApplePay, animated: true, completion: nil)
         parentVC = controller
+
+        if PKPaymentAuthorizationViewController.canMakePayments() {
+            controller.present(objApplePay, animated: true, completion: nil)
+        }
     }
     
     //MARK:- Payment Authorization Delegates

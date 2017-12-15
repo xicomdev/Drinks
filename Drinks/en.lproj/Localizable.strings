@@ -1,6 +1,7 @@
 
 "Privacy policy"="Privacy policy";
 "Terms of use"="Terms of use";
+"Regular"="Regular";
 "Premium"="Premium";
 "Buy Tickets"="Buy Tickets";
 "Age Verification"="Age Verification";
@@ -84,9 +85,9 @@
 "Male"="Male";
 "Female"="Female";
 "Please select annual income first."="Please select annual income first.";
-"Enter description here"="Enter description here";
+"We are drinking by three people, let's drink together! We are waiting for an offer!"="We are drinking by three people, let's drink together! We are waiting for an offer!";
 "Edit Group"="Edit Group";
-"Create Group"="Create Group";
+"Create Group"="Create";
 "Number Of People"="Number Of People";
 "Relation"="Relation";
 "I just want to drink it"="I just want to drink it";
@@ -132,3 +133,25 @@
 "I got tired."="I got tired.";
 "Select reason for leaving"="Select reason for leaving";
 "Please select reason for leaving."="Please select reason for leaving.";
+"None"="None";
+"You don't have enough tickets to make interest"="You don't have enough tickets to make interest";
+"Facebook Authentication"="Facebook Authentication";
+"We will access your birthday to complete your profile. Do you want to continue?"="We will access your birthday to complete your profile. Do you want to continue?";
+"Yes"="Yes";
+"No"="No";
+"User cancelled the action."="User cancelled the action.";
+"Your age is less than 18.\nSo you can not login to Drinks."="Your age is less than 18.\nSo you can not login to Drinks.";
+"Use my referal code and get free tickets.\nReferal code:"="Use my referal code and get free tickets.\nReferal code:";
+"If you enter this introduction code on the DRINKS application, you can get a ticket for free."="If you enter this introduction code on the DRINKS application, you can get a ticket for free.";
+"\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight."="\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight.";
+"The corresponding code does not exist."="The corresponding code does not exist.";
+"Please double check the code you entered."="Please double check the code you entered.";
+"Select relationship with members"="Select relationship with members";
+"The number of people has exceeded."="The number of people has exceeded.";
+"Up to 6 people can be registered for this recruitment."="Up to 6 people can be registered for this recruitment.";
+"version"="version";
+"Photo selection"="Photo selection";
+"day ago"="day ago";
+"hour ago"="hour ago";
+"minute ago"="minute ago";
+"Just now"="Just now";

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -127,6 +127,7 @@
                         <outlet property="btnFlash" destination="t3R-EL-Zjb" id="FaE-pM-SPN"/>
                         <outlet property="collectionViewFlowLayout" destination="yTp-ts-2Gd" id="G0l-nr-1iW"/>
                         <outlet property="collectionViewImages" destination="YXQ-sQ-yfS" id="kn2-tk-vqA"/>
+                        <outlet property="lblTitle" destination="i4s-7a-cJn" id="MTn-mf-TmS"/>
                         <outlet property="viewContainer" destination="df2-sz-ZqO" id="tal-MV-cVW"/>
                     </connections>
                 </viewController>

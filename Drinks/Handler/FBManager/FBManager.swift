@@ -160,7 +160,7 @@ class FBManager: NSObject  {
             }
             
             if (result?.isCancelled)!{
-                callBack(false,nil,"User cancelled the action.")
+                callBack(false,nil,NSLocalizedString("User cancelled the action.", comment: ""))
                 return
             }
             

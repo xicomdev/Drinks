@@ -57,7 +57,9 @@ struct Constants {
     struct webURL
     {
         //static let URLBaseAddress = "http://192.168.1.75/drinks/api/"
-        static let URLBaseAddress = "http://132.148.135.156/~drinks/api/"
+//        static let URLBaseAddress = "http://132.148.135.156/~drinks/api/"
+        static let URLBaseAddress = "http://52.196.237.101/drinks/api/"
+
     }
 }
 
