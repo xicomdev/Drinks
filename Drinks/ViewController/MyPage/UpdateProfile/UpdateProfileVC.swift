@@ -50,7 +50,6 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         txtDOB.text = LoginManager.getMe.DOB
         lblAge.text = "\(LoginManager.getMe.DOB.getAgeFromDOB())"
 
-        
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         txtDOB.inputView = datePicker
         

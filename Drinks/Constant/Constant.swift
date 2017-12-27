@@ -128,7 +128,7 @@ let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merch
 
 let userDefaults = UserDefaults.standard
 
-let arrayBlood = ["A+", "B+", "AB+" , "O+", "O-" ]
+let arrayBlood = ["A", "B", "O", "AB" ]
 var arrayMarriage = ["Single", "Married", "UnMarried" , "Divorced", "Commited" ]
 var arrayToabacco = ["ABC", "DEF", "GHI" , "JKL", "MNO" ]
 var arraySchool = ["Middle", "Graduate", "Master" , "Ph.d"]

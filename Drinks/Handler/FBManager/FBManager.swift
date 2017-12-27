@@ -62,7 +62,7 @@ class FBManager: NSObject  {
     
     private func profile(callBack:@escaping (Bool,AnyObject?,String?)->()) {
     
-        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "first_name,last_name,picture.type(normal),email,birthday,gender"])
+        let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "first_name,last_name,name,picture.type(normal),email,birthday,gender"])
         graphRequest.start(completionHandler: { ( connection , result, error) -> Void in
             if (error != nil) {
                  self.logout()
@@ -112,8 +112,7 @@ class FBManager: NSObject  {
                         HTTPRequest.sharedInstance().postRequest(urlLink: API_UpdateFbFriends, paramters: param, handler: { (flag, response, errorStr) in
                             print(flag)
                         })
-                    
-                    }
+                     }
                 }
             } else {
                 
@@ -126,9 +125,6 @@ class FBManager: NSObject  {
         
     }
   
-    
-    
-    
     
     
     func currentTokenString() -> String {

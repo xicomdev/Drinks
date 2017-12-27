@@ -81,10 +81,12 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 self.makePayment(getPlan: ticket)
                 
             }
+            cell.selectionStyle = .none
             return cell
         }else {
             let cell = tblVwTicketPlans.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
             cell.lblTitle.text = NSLocalizedString(arySettings[indexPath.row], comment: "")
+            cell.selectionStyle = .none
             return cell
         }
     }

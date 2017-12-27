@@ -94,9 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
         
       //  print(test2)
         
-        dateFormatter.dateFormat = "YYYY/MM/dd"
+        dateFormatter.dateFormat = "MM/dd/YYYY"
         
-        messageDateFormat.dateFormat = "dd/MM/YYYY hh:mm a"
+        messageDateFormat.dateFormat = "MM/dd/YYYY hh:mm a"
        // "last_login" = "2017-10-03 14:52:19";
         
 lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
@@ -304,7 +304,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
         }else{
             print("Getting location fine")
             self.currentlocation = location!
-            self.appLocation = GroupLocation(name: "", lat: Double((self.currentlocation?.coordinate.latitude)!), long: Double((self.currentlocation?.coordinate.longitude)!))
+            self.appLocation = GroupLocation(name: "", lat: "\((self.currentlocation?.coordinate)!.latitude)", long: "\((self.currentlocation?.coordinate)!.longitude)")
             self.getLocationNameFromLatAndLong()
         }
     }
@@ -357,7 +357,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
                         }
                     }
                     self.myLocationName = addressCurrent
-                    self.appLocation = GroupLocation(name: addressCurrent, lat: Double((self.currentlocation?.coordinate.latitude)!), long: Double((self.currentlocation?.coordinate.longitude)!))
+                    self.appLocation = GroupLocation(name: addressCurrent, lat: "\((self.currentlocation?.coordinate)!.latitude)", long: "\((self.currentlocation?.coordinate)!.longitude)")
                 }
                 else {
                     print("Problem with the data received from geocoder")

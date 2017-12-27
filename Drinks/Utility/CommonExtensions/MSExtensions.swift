@@ -15,7 +15,7 @@ var dateFormate : DateFormatter = DateFormatter()
 let APP_DateFormat = "dd-MMM-yyyy"
 let APP_DateFormatNew = "yyyy-mm-dd"
 
-let APP_DateMessageFormat = "dd/MM/yyyy hh:mm a"
+let APP_DateMessageFormat = "MM/dd/yyyy hh:mm a"
 
 
 
@@ -211,8 +211,6 @@ extension String
         let ageComponent = gregorian.components(.year, from: userDOB , to: Date(), options: [])
         return ageComponent.year!
     }
-
-    
     
      public func isValidEmail() ->Bool {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"

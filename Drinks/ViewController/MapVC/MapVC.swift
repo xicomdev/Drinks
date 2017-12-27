@@ -150,7 +150,7 @@ class MapVC: UIViewController,MKMapViewDelegate {
                         addressCurrent = addressCurrent + ", " + cityName!
                     }
                 }
-                self.selectedFiltered.filterLocationName = GroupLocation(name: addressCurrent, lat: Double((location.coordinate.latitude)), long: Double((location.coordinate.longitude)))
+                self.selectedFiltered.filterLocationName = GroupLocation(name: addressCurrent, lat: "\(location.coordinate.latitude)", long: "\(location.coordinate.longitude)")
                 self.lblLocationName.text = addressCurrent
             }
             else {

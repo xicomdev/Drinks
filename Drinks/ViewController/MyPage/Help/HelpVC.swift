@@ -37,7 +37,6 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         
         let headerView : SelectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SelectionHeader") as! SelectionHeader
         headerView.lblHeader.text = NSLocalizedString("Beginner's Guide", comment: "")
-        
         return headerView
     }
     

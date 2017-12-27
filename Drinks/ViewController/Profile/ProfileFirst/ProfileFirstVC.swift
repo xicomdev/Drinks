@@ -9,8 +9,6 @@
 import UIKit
 import Photos
 
-
-
 class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
     @IBOutlet weak var btnNext: UIButton!
@@ -111,11 +109,11 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
             return
         }
         
-        if txtDOB.text! == ""
-        {
-            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
-            return
-        }
+//        if txtDOB.text! == ""
+//        {
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
+//            return
+//        }
         
         let profileSecondVC = mainStoryBoard.instantiateViewController(withIdentifier: "ProfileSecondVC") as! ProfileSecondVC
         profileSecondVC.imageSelected = imageSelected

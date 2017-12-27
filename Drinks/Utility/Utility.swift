@@ -65,7 +65,7 @@ func getMessageTime(timestamp: Double) -> String{
     let current = Date()
     let endTime = Date(timeIntervalSince1970: timestamp)
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM/yyyy"
+    dateFormatter.dateFormat = "MM/dd/yyyy"
     if dateFormatter.string(from: endTime) != dateFormatter.string(from: current) {
         return dateFormatter.string(from: endTime)
     }else {

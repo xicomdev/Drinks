@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var tblVwSettings: UITableView!
     override func viewDidLoad() {
@@ -65,8 +66,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0  && indexPath.row == 0
-        {
+        if indexPath.section == 0  && indexPath.row == 0 {
             
             LoginManager.sharedInstance.logOut(handler: { (success, response, strError) in
                 if success
@@ -78,8 +78,13 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 }
 
             })
-        }else if indexPath.section == 1  && indexPath.row == 3
-        {
+        }else if indexPath.section == 0  && indexPath.row == 2 {
+            sendEmail()
+        }else if indexPath.section == 1  && indexPath.row == 0 {
+            rateApp(appId: "", completion: { (_) in
+                
+            })
+        }else if indexPath.section == 1  && indexPath.row == 3 {
             let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
             genericVc.strTitle = "Commercial Transaction"
             self.navigationController?.pushViewController(genericVc, animated: true)
@@ -88,5 +93,34 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
             self.navigationController?.pushViewController(genericVc, animated: true)
         }
+    }
+    
+    func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {
+        guard let url = URL(string : "itms-apps://itunes.apple.com/app/" + appId) else {
+            completion(false)
+            return
+        }
+        guard #available(iOS 10, *) else {
+            completion(UIApplication.shared.openURL(url))
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([""])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

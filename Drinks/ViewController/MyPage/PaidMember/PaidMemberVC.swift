@@ -58,6 +58,7 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.callbackBuy = {(plan : PremiumPlan) in
             self.makePayment(getPlan: plan)
         }
+        cell.selectionStyle = .none
         return cell
     }
     

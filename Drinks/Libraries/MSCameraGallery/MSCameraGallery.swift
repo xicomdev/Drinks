@@ -194,13 +194,62 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
          if image != nil
             {
                 self.btnCapture.isSelected = true
-                self.capturedImage = image
-                self.moveBack()
+                self.capturedImage = self.crop(image: image!, withWidth: Double(self.viewContainer.frame.width), andHeight: Double(self.viewContainer.frame.height))
+                if self.capturedImage != nil {
+                    self.moveBack()
+                }
             }else{
                 self.btnCapture.isSelected = false
                 self.capturedImage = nil
             }
         }
+    }
+    
+    func crop(image: UIImage, withWidth width: Double, andHeight height: Double) -> UIImage? {
+        
+        if let cgImage = image.cgImage {
+            
+            let contextImage: UIImage = UIImage(cgImage: cgImage)
+            
+            let contextSize: CGSize = contextImage.size
+            
+            var posX: CGFloat = 0.0
+            var posY: CGFloat = 0.0
+            var cgwidth: CGFloat = CGFloat(width)
+            var cgheight: CGFloat = CGFloat(height)
+            
+            // See what size is longer and create the center off of that
+            if contextSize.width > contextSize.height {
+                posX = ((contextSize.width - contextSize.height) / 2)
+                posY = 0
+                cgwidth = contextSize.height
+                cgheight = contextSize.height
+            } else {
+                posX = 0
+                posY = ((contextSize.height - contextSize.width) / 2)
+                cgwidth = contextSize.width
+                cgheight = contextSize.width
+            }
+            
+            let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+            
+            // Create bitmap image from context using the rect
+            var croppedContextImage: CGImage? = nil
+            if let contextImage = contextImage.cgImage {
+                if let croppedImage = contextImage.cropping(to: rect) {
+                    croppedContextImage = croppedImage
+                }
+            }
+            
+            // Create a new image based on the imageRef and rotate back to the original orientation
+            if let croppedImage:CGImage = croppedContextImage {
+                let image: UIImage = UIImage(cgImage: croppedImage, scale: image.scale, orientation: image.imageOrientation)
+                return image
+            }
+            
+        }
+        
+        return nil
     }
     
     @IBAction func actionBtnToggle(_ sender: Any) {
@@ -512,16 +561,5 @@ class MSCameraGallery: UIViewController,UICollectionViewDelegate,UICollectionVie
     }
 
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

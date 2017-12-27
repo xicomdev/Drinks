@@ -11,7 +11,8 @@ import UIKit
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback,MSProtocolCallback , FilterCallback {
     @IBOutlet weak var lblNotice: UILabel!
     @IBOutlet weak var imgViewNotice: UIImageView!
-
+    @IBOutlet weak var vwRecruitWait: UIView!
+    
     var globalFilter = FilterInfo()
     var globalSort = SortInfo()
     
@@ -396,9 +397,11 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         if self.myGroups.count > 0 {
             self.viewPreviewConstraint.constant = 50
             btnCreateGroup.isHidden = true
+            vwRecruitWait.isHidden = true
         }else{
             self.viewPreviewConstraint.constant = 0
             btnCreateGroup.isHidden = false
+            vwRecruitWait.isHidden = false
         }
         
 //        UIView.animate(withDuration: 0.3) {
@@ -407,15 +410,5 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

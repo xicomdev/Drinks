@@ -85,6 +85,16 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         }
     }
     
+    @IBAction func actionTerms(_ sender: Any) {
+        let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
+        genericVc.strTitle = "Terms of Use"
+        self.navigationController?.pushViewController(genericVc, animated: true)
+    }
+    @IBAction func actionPrivacyPolicy(_ sender: Any) {
+        let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
+        genericVc.strTitle = "Privacy Policy"
+        self.navigationController?.pushViewController(genericVc, animated: true)
+    }
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
 
         let alert = UIAlertController(title: NSLocalizedString("Facebook Authentication", comment: ""), message: NSLocalizedString("We will access your birthday to complete your profile. Do you want to continue?", comment: ""), preferredStyle: .alert)
@@ -95,17 +105,17 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                     if let dictFB = response as? Dictionary <String , Any>
                     {
                         
-                        print(dictFB["id"] as! String)
+                        print(dictFB)
                         LoginManager.getMe.firstName = dictFB["first_name"] as! String
                         LoginManager.getMe.lastName = dictFB["last_name"] as! String
                         LoginManager.getMe.socialID = dictFB["id"] as! String
-                        LoginManager.getMe.fullName = LoginManager.getMe.firstName + " " +  LoginManager.getMe.lastName
+                        LoginManager.getMe.fullName = dictFB["name"] as! String
                         LoginManager.getMe.imageURL = String(format: "http://graph.facebook.com/%@/picture?type=large", LoginManager.getMe.socialID)
                         if let birthday = dictFB["birthday"] as? String
                         {
                             if birthday != "" {
                                 let formttr = DateFormatter()
-                                formttr.dateFormat = "dd/MM/yyyy"
+                                formttr.dateFormat = "MM/dd/yyyy"
                                 let dt = formttr.date(from: birthday)
                                 if dt != nil {
                                     LoginManager.getMe.DOB = dateFormatter.string(from: dt!)

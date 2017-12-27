@@ -13,8 +13,8 @@ import UIKit
 class GroupLocation: NSObject {
     
     var LocationName : String? = nil
-    var latitude : Double = 0.0
-    var longtitude : Double = 0.0
+    var latitude : String = "0.0"
+    var longtitude : String = "0.0"
     
     var age : String? = nil
     
@@ -24,7 +24,7 @@ class GroupLocation: NSObject {
     }
     
     
-    convenience init(name : String , lat : Double , long : Double) {
+    convenience init(name : String , lat : String , long : String) {
         self.init()
         self.LocationName = name
         self.latitude = lat
@@ -244,7 +244,7 @@ class Group: NSObject {
         
         self.relationship = dict["relationship"] as! String
         self.imageURL = dict["image"] as! String
-        self.location = GroupLocation(name: dict["group_location"] as! String, lat: Double(dict["group_latitude"] as! String)!, long: Double(dict["group_longitude"] as! String)!)
+        self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
         self.ownerID = dict["user_id"] as! String
 
         if let drinkedStatus = dict["drinked_status"] as? String
@@ -264,9 +264,10 @@ class Group: NSObject {
         
         if appDelegate().appLocation != nil
         {
-            params["current_latitude"] = appDelegate().appLocation?.latitude
-            params["current_longitude"] = appDelegate().appLocation?.longtitude
+            params["current_latitude"] = (appDelegate().appLocation)!.latitude
+            params["current_longitude"] = (appDelegate().appLocation)!.longtitude
         }
+        print(params)
         HTTPRequest.sharedInstance().postRequest(urlLink: API_GetGroups, paramters: params) { (isSuccess, response, strError) in
              SwiftLoader.hide()
             if isSuccess
@@ -321,12 +322,12 @@ class Group: NSObject {
         
         if filterInfo.filterLocationName != nil{
             
-            params["current_latitude"] = filterInfo.filterLocationName?.latitude
-            params["current_longitude"] = filterInfo.filterLocationName?.longtitude
+            params["current_latitude"] = (filterInfo.filterLocationName)!.latitude
+            params["current_longitude"] = (filterInfo.filterLocationName)!.longtitude
             
         }else if appDelegate().appLocation != nil{
-            params["current_latitude"] = appDelegate().appLocation?.latitude
-            params["current_longitude"] = appDelegate().appLocation?.longtitude
+            params["current_latitude"] = (appDelegate().appLocation)!.latitude
+            params["current_longitude"] = (appDelegate().appLocation)!.longtitude
         }
 
         if filterInfo.distance != -1{
@@ -494,7 +495,7 @@ class Group: NSObject {
         
         let groupMembers = createParameters(group: self)
         
-        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : (location?.LocationName)! ,"group_latitude" : (location?.latitude)!,"group_longitude" : (location?.longtitude)! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : (location)!.LocationName ,"group_latitude" : (location)!.latitude,"group_longitude" : (location)!.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]
         
         print(parms)
         
@@ -524,7 +525,7 @@ class Group: NSObject {
         
         let groupMembers = createParameters(group: self)
         
-        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : location?.LocationName ,"group_latitude" : (location?.latitude)!,"group_longitude" : (location?.longtitude)! , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled , "id" : self.groupID]
+        let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : (location)!.LocationName ,"group_latitude" : (location)!.latitude,"group_longitude" : (location)!.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled , "id" : self.groupID]
         SwiftLoader.show(true)
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_EditGroup, paramters: parms, Images: image) { (success, response, strError) in
             SwiftLoader.hide()
