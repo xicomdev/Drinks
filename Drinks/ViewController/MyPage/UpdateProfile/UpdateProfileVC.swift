@@ -44,12 +44,14 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         datePicker.datePickerMode = UIDatePickerMode.date
         // previousDate
         
-        let dt = dateFormatter.date(from: LoginManager.getMe.DOB)
-        datePicker.setDate(dt!, animated: false)
+        if LoginManager.getMe.DOB != "" {
+            let dt = dateFormatter.date(from: LoginManager.getMe.DOB)
+            datePicker.setDate(dt!, animated: false)
+            
+            txtDOB.text = LoginManager.getMe.DOB
+            lblAge.text = "\(LoginManager.getMe.DOB.getAgeFromDOB())"
+        }
         
-        txtDOB.text = LoginManager.getMe.DOB
-        lblAge.text = "\(LoginManager.getMe.DOB.getAgeFromDOB())"
-
         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         txtDOB.inputView = datePicker
         
@@ -113,9 +115,9 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         else if LoginManager.getMe.job.ID == ""{
             showAlert(title: "Drinks", message: NSLocalizedString("Please select your occupation.", comment: ""), controller: self)
         }
-        else if txtDOB.text! == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
-        }
+//        else if txtDOB.text! == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
+//        }
         else  if LoginManager.getMe.bloodGroup == ""{
             showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
         }

@@ -218,6 +218,9 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
+            cell.btnFilter.setTitle(NSLocalizedString("Filter", comment: ""), for: .normal)
+        
+
             cell.callbackAction = { (action : GroupAction , data : Any?) in
                 
                 if action == .CANCEL
@@ -262,6 +265,7 @@ class FilterVC: UIViewController,UITableViewDataSource,UITableViewDelegate,MSSel
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier:"FilterActionCell") as! FilterActionCell
+            cell.btnFilter.setTitle(NSLocalizedString("Sort", comment: ""), for: .normal)
             cell.callbackAction = { (action : GroupAction , data : Any?) in
                 
                 if action == .CANCEL

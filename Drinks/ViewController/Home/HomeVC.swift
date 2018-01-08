@@ -182,11 +182,20 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                         }
                     }else
                     {
-                        self.isFromNoRecruit = true
-                        let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
-                        noGroupVc.delegate = self
-                        self.present(noGroupVc, animated: true, completion: nil)
-                        //                    showAlert(title: "Drinks", message: error!, controller: self)
+                        if error! == "Group not exist" || error! == "グループが存在しない" {
+                            let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                                self.callGroupsApi()
+                            })
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
+                        }else {
+                            self.isFromNoRecruit = true
+                            let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
+                            noGroupVc.delegate = self
+                            self.present(noGroupVc, animated: true, completion: nil)
+                        }
+                        
                     }
                 })
             }
@@ -342,11 +351,16 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:- Custom Delegates
     //MARK":-
     
-    func moveHomeToAddNew() {
-        let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
-        createGroupVC.delegate = self
-        let navigation = UINavigationController(rootViewController: createGroupVC)
-        self.navigationController?.present(navigation, animated: true, completion: nil)
+    func moveHomeToAddNew(_ reload: Bool) {
+        if reload {
+            self.callGroupsApi()
+        }else {
+            let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+            createGroupVC.delegate = self
+            let navigation = UINavigationController(rootViewController: createGroupVC)
+            self.navigationController?.present(navigation, animated: true, completion: nil)
+        }
+        
     }
     
 //    func moveWithSelection(selected: Any) {

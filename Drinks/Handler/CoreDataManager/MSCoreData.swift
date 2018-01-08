@@ -106,7 +106,11 @@ class MSCoreData: NSObject {
             if let strDOB = userInfo["dob"] as? String
             {
                 user.userDOB = strDOB
-                user.userAge = Int16(strDOB.getAgeFromDOB())
+                if strDOB != "" {
+                    user.userAge = Int16(strDOB.getAgeFromDOB())
+                }else {
+                    user.userAge = 0
+                }
             }
             
             if let strIncome = userInfo["annual_income"] as? String

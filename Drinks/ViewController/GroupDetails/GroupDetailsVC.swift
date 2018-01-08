@@ -260,7 +260,13 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 }
                             }else
                             {
-                                showAlert(title: "Drinks", message: error!, controller: self)
+                                
+                                let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
+                                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                                    self.navigationController?.popViewController(animated: true)
+                                })
+                                alert.addAction(okAction)
+                                self.present(alert, animated: true, completion: nil)
                             }
                         })
                             
@@ -486,7 +492,12 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 }
             }else
             {
-                showAlert(title: "Drinks", message: strError!, controller: self)
+                let alert = UIAlertController(title: "Drinks", message: strError!, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                    self.navigationController?.popViewController(animated: true)
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
             }
         })
         

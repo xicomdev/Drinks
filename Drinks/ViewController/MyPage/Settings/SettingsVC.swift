@@ -65,34 +65,59 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section == 0  && indexPath.row == 0 {
-            
-            LoginManager.sharedInstance.logOut(handler: { (success, response, strError) in
-                if success
-                {
-                    getOutOfApp()
-                    
-                }else{
-                    showAlert(title: "Drinks", message: strError!, controller: self)
-                }
-
-            })
-        }else if indexPath.section == 0  && indexPath.row == 2 {
-            sendEmail()
-        }else if indexPath.section == 1  && indexPath.row == 0 {
-            rateApp(appId: "", completion: { (_) in
-                
-            })
-        }else if indexPath.section == 1  && indexPath.row == 3 {
-            let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
-            genericVc.strTitle = "Commercial Transaction"
-            self.navigationController?.pushViewController(genericVc, animated: true)
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                LoginManager.sharedInstance.logOut(handler: { (success, response, strError) in
+                    if success{
+                        getOutOfApp()
+                    }else{
+                        showAlert(title: "Drinks", message: strError!, controller: self)
+                    }
+                })
+                break
+            case 1:
+                let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+                genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
+                genericVc.apiURL = API_Help
+                self.navigationController?.pushViewController(genericVc, animated: true)
+                break
+            case 2:
+                sendEmail()
+                break
+            default:
+                break
+            }
         }else {
-            let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
-            genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
-            self.navigationController?.pushViewController(genericVc, animated: true)
+            switch indexPath.row {
+            case 0:
+                rateApp(appId: "", completion: { (_) in
+                    
+                })
+                break
+            case 1:
+                let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+                genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
+                genericVc.apiURL = API_Terms
+                self.navigationController?.pushViewController(genericVc, animated: true)
+                break
+            case 2:
+                let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+                genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
+                genericVc.apiURL = API_PrivacyPolicy
+                self.navigationController?.pushViewController(genericVc, animated: true)
+                break
+            case 3:
+                let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+                genericVc.strTitle = "Commercial Transaction"
+                genericVc.apiURL = API_Faq
+                self.navigationController?.pushViewController(genericVc, animated: true)
+                break
+            default :
+                break
+            }
         }
+        
     }
     
     func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {

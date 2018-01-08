@@ -20,11 +20,13 @@ class NoRecruitVC: UIViewController {
 
     @IBAction func actionBtnRecruit(_ sender: Any) {
         self.dismiss(animated: true, completion: {
-            self.delegate?.moveHomeToAddNew!()
+            self.delegate?.moveHomeToAddNew!(false)
         })
     }
     @IBAction func actionBtnCloseup(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.delegate?.moveHomeToAddNew!(true)
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

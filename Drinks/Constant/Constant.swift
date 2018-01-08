@@ -121,6 +121,16 @@ let API_LeaveUser = "deleteUser"
 
 let API_UpdateFbFriends = "updateFacebookFriends"
 
+let API_AboutUs = "http://52.196.237.101/drinks/home/page/about_us"
+
+let API_Help = "http://52.196.237.101/drinks/home/page/help"
+
+let API_Terms = "http://52.196.237.101/drinks/home/page/termsandconditions"
+
+let API_PrivacyPolicy = "http://52.196.237.101/drinks/home/page/privacy"
+
+let API_Faq = "http://52.196.237.101/drinks/home/page/faq"
+
 
 //MARK:- Apple Pay Merchant ID
 let ApplePayDrinksMerchantID = "merchant.com.xicom.drinks" // Fill in your merchant ID here!

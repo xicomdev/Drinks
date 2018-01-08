@@ -100,7 +100,11 @@ class User: NSObject,NSCoding
         if let strDOB = dictLocal["dob"] as? String
         {
             self.DOB = dictLocal["dob"] as! String
-            self.age = strDOB.getAgeFromDOB()
+            if strDOB != "" {
+                self.age = strDOB.getAgeFromDOB()
+            }else {
+                self.age = 0
+            }
         }
         
         if let offers = dictLocal["offer_count"] as? String{
@@ -176,7 +180,11 @@ class User: NSObject,NSCoding
         if let strDOB = dictLocal["dob"] as? String
         {
             self.DOB = dictLocal["dob"] as! String
-            self.age = strDOB.getAgeFromDOB()
+            if strDOB != "" {
+                self.age = strDOB.getAgeFromDOB()
+            }else {
+                self.age = 0
+            }
         }
         
         if let offers = dictLocal["offer_count"] as? String{

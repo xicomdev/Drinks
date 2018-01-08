@@ -61,6 +61,7 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         }else {
             let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
             genericVc.strTitle = "Help"
+            genericVc.apiURL = API_Help
             self.navigationController?.pushViewController(genericVc, animated: true)
         }
     }

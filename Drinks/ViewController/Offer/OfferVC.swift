@@ -300,7 +300,16 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }
             }else
             {
-                showAlert(title: "Drinks", message: strError!, controller: self)
+                let alert = UIAlertController(title: "Drinks", message: strError!, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                    if self.selectedOption == .BeOffered{
+                        self.getBeOfferedGroups()
+                    }else{
+                        self.getOfferedGroups()
+                    }
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
             }
         })
         

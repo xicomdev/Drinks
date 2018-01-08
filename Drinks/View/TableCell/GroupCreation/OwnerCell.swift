@@ -25,8 +25,11 @@ class OwnerCell: UITableViewCell {
     }
     
     func setOwnerInfo(){
-        
-        lblName.text = LoginManager.getMe.fullName + " (\(LoginManager.getMe.DOB.getAgeFromDOB()))"
+        if LoginManager.getMe.DOB == "" {
+            lblName.text = LoginManager.getMe.fullName
+        }else {
+            lblName.text = LoginManager.getMe.fullName + " (\(LoginManager.getMe.DOB.getAgeFromDOB()))"
+        }
         if Locale.preferredLanguages[0].contains("en") {
             lblOccupation.text = LoginManager.getMe.job.engName
         }else {

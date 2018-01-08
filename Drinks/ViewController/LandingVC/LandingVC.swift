@@ -88,11 +88,13 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     @IBAction func actionTerms(_ sender: Any) {
         let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
         genericVc.strTitle = "Terms of Use"
+        genericVc.apiURL = API_Terms
         self.navigationController?.pushViewController(genericVc, animated: true)
     }
     @IBAction func actionPrivacyPolicy(_ sender: Any) {
         let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
         genericVc.strTitle = "Privacy Policy"
+        genericVc.apiURL = API_PrivacyPolicy
         self.navigationController?.pushViewController(genericVc, animated: true)
     }
     @IBAction func actionBtnLoginPressed(_ sender: Any) {

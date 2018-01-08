@@ -20,7 +20,7 @@ typealias AlertHandler = ( (_ Index: Int) -> Void) // false for Cancel
     @objc optional func replaceRecords()
 
     @objc optional func moveRecordsWithType(obj : AnyObject , type : String )
-    @objc optional func moveHomeToAddNew()
+    @objc optional func moveHomeToAddNew(_ reload: Bool)
     @objc optional func gotoHome()
 
 }

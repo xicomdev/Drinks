@@ -4906,28 +4906,25 @@
                                     <constraint firstItem="XwT-h1-BXs" firstAttribute="centerX" secondItem="XHh-Zr-6eD" secondAttribute="centerX" id="poy-jd-MhZ"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EcT-d9-tnZ">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dg4-KO-jj7">
                                 <rect key="frame" x="0.0" y="72" width="320" height="496"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EcT-d9-tnZ" secondAttribute="trailing" id="5S8-OE-AfF"/>
+                            <constraint firstItem="dg4-KO-jj7" firstAttribute="top" secondItem="XHh-Zr-6eD" secondAttribute="bottom" constant="8" id="2YJ-Ud-BJ9"/>
                             <constraint firstAttribute="trailing" secondItem="XHh-Zr-6eD" secondAttribute="trailing" id="6zI-qn-IdX"/>
-                            <constraint firstItem="C9F-Po-JKZ" firstAttribute="top" secondItem="EcT-d9-tnZ" secondAttribute="bottom" id="7Zf-sf-PCM"/>
                             <constraint firstItem="XHh-Zr-6eD" firstAttribute="top" secondItem="iqg-Rn-Nn3" secondAttribute="top" id="CKB-42-Cb6"/>
-                            <constraint firstItem="EcT-d9-tnZ" firstAttribute="leading" secondItem="iqg-Rn-Nn3" secondAttribute="leading" id="Hkd-ab-CgE"/>
+                            <constraint firstItem="C9F-Po-JKZ" firstAttribute="top" secondItem="dg4-KO-jj7" secondAttribute="bottom" id="Nfu-VN-MI2"/>
+                            <constraint firstItem="dg4-KO-jj7" firstAttribute="leading" secondItem="iqg-Rn-Nn3" secondAttribute="leading" id="Of2-Eu-8H2"/>
+                            <constraint firstAttribute="trailing" secondItem="dg4-KO-jj7" secondAttribute="trailing" id="SXw-rJ-8vI"/>
                             <constraint firstItem="XHh-Zr-6eD" firstAttribute="leading" secondItem="iqg-Rn-Nn3" secondAttribute="leading" id="Z5K-zb-TtU"/>
-                            <constraint firstItem="EcT-d9-tnZ" firstAttribute="top" secondItem="XHh-Zr-6eD" secondAttribute="bottom" constant="8" id="mYh-28-2Hc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lblScreenTitle" destination="XwT-h1-BXs" id="8ts-hk-BUb"/>
-                        <outlet property="txtVw" destination="EcT-d9-tnZ" id="lpg-O4-pwB"/>
+                        <outlet property="webVw" destination="dg4-KO-jj7" id="70f-PW-Hi8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta3-Ya-KdX" userLabel="First Responder" sceneMemberID="firstResponder"/>

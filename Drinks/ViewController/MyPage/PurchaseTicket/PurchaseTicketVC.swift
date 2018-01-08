@@ -94,6 +94,11 @@ class PurchaseTicketVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
+            if indexPath.row == 0 {
+                genericVc.apiURL = API_PrivacyPolicy
+            }else {
+                genericVc.apiURL = API_Terms
+            }
             genericVc.strTitle = arySettings[indexPath.row]
             self.navigationController?.pushViewController(genericVc, animated: true)
         }
