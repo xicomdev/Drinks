@@ -11,6 +11,7 @@ import Photos
 
 class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var occupationErrorHgt: NSLayoutConstraint!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnSkip: UIButton!
     @IBOutlet var lblOccupation: UILabel!
@@ -168,6 +169,7 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
             lblOccupation.text =  LoginManager.getMe.job.japName
         }
         lblOccupation.textColor = UIColor.black
+        occupationErrorHgt.constant = 0
         
     }
     

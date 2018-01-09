@@ -94,9 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
         
       //  print(test2)
         
-        dateFormatter.dateFormat = "MM/dd/YYYY"
+        dateFormatter.dateFormat = "yyyy/MM/dd"
         
-        messageDateFormat.dateFormat = "MM/dd/YYYY hh:mm a"
+        messageDateFormat.dateFormat = "yyyy/MM/dd hh:mm a"
        // "last_login" = "2017-10-03 14:52:19";
         
 lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"

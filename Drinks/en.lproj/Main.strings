@@ -450,7 +450,7 @@
 "nhd-tT-T17.text" = "Filter";
 
 /* Class = "UILabel"; text = "error"; ObjectID = "oCA-yL-Zrh"; */
-"oCA-yL-Zrh.text" = "error";
+"oCA-yL-Zrh.text" = "Please choose an occupation";
 
 /* Class = "UITextField"; placeholder = "Select blood type"; ObjectID = "oEA-AP-ibO"; */
 "oEA-AP-ibO.placeholder" = "Select blood type";
