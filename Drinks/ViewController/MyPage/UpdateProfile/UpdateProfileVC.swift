@@ -27,7 +27,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
     @IBOutlet var btnMarriage: UIButton!
     @IBOutlet var btnBloodType: UIButton!
     @IBOutlet var txtBloodType: UITextField!
-
+    @IBOutlet weak var occupationErrorHgt: NSLayoutConstraint!
+    
     var imageSelected : UIImage? = nil
     var datePicker = UIDatePicker()
     var activeSelection : SelectionType = .Blood
@@ -61,6 +62,8 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
         }else {
             lblOccupation.text = LoginManager.getMe.job.japName
         }
+        occupationErrorHgt.constant = 0
+
         txtUserName.text = LoginManager.getMe.fullName
         
         self.txtBloodType.text = LoginManager.getMe.bloodGroup
@@ -118,21 +121,21 @@ class UpdateProfileVC: UIViewController, MSSelectionCallback,UINavigationControl
 //        else if txtDOB.text! == ""{
 //            showAlert(title: "Drinks", message: NSLocalizedString("Please enter your DOB.", comment: ""), controller: self)
 //        }
-        else  if LoginManager.getMe.bloodGroup == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
-        }
-        else if LoginManager.getMe.relationship == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
-        }
-        else if LoginManager.getMe.tabaco == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
-        }
-        else if LoginManager.getMe.schoolCareer == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
-        }
-        else if LoginManager.getMe.annualIncome == "" {
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
-        }
+//        else  if LoginManager.getMe.bloodGroup == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
+//        }
+//        else if LoginManager.getMe.relationship == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
+//        }
+//        else if LoginManager.getMe.tabaco == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
+//        }
+//        else if LoginManager.getMe.schoolCareer == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
+//        }
+//        else if LoginManager.getMe.annualIncome == "" {
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
+//        }
         else {
             var imageArray = [MSImage]()
             

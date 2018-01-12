@@ -1,6 +1,6 @@
 
 import UIKit
-
+import Firebase
 class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var thread = ChatThread()
@@ -79,7 +79,8 @@ class HistoryChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, 
     }
     
     func sendMsg() {
-        
+        Analytics.logEvent("Send_message", parameters: nil)
+
         self.sendMessageAPI(textMessage: txtVWMsg.text.removeEndingSpaces())
         txtVWMsg.text = ""
         bottomMsgVwHgt.constant = 50

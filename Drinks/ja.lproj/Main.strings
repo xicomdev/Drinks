@@ -74,13 +74,13 @@
 
 "GMR-e7-vfB.text" = "あなたが飲酒パートナーを探しているときだけ、相手を招待することができます。リクルートして、もう一度飲みたいです。";
 
-"GZD-oE-thP.normalTitle" = "コードを使用する";
+"GZD-oE-thP.normalTitle" = "クーポンコードを使用する";
 
 "GfE-Gp-T2H.normalTitle" = "クーポンコードを使う";
 
 "GlW-W2-pW1.normalTitle" = "募集";
 
-"Hlv-hM-1sR.text" = "参照コードを入力するだけで、無料のチケットを獲得する機会を得ることができます。";
+"Hlv-hM-1sR.text" = "友人からもらったクーポンコードを入力すると、あなたと友人に10チケットずつプレゼントします。";
 
 "Hvn-Lm-LmY.normalTitle" = "次";
 
@@ -144,9 +144,9 @@
 
 "Pj6-XM-ldN.text" = "自分の募集をプレビュー";
 
-"Pqm-cs-VKJ.normalTitle" = "並び替え";
+"Pqm-cs-VKJ.normalTitle" = "絞り込み";
 
-"Pqm-cs-VKJ.selectedTitle" = "並び替え";
+"Pqm-cs-VKJ.selectedTitle" = "絞り込み";
 
 "Puh-Oe-HYe.text" = "Label";
 
@@ -166,7 +166,7 @@
 
 "SbZ-Tx-SUm.text" = "その他、官公庁が発行した身分証明書類でも可能です（マイナンバーカードは不可）";
 
-"StF-1a-1Ov.text" = "参照コードがありますか？";
+"StF-1a-1Ov.text" = "クーポンコードはお持ちですか？";
 
 "T1H-wT-sde.placeholder" = "血液型の選択";
 
@@ -210,7 +210,7 @@
 
 "afw-mK-bkV.text" = "表示設定";
 
-"amG-sn-Xqg.normalTitle" = "アップロード";
+"amG-sn-Xqg.normalTitle" = "決定";
 
 "b1h-O7-wWg.text" = "違反日時";
 
@@ -238,7 +238,7 @@
 
 "ceX-LR-Rcx.normalTitle" = "保存";
 
-"dE8-sP-ECr.text" = "エラー";
+"dE8-sP-ECr.text" = "職業を選択してください";
 
 "dGk-w6-CZk.title" = "探す";
 
@@ -282,7 +282,7 @@
 
 "izs-1X-tvK.text" = "20";
 
-"jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません\nちょっと待ってみましょう。";
+"jRT-sa-vtm.text" = "現在、飲みたい出来る募集がありません\n少し待ってみましょう。";
 
 "jaC-vT-CYC.text" = "通知";
 
@@ -298,7 +298,7 @@
 
 "mRS-sg-m93.text" = "年収";
 
-"nQI-bd-CQD.text" = "相手から飲みたいがされていませんこちらから飲みたいをして、アピールしよう";
+"nQI-bd-CQD.text" = "相手から飲みたいがされていません\nこちらから飲みたいをして、アピールしよう";
 
 "nhd-tT-T17.text" = "並び替え";
 
@@ -368,7 +368,7 @@
 
 "dJS-kG-fp2.normalTitle" = "DRINKSを解約";
 
-"YvE-dS-ht6.text" = "サービスをキャンセルするには、以下の注意事項をよく読み、キャンセルの理由を選択し、「削除」ボタンを押してください";
+"YvE-dS-ht6.text" = "退会が完了した時点で有料会員プランの有効期間、及び、ご購入済みのOmiaiポイントが残っていても破棄され無効となります。\n\n尚、返金につきましては利用規約に基づき、日割りでの対応を行っておりません。\n\n退会するとすべての会員向けサービスをご利用いただけなくなります。";
 
 "yCT-u3-Efu.text" = "募集して待とう";
 

@@ -204,6 +204,7 @@ extension String
         
   public  func getAgeFromDOB() -> Int
     {
+        
             let userDOB = dateFormatter.date(from: self)!
             let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
             let ageComponent = gregorian.components(.year, from: userDOB , to: Date(), options: [])

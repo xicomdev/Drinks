@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import UserNotifications
-
+import Firebase
 import Fabric
 import Crashlytics
 
@@ -117,7 +117,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
             
         })
         
-        
+        FirebaseApp.configure()
         // Override point for customization after application launch.
         return true
     }

@@ -215,8 +215,12 @@ class User: NSObject,NSCoding
     {
         if let imageURL = dict["image"] as? String
         {
-            self.imageURL = imageURL
-        }else if let fbImageURL = dict["fb_image"] as? String
+            if imageURL != "" {
+                self.imageURL = imageURL
+                return
+            }
+        }
+        if let fbImageURL = dict["fb_image"] as? String
         {
             self.imageURL = fbImageURL
         }

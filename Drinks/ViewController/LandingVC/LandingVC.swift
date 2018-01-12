@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LandingVC: UIViewController,UIScrollViewDelegate {
     
@@ -78,7 +79,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
-            
+            Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
             appDelegate().window?.rootViewController = tabBarController
             
@@ -221,6 +222,8 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
             if success{
                 if let existingUser = response as? User
                 {
+                    Analytics.logEvent(AnalyticsEventLogin, parameters: nil)
+//                    Analytics.logEvent(AnalyticsEventViewItem, parameters: <#T##[String : Any]?#>)
                     let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
                  //   AppDelegate
                     self.navigationController?.pushViewController(tabBarController, animated: true)

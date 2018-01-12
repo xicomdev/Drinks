@@ -1,3 +1,7 @@
+
+import Firebase
+import UIKit
+
 class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var thread = ChatThread()
@@ -234,6 +238,8 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
     
     func sendMessageAPI(textMessage : String)
     {
+        Analytics.logEvent("Send_message", parameters: nil)
+
         thread.sendMessage(message: textMessage) { (isSuccess, response, error) in
             if isSuccess
             {

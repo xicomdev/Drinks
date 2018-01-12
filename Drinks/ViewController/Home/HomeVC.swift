@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MSSelectionCallback,MSProtocolCallback , FilterCallback {
     @IBOutlet weak var lblNotice: UILabel!
     @IBOutlet weak var imgViewNotice: UIImageView!
@@ -67,7 +67,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         
         FBManager.sharedInstance.getFriendList()
-        
+        Analytics.logEvent(AnalyticsEventSearch, parameters: nil)
         self.navigationController?.isNavigationBarHidden = false
         if !isFromNoRecruit {
            

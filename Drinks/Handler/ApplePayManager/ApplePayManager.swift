@@ -9,6 +9,7 @@
 import UIKit
 import PassKit
 import Stripe
+import Firebase
 
 class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
 {
@@ -107,11 +108,15 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
             }
             var params : Dictionary<String ,Any>?
             if self.plan_id != "" {
+                Analytics.logEvent("Buy_plan", parameters: nil)
+
                 params = [
                     "stripeToken":(token?.tokenId)!,
                     "plan_id":self.plan_id
                 ]
             }else {
+                Analytics.logEvent("Buy_tickets", parameters: nil)
+
                 params = [
                     "stripeToken":(token?.tokenId)!,
                     "ticket_id":self.ticket_id

@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+import Firebase
 
 class GroupLocation: NSObject {
     
@@ -492,7 +492,7 @@ class Group: NSObject {
     func createNewGroup( image : [MSImage]  , handler : @escaping CompletionHandler)
     {
        // user_id, image
-        
+        Analytics.logEvent("Create_new_group", parameters: nil)
         let groupMembers = createParameters(group: self)
         
         let parms : [String : Any] = ["user_id" : LoginManager.getMe.ID , "group_conditions" : groupMembers, "group_location" : (location)!.LocationName ,"group_latitude" : (location)!.latitude,"group_longitude" : (location)!.longtitude , "group_description" : self.groupDescription , "relationship" : self.relationship , "group_tag" : self.tagEnabled]

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var tblProfile: UITableView!
@@ -32,7 +33,11 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
         tblProfile.delegate = self
         tblProfile.dataSource = self
         
-        
+        Analytics.logEvent("View_user_profile", parameters: nil)
+//        Analytics.logEvent("View user profile", parameters: [
+//            "name": "View user profile" as NSObject,
+//            "full_text": "View other user profile page" as NSObject
+//            ])
         
         
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GroupManager: NSObject {
 
@@ -42,6 +43,7 @@ class GroupManager: NSObject {
     
     func sendOrRemoveInterest(handler:@escaping CompletionHandler){
         
+        Analytics.logEvent("Make_interest_to_group", parameters: nil)
         var interestStatus  : String = ""
         if self.group.drinkedStatus == .NotDrinked
         {
@@ -98,7 +100,8 @@ class GroupManager: NSObject {
     
     func acceptInterestRequested(requestedGroup: Group, handler:@escaping CompletionHandler)
     {
-        
+        Analytics.logEvent("Interest_back_to_confirm_match", parameters: nil)
+
         print( (requestedGroup.groupRequest?.groupID)! )
         print( (requestedGroup.groupRequest?.groupOwner.ID)!  )
         self.group = requestedGroup

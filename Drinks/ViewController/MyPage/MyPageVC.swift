@@ -33,13 +33,16 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         //Full Screen (Remove top Padding)
          self.edgesForExtendedLayout = UIRectEdge.top
         let NavBtnNib = UINib(nibName: "MyPageNavBtnCell", bundle: nil)
+        let bannerNib = UINib(nibName: "MyPageGroupsCell", bundle: nil)
         collctnVwNavBtns.register(NavBtnNib, forCellWithReuseIdentifier: "MyPageNavBtnCell")
-        
+        collctnVwGroups.register(bannerNib, forCellWithReuseIdentifier: "MyPageGroupsCell")
+
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             lblVersion.text = NSLocalizedString("version", comment: "") + " " + version
         }
         
-        
+        collctnVwGroups.delegate = self
+        collctnVwGroups.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool){

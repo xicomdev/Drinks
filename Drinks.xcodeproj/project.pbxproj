@@ -150,16 +150,6 @@
 		63C05C2C1F67E5E500FDC51E /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C05C2B1F67E5E500FDC51E /* AppDelegateExtension.swift */; };
 		63C05C321F67E66800FDC51E /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C05C2F1F67E66800FDC51E /* SSKeychain.m */; };
 		63C05C331F67E66800FDC51E /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C05C311F67E66800FDC51E /* SSKeychainQuery.m */; };
-		63C05C381F68108900FDC51E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C05C361F68108900FDC51E /* Crashlytics.framework */; };
-		63C05C391F68108900FDC51E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C05C371F68108900FDC51E /* Fabric.framework */; };
-		63C129B71F611274002C12E9 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B01F611274002C12E9 /* FirebaseAnalytics.framework */; };
-		63C129B81F611274002C12E9 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B11F611274002C12E9 /* FirebaseCore.framework */; };
-		63C129B91F611274002C12E9 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B21F611274002C12E9 /* FirebaseCoreDiagnostics.framework */; };
-		63C129BA1F611274002C12E9 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B31F611274002C12E9 /* FirebaseInstanceID.framework */; };
-		63C129BB1F611274002C12E9 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B41F611274002C12E9 /* FirebaseNanoPB.framework */; };
-		63C129BC1F611274002C12E9 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B51F611274002C12E9 /* GoogleToolboxForMac.framework */; };
-		63C129BD1F611274002C12E9 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C129B61F611274002C12E9 /* nanopb.framework */; };
-		63C129BF1F61132A002C12E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63C129BE1F61132A002C12E9 /* GoogleService-Info.plist */; };
 		63C129C21F6131D9002C12E9 /* ChatThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C129C11F6131D9002C12E9 /* ChatThread.swift */; };
 		63C129C51F613254002C12E9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C129C41F613254002C12E9 /* Message.swift */; };
 		63C129C81F61596F002C12E9 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C129C71F61596F002C12E9 /* ChatManager.swift */; };
@@ -222,6 +212,9 @@
 		7B23DABDE2B244CD4E46B746 /* Pods_DrinksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09FAFDA5FFF16AED1AB185E /* Pods_DrinksUITests.framework */; };
 		9C5CB56E994D9F3EE9B78BEE /* Pods_Drinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629046566DF805ECEFFE10CE /* Pods_Drinks.framework */; };
 		AEF0B4D89DC65E51D56D7ECF /* Pods_DrinksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C33F2BD63E227B2A46E2A2 /* Pods_DrinksTests.framework */; };
+		BC3773B32005D63900AD08EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3773B22005D63900AD08EC /* GoogleService-Info.plist */; };
+		BC3773C72005F91C00AD08EC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3773C52005F91C00AD08EC /* Crashlytics.framework */; };
+		BC3773C82005F91C00AD08EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3773C62005F91C00AD08EC /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -431,16 +424,6 @@
 		63C05C2F1F67E66800FDC51E /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		63C05C301F67E66800FDC51E /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		63C05C311F67E66800FDC51E /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
-		63C05C361F68108900FDC51E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		63C05C371F68108900FDC51E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		63C129B01F611274002C12E9 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		63C129B11F611274002C12E9 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
-		63C129B21F611274002C12E9 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
-		63C129B31F611274002C12E9 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		63C129B41F611274002C12E9 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseNanoPB.framework; sourceTree = "<group>"; };
-		63C129B51F611274002C12E9 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
-		63C129B61F611274002C12E9 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
-		63C129BE1F61132A002C12E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63C129C11F6131D9002C12E9 /* ChatThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatThread.swift; sourceTree = "<group>"; };
 		63C129C41F613254002C12E9 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		63C129C71F61596F002C12E9 /* ChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
@@ -507,6 +490,9 @@
 		63F86F6C1F665F2A0040AE2F /* DrinkTodayNoMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkTodayNoMessageCell.xib; sourceTree = "<group>"; };
 		7D3274B7CD8B1BADC98D1179 /* Pods-Drinks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Drinks/Pods-Drinks.release.xcconfig"; sourceTree = "<group>"; };
 		A4C33F2BD63E227B2A46E2A2 /* Pods_DrinksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC3773B22005D63900AD08EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC3773C52005F91C00AD08EC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		BC3773C62005F91C00AD08EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C03C5CC8153E71E292F59CFE /* Pods-DrinksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E09FAFDA5FFF16AED1AB185E /* Pods_DrinksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8A9BFAF1783AFF19E5E0B6 /* Pods-DrinksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -521,20 +507,13 @@
 				63249BA41F7A708700F434E1 /* PassKit.framework in Frameworks */,
 				633112B31F72834900DE27AD /* CoreData.framework in Frameworks */,
 				63C05C261F67E4FE00FDC51E /* UserNotifications.framework in Frameworks */,
-				63C129BB1F611274002C12E9 /* FirebaseNanoPB.framework in Frameworks */,
-				63C05C381F68108900FDC51E /* Crashlytics.framework in Frameworks */,
 				63996CCD1F346B2E008583BB /* Photos.framework in Frameworks */,
-				63C129BD1F611274002C12E9 /* nanopb.framework in Frameworks */,
 				639954AF1F29AD6F0025E9C6 /* FBSDKLoginKit.framework in Frameworks */,
-				63C129B81F611274002C12E9 /* FirebaseCore.framework in Frameworks */,
-				63C05C391F68108900FDC51E /* Fabric.framework in Frameworks */,
-				63C129BA1F611274002C12E9 /* FirebaseInstanceID.framework in Frameworks */,
+				BC3773C72005F91C00AD08EC /* Crashlytics.framework in Frameworks */,
 				639954AE1F29AD6F0025E9C6 /* FBSDKCoreKit.framework in Frameworks */,
-				63C129B91F611274002C12E9 /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				639954B01F29AD6F0025E9C6 /* FBSDKShareKit.framework in Frameworks */,
-				63C129B71F611274002C12E9 /* FirebaseAnalytics.framework in Frameworks */,
-				63C129BC1F611274002C12E9 /* GoogleToolboxForMac.framework in Frameworks */,
 				9C5CB56E994D9F3EE9B78BEE /* Pods_Drinks.framework in Frameworks */,
+				BC3773C82005F91C00AD08EC /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +715,7 @@
 				6399543F1F29AAC90025E9C6 /* LaunchScreen.storyboard */,
 				639954E51F29CDE70025E9C6 /* Localizable.strings */,
 				6399543A1F29AAC90025E9C6 /* Drinks.xcdatamodeld */,
-				63C129BE1F61132A002C12E9 /* GoogleService-Info.plist */,
+				BC3773B22005D63900AD08EC /* GoogleService-Info.plist */,
 			);
 			path = Drinks;
 			sourceTree = "<group>";
@@ -762,7 +741,7 @@
 		639954641F29AD6F0025E9C6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				63C05C351F68108900FDC51E /* Fabric */,
+				BC3773C42005F91C00AD08EC /* Fabric */,
 				63C05C2D1F67E66800FDC51E /* SSKeyChain */,
 				637AFFA31F3C85F700235578 /* MSCameraGallery */,
 				63D7F18B1F330C13000E27AF /* IQKeyboardManagerSwift */,
@@ -1290,35 +1269,11 @@
 			path = SSKeyChain;
 			sourceTree = "<group>";
 		};
-		63C05C351F68108900FDC51E /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				63C05C361F68108900FDC51E /* Crashlytics.framework */,
-				63C05C371F68108900FDC51E /* Fabric.framework */,
-			);
-			path = Fabric;
-			sourceTree = "<group>";
-		};
 		63C129AE1F611274002C12E9 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				63C129AF1F611274002C12E9 /* Analytics */,
 			);
 			path = Framework;
-			sourceTree = "<group>";
-		};
-		63C129AF1F611274002C12E9 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				63C129B01F611274002C12E9 /* FirebaseAnalytics.framework */,
-				63C129B11F611274002C12E9 /* FirebaseCore.framework */,
-				63C129B21F611274002C12E9 /* FirebaseCoreDiagnostics.framework */,
-				63C129B31F611274002C12E9 /* FirebaseInstanceID.framework */,
-				63C129B41F611274002C12E9 /* FirebaseNanoPB.framework */,
-				63C129B51F611274002C12E9 /* GoogleToolboxForMac.framework */,
-				63C129B61F611274002C12E9 /* nanopb.framework */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		63C129C01F613082002C12E9 /* ChatThread */ = {
@@ -1585,6 +1540,15 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
+		BC3773C42005F91C00AD08EC /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				BC3773C52005F91C00AD08EC /* Crashlytics.framework */,
+				BC3773C62005F91C00AD08EC /* Fabric.framework */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1596,9 +1560,9 @@
 				6399542C1F29AAC90025E9C6 /* Sources */,
 				6399542D1F29AAC90025E9C6 /* Frameworks */,
 				6399542E1F29AAC90025E9C6 /* Resources */,
-				63C05C341F680FF200FDC51E /* Run Script */,
 				19AF616BA3FCD1609CEDCBB6 /* [CP] Embed Pods Frameworks */,
 				504D0256D3651A679807D129 /* [CP] Copy Pods Resources */,
+				BC3773B42005EE3700AD08EC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1740,7 +1704,6 @@
 				63F86F6E1F665F2A0040AE2F /* DrinkTodayNoMessageCell.xib in Resources */,
 				63B86B4A1F46C6CC00E3CA55 /* ProfileGroupOwnerCell.xib in Resources */,
 				6399543E1F29AAC90025E9C6 /* Assets.xcassets in Resources */,
-				63C129BF1F61132A002C12E9 /* GoogleService-Info.plist in Resources */,
 				63B86B5A1F46FA2F00E3CA55 /* FilterActionCell.xib in Resources */,
 				63F35CBB1F4168AC001600D4 /* GroupFooterView.xib in Resources */,
 				63F35CAD1F415EB0001600D4 /* OwnerCell.xib in Resources */,
@@ -1762,6 +1725,7 @@
 				63F35CBF1F417440001600D4 /* GroupInfoCell.xib in Resources */,
 				63ED46921F45A04800B60BB1 /* DescriptionCell.xib in Resources */,
 				63ED468E1F4596DA00B60BB1 /* GroupImageCell.xib in Resources */,
+				BC3773B32005D63900AD08EC /* GoogleService-Info.plist in Resources */,
 				63172EDE1F69519C00244656 /* MyGroupsHeader.xib in Resources */,
 				63E0F4891F5FD84F00E94977 /* Info.plist in Resources */,
 			);
@@ -1791,11 +1755,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Drinks/Pods-Drinks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1868,20 +1836,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63C05C341F680FF200FDC51E /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run f4caa0732a63bbaf7983953fc7107a3ae4f1f785 567af178f8345e6f61076fe8828afbbc1dd6f4515a4d245df4ec081c7da3052e";
-		};
 		646CBABAE3EF1AA9D894E831 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1929,6 +1883,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinksUITests/Pods-DrinksUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BC3773B42005EE3700AD08EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run f4caa0732a63bbaf7983953fc7107a3ae4f1f785 567af178f8345e6f61076fe8828afbbc1dd6f4515a4d245df4ec081c7da3052e";
 		};
 		F01A439BF871C7AC71693ECC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

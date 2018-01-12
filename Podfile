@@ -8,6 +8,8 @@ target 'Drinks' do
   # Pods for Drinks
 
 pod 'Stripe/ApplePay'
+pod 'Firebase/Core'
+
   target 'DrinksTests' do
     inherit! :search_paths
     # Pods for testing

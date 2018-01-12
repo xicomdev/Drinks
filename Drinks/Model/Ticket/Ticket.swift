@@ -16,7 +16,7 @@ class Ticket: NSObject
     var japName : String!
     var amount : Double!
     var ticketID : String!
-    
+    var discount : Double!
     var tickets : Int!
     
     
@@ -38,6 +38,13 @@ class Ticket: NSObject
         ticketID = dictPlan["id"] as! String
         amount = Double(dictPlan["amount"] as! String)
         tickets = Int(dictPlan["ticket"] as! String)
+        
+        if (dictPlan["discount"] as? String) != nil {
+            discount = Double(dictPlan["discount"] as! String)
+        }else {
+            discount = dictPlan["discount"] as! Double
+            
+        }
         
     }
     

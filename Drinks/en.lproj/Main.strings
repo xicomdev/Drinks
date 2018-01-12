@@ -351,7 +351,7 @@
 "ceX-LR-Rcx.normalTitle" = "Save";
 
 /* Class = "UILabel"; text = "error"; ObjectID = "dE8-sP-ECr"; */
-"dE8-sP-ECr.text" = "error";
+"dE8-sP-ECr.text" = "Please choose an occupation";
 
 /* Class = "UITabBarItem"; title = "Search"; ObjectID = "dGk-w6-CZk"; */
 "dGk-w6-CZk.title" = "Search";
@@ -545,7 +545,7 @@
 
 "dJS-kG-fp2.normalTitle" = "Leave DRINKS";
 
-"YvE-dS-ht6.text" = "To cancel the service, please read the following notes carefully, select the reason for cancellation, and press the \"Delete\" button";
+"YvE-dS-ht6.text" = "Even if the valid period of the paid member plan and the purchased Omiai point remain even when the withdrawal is completed, it will be canceled and invalidated.\n\nAs for refund, we do not correspond by daily basis based on the usage agreement.\n\nIf you cancel, you will not be able to use all services for members.";
 "yCT-u3-Efu.text" = "Recruit and wait";
 
 "06d-Qc-1of.text" = "First off here";

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ProfileSecondVC: UIViewController,MSSelectionCallback {
     @IBOutlet var txtMarriage: UITextField!
     
@@ -106,30 +106,30 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
     
     @IBAction func actionBtnSubmitPressed(_ sender: Any) {
         
-        if LoginManager.getMe.bloodGroup == ""
-        {
-            
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
-            return
-        }else if LoginManager.getMe.relationship == ""
-        {
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
-             return
-
-        }else if LoginManager.getMe.tabaco == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
-             return
-
-        }else if LoginManager.getMe.schoolCareer == ""{
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
-             return
- 
-            
-        }else if LoginManager.getMe.annualIncome == "" {
-            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
-            return
-            
-        }
+//        if LoginManager.getMe.bloodGroup == ""
+//        {
+//
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select blood group first.", comment: ""), controller: self)
+//            return
+//        }else if LoginManager.getMe.relationship == ""
+//        {
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select your relationship status.", comment: ""), controller: self)
+//             return
+//
+//        }else if LoginManager.getMe.tabaco == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select tabacco option first.", comment: ""), controller: self)
+//             return
+//
+//        }else if LoginManager.getMe.schoolCareer == ""{
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select school career first.", comment: ""), controller: self)
+//             return
+//
+//
+//        }else if LoginManager.getMe.annualIncome == "" {
+//            showAlert(title: "Drinks", message: NSLocalizedString("Please select annual income first.", comment: ""), controller: self)
+//            return
+//
+//        }
         
         var imageArray = [MSImage]()
         
@@ -146,6 +146,8 @@ class ProfileSecondVC: UIViewController,MSSelectionCallback {
         LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
             if isSuccess
             {
+                Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
+
                 let referalVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignupReferalCodeVC") as! SignupReferalCodeVC
                 referalVC.delegate = self
                 self.present(referalVC, animated: true, completion: nil)
