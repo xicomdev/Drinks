@@ -43,11 +43,11 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     {
         var objItem = PKPaymentSummaryItem()
         if Locale.preferredLanguages[0].contains("en") {
-            objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.amount))
+            objItem = PKPaymentSummaryItem(label: plan.engName , amount: NSDecimalNumber(value: plan.finalAmount))
         }else {
-            objItem = PKPaymentSummaryItem(label: plan.japName , amount: NSDecimalNumber(value: plan.amount))
+            objItem = PKPaymentSummaryItem(label: plan.japName , amount: NSDecimalNumber(value: plan.finalAmount))
         }
-        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: plan.amount))
+        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: plan.finalAmount))
         plan_id = plan.planID
         ticket_id = ""
         request.paymentSummaryItems = [objItem, total]
@@ -65,11 +65,11 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     {
         var objItem = PKPaymentSummaryItem()
         if Locale.preferredLanguages[0].contains("en") {
-            objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.amount))
+            objItem = PKPaymentSummaryItem(label: ticket.engName , amount: NSDecimalNumber(value: ticket.finalAmount))
         }else {
-            objItem = PKPaymentSummaryItem(label: ticket.japName , amount: NSDecimalNumber(value: ticket.amount))
+            objItem = PKPaymentSummaryItem(label: ticket.japName , amount: NSDecimalNumber(value: ticket.finalAmount))
         }
-        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: ticket.amount))
+        let total = PKPaymentSummaryItem(label: NSLocalizedString("Total", comment: ""), amount: NSDecimalNumber(value: ticket.finalAmount))
         plan_id = ""
         ticket_id = ticket.ticketID
 

@@ -18,7 +18,7 @@ class Ticket: NSObject
     var ticketID : String!
     var discount : Double!
     var tickets : Int!
-    
+    var finalAmount = Double()
     
     override init()
     {
@@ -45,6 +45,8 @@ class Ticket: NSObject
             discount = dictPlan["discount"] as! Double
             
         }
+        
+        finalAmount = amount - discount
         
     }
     

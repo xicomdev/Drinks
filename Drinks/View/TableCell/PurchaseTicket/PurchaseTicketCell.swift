@@ -46,7 +46,7 @@ class PurchaseTicketCell: UITableViewCell {
             lblName.text = ticket.japName
         }
         lblDiscount.isHidden = false
-        lblDiscount.text = "¥ \(NSLocalizedString("discount!", comment: ""))"
+        lblDiscount.text = "¥\(NSNumber(value: ticket.discount)) \(NSLocalizedString("discount!", comment: ""))"
 
     }
     

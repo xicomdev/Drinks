@@ -178,6 +178,10 @@ extension AppDelegate {
                             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
                             tabBarController.selectedIndex = 1
                             self.window?.rootViewController = tabBarController
+                    }else if dictData["push_type"] as! String == "CouponUsed" {
+                        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                        tabBarController.selectedIndex = 3
+                        self.window?.rootViewController = tabBarController
                     }else {
                             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
                             tabBarController.selectedIndex = 0

@@ -19,7 +19,7 @@ class PremiumPlan: NSObject
     var japDesc : String!
 
     var discount : Double!
-
+    var finalAmount = Double()
 //    amount = "3000.01";
 //    description = "#trending1";
 //    discount = "200.01";
@@ -64,8 +64,8 @@ class PremiumPlan: NSObject
             
         }
 
+        finalAmount = amount - discount
 
-        
        // amount = Decimal(string: decimal)
         
     }
