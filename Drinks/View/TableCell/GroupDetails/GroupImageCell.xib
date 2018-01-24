@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,16 +82,25 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accepted_small" translatesAutoresizingMaskIntoConstraints="NO" id="Gaz-KC-LJl">
+                        <rect key="frame" x="296" y="310" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LeV-ew-khD"/>
+                            <constraint firstAttribute="width" constant="20" id="sxc-L1-yGb"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="mwV-l6-2kO" firstAttribute="top" secondItem="Vi6-75-iYa" secondAttribute="top" id="4hG-tc-dX8"/>
+                    <constraint firstItem="Gaz-KC-LJl" firstAttribute="top" secondItem="7jH-is-pCA" secondAttribute="bottom" constant="4" id="5VL-tf-xrT"/>
                     <constraint firstItem="h65-4X-Tzi" firstAttribute="top" secondItem="7jH-is-pCA" secondAttribute="bottom" constant="10" id="FZR-aX-DbT"/>
                     <constraint firstItem="7jH-is-pCA" firstAttribute="centerX" secondItem="4hO-O5-VdF" secondAttribute="centerX" multiplier="600:1000" id="GRN-x6-FTV"/>
                     <constraint firstItem="FE1-gN-rlX" firstAttribute="bottom" secondItem="7jH-is-pCA" secondAttribute="bottom" id="GoY-OT-jXu"/>
                     <constraint firstItem="jry-or-Y7J" firstAttribute="centerY" secondItem="FE1-gN-rlX" secondAttribute="centerY" id="VD3-2v-ntK"/>
                     <constraint firstItem="h65-4X-Tzi" firstAttribute="leading" secondItem="Vi6-75-iYa" secondAttribute="leading" constant="20" id="Z1b-nt-4qz"/>
                     <constraint firstItem="FE1-gN-rlX" firstAttribute="trailing" secondItem="7jH-is-pCA" secondAttribute="trailing" id="ZWB-KD-vBx"/>
+                    <constraint firstAttribute="trailing" secondItem="Gaz-KC-LJl" secondAttribute="trailing" constant="4" id="aEP-17-G4L"/>
                     <constraint firstAttribute="height" secondItem="7jH-is-pCA" secondAttribute="height" constant="45" id="apQ-5I-5fC"/>
                     <constraint firstItem="7jH-is-pCA" firstAttribute="bottom" secondItem="4hO-O5-VdF" secondAttribute="centerY" id="bTl-8O-pDY"/>
                     <constraint firstItem="mwV-l6-2kO" firstAttribute="leading" secondItem="Vi6-75-iYa" secondAttribute="leading" id="c72-aO-WOV"/>
@@ -109,6 +118,7 @@
                 <outlet property="btnAccept" destination="4hO-O5-VdF" id="RQk-BA-THu"/>
                 <outlet property="btnBack" destination="mwV-l6-2kO" id="PJa-Ic-4ox"/>
                 <outlet property="btnOption" destination="ygF-tr-GTA" id="umy-MA-F1P"/>
+                <outlet property="imgAccepted" destination="Gaz-KC-LJl" id="OyP-TH-k1i"/>
                 <outlet property="imgViewGroup" destination="7jH-is-pCA" id="Dja-Bt-AtA"/>
                 <outlet property="imgvwGradient" destination="FE1-gN-rlX" id="igT-fR-Mai"/>
                 <outlet property="lblOfferedFrom" destination="jry-or-Y7J" id="2jv-1u-CXK"/>
@@ -122,6 +132,7 @@
         <image name="EditOption" width="25" height="6"/>
         <image name="GroupPH" width="375" height="356"/>
         <image name="OfferAccept" width="70" height="70"/>
+        <image name="accepted_small" width="15" height="15"/>
         <image name="backIcon" width="19" height="26"/>
         <image name="gradientBG" width="414" height="44"/>
     </resources>

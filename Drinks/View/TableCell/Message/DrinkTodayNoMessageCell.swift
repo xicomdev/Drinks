@@ -35,12 +35,13 @@ class DrinkTodayNoMessageCell: UITableViewCell {
         self.thread = thread
         
         let group = self.thread.group
-        
-        imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
-        setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
-        let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
-        lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
-        setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
+        if group?.imageURL != nil {
+            imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
+            setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
+            let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
+            lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
+            setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
+        }
         
     }
 

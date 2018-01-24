@@ -40,6 +40,11 @@ class HTTPRequest: NSObject {
         manager.requestSerializer.setValue(timeStamp, forHTTPHeaderField: "Timestamp")
         manager.requestSerializer.setValue("", forHTTPHeaderField: "User-Id")
         manager.requestSerializer.setValue("", forHTTPHeaderField: "Session-Id")
+        if Locale.preferredLanguages[0].contains("en") {
+            manager.requestSerializer.setValue("english", forHTTPHeaderField: "Device-Language")
+        }else {
+            manager.requestSerializer.setValue("japanese", forHTTPHeaderField: "Device-Language")
+        }
         if (LoginManager.sharedInstance.getMeArchiver() != nil)
         {
             manager.requestSerializer.setValue(LoginManager.getMe.ID, forHTTPHeaderField: "User-Id")

@@ -16,7 +16,7 @@ class ReportedGroupAlertVC: UIViewController {
         super.viewDidLoad()
         
         self.view.alpha = 0
-        self.perform(#selector(ReportedGroupAlertVC.dismissVC), with: nil, afterDelay: 4)
+        self.perform(#selector(ReportedGroupAlertVC.dismissVC), with: nil, afterDelay: 1.5)
         // Do any additional setup after loading the view.
     }
     

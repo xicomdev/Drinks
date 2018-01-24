@@ -14,13 +14,12 @@ class InterestedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.alpha = 0
-        self.perform(#selector(InterestedVC.dismissSelf), with: nil, afterDelay: 4)
+        self.perform(#selector(InterestedVC.dismissSelf), with: nil, afterDelay: 1.5)
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showAlertWithAnimation(object: self)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,14 +35,4 @@ class InterestedVC: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

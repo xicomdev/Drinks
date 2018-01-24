@@ -10,7 +10,7 @@
 		25298EBD1F8E4FB80089361A /* MatchedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25298EBC1F8E4FB70089361A /* MatchedVC.swift */; };
 		25325DE31F8CA2DF002BA465 /* NoRecruitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */; };
 		25325F661F8E059000768EBF /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25325F651F8E058F00768EBF /* Ticket.swift */; };
-		2546D9B91F8768640066150F /* BecomePaidMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */; };
+		2546D9B91F8768640066150F /* BecomePaidForDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9B81F8768640066150F /* BecomePaidForDayVC.swift */; };
 		2546D9BB1F8768AB0066150F /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546D9BA1F8768AB0066150F /* PurchaseVC.swift */; };
 		254DFB201F949DD8000A5F26 /* SignupReferalCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DFB1F1F949DD8000A5F26 /* SignupReferalCodeVC.swift */; };
 		254DFB231F94E4B7000A5F26 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DFB221F94E4B7000A5F26 /* Notifications.swift */; };
@@ -215,6 +215,8 @@
 		BC3773B32005D63900AD08EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3773B22005D63900AD08EC /* GoogleService-Info.plist */; };
 		BC3773C72005F91C00AD08EC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3773C52005F91C00AD08EC /* Crashlytics.framework */; };
 		BC3773C82005F91C00AD08EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3773C62005F91C00AD08EC /* Fabric.framework */; };
+		BCA199192015EE8B007DAC3D /* BecomePaidMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA199182015EE8B007DAC3D /* BecomePaidMemberVC.swift */; };
+		BCA1991B2015F038007DAC3D /* PremiumDoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1991A2015F038007DAC3D /* PremiumDoneVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,7 +243,7 @@
 		25325DE11F8C90D9002BA465 /* current.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = current.gpx; sourceTree = "<group>"; };
 		25325DE21F8CA2DE002BA465 /* NoRecruitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecruitVC.swift; sourceTree = "<group>"; };
 		25325F651F8E058F00768EBF /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidMemberVC.swift; sourceTree = "<group>"; };
+		2546D9B81F8768640066150F /* BecomePaidForDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidForDayVC.swift; sourceTree = "<group>"; };
 		2546D9BA1F8768AB0066150F /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
 		254DFB1F1F949DD8000A5F26 /* SignupReferalCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupReferalCodeVC.swift; sourceTree = "<group>"; };
 		254DFB221F94E4B7000A5F26 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -493,6 +495,8 @@
 		BC3773B22005D63900AD08EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC3773C52005F91C00AD08EC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		BC3773C62005F91C00AD08EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		BCA199182015EE8B007DAC3D /* BecomePaidMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidMemberVC.swift; sourceTree = "<group>"; };
+		BCA1991A2015F038007DAC3D /* PremiumDoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumDoneVC.swift; sourceTree = "<group>"; };
 		C03C5CC8153E71E292F59CFE /* Pods-DrinksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E09FAFDA5FFF16AED1AB185E /* Pods_DrinksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8A9BFAF1783AFF19E5E0B6 /* Pods-DrinksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1109,7 +1113,9 @@
 			isa = PBXGroup;
 			children = (
 				63B8243F1F5D657200BA9F62 /* PaidMemberVC.swift */,
-				2546D9B81F8768640066150F /* BecomePaidMemberVC.swift */,
+				2546D9B81F8768640066150F /* BecomePaidForDayVC.swift */,
+				BCA199182015EE8B007DAC3D /* BecomePaidMemberVC.swift */,
+				BCA1991A2015F038007DAC3D /* PremiumDoneVC.swift */,
 			);
 			path = PaidMember;
 			sourceTree = "<group>";
@@ -1937,6 +1943,7 @@
 				254DFB201F949DD8000A5F26 /* SignupReferalCodeVC.swift in Sources */,
 				63B8246F1F5D65F200BA9F62 /* RecievedMsgCell.swift in Sources */,
 				63CC43581F31B8C90015813F /* ProfileFirstVC.swift in Sources */,
+				BCA1991B2015F038007DAC3D /* PremiumDoneVC.swift in Sources */,
 				63996CC41F342E75008583BB /* LoginManager.swift in Sources */,
 				633112B11F727A4300DE27AD /* MSCoreData.swift in Sources */,
 				63D158FB1F5E6AC50089BEC9 /* VideoRecordingProgress.m in Sources */,
@@ -1977,7 +1984,7 @@
 				639F82521F3DC32E00BAFFED /* SelectPhotoVC.swift in Sources */,
 				63B8246B1F5D65F200BA9F62 /* DrinkTodayCell.swift in Sources */,
 				639954BE1F29AD700025E9C6 /* UIButton+WebCache.m in Sources */,
-				2546D9B91F8768640066150F /* BecomePaidMemberVC.swift in Sources */,
+				2546D9B91F8768640066150F /* BecomePaidForDayVC.swift in Sources */,
 				63C05C291F67E57100FDC51E /* MSExtensions.swift in Sources */,
 				63B824451F5D657200BA9F62 /* HistoryChatVC.swift in Sources */,
 				254DFB231F94E4B7000A5F26 /* Notifications.swift in Sources */,
@@ -2020,6 +2027,7 @@
 				63B824571F5D65B300BA9F62 /* MyPageNavBtnCell.swift in Sources */,
 				63C129C21F6131D9002C12E9 /* ChatThread.swift in Sources */,
 				63B824751F5D65F200BA9F62 /* PaidMemberCell.swift in Sources */,
+				BCA199192015EE8B007DAC3D /* BecomePaidMemberVC.swift in Sources */,
 				639954CD1F29ADD20025E9C6 /* Constant.swift in Sources */,
 				63F35CC51F418FDF001600D4 /* AddMoreCell.swift in Sources */,
 				63F35CBE1F417440001600D4 /* GroupInfoCell.swift in Sources */,

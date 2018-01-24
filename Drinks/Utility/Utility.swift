@@ -319,44 +319,37 @@ func setNoOfMembers(groups :[ GroupCondition] , label : UILabel, relation:String
 }
 
 
-func setSmallDrinkedStatus(btnStatus : UIButton , status : DrinkStatus)
+func setSmallDrinkedStatus(btnStatus : UIButton , imgAccepted: UIImageView, status : DrinkStatus)
 {
-//    case Drinked = "drinked"
-//    case NotDrinked = "undrinked"
-//    case Waiting = "waiting"
-//    case Confirmed = "confirmed"
+    //    case Drinked = "drinked"
+    //    case NotDrinked = "undrinked"
+    //    case Waiting = "waiting"
+    //    case Confirmed = "confirmed"
     switch status
     {
     case .Matched , .Drinked:
         
         
-        btnStatus.setImage( UIImage(named: "Accepted"), for: .normal)
-        btnStatus.isUserInteractionEnabled = false
+        btnStatus.isHidden = true
+        imgAccepted.isHidden = false
         break
         
     case .NotDrinked :
-        btnStatus.setImage( UIImage(named: "Accept"), for: .normal)
-        btnStatus.isUserInteractionEnabled = true
-
+        btnStatus.isHidden = false
+        imgAccepted.isHidden = true
         break
         
-        
-   
-//    case .Drinked :
-//        btnStatus.setImage( UIImage(named: "Accepted") , for: .normal)
-//          btnStatus.isUserInteractionEnabled = false
-//        break
-        
+
     }
 }
 
 
-func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus, fromScreen:String)
+func setBiggerDrinkedStatus(btnStatus : UIButton ,imgAccepted:UIImageView, status : DrinkStatus, fromScreen:String)
 {
-  
+    
     switch status
     {
-       
+        
     case .Matched , .Drinked :
         if fromScreen == "Home" {
             btnStatus.setImage( UIImage(named: "Accepted"), for: .normal)
@@ -364,6 +357,8 @@ func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus, fromScr
             btnStatus.setImage( UIImage(named: "OfferAccepted"), for: .normal)
         }
         btnStatus.isUserInteractionEnabled = false
+        imgAccepted.isHidden = false
+        btnStatus.isHidden = true
         break
         
     case .NotDrinked :
@@ -373,15 +368,10 @@ func setBiggerDrinkedStatus(btnStatus : UIButton , status : DrinkStatus, fromScr
             btnStatus.setImage( UIImage(named: "OfferAccept"), for: .normal)
         }
         btnStatus.isUserInteractionEnabled = true
+        imgAccepted.isHidden = true
+        btnStatus.isHidden = false
         break
         
-   
-//    case .Drinked :
-//        btnStatus.setImage( UIImage(named: "OfferAccepted") , for: .normal)
-//        btnStatus.isUserInteractionEnabled = false
-//
-//        break
-//    }
     }
     
 }

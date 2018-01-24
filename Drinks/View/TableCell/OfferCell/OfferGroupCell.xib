@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -35,7 +35,20 @@
                     </imageView>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTE-dl-9h4">
                         <rect key="frame" x="9.5" y="345" width="359" height="145.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accepted_small" translatesAutoresizingMaskIntoConstraints="NO" id="Qn5-cG-70h">
+                                <rect key="frame" x="335" y="4" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7va-VS-xdj"/>
+                                    <constraint firstAttribute="width" constant="20" id="99u-Sv-vE7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qn5-cG-70h" firstAttribute="top" secondItem="qTE-dl-9h4" secondAttribute="top" constant="4" id="Oi5-8V-WHi"/>
+                            <constraint firstAttribute="trailing" secondItem="Qn5-cG-70h" secondAttribute="trailing" constant="4" id="Qjz-wf-7FY"/>
+                        </constraints>
                     </view>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFw-Kj-Sgx">
                         <rect key="frame" x="288" y="310" width="70" height="70"/>
@@ -72,7 +85,7 @@
                         <rect key="frame" x="184" y="371.5" width="18" height="22"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjF-QF-Uuq">
-                        <rect key="frame" x="184" y="400.5" width="167" height="19.5"/>
+                        <rect key="frame" x="184" y="400.5" width="159" height="19.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -92,7 +105,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr5-7Q-7Zv">
-                        <rect key="frame" x="83.5" y="449" width="147.5" height="19.5"/>
+                        <rect key="frame" x="83.5" y="449" width="139.5" height="19.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -154,6 +167,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnInterest" destination="jFw-Kj-Sgx" id="AeY-VO-54q"/>
+                <outlet property="imgAccepted" destination="Qn5-cG-70h" id="jk8-Ci-Z28"/>
                 <outlet property="imgViewCreator" destination="iz5-Jh-KYm" id="3aY-ds-IAb"/>
                 <outlet property="imgViewGroup" destination="TDW-ht-QUW" id="5dK-Ti-jEC"/>
                 <outlet property="lblCommentInfo" destination="cNf-Uw-Hml" id="m4u-od-OkY"/>
@@ -172,5 +186,6 @@
         <image name="OfferAccept" width="70" height="70"/>
         <image name="OfferAccepted" width="70" height="70"/>
         <image name="Relationship" width="24" height="20"/>
+        <image name="accepted_small" width="15" height="15"/>
     </resources>
 </document>

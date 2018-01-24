@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Firebase
 
 class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
@@ -94,6 +95,49 @@ class ProfileFirstVC: UIViewController,MSSelectionCallback,UINavigationControlle
     }
     
     @IBAction func btnSkipAction(_ sender: AnyObject) {
+        self.view.endEditing(true)
+        
+        if txtUserName.text!.isStringEmpty() == true{
+            showAlert(title: "Drinks", message: NSLocalizedString("Please enter user name.", comment: ""), controller: self)
+            return
+        }
+        
+        if LoginManager.getMe.job.ID == ""
+        {
+            showAlert(title: "Drinks", message: NSLocalizedString("Please select your occupation.", comment: ""), controller: self)
+            return
+        }
+        
+        var imageArray = [MSImage]()
+        
+        if imageSelected != nil{
+            
+            let fileName = "Drinks\(self.timeStamp).jpeg"
+            
+            let resizedImage = resizeImage(image: imageSelected!, size: CGSize(width: 300 , height: 300 ))
+            
+            let model =  MSImage.init(file: resizedImage! , variableName: "image", fileName: fileName, andMimeType: "image/jpeg")
+            imageArray.append(model)
+        }
+        
+        LoginManager.sharedInstance.signUp(image: imageArray) { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
+                
+                let referalVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignupReferalCodeVC") as! SignupReferalCodeVC
+                referalVC.delegate = self
+                self.present(referalVC, animated: true, completion: nil)
+                
+            }else{
+                showAlert(title: "Drinks", message: strError!, controller: self)
+            }
+        }
+    }
+    
+    func gotoHome() {
+        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+        appDelegate().window?.rootViewController = tabBarController
     }
     
     @IBAction func actionBtnNextPhase(_ sender: UIButton) {

@@ -89,7 +89,9 @@ class ApplePayManager: NSObject,PKPaymentAuthorizationViewControllerDelegate
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion: {
             if self.status{
-                self.parentVC.navigationController!.popViewController(animated: true)
+                let doneVc = mainStoryBoard.instantiateViewController(withIdentifier: "PremiumDoneVC") as! PremiumDoneVC
+                doneVc.view.alpha = 0
+                self.parentVC.present(doneVc, animated: false, completion: nil)
             }
         })
         

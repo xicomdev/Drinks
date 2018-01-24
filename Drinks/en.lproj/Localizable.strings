@@ -140,7 +140,7 @@
 "Yes"="Yes";
 "No"="No";
 "User cancelled the action."="User cancelled the action.";
-"Your age is less than 18.\nSo you can not login to Drinks."="Your age is less than 18.\nSo you can not login to Drinks.";
+"Your age is less than 18.\nSo you can not login to Drinks."="DRINKS can not be used under the age of 18.";
 "Use my referal code and get free tickets.\nReferal code:"="Use my referal code and get free tickets.\nReferal code:";
 "If you enter this introduction code on the DRINKS application, you can get a ticket for free."="If you enter this introduction code on the DRINKS application, you can get a ticket for free.";
 "\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight."="\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight.";

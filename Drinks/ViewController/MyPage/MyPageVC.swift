@@ -41,6 +41,8 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             lblVersion.text = NSLocalizedString("version", comment: "") + " " + version
         }
         
+        collctnVwGroups.showsHorizontalScrollIndicator = false
+        collctnVwGroups.showsVerticalScrollIndicator = false
         collctnVwGroups.delegate = self
         collctnVwGroups.dataSource = self
     }
@@ -75,7 +77,7 @@ class MyPageVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
         
         let noOfLines = aryMyPageNavBtns.count % 3 == 0 ? aryMyPageNavBtns.count / 3 : (aryMyPageNavBtns.count/3) + 1
-        clctnNavBtnHgt.constant = CGFloat(noOfLines * Int(self.view.frame.width/3))
+        clctnNavBtnHgt.constant = CGFloat((noOfLines * Int(self.view.frame.width/3))+3)
         collctnVwNavBtns.isScrollEnabled = true
         
         collctnVwNavBtns.delegate = self

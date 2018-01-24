@@ -11,6 +11,7 @@ import UIKit
 class GroupImageCell: UITableViewCell {
 
     
+    @IBOutlet weak var imgAccepted: UIImageView!
     @IBOutlet weak var lblOfferedFrom: UILabel!
     @IBOutlet weak var imgvwGradient: UIImageView!
     var group : Group? = nil
@@ -67,20 +68,19 @@ class GroupImageCell: UITableViewCell {
         {
             let urlFinalGroup = URL(string: (group?.imageURL)!)
             imgViewGroup.sd_setImage(with: urlFinalGroup, placeholderImage: GroupPlaceHolder)
-            
             self.lblTag.isHidden = true
             if group?.tagEnabled == true{
                 self.lblTag.isHidden = false
             }
             if group?.groupBy == .Other
             {
-                btnAccept.isHidden = false
+                setBiggerDrinkedStatus(btnStatus: btnAccept,imgAccepted: imgAccepted, status: (group?.drinkedStatus)! , fromScreen: "Home")
                 
             }else{
                 //My Own Group
                 btnAccept.isHidden = true
+                imgAccepted.isHidden = true
             }
-            setBiggerDrinkedStatus(btnStatus: btnAccept, status: (group?.drinkedStatus)! , fromScreen: "Home")
         }
     }
     

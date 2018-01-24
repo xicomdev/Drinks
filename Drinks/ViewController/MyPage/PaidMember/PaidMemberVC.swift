@@ -99,7 +99,9 @@ class PaidMemberVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             SwiftLoader.hide()
             if isSuccess
             {
-                self.navigationController!.popViewController(animated: true)
+                let doneVc = mainStoryBoard.instantiateViewController(withIdentifier: "PremiumDoneVC") as! PremiumDoneVC
+                doneVc.view.alpha = 0
+                self.present(doneVc, animated: false, completion: nil)
             }else{
                 showAlert(title: "Drinks", message: strError!, controller: self)
             }

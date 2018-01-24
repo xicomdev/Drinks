@@ -67,7 +67,7 @@
 "Push Notification"="プッシュ通知";
 "Edit"="編集";
 "Delete"="削除";
-"Report"="レポート";
+"Report"="不適切な募集の報告";
 "Select Occupation"="職業選択";
 "Select blood type"="血液型の選択";
 "Select marriage option"="結婚の選択";
@@ -91,7 +91,7 @@
 "Create Group"="作成";
 "Number Of People"="人数";
 "Relation"="関係";
-"I just want to drink it"="私はただそれを飲みたい";
+"I just want to drink it"="飲みたいしました";
 "Offered from "="提供元";
 "Search"="探す";
 "discount!"="お得！";
@@ -141,7 +141,7 @@
 "Yes"="はい";
 "No"="いいえ";
 "User cancelled the action."="ユーザーがアクションをキャンセルしました。";
-"Your age is less than 18.\nSo you can not login to Drinks."="あなたの年齢は18歳未満です。\nだからドリンクにログインすることはできません。";
+"Your age is less than 18.\nSo you can not login to Drinks."="18歳未満はDRINKSをご利用いただけません。";
 "Use my referal code and get free tickets.\nReferal code:"="参照コードを使用して無料のチケットを取得する。\n紹介コード：";
 "If you enter this introduction code on the DRINKS application, you can get a ticket for free."="この紹介コードをDRINKSアプリ上で入力すると、無料でチケットがもらえます！";
 "\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight."="\n〜DRINKSとは〜\n今夜に一緒に合コン・飲み会したいグループとのマッチングができるアプリです。";

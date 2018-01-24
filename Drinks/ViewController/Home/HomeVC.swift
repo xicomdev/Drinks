@@ -36,7 +36,7 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
         self.view.layoutIfNeeded()
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .black
-
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationItem.hidesBackButton = true
         let btnRightBar:UIBarButtonItem =  UIBarButtonItem.init(image:UIImage(named: "FilterOption"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.actionBtnDonePressed))
         
@@ -49,17 +49,12 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
 //        collectionViewGroup.register(nibHeader, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: "MyGroupsHeader")
         
       
-        self.view.backgroundColor = UIColor.groupTableViewBackground
         let nib = UINib(nibName: "GroupCell", bundle: nil)
         collectionViewGroup.register(nib, forCellWithReuseIdentifier: "GroupCell")
         collectionViewGroup.delegate = self
         collectionViewGroup.dataSource = self
-        collectionViewGroup.backgroundColor = UIColor.groupTableViewBackground
         collectionFlowLayout.sectionInset = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
 
-        
-        
-        
         LoginManager.sharedInstance.getUserDetail{ (success, response, strError) in
         }
         // Do any additional setup after loading the view.

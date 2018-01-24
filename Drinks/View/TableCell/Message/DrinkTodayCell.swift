@@ -43,25 +43,25 @@ class DrinkTodayCell: UITableViewCell {
         
     let group = self.thread.group
         
-        
-        imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
-        setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
-        let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
-        lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
-        setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
-        
-        let lastMessageUser = thread.lastMessage?.senderUser
-        
-        lblUserName.text = (lastMessageUser?.fullName)! + " " + (lastMessageUser?.age.description)!
-        if Locale.preferredLanguages[0].contains("en") {
-            lblAgeOccupation.text = lastMessageUser?.job.engName
-        }else {
-            lblAgeOccupation.text = lastMessageUser?.job.japName
+        if group?.imageURL != nil {
+            imgvwGroup.sd_setImage(with: URL(string: (group?.imageURL)!), placeholderImage: nil)
+            setNoOfMembers(groups: (group?.groupConditions)! , label: lblNoOfPersons, relation: (group?.relationship)!)
+            let firstLoc = group?.location?.LocationName!.components(separatedBy: ",").first
+            lblLocationDistance.text = firstLoc! + " (\(NSNumber(value: (group?.distance)!))km)"
+            setGroupTag(boolTag: (group?.tagEnabled)! , label: lblGroupTag)
+            
+            let lastMessageUser = thread.lastMessage?.senderUser
+            
+            lblUserName.text = (lastMessageUser?.fullName)! + " " + (lastMessageUser?.age.description)!
+            if Locale.preferredLanguages[0].contains("en") {
+                lblAgeOccupation.text = lastMessageUser?.job.engName
+            }else {
+                lblAgeOccupation.text = lastMessageUser?.job.japName
+            }
+            imgVwUser.sd_setImage(with: URL(string: lastMessageUser!.imageURL), placeholderImage: nil)
+            lblMessage.text = self.thread.lastMessage!.message
+            lblTime.text = getMessageTime(timestamp: (self.thread.lastMessage?.timestamp)!)
         }
-        imgVwUser.sd_setImage(with: URL(string: lastMessageUser!.imageURL), placeholderImage: nil)
-        lblMessage.text = self.thread.lastMessage!.message
-        lblTime.text = getMessageTime(timestamp: (self.thread.lastMessage?.timestamp)!)
-
     }
 
 }

@@ -16,6 +16,7 @@ class GroupCell: UICollectionViewCell {
     @IBOutlet var lblLastLogin: UILabel!
     var callbackAction : ((Group )-> Void)? = nil
 
+    @IBOutlet weak var imgAccepted: UIImageView!
     @IBOutlet var viewOuter: UIView!
     @IBOutlet var lblTag: UILabel!
     @IBOutlet weak var lblNoOfConditions: UILabel!
@@ -56,8 +57,7 @@ class GroupCell: UICollectionViewCell {
         }
         lblOwnerInfo.text = strInfo
         
-        lblLastLogin.text = groupInfo.groupOwner.lastLogin
-
+        lblLastLogin.text = groupInfo.groupOwner.lastLogin.getTimeFromDate()
         
         lblLocationName.text = groupInfo.location?.LocationName!
         
@@ -72,15 +72,14 @@ class GroupCell: UICollectionViewCell {
         
         if groupInfo.groupBy == .Other
         {
-            btnInterested.isHidden = false
-            setSmallDrinkedStatus(btnStatus: btnInterested, status: groupInfo.drinkedStatus )
+            setSmallDrinkedStatus(btnStatus: btnInterested,imgAccepted: imgAccepted, status: groupInfo.drinkedStatus )
         }else{
           
             btnInterested.isHidden = true
+            imgAccepted.isHidden = true
         }
 
         setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfConditions, relation:group.relationship)
-        setSmallDrinkedStatus(btnStatus: btnInterested, status: groupInfo.drinkedStatus )
     }
     
     @IBAction func actionBtnDrinked(_ sender: UIButton) {

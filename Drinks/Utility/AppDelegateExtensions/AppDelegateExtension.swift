@@ -140,6 +140,10 @@ extension AppDelegate {
                             tabBarController.selectedIndex = 1
                             self.window?.rootViewController = tabBarController
                         }
+                    }else if dictData["push_type"] as! String == "CouponUsed" {
+                        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                        tabBarController.selectedIndex = 3
+                        self.window?.rootViewController = tabBarController
                     }else {
                         if !(topVC.visibleViewController is HomeVC) {
                             let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
@@ -212,7 +216,7 @@ extension AppDelegate {
         if dict != nil{
             if dict?["aps"] != nil
             {
-                completionHandler([UNNotificationPresentationOptions.alert,UNNotificationPresentationOptions.sound])
+                completionHandler([UNNotificationPresentationOptions.alert,UNNotificationPresentationOptions.sound,UNNotificationPresentationOptions.badge])
             }
             
         }

@@ -50,8 +50,6 @@ class OfferVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
         }
         
-        self.view.backgroundColor = UIColor.groupTableViewBackground
-        
         
         tblGroups.registerNibsForCells(arryNib: ["OfferGroupCell"])
         tblGroups.delegate = self

@@ -13,6 +13,7 @@ class OfferGroupCell: UITableViewCell {
     var callbackAction : ((Group )-> Void)? = nil
     var group : Group!
 
+    @IBOutlet weak var imgAccepted: UIImageView!
     @IBOutlet var lblCommentInfo: UILabel!
     @IBOutlet weak var btnInterest: UIButton!
     @IBOutlet weak var lblTag: UILabel!
@@ -82,14 +83,16 @@ class OfferGroupCell: UITableViewCell {
         if groupInfo.groupBy == .Other
         {
             
-            setBiggerDrinkedStatus(btnStatus: btnInterest, status: groupInfo.drinkedStatus , fromScreen:"Offer")
+            setBiggerDrinkedStatus(btnStatus: btnInterest, imgAccepted: imgAccepted, status: groupInfo.drinkedStatus , fromScreen:"Offer")
 
         }else{
-            //My Own Group
+            btnInterest.isHidden = true
+            imgAccepted.isHidden = true
+
         }
          setNoOfMembers(groups: group.groupConditions, label: self.lblNoOfPeople, relation: group.relationship)
         
-        lblInfo.text = self.group.groupOwner.lastLogin
+        lblInfo.text = self.group.groupOwner.lastLogin.getTimeFromDate()
         lblCommentInfo.text = self.group.groupDescription
     }
 

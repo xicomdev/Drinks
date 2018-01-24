@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MSProtocolCallback{
 
     @IBOutlet var imgViewNoThread: UIImageView!
     
@@ -123,7 +123,11 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if LoginManager.getMe.membershipStatus == "Regular" {
-            showAlert(title: "Drinks", message: NSLocalizedString("You must buy premium membership to send messages.", comment: ""), controller: self)
+//            showAlert(title: "Drinks", message: NSLocalizedString("You must buy premium membership to send messages.", comment: ""), controller: self)
+            let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "BecomePaidMemberVC") as! BecomePaidMemberVC
+            paidMemberVc.hidesBottomBarWhenPushed = true
+            paidMemberVc.callbackDelegate = self
+            self.present(paidMemberVc, animated: true, completion: nil)
         }else {
             if LoginManager.getMe.ageVerified == "approve" {
                 if btnDrinkToday.isSelected {
@@ -147,6 +151,11 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func actionBackDismiss() {
+        let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "PaidMemberVC") as! PaidMemberVC
+        paidMemberVc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(paidMemberVc, animated: true)
+    }
     
     //MARK:- API Methods
     //MARK:-
