@@ -45,21 +45,19 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         lblGroupTag.cornerRadius(value : 10)
         self.getAllThreadMessages()
         
-        imgVwGroup.sd_setImage(with: URL(string :  thread.group.imageURL))
-        
-        setNoOfMembers(groups: thread.group.groupConditions , label: lblNoOfPersons, relation: thread.group.relationship)
-        let firstLoc = thread.group.location?.LocationName!.components(separatedBy: ",").first
-        lblLocation.text = firstLoc! + " (\(NSNumber(value: (thread.group.distance)))km)"
-       lblGroupTag.isHidden =  !thread.group.tagEnabled
-        
+        if thread.group.imageURL != "" {
+            imgVwGroup.sd_setImage(with: URL(string :  thread.group.imageURL))
+            setNoOfMembers(groups: thread.group.groupConditions , label: lblNoOfPersons, relation: thread.group.relationship)
+            let firstLoc = thread.group.location?.LocationName!.components(separatedBy: ",").first
+            lblLocation.text = firstLoc! + " (\(NSNumber(value: (thread.group.distance)))km)"
+            lblGroupTag.isHidden =  !thread.group.tagEnabled
+        }
         
         timerChat =  Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (result) in
             self.getAllThreadMessages()
             
         })
-
-        
-    }
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.startKeyboardObserver()

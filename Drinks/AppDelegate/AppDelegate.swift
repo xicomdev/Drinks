@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate,
         messageDateFormat.dateFormat = "yyyy/MM/dd hh:mm a"
        // "last_login" = "2017-10-03 14:52:19";
         
-lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
         appLastLoginFormat.dateFormat = "hh:mm a"
 
       //  datetime = "20/09/2017 06:38 PM";
@@ -113,7 +113,7 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
         timerMessage =  Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (result) in
             
           self.getUpdatedMessages()
-            
+        self.getUnreadCount()
             
         })
         
@@ -399,9 +399,9 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
                    self.arrayThread.append(contentsOf: arrayThreads)
                     
                     
-                    if self.window?.topMostController() is MSTabBarController
+                    if self.window?.topMostWindowController() is MSTabBarController
                     {
-                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        let topVC =  (self.window?.topMostWindowController() as! MSTabBarController).selectedViewController as! UINavigationController
                         if topVC.visibleViewController  is MessageVC {
                             
                             let chatVC = topVC.visibleViewController   as! MessageVC
@@ -422,9 +422,9 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
                   {
                     
                     
-                    if self.window?.topMostController() is MSTabBarController
+                    if self.window?.topMostWindowController() is MSTabBarController
                     {
-                        let topVC =  (self.window?.topMostController() as! MSTabBarController).selectedViewController as! UINavigationController
+                        let topVC =  (self.window?.topMostWindowController() as! MSTabBarController).selectedViewController as! UINavigationController
                         if  topVC.visibleViewController  is DrinkTodayChatVC {
                             let chatVC = topVC.visibleViewController   as! DrinkTodayChatVC
                              chatVC.tblChat.reloadData()
@@ -435,7 +435,26 @@ lastLoginDateFormat.dateFormat = "YYYY-MM-dd HH:mm:ss"
           }
     }
     
-    
+    func getUnreadCount() {
+        
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetUnreadCount, paramters: nil) { (isSuccess, response, strError) in
+            if isSuccess
+            {
+                print(response)
+                if let dictResponse = response as? NSDictionary
+                {
+                    if let tabBarController = self.window?.topMostWindowController() as? MSTabBarController
+                    {
+                        tabBarController.tabBar.items![1].badgeValue = dictResponse.value(forKey: "InvitationUnreadCount") as! Int != 0 ? "\(dictResponse.value(forKey: "InvitationUnreadCount") as! Int)" : nil
+                        tabBarController.tabBar.items![2].badgeValue = dictResponse.value(forKey: "MessageUnreadCount") as! Int != 0 ? "\(dictResponse.value(forKey: "MessageUnreadCount") as! Int)" : nil
+
+                    }
+                }
+            }else{
+            }
+        }
+        
+    }
     
 }
 

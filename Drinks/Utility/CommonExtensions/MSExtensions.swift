@@ -184,7 +184,7 @@ extension String
             }else if components.hour != 0 {
                 return "\(components.hour!)" + " " + NSLocalizedString("hour ago", comment: "")
             }else if components.minute != 0 {
-                return "\(components.minute!)" + " " + NSLocalizedString("minute ago", comment: "")
+                return "\(components.minute!)" + " " + NSLocalizedString("min ago", comment: "")
             }else {
                 return NSLocalizedString("Just now", comment: "")
             }

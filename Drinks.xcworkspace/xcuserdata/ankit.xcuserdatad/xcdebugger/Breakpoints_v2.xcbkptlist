@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Drinks/View/TableCell/OfferCell/OfferGroupCell.swift"
-            timestampString = "538491713.957882"
+            filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
+            timestampString = "539098435.008695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "assignData(groupInfo:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "sendOrRemoveInterest(handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
