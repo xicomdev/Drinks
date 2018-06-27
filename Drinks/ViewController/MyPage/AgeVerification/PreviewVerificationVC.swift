@@ -46,6 +46,7 @@ class PreviewVerificationVC: UIViewController {
         HTTPRequest.sharedInstance().postMulipartRequest(urlLink: API_ageVerify, paramters: nil, Images: imageArray, handler: { (isSuccess, response, strError) in
             SwiftLoader.hide()
             if isSuccess {
+                self.updateProfile()
                 showAlert(title: "Drinks", message: NSLocalizedString("your age proof is sent for verifcation", comment: ""), controller: self, handler: { (_) in
                     self.navigationController?.popToRootViewController(animated: true)
                 })
@@ -57,6 +58,13 @@ class PreviewVerificationVC: UIViewController {
         
     }
     
+    func updateProfile() {
+        LoginManager.sharedInstance.getUserDetail{ (success, response, strError) in
+            if success{
+            }else{
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

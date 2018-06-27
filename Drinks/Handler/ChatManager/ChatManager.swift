@@ -40,7 +40,15 @@ class ChatManager: NSObject {
     {
      
        // SwiftLoader.show(true)
-        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetChatThreads, paramters: nil) { (isSuccess, response, strError) in
+        var params : [String : Any] = [String : Any]()
+        
+        if appDelegate().appLocation != nil
+        {
+            params["current_latitude"] = (appDelegate().appLocation)!.latitude
+            params["current_longitude"] = (appDelegate().appLocation)!.longtitude
+        }
+        print(params)
+        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetChatThreads, paramters: params) { (isSuccess, response, strError) in
         //    SwiftLoader.hide()
             if isSuccess
             {

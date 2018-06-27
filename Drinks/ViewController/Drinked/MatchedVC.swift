@@ -14,7 +14,7 @@ class MatchedVC: UIViewController {
         super.viewDidLoad()
 
         self.view.alpha = 0
-        self.perform(#selector(InterestedVC.dismissSelf), with: nil, afterDelay: 1.5)
+        self.perform(#selector(MatchedVC.dismissSelf), with: nil, afterDelay: 1.5)
     }
 
     override func didReceiveMemoryWarning() {

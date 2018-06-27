@@ -119,18 +119,39 @@ let API_UpdateUserDetail  = "updateUserInfo"
 let API_UpdateNotifications = "updateNotificationInfo"
 let API_ageVerify = "updateAgeDocument"
 let API_LeaveUser = "deleteUser"
+let APi_checkUserOnline = "checkUserOnlineOrNot"
 
 let API_UpdateFbFriends = "updateFacebookFriends"
 
-let API_AboutUs = "http://52.196.237.101/drinks/home/page/about_us"
+let API_AboutUsJap = "http://52.196.237.101/drinks/home/page/about_us/jap"
+let API_AboutUsEng = "http://52.196.237.101/drinks/home/page/about_us"
 
-let API_Help = "http://52.196.237.101/drinks/home/page/help"
+let API_HelpEng = "http://52.196.237.101/drinks/home/page/help"
+let API_HelpJap = "http://52.196.237.101/drinks/home/page/help/jap"
 
-let API_Terms = "http://52.196.237.101/drinks/home/page/termsandconditions"
+let API_TermsEng = "http://52.196.237.101/drinks/home/page/termsandconditions"
+let API_TermsJap = "http://52.196.237.101/drinks/home/page/termsandconditions/jap"
 
-let API_PrivacyPolicy = "http://52.196.237.101/drinks/home/page/privacy"
+let API_PrivacyPolicyEng = "http://52.196.237.101/drinks/home/page/privacy"
+let API_PrivacyPolicyJap = "http://52.196.237.101/drinks/home/page/privacy/jap"
 
-let API_Faq = "http://52.196.237.101/drinks/home/page/faq"
+let API_FaqEng = "http://52.196.237.101/drinks/home/page/faq"
+let API_FaqJap = "http://52.196.237.101/drinks/home/page/faq/jap"
+
+let API_transactionEng = "http://52.196.237.101/drinks/home/page/display_based_on_specified_commercial_transaction"
+let API_transactionJap = "http://52.196.237.101/drinks/home/page/display_based_on_specified_commercial_transaction/jap"
+
+let API_whtsDrinks = "http://52.196.237.101/drinks/home/page/what_is_drinks"
+let API_whtsDrinksJap = "http://52.196.237.101/drinks/home/page/what_is_drinks/jap"
+
+let API_confidence = "http://52.196.237.101/drinks/home/page/in_order_to_use_with_confidence"
+let API_confidenceJap = "http://52.196.237.101/drinks/home/page/in_order_to_use_with_confidence/jap"
+
+let API_violationPolicy = "http://52.196.237.101/drinks/home/page/violation_report_response_policy"
+let API_violationPolicyJap = "http://52.196.237.101/drinks/home/page/violation_report_response_policy/jap"
+
+let API_raiseMatchingRate = "http://52.196.237.101/drinks/home/page/how_to_raise_the_matching_rate"
+let API_raiseMatchingRateJap = "http://52.196.237.101/drinks/home/page/how_to_raise_the_matching_rate/jap"
 
 
 //MARK:- Apple Pay Merchant ID
@@ -162,7 +183,7 @@ let aryMyPageNavBtns = [(#imageLiteral(resourceName: "account"),"Premium"),(#ima
 
 var aryNotification = ["When I recieved an offer","When matching","When I got a message","Notice"]
 
-var arySettings = [["Logout","Help","Opinions・Inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
+var arySettings = [["Logout","Frequently Asked Questions","Opinions・Inquiries"],["Review Drinks","Terms of Service","Privacy policy","Display based on specified commercial transaction"]]
 
 var aryHelp = ["What is Drinks","In order to use with confidence","Violation report response policy","How to raise the matching rate","About withdrawal"]
 

@@ -48,7 +48,7 @@
 "Select place option"="場所を選択してください";
 "Select place order"="距離を指定";
 "No. of people"="人数";
-"Select people option"="人を選択するオプション";
+"Select people option"="人を選択するオプション（あなたを除く）";
 "Job"="職業";
 "Select job option"="職業を選択してください";
 "Age"="年齢";
@@ -141,7 +141,7 @@
 "Yes"="はい";
 "No"="いいえ";
 "User cancelled the action."="ユーザーがアクションをキャンセルしました。";
-"Your age is less than 18.\nSo you can not login to Drinks."="18歳未満はDRINKSをご利用いただけません。";
+"DRINKS can not be used under the age of 18."="18歳未満はDRINKSをご利用いただけません。";
 "Use my referal code and get free tickets.\nReferal code:"="参照コードを使用して無料のチケットを取得する。\n紹介コード：";
 "If you enter this introduction code on the DRINKS application, you can get a ticket for free."="この紹介コードをDRINKSアプリ上で入力すると、無料でチケットがもらえます！";
 "\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight."="\n〜DRINKSとは〜\n今夜に一緒に合コン・飲み会したいグループとのマッチングができるアプリです。";
@@ -154,6 +154,10 @@
 "Photo selection"="撮影選択";
 "day ago"="日前";
 "hour ago"="時間前";
-"minute ago"="分前";
+"min ago"="分前";
 "Just now"="ちょうど今";
 "Paid member"="有料会員";
+"I am being drunk from "="さんから飲みたいされています";
+"Online"="オンライン";
+"Offline"="オフライン";
+"Frequently Asked Questions"="よくある質問";

@@ -172,7 +172,6 @@ class LoginManager: NSObject {
     
     func getUserDetail (handler:@escaping CompletionHandler ) {
         HTTPRequest.sharedInstance().getRequest(urlLink: API_GetUSerDetail, paramters: nil) { (isSuccess, response, strError) in
-//        HTTPRequest.sharedInstance().postRequest(urlLink: API_GetUSerDetail, paramters: nil) { (isSuccess, response, strError) in
             if isSuccess
             {
                 print(response)

@@ -217,6 +217,7 @@
 		BC3773C82005F91C00AD08EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3773C62005F91C00AD08EC /* Fabric.framework */; };
 		BCA199192015EE8B007DAC3D /* BecomePaidMemberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA199182015EE8B007DAC3D /* BecomePaidMemberVC.swift */; };
 		BCA1991B2015F038007DAC3D /* PremiumDoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1991A2015F038007DAC3D /* PremiumDoneVC.swift */; };
+		BCC588DF20359DFC0000D1A4 /* AgeVerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC588DE20359DFC0000D1A4 /* AgeVerificationPopupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,6 +498,7 @@
 		BC3773C62005F91C00AD08EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		BCA199182015EE8B007DAC3D /* BecomePaidMemberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomePaidMemberVC.swift; sourceTree = "<group>"; };
 		BCA1991A2015F038007DAC3D /* PremiumDoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumDoneVC.swift; sourceTree = "<group>"; };
+		BCC588DE20359DFC0000D1A4 /* AgeVerificationPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeVerificationPopupVC.swift; sourceTree = "<group>"; };
 		C03C5CC8153E71E292F59CFE /* Pods-DrinksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E09FAFDA5FFF16AED1AB185E /* Pods_DrinksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8A9BFAF1783AFF19E5E0B6 /* Pods-DrinksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinksTests/Pods-DrinksTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1080,6 +1082,7 @@
 				63B824351F5D657200BA9F62 /* AgeVerificationDetailsVC.swift */,
 				25517E1D1FA1F62C00D12379 /* PreviewVerificationVC.swift */,
 				25517E1F1FA1F64E00D12379 /* VerifiedImageVC.swift */,
+				BCC588DE20359DFC0000D1A4 /* AgeVerificationPopupVC.swift */,
 			);
 			path = AgeVerification;
 			sourceTree = "<group>";
@@ -1929,6 +1932,7 @@
 				63D7F1811F32F48A000E27AF /* Utility.swift in Sources */,
 				63812EC11F56C46A0012AE36 /* GroupManager.swift in Sources */,
 				639954BF1F29AD700025E9C6 /* UIImage+GIF.m in Sources */,
+				BCC588DF20359DFC0000D1A4 /* AgeVerificationPopupVC.swift in Sources */,
 				63E0F4861F5FD12700E94977 /* ReportGroupVC.swift in Sources */,
 				63D7F1891F32F79B000E27AF /* ListingCell.swift in Sources */,
 				635E18ED1F7CD32400CF7307 /* PremiumPlan.swift in Sources */,

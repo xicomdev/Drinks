@@ -198,7 +198,7 @@
 "PCP-nF-VkP.text" = "Required";
 
 /* Class = "UILabel"; text = "A drinking party was established"; ObjectID = "PGc-W0-WjR"; */
-"PGc-W0-WjR.text" = "A drinking party was established";
+"PGc-W0-WjR.text" = "A drinking party was established!";
 
 /* Class = "UIButton"; normalTitle = "Purchase"; ObjectID = "PTH-35-RXh"; */
 "PTH-35-RXh.normalTitle" = "Purchase";
@@ -560,4 +560,14 @@
 
 "mnb-3A-pN2.normalTitle" = "Close up";
 
-"TUi-Tn-0nK.text" = "I want to drink into various groups! Let's join a lot at the drinking party!";
+"TUi-Tn-0nK.text" = "I want to drink into various groups! Let 's join a lot at the drinking party!";
+
+"AC3-T7-kfg.text" = "I became a paid member";
+
+"8Ny-WK-7Va.text" = "I can not send a message because my age has not been verified yet. I want to drink from my age certification! let's do it.";
+
+"ZVN-qf-jsg.text" = "Age certification is not done yet";
+
+"pBH-ZD-CcP.normalTitle" = "Age authentication";
+
+"mbQ-Rz-Td2.normalTitle" = "Close up";

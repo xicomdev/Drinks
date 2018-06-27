@@ -48,7 +48,7 @@
 "Select place option"="Select place option";
 "Select place order"="Select place order";
 "No. of people"="No. of people";
-"Select people option"="Select people option";
+"Select people option"="Select people option(excluding you)";
 "Job"="Job";
 "Select job option"="Select job option";
 "Age"="Age";
@@ -140,7 +140,7 @@
 "Yes"="Yes";
 "No"="No";
 "User cancelled the action."="User cancelled the action.";
-"Your age is less than 18.\nSo you can not login to Drinks."="DRINKS can not be used under the age of 18.";
+"DRINKS can not be used under the age of 18."="DRINKS can not be used under the age of 18.";
 "Use my referal code and get free tickets.\nReferal code:"="Use my referal code and get free tickets.\nReferal code:";
 "If you enter this introduction code on the DRINKS application, you can get a ticket for free."="If you enter this introduction code on the DRINKS application, you can get a ticket for free.";
 "\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight."="\n~ What is DRINKS ~\nIt is an application that you can match with groups you want to drink together tonight with tonight.";
@@ -153,6 +153,10 @@
 "Photo selection"="Photo selection";
 "day ago"="day ago";
 "hour ago"="hour ago";
-"minute ago"="minute ago";
+"min ago"="min ago";
 "Just now"="Just now";
 "Paid member"="Paid member";
+"I am being drunk from "="I am being drunk from ";
+"Online"="Online";
+"Offline"="Offline";
+"Frequently Asked Questions"="Frequently Asked Questions";

@@ -184,6 +184,15 @@ class HomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSour
                             })
                             alert.addAction(okAction)
                             self.present(alert, animated: true, completion: nil)
+                        }else if error! == "You have already been offered interest by this group" || error! == "あなたはすでにこのグループの関心を得ています" {
+                            let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                                let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                                tabBarController.selectedIndex = 1
+                                appDelegate().window?.rootViewController = tabBarController
+                            })
+                            alert.addAction(okAction)
+                            self.present(alert, animated: true, completion: nil)
                         }else {
                             self.isFromNoRecruit = true
                             let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC

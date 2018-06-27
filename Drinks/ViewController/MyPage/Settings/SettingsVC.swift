@@ -79,7 +79,11 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             case 1:
                 let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
                 genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
-                genericVc.apiURL = API_Help
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_HelpEng
+                }else {
+                    genericVc.apiURL = API_HelpJap
+                }
                 self.navigationController?.pushViewController(genericVc, animated: true)
                 break
             case 2:
@@ -98,19 +102,31 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             case 1:
                 let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
                 genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
-                genericVc.apiURL = API_Terms
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_TermsEng
+                }else {
+                    genericVc.apiURL = API_TermsJap
+                }
                 self.navigationController?.pushViewController(genericVc, animated: true)
                 break
             case 2:
                 let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
                 genericVc.strTitle = (arySettings[indexPath.section])[indexPath.row]
-                genericVc.apiURL = API_PrivacyPolicy
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_PrivacyPolicyEng
+                }else {
+                    genericVc.apiURL = API_PrivacyPolicyJap
+                }
                 self.navigationController?.pushViewController(genericVc, animated: true)
                 break
             case 3:
                 let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as!  GenericPageVC
                 genericVc.strTitle = "Commercial Transaction"
-                genericVc.apiURL = API_Faq
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_transactionEng
+                }else {
+                    genericVc.apiURL = API_transactionJap
+                }
                 self.navigationController?.pushViewController(genericVc, animated: true)
                 break
             default :
@@ -136,8 +152,9 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients([""])
-            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            mail.setToRecipients(["support@drinks-jp.com"])
+            mail.setSubject("DRINKSお問い合わせ")
+            mail.setMessageBody("■お名前\n■お問い合わせ内容\n■お使いの端末・OS", isHTML: true)
             
             present(mail, animated: true)
         } else {

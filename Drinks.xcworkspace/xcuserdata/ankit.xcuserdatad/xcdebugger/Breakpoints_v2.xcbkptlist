@@ -10,12 +10,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Drinks/Handler/GroupManager/GroupManager.swift"
-            timestampString = "539098435.008695"
+            timestampString = "540825852.529876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "sendOrRemoveInterest(handler:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.GroupManager.acceptInterest(handler: (Swift.Bool, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankit/Desktop/Drinks%20working/Drinks/Handler/GroupManager/GroupManager.swift"
+                  timestampString = "541488603.510119"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "393">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drinks.GroupManager.acceptInterest(handler: (Swift.Bool, Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Drinks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankit/Desktop/Drinks%20working/Drinks/Handler/GroupManager/GroupManager.swift"
+                  timestampString = "541488603.522194"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "3755">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Handler/ChatManager/ChatManager.swift"
+            timestampString = "541488602.862671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getChatThreads(handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Drinks/Model/Group/Group.swift"
+            timestampString = "541488602.8628139"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "groupSetUp(dict:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

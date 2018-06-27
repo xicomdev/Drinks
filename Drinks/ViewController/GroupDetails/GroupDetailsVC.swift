@@ -27,6 +27,8 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var groupChanged = false
     var interestSent = Bool()
+    
+    var fromMessage = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -174,7 +176,12 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let cell = tableView.dequeueReusableCell(withIdentifier:"GroupImageCell") as! GroupImageCell
                 if self.groupAction == .BeOffered {
                     cell.imgvwGradient.isHidden = false
-                    cell.lblOfferedFrom.text = NSLocalizedString("Offered from ", comment: "") + groupInfo.groupOwner.fullName
+                    if Locale.preferredLanguages[0].contains("en") {
+                        cell.lblOfferedFrom.text = NSLocalizedString("I am being drunk from ", comment: "") + groupInfo.groupOwner.fullName
+                    }else {
+                        cell.lblOfferedFrom.text = groupInfo.groupOwner.fullName + NSLocalizedString("I am being drunk from ", comment: "")
+                    }
+
                 }else if self.groupAction == .Offered {
                     cell.imgvwGradient.isHidden = false
                     cell.imgvwGradient.image = nil
@@ -260,13 +267,28 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 }
                             }else
                             {
+                                if error! == "you must have your own group to drink another group" || error! == "あなたは別のグループを飲むために自分のグループを持っている必要があります"{
+                                    let noGroupVc = mainStoryBoard.instantiateViewController(withIdentifier: "NoRecruitVC") as! NoRecruitVC
+                                    noGroupVc.delegate = self
+                                    self.present(noGroupVc, animated: true, completion: nil)
+                                }else if error! == "You have already been offered interest by this group" || error! == "あなたはすでにこのグループの関心を得ています" {
+                                    let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                                        let tabBarController = mainStoryBoard.instantiateViewController(withIdentifier: "MSTabBarController") as! MSTabBarController
+                                        tabBarController.selectedIndex = 1
+                                        appDelegate().window?.rootViewController = tabBarController
+                                    })
+                                    alert.addAction(okAction)
+                                    self.present(alert, animated: true, completion: nil)
+                                }else {
+                                    let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                                        self.navigationController?.popViewController(animated: true)
+                                    })
+                                    alert.addAction(okAction)
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                                 
-                                let alert = UIAlertController(title: "Drinks", message: error!, preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-                                    self.navigationController?.popViewController(animated: true)
-                                })
-                                alert.addAction(okAction)
-                                self.present(alert, animated: true, completion: nil)
                             }
                         })
                             
@@ -282,7 +304,13 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                         }
                     }
                 }
+                
                 cell.setCellInfo(groupDetail: groupInfo)
+                if fromMessage {
+                    cell.btnAccept.isHidden = true
+                }else {
+                    cell.btnAccept.isHidden = false
+                }
                 return cell
                 
             }else if indexPath.row == 1
@@ -331,7 +359,17 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    
+    func moveHomeToAddNew(_ reload: Bool) {
+        if reload {
+            
+        }else {
+            let createGroupVC =  self.storyboard?.instantiateViewController(withIdentifier: "CreateGroupVC") as! CreateGroupVC
+            let navigation = UINavigationController(rootViewController: createGroupVC)
+            self.navigationController?.present(navigation, animated: true, completion: nil)
+        }
+        
+        
+    }
     
     
     func deleteGroup(){
@@ -482,13 +520,16 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func acceptBeOfferedGroupInterest()
     {
-        GroupManager.sharedInstance.acceptInterest(handler: { (isSuccess, response, strError) in
+        GroupManager.sharedInstance.acceptInterestRequested(requestedGroup: groupInfo, handler: { (isSuccess, response, strError) in
             if isSuccess
             {
                 if let groupInfo = response as? Group
                 {
                     self.groupInfo = groupInfo
                     self.tblGroupDetail.reloadData()
+                    let matchVc = mainStoryBoard.instantiateViewController(withIdentifier: "MatchedVC") as! MatchedVC
+                    matchVc.view.alpha = 0
+                    self.present(matchVc, animated: false, completion: nil)
                 }
             }else
             {
@@ -501,9 +542,8 @@ class GroupDetailsVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         })
         
-        
-        
     }
+    
     
 //    func rejectBeOfferedGroupInterest()
 //    {

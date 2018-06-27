@@ -75,7 +75,8 @@ class GroupManager: NSObject {
     
     func acceptInterest(handler:@escaping CompletionHandler)
     {
-    
+        Analytics.logEvent("Interest_back_to_confirm_match", parameters: nil)
+
         print( (self.group.groupRequest?.groupID)! )
          print( (self.group.groupRequest?.groupOwner.ID)!  )
         let params : [String : Any] = ["user_id" : (self.group.groupRequest?.groupOwner.ID)!   ,"group_id" : (self.group.groupRequest?.groupID)!

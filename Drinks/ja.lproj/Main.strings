@@ -88,7 +88,7 @@
 
 "IHr-bu-dYz.normalTitle" = "閉じる";
 
-"IPu-iq-8b1.text" = "秘書にメッセージを送って一緒に参加しよう";
+"IPu-iq-8b1.text" = "幹事にメッセージ送って合流しましょう！";
 
 "IZ2-eD-CQ2.normalTitle" = "年齢確認をはじめる";
 
@@ -136,7 +136,7 @@
 
 "PCP-nF-VkP.text" = "必須";
 
-"PGc-W0-WjR.text" = "飲み会が開かれた";
+"PGc-W0-WjR.text" = "飲み会が成立しました！";
 
 "PTH-35-RXh.normalTitle" = "購入";
 
@@ -230,7 +230,7 @@
 
 "bis-dD-BZQ.placeholder" = "あなたのDOBを入力してください";
 
-"cBz-gt-CC5.text" = "私は10枚のチケットを持っています！";
+"cBz-gt-CC5.text" = "10チケットゲットしました！";
 
 "cQi-nR-sG9.text" = "消費して飲みたい！をしました";
 
@@ -286,7 +286,7 @@
 
 "jaC-vT-CYC.text" = "通知";
 
-"k2U-xa-Lve.normalTitle" = "リクルート";
+"k2U-xa-Lve.normalTitle" = "募集する";
 
 "lNg-d0-Q4g.text" = "お名前";
 
@@ -306,7 +306,7 @@
 
 "oEA-AP-ibO.placeholder" = "血液型の選択";
 
-"oEO-Of-70o.text" = "まず、近くで飲んでいるグループを見つけて、招待してみてください。";
+"oEO-Of-70o.text" = "まずは近くで飲んでいるグループを探して、誘ってみよう。";
 
 "olR-Dh-35v.text" = "チケットが足りない";
 
@@ -378,10 +378,20 @@
 
 "u06-ft-jCn.text" = "有料会員になる";
 
-"yMM-Fn-9iJ.text" = "今夜飲むには、メッセージを交換するために、有料会員として登録する必要があります。";
+"yMM-Fn-9iJ.text" = "今夜飲むために、メッセージのやり取りを行うには、有料会員の登録が必要です。";
 
 "bc2-jS-9uE.normalTitle" = "有料会員になる";
 
 "mnb-3A-pN2.normalTitle" = "閉じる";
 
-"TUi-Tn-0nK.text" = "私は様々なグループに飲みたいです！飲み会にたくさん参加しましょう！";
+"TUi-Tn-0nK.text" = "色んなグループに飲みたい！をして、飲み会にたくさん参加しましょう！";
+
+"AC3-T7-kfg.text" = "有料会員になりました";
+
+"8Ny-WK-7Va.text" = "年齢認証が済んでいない為、メッセージを送る事が出来ません。年齢認証を行ってから、飲みたい！しましょう。";
+
+"ZVN-qf-jsg.text" = "年齢認証が済んでいません";
+
+"pBH-ZD-CcP.normalTitle" = "年齢認証";
+
+"mbQ-Rz-Td2.normalTitle" = "閉じる";

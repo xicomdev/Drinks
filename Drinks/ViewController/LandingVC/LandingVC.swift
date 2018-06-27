@@ -89,13 +89,21 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
     @IBAction func actionTerms(_ sender: Any) {
         let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
         genericVc.strTitle = "Terms of Use"
-        genericVc.apiURL = API_Terms
+        if Locale.preferredLanguages[0].contains("en") {
+            genericVc.apiURL = API_TermsEng
+        }else {
+            genericVc.apiURL = API_TermsJap
+        }
         self.navigationController?.pushViewController(genericVc, animated: true)
     }
     @IBAction func actionPrivacyPolicy(_ sender: Any) {
         let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
         genericVc.strTitle = "Privacy Policy"
-        genericVc.apiURL = API_PrivacyPolicy
+        if Locale.preferredLanguages[0].contains("en") {
+            genericVc.apiURL = API_PrivacyPolicyEng
+        }else {
+            genericVc.apiURL = API_PrivacyPolicyJap
+        }
         self.navigationController?.pushViewController(genericVc, animated: true)
     }
     @IBAction func actionBtnLoginPressed(_ sender: Any) {
@@ -139,7 +147,7 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
                         }
                         if LoginManager.getMe.DOB != "" {
                             if LoginManager.getMe.age < 18 {
-                                showAlert(title: "Drinks", message: NSLocalizedString("Your age is less than 18.\nSo you can not login to Drinks.", comment: ""), controller: self)
+                                showAlert(title: "Drinks", message: NSLocalizedString("DRINKS can not be used under the age of 18.", comment: ""), controller: self)
                                 return
                             }
                         }
@@ -157,7 +165,6 @@ class LandingVC: UIViewController,UIScrollViewDelegate {
         alert.addAction(noAction)
         alert.addAction(yesAction)
         self.present(alert, animated: true, completion: nil)
-        
     
     }
     

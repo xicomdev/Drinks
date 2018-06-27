@@ -145,12 +145,27 @@ class MessageVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
                     self.navigationController?.pushViewController(chatvc, animated: true)
                 }
             }else {
-                showAlert(title: "Drinks", message: NSLocalizedString("You must verify your age first.", comment: ""), controller: self)
+                
+                let verifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "AgeVerificationPopupVC") as! AgeVerificationPopupVC
+                verifyVc.hidesBottomBarWhenPushed = true
+                verifyVc.callbackDelegate = self
+                self.present(verifyVc, animated: true, completion: nil)
             }
             
         }
     }
     
+    func actionMoveToPreviousVC( ){
+        if LoginManager.getMe.ageDocument == "" {
+            let verifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "AgeVerificationDetailsVC") as! AgeVerificationDetailsVC
+            verifyVc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(verifyVc, animated: true)
+        }else {
+            let verifyVc = mainStoryBoard.instantiateViewController(withIdentifier: "VerifiedImageVC") as! VerifiedImageVC
+            verifyVc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(verifyVc, animated: true)
+        }
+    }
     func actionBackDismiss() {
         let paidMemberVc = mainStoryBoard.instantiateViewController(withIdentifier: "PaidMemberVC") as! PaidMemberVC
         paidMemberVc.hidesBottomBarWhenPushed = true

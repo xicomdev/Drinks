@@ -230,9 +230,6 @@ class Group: NSObject {
     }
     
     
-    
-    
-    
     func groupSetUp(dict : Dictionary<String, Any>)
     {
         
@@ -241,7 +238,11 @@ class Group: NSObject {
         self.groupDescription = dict["group_description"] as! String
         self.groupID = dict["id"] as! String
         
-        
+        if let distance = dict["distance"] as? Double{
+            self.distance = distance.roundTo(places: 2)
+        }else if let distance = dict["distance"] as? String{
+            self.distance = (Double(distance)?.roundTo(places: 2))!
+        }
         self.relationship = dict["relationship"] as! String
         self.imageURL = dict["image"] as! String
         self.location = GroupLocation(name: dict["group_location"] as! String, lat: dict["group_latitude"] as! String, long: dict["group_longitude"] as! String)
@@ -333,11 +334,17 @@ class Group: NSObject {
         if filterInfo.distance != -1{
             params["place"] = filterInfo.distance
         }
+        
         if filterInfo.age.count != 0 {
             params["age"] = getStringToDisplay(array: filterInfo.age, type: .Age)
         }
+        
         if filterInfo.job.count != 0 {
             params["job"] = getStringToDisplay(array: filterInfo.job, type: .Job)
+        }
+        
+        if filterInfo.job.count != 0 {
+            params["job_id"] = getJobIdStringToDisplay(array: filterInfo.job)
         }
         
         if filterInfo.relation.count != 0 {
@@ -346,7 +353,6 @@ class Group: NSObject {
         
         if filterInfo.people.count != 0 {
             params["number_people"] = getStringToDisplay(array: filterInfo.people, type: .NumberOfPeople)
-
         }
         
         var sortValues = ""
@@ -387,7 +393,6 @@ class Group: NSObject {
                 var arrayMyGroup = [Group]()
                 if let dictResponse = response as? Dictionary<String ,Any>
                 {
-                    
                     
                     if dictResponse.count > 0 {
                         

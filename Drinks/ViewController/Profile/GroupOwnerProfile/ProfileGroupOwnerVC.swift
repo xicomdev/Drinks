@@ -13,7 +13,7 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var tblProfile: UITableView!
     
     var ownerUser : User!
-    
+    var isOnline = Bool()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +34,28 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
         tblProfile.dataSource = self
         
         Analytics.logEvent("View_user_profile", parameters: nil)
-//        Analytics.logEvent("View user profile", parameters: [
-//            "name": "View user profile" as NSObject,
-//            "full_text": "View other user profile page" as NSObject
-//            ])
-        
-        
+        checkUserOnline()
 
 
         // Do any additional setup after loading the view.
     }
 
+    func checkUserOnline() {
+        SwiftLoader.show(true)
+        let param = ["user_id": ownerUser.ID]
+        HTTPRequest.sharedInstance().postRequest(urlLink: APi_checkUserOnline, paramters: param) { (isSuccess, response, strError) in
+            SwiftLoader.hide()
+            print(response)
+            if isSuccess
+            {
+                self.isOnline = (response as! NSDictionary)["is_login"] as! Bool
+                self.tblProfile.reloadData()
+                //getOutOfApp()
+            }else{
+                
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,6 +99,11 @@ class ProfileGroupOwnerVC: UIViewController,UITableViewDelegate,UITableViewDataS
             if indexPath.row == 0
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier:"ProfileGroupOwnerCell") as! ProfileGroupOwnerCell
+                if self.isOnline {
+                    cell.lblTag.text = NSLocalizedString("Online", comment: "")
+                }else {
+                    cell.lblTag.text = NSLocalizedString("Offline", comment: "")
+                }
                 cell.setCornerRadius()
                 cell.assignUserInfo(user: ownerUser)
                 

@@ -61,7 +61,34 @@ class HelpVC: UIViewController, UITableViewDelegate , UITableViewDataSource {
         }else {
             let genericVc = mainStoryBoard.instantiateViewController(withIdentifier: "GenericPageVC") as! GenericPageVC
             genericVc.strTitle = "Help"
-            genericVc.apiURL = API_Help
+            switch indexPath.row {
+            case 0:
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_whtsDrinks
+                }else {
+                    genericVc.apiURL = API_whtsDrinksJap
+                }
+            case 1:
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_confidence
+                }else {
+                    genericVc.apiURL = API_confidenceJap
+                }
+            case 2:
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_violationPolicy
+                }else {
+                    genericVc.apiURL = API_violationPolicyJap
+                }
+            case 3:
+                if Locale.preferredLanguages[0].contains("en") {
+                    genericVc.apiURL = API_raiseMatchingRate
+                }else {
+                    genericVc.apiURL = API_raiseMatchingRateJap
+                }
+            default:
+                break
+            }
             self.navigationController?.pushViewController(genericVc, animated: true)
         }
     }

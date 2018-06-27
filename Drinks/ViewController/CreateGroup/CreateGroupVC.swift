@@ -103,10 +103,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         pickerOccpuation.dataSource = self
         
         arrayJobs = Job.getJobList()
-        
-        
-     
-        
+
         
         tblCreateGroup.tableFooterView = viewFooter
         tblCreateGroup.registerNibsForCells(arryNib: ["SelectPhotoVC" , "LocationCell" , "InfoCell" , "OwnerCell", "GroupInfoCell", "AddMoreCell"])
@@ -215,8 +212,9 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
             group.createNewGroup(image: imageArray) { (isSuccess, response, strError) in
                 if isSuccess{
-                    
-                   self.delegate?.replaceRecords!()
+                    if self.delegate != nil {
+                        self.delegate?.replaceRecords!()
+                    }
                     self.actionBtnBackPressed()
                 }else{
                     
@@ -231,7 +229,9 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
                 {
                     if let groupUpdated = response as? Group
                     {
-                        self.delegate?.replaceRecords!(obj: groupUpdated)
+                        if self.delegate != nil {
+                            self.delegate?.replaceRecords!(obj: groupUpdated)
+                        }
                         self.actionBtnBackPressed()
                     }
                 }else{
@@ -439,7 +439,7 @@ class CreateGroupVC: UIViewController,UITableViewDelegate,UITableViewDataSource,
         if text.characters.count == 0 {
             return true
         }else {
-            if textView.text!.characters.count == 500 || textView.text!.characters.count + text.characters.count > 500 {
+            if textView.text!.characters.count == 40 || textView.text!.characters.count + text.characters.count > 40 {
                 showAlert(title: "Drinks", message: "Maximum characters limit reached.", controller: self)
                 return false
             }else {

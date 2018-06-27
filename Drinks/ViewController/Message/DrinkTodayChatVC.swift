@@ -85,6 +85,7 @@ class DrinkTodayChatVC: UIViewController, UITextViewDelegate, UITableViewDelegat
         
         txtVWMsg.resignFirstResponder()
         let groupVC =  self.storyboard?.instantiateViewController(withIdentifier: "GroupDetailsVC") as! GroupDetailsVC
+        groupVC.fromMessage = true
         groupVC.groupInfo = thread.group
         self.navigationController?.pushViewController(groupVC, animated: true)
     }

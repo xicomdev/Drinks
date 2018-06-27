@@ -295,7 +295,17 @@ func getStringToDisplay(array : [Any] ,  type : FilterListing ) -> String
     return strToDisplay
 }
 
-
+func getJobIdStringToDisplay(array : [Any]) -> String
+{
+    var strToDisplay = ""
+    
+    let arrayNew = array as! [Job]
+    var stringArray = [String]()
+    stringArray = arrayNew.flatMap { String($0.ID) }
+    strToDisplay = stringArray.joined(separator: ",")
+    
+    return strToDisplay
+}
 
 
 func setNoOfMembers(groups :[ GroupCondition] , label : UILabel, relation:String) {
